@@ -1,0 +1,236 @@
+"use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var countDict = require('./stroke-count-fan.json');
+
+var orderDict = require('./stroke-order-fan.json');
+
+var convert = require('./converter');
+
+var arg = {
+  simple: 'simple',
+  array: 'array',
+  order: 'order' // 开启简单模式
+
+};
+var _ = {}; // 工具方法
+
+function main(cnchar) {
+  if (cnchar.plugins.indexOf('trad') !== -1) {
+    return;
+  }
+
+  cnchar.plugins.push('trad');
+  cnchar.convert = convert;
+  var _p = String.prototype;
+  cnchar.type.spell.simple = arg.simple;
+  cnchar.type.stroke.simple = arg.simple;
+  reinitSpell(_p, cnchar);
+  reinitStroke(_p, cnchar); // _p.convert = function(to,from){return convert(this,to,from);}
+
+  _p.convertSimpleToTrad = function () {
+    return convert.simpleToTrad(this);
+  };
+
+  _p.convertSimpleToSpark = function () {
+    return convert.simpleToSpark(this);
+  };
+
+  _p.convertTradToSimple = function () {
+    return convert.tradToSimple(this);
+  };
+
+  _p.convertTradToSpark = function () {
+    return convert.tradToSpark(this);
+  };
+
+  _p.convertSparkToSimple = function () {
+    return convert.sparkToSimple(this);
+  };
+
+  _p.convertSparkToTrad = function () {
+    return convert.sparkToTrad(this);
+  }; // _p.convertToTrad = function(){return convert.toTrad(this);}
+  // _p.convertToSimple = function(){return convert.toSimple(this);}
+  // _p.convertToSpark = function(){return convert.toSpark(this);}
+
+
+  _ = cnchar._;
+  _.convert = convert;
+
+  _.dict.getTradOrders = function () {
+    return orderDict;
+  };
+
+  _.dict.getTradCount = function () {
+    return countDict;
+  };
+}
+
+function init(cnchar) {
+  if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object' && window.CnChar) {
+    main(window.CnChar);
+  } else if (typeof cnchar !== 'undefined') {
+    main(cnchar);
+  }
+}
+
+function reinitSpell(proto, cnchar) {
+  var _spell = cnchar.spell;
+
+  var newSpell = function newSpell() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var str = args[0];
+    args = args.splice(1);
+
+    if (!_.has(args, arg.simple)) {
+      // 默认繁体模式
+      str = convert.tradToSimple(str);
+    }
+
+    return _spell.apply(void 0, [str].concat(_toConsumableArray(args)));
+  };
+
+  proto.spell = function () {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return newSpell.apply(void 0, [this].concat(args));
+  };
+
+  cnchar.spell = function () {
+    return newSpell.apply(void 0, arguments);
+  };
+
+  if (!cnchar._.poly) {
+    cnchar._reinitSpellPoly = function () {
+      _spell = cnchar.spell;
+
+      proto.spell = function () {
+        for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+          args[_key3] = arguments[_key3];
+        }
+
+        return newSpell.apply(void 0, [this].concat(args));
+      };
+
+      cnchar.spell = function () {
+        return newSpell.apply(void 0, arguments);
+      };
+    };
+
+    ;
+  }
+}
+
+function reinitStroke(proto, cnchar) {
+  var _stroke = cnchar.stroke;
+
+  var _new = function _new() {
+    for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      args[_key4] = arguments[_key4];
+    }
+
+    var str = args[0];
+    args = args.splice(1);
+
+    _.checkArgs('stroke', args, true);
+
+    var isArr = _.has(args, arg.array);
+
+    var isOrder = _.has(args, arg.order);
+
+    if (!isArr) {
+      args.push(arg.array);
+    } // 先使用array模式
+
+
+    var res = _stroke.apply(void 0, [str].concat(_toConsumableArray(args))); // 没有繁体的结果
+
+
+    if (!isOrder) {
+      // stroke 方法
+      if (_.has(args, arg.simple)) {
+        // 启用简单模式则 直接返回
+        return isArr ? res : _.sumStroke(res);
+      }
+
+      for (var i = 0; i < countDict.length; i++) {
+        for (var j = 0; j < res.length; j++) {
+          if (res[j] === 0 && countDict[i].indexOf(str[j]) !== -1) {
+            res[j] = i;
+          }
+        }
+      }
+
+      return isArr ? res : _.sumStroke(res);
+    } else {
+      // strokeOrder 方法
+      if (_.has(args, arg.simple)) {
+        // 启用简单模式则 直接返回
+        return res;
+      } else {
+        // 将其中的繁体字获取 strokeOrder
+        var igList = [];
+
+        for (var i = 0; i < res.length; i++) {
+          if (typeof res[i] === 'undefined') {
+            res[i] = orderDict[str[i]]; // 字母版笔画表
+          } else {
+            igList.push(i);
+          }
+        }
+
+        return _.orderWithLetters(res, str, args, igList);
+      }
+    }
+  };
+
+  proto.stroke = function () {
+    for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+      args[_key5] = arguments[_key5];
+    }
+
+    return _new.apply(void 0, [this].concat(args));
+  };
+
+  cnchar.stroke = function () {
+    return _new.apply(void 0, arguments);
+  };
+
+  if (!cnchar._.order) {
+    cnchar._reinitStrokeOrder = function () {
+      _stroke = cnchar.stroke;
+
+      proto.stroke = function () {
+        for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+          args[_key6] = arguments[_key6];
+        }
+
+        return _new.apply(void 0, [this].concat(args));
+      };
+
+      cnchar.stroke = function () {
+        return _new.apply(void 0, arguments);
+      };
+    };
+
+    ;
+  }
+}
+
+init();
+module.exports = init;

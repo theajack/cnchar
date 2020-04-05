@@ -1,0 +1,32 @@
+{
+    "name": "hanzi-util-base",
+    "version": "2.0.9",
+    "description": "好用小巧、功能全面的汉字拼音笔画js库，支持多音字、繁体字、火星文",
+    "main": "index.js",
+    "unpkg": "hanzi.base.min.js",
+    "jsdelivr": "hanzi.base.min.js",
+    "typings": "index.d.ts",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/theajack/cnchar.git"
+    },
+    "keywords": [
+        "汉字拼音",
+        "汉字笔画数",
+        "汉字笔画顺序",
+        "繁体字",
+        "火星文",
+        "js库",
+        "theajack"
+    ],
+    "author": "theajack",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/theajack/cnchar/issues"
+    },
+    "homepage": "https://www.theajack.com/cnchar/",
+    "dependencies": {
+        "cnchar": "^2.0.9"
+    }
+}
