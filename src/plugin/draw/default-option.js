@@ -60,19 +60,7 @@ function merge (args) {
             }
         }
     });
-    check(json, [
-        'length',
-        'padding',
-        'lineStraight',
-        'lineCross',
-        'lineWidth',
-        'lineColor',
-        'lineDash',
-        'border',
-        'borderWidth',
-        'borderColor',
-        'borderDash'
-    ]);
+    check(json);
 
     json.width = json.length;
     json.height = json.length;
@@ -80,6 +68,7 @@ function merge (args) {
 }
 
 function check (json, attrs) {
+    attrs = attrs || Object.keys(Option);
     attrs.forEach(attr => {
         if (isUd(json[attr])) {
             json[attr] = Option[attr];
