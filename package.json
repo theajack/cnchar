@@ -55,6 +55,7 @@
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-rename": "^1.4.0",
+        "hanzi-writer": "^2.2.2",
         "highlight.js": "^9.15.8",
         "husky": "^3.1.0",
         "inputmask": "^3.3.11",

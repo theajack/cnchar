@@ -25,7 +25,6 @@ function isCnChar (word) {
     let unicode = word.charCodeAt(0);
     return unicode >= 19968 && unicode <= 40869;
 }
-
 function has (args, name) {
     return args.indexOf(name) !== -1;
 }

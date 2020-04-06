@@ -26,6 +26,7 @@ module.exports = {
   },
   "globals": {
     "window": true,
+    "define": true,
   },
   "rules": {
     "no-extend-native": 0,
