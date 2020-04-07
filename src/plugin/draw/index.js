@@ -1,7 +1,16 @@
 // powerd by hanzi-writer v2.2.2
 const draw = require('./writer');
-draw('你好', {
-    type: 2
+const {TYPE} = require('./default-option');
+draw('你好也', {
+    type: TYPE.NORMAL,
+    style: {
+        radicalColor: '#337ab7'
+    },
+    animation: {
+        animateComplete () {
+            console.log('animateComplete');
+        }
+    }
 });
 
 // function initStyle () {

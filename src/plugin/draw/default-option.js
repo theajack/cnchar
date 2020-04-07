@@ -8,7 +8,7 @@ let TYPE = {
 let Option = {
     showOutline: true,
     showCharacter: true,
-    currentColor: '#f44',
+    currentColor: '#b44',
 
     length: 60,
     padding: 5, // 数值, 默认 20。 画布的汉字和边缘之间的填充
@@ -29,15 +29,19 @@ let Option = {
     borderDash: false,
 
     strokeFadeDuration: 400, // 数值, 默认 400。 调用 writer.show() 和 writer.hide() 时在显示和隐藏笔划之间转换的时间（以毫秒为单位）
-
+    // animation
     strokeAnimationSpeed: 1, // 数值, 默认 1。 绘制每个笔划的速度必须大于0。增加此数字可以更快地绘制笔划，减少绘制笔划的速度更慢。
     delayBetweenStrokes: 1000, // 数值, 默认 1000。 动画进行中每个笔画之间的间隔时间（以毫秒为单位）。
     delayBetweenLoops: 200, // 数值, 默认 2000。 循环动画时每个动画循环之间的时间（以毫秒为单位）。
+    autoAnimate: true,
+    animateComplete: () => {},
+    stepByStep: true,
+    loopAnimate: false,
 
-    charDataLoader: null, // 函数。 自定义函数 加载字符数据 。 有关使用的更多信息，请参阅加载字符数据部分。
-    onLoadCharDataSuccess: null, // 函数。 成功加载字符数据时的回调。 使用已加载的数据调用此函数。 这可以用于实现加载微调器。
-    onLoadCharDataError: null, // 函数。 字符数据加载失败时的回调。
-    
+    // charDataLoader: (a) => {console.log(a);}, // 函数。 自定义函数 加载字符数据 。 有关使用的更多信息，请参阅加载字符数据部分。
+    // onLoadCharDataSuccess: null, // 函数。 成功加载字符数据时的回调。 使用已加载的数据调用此函数。 这可以用于实现加载微调器。
+    // onLoadCharDataError: null, // 函数。 字符数据加载失败时的回调。
+    // test
     strokeHighlightSpeed: 20, // 数值, 默认 20。 在测验中给出提示时突出显示每个笔划的速度必须大于0。增加此数字以突出显示更快，减少以突出显示更慢。
     highlightColor: '#aaf', // 十六进制字符, 默认 '#AAF'。 用于在测验中突出显示的颜色。
     drawingColor: '#333', // 十六进制字符, 默认 '#333'。 测验期间绘制的线条颜色。

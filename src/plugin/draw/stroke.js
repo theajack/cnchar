@@ -20,6 +20,7 @@ function stroke (writer, cloneSvg) {
                     option: writer.option,
                     target,
                     strokes: charData.strokes,
+                    radStrokes: charData.radStrokes || [],
                     current: i,
                     cloneSvg,
                     width: writer.option.width
@@ -30,7 +31,8 @@ function stroke (writer, cloneSvg) {
 }
 
 
-function renderFanningStrokes ({option, target, strokes, cloneSvg, current, width}) {
+function renderFanningStrokes ({option, target, strokes, radStrokes, cloneSvg, current, width}) {
+    let radicalColor = (radStrokes.length > 0 && option.radicalColor) ? option.radicalColor : null;
     var svg = cloneSvg();
     target.appendChild(svg);
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -40,7 +42,12 @@ function renderFanningStrokes ({option, target, strokes, cloneSvg, current, widt
     group.setAttributeNS(null, 'transform', transformData.transform);
     svg.appendChild(group);
     for (let i = 0; i <= current; i++) {
-        let color = (i === current && option.currentColor) ? option.currentColor : option.strokeColor;
+        let color = option.strokeColor;
+        if (i === current && option.currentColor) {
+            color = option.currentColor;
+        } else if (radicalColor && radStrokes.indexOf(i) !== -1) {
+            color = radicalColor;
+        }
         renderPath(strokes[i], group, color);
     }
     if (option.showOutline && current + 1 <= strokes.length) {

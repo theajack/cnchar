@@ -74,8 +74,61 @@ class Writer {
                 this.writers.push(HanziWriter.create(node, v, this.option));
                 this.el.appendChild(node);
             });
-
+            if (this.option.loopAnimate) {
+                this.loopAnimate();
+            } else if (this.option.autoAnimate) {
+                this.animate(this.option.animateComplete);
+            }
         }
+    }
+    animate (complete) {
+        let opt = this.option;
+        if (opt.stepByStep) { // 汉字之间连续绘制
+            this._animateStep(0, complete);
+        } else { // 汉字一起绘制，笔画最多的绘制完成才算全部绘制完成
+            let index = 0;
+            for (let i = 0; i < this.writers.length; i++) {
+                this._animateSingle(i, () => {
+                    index++;
+                    if (index === this.writers.length) {
+                        complete();
+                    }
+                });
+            }
+        }
+        this.option.delayBetweenStrokes;
+    }
+    loopAnimate () {
+        let opt = this.option;
+        this.animate(() => {
+            opt.animateComplete();
+            setTimeout(() => {
+                this.loopAnimate();
+            }, opt.delayBetweenStrokes);
+        });
+    }
+    // animate单个汉字
+    _animateSingle (i, complete) {
+        if (i >= this.writers.length) {
+            complete(true);
+            return;
+        }
+        this.writers[i].animateCharacter({
+            onComplete: () => {
+                complete(false);
+            }
+        });
+    }
+    _animateStep (index, complete) {
+        this._animateSingle(index, (end) => {
+            if (!end) {
+                setTimeout(() => {
+                    this._animateStep(index + 1, complete);
+                }, this.option.delayBetweenStrokes);
+            } else {
+                complete();
+            }
+        });
     }
 }
 
