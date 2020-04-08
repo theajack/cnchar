@@ -1,6 +1,6 @@
 {
     "name": "cnchar",
-    "version": "2.0.9",
+    "version": "2.1.0",
     "description": "好用小巧、功能全面的汉字拼音笔画js库，支持多音字、繁体字、火星文",
     "main": "index.html",
     "author": "theajack <contact@theajack.com>",
@@ -24,7 +24,8 @@
         "build:poly": "webpack --config webpack-config/build.plugin.js --env.pluginname=poly",
         "build:order": "webpack --config webpack-config/build.plugin.js --env.pluginname=order",
         "build:trad": "webpack --config webpack-config/build.plugin.js --env.pluginname=trad",
-        "build:plugin": "npm run build:poly && npm run build:order && npm run build:trad",
+        "build:draw": "webpack --config webpack-config/build.plugin.js --env.pluginname=draw",
+        "build:plugin": "npm run build:poly && npm run build:order && npm run build:trad && npm run build:draw",
         "build:npm": "node ./helper/build-npm.js",
         "start": "webpack-dev-server --open --config webpack-config/dev.js",
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",

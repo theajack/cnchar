@@ -1,22 +1,28 @@
 let TYPE = {
-    NORMAL: 0,
-    ANIMATION: 1,
-    STROKE: 2,
-    TEST: 3
+    NORMAL: 'normal',
+    ANIMATION: 'animation',
+    STROKE: 'stroke',
+    TEST: 'test'
+};
+
+let TEST_STATUS = {
+    MISTAKE: 'mistake',
+    CORRECT: 'correct',
+    COMPLETE: 'complete'
 };
 
 let Option = {
     showOutline: true,
     showCharacter: true,
     currentColor: '#b44',
-
     length: 60,
     padding: 5, // 数值, 默认 20。 画布的汉字和边缘之间的填充
     outlineColor: '#ddd', // 十六进制字符, 默认 '#DDD'。
     strokeColor: '#555', // 十六进制字符, 默认 '#555'。绘制每个笔划的颜色。
-
     radicalColor: null, // 十六进制字符, 默认 null。 如果存在偏旁部首数据，则在笔划中绘制偏旁部首的颜色。 如果没有设置，激光将绘制与其他笔划相同的颜色。
-
+    
+    strokeFadeDuration: 400, // 数值, 默认 400。 调用 writer.show() 和 writer.hide() 时在显示和隐藏笔划之间转换的时间（以毫秒为单位）
+    
     // 背景line
     lineStraight: true,
     lineCross: true,
@@ -28,7 +34,6 @@ let Option = {
     borderColor: '#ccc',
     borderDash: false,
 
-    strokeFadeDuration: 400, // 数值, 默认 400。 调用 writer.show() 和 writer.hide() 时在显示和隐藏笔划之间转换的时间（以毫秒为单位）
     // animation
     strokeAnimationSpeed: 1, // 数值, 默认 1。 绘制每个笔划的速度必须大于0。增加此数字可以更快地绘制笔划，减少绘制笔划的速度更慢。
     delayBetweenStrokes: 1000, // 数值, 默认 1000。 动画进行中每个笔画之间的间隔时间（以毫秒为单位）。
@@ -49,26 +54,39 @@ let Option = {
     showHintAfterMisses: 3, // 整数, 默认 3 中风高亮提示之前的未命中数被给予用户。 设置为 false 以禁用。 创建测验时也可以设置此项。
     highlightOnComplete: true, // 布尔值, 默认 true。 控制当用户完成绘制整个字符时，测验是否会短暂突出显示字符。 创建测验时也可以设置此项。
     highlightCompleteColor: null, // 十六进制字符, 默认 null。 在测验中突出显示字符时使用的颜色。 如果未设置，则将使用highlightColor。 仅当highlightOnComplete为true时才相关。
+    onTestStatus: null, // {index, status, data}
 };
 
 function isUd (v) {
     return typeof v === 'undefined';
 }
 
-function merge (args) {
+function merge (type, args) {
     let json = {};
-    args.forEach(arg => {
+    for (let key in args) {
+        let arg = args[key];
         for (let k in arg) {
             if (!isUd(arg[k])) {
                 json[k] = arg[k];
             }
         }
-    });
+    }
     check(json);
 
     json.width = json.length;
     json.height = json.length;
+    checkTypeDefault(type, args, json);
     return json;
+}
+
+function checkTypeDefault (type, args, json) {
+    if (type === TYPE.ANIMATION) {
+        if (!args.animation || isUd(args.animation.showCharacter)) {
+            json.showCharacter = false;
+        }
+    } else if (type === TYPE.STROKE) {
+        json.showCharacter = false;
+    }
 }
 
 function check (json, attrs) {
@@ -82,5 +100,5 @@ function check (json, attrs) {
 }
 
 module.exports = {
-    TYPE, Option, merge
+    TYPE, Option, merge, TEST_STATUS
 };

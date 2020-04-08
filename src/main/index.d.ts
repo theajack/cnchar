@@ -1,3 +1,6 @@
+import {Draw} from '../plugin/draw/index';
+// import {Draw} from 'cnchar-draw';
+
 declare type spellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple';
 declare type strokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple';
 declare type orderToWordArg = 'match'  | 'matchorder' | 'contain' | 'start' | 'simple' | 'array';
@@ -17,6 +20,7 @@ declare interface spellInfoReturnStatic {
 declare interface CnCharStatic {
     spell(sentence: string, ...args: Array<spellArg>): string | Array<any>;
     stroke(sentence: string, ...args: Array<strokeArg>): number | Array<any>;
+    draw?: Draw;
     use(...plugins: Array<Function>): void;
     orderToWord: {
         (orders: string | Array<orderName>, ...args: Array<orderToWordArg>): string | Array<string>;

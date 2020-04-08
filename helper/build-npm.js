@@ -7,6 +7,7 @@ let files = [
     '../npm/order/package.json',
     '../npm/poly/package.json',
     '../npm/trad/package.json',
+    '../npm/draw/package.json',
     '../npm/cnchar/package.json',
     '../npm/cnchar-all/package.json',
     '../npm/hanzi-util/package.json',
@@ -76,6 +77,14 @@ function copyLatest () {
             return path;
         }))
         .pipe(gulp.dest('dist'));
+    ['cnchar', 'order', 'poly', 'trad', 'draw'].forEach(name => {
+        gulp.src(`dist/*.${version}.min.js`)
+            .pipe(rename(function (path) {
+                path.basename = path.basename.replace(version + '.', '');
+                return path;
+            }))
+            .pipe(gulp.dest('npm/' + name));
+    });
 }
 function transEs6ByBabel () {
     gulp.src('src/main/*.js')
