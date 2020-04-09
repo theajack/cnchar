@@ -62,3 +62,6 @@
 2. 将cdn移至npm包中，改变cdn引用方式，删除dist目录
 3. 使用vuepress构建文档，工程化重构文档
 4. 使用gulp-markdown-toc
+
+### 2.1.1 *doing
+1. 增加draw背景色设置

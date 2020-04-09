@@ -16,6 +16,12 @@
 .clearfix:after {
   clear: both;
 }
+#draw{
+  margin-top: 10px;
+}
+#draw svg{
+  background-color: #fff;
+}
 
 #tjLogo {
   width: 40px!important;
