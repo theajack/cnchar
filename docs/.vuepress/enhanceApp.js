@@ -7,6 +7,8 @@ import VueHighlightJS from 'vue-highlight.js';
 // 注意： 代码块的背景色 还是由官方设置的 $codeBgColor 决定的
 import 'highlight.js/styles/vs2015.css';
 
+import '../../npm/all/cnchar.all.min.js';
+
 // 引入自己的组件库
 import Cat from '../src/index';
 

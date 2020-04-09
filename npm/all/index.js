@@ -1,14 +1,14 @@
 "use strict";
 
-var cnchar = require('../../main');
+var cnchar = require('cnchar');
 
-var order = require('../order');
+var order = require('cnchar-order');
 
-var trad = require('../trad');
+var trad = require('cnchar-trad');
 
-var poly = require('../poly');
+var poly = require('cnchar-poly');
 
-var draw = require('../draw');
+var draw = require('cnchar-draw');
 
 cnchar.use(order, trad, poly, draw);
 module.exports = cnchar;

@@ -6,21 +6,21 @@
 </template>
 
 <script>
-    import BitbucketV2 from '@vssue/api-bitbucket-v2';
+    // import BitbucketV2 from '@vssue/api-bitbucket-v2';
     import GiteeV5 from '@vssue/api-gitee-v5';
     import GithubV3 from '@vssue/api-github-v3';
-    import GitlabV4 from '@vssue/api-gitlab-v4';
+    // import GitlabV4 from '@vssue/api-gitlab-v4';
 
     const platforms = {
-        'bitbucket': {
-            options: {
-                api: BitbucketV2,
-                owner: 'meteorlxy',
-                repo: 'vssue',
-                clientId: '6tKVqDXYzuvmzCnbGw',
-            },
-            issueId: 1,
-        },
+        // 'bitbucket': {
+        //     options: {
+        //         api: BitbucketV2,
+        //         owner: 'meteorlxy',
+        //         repo: 'vssue',
+        //         clientId: '6tKVqDXYzuvmzCnbGw',
+        //     },
+        //     issueId: 1,
+        // },
         'gitee': {
             options: {
                 api: GiteeV5,
@@ -41,15 +41,15 @@
             },
             issueId: 1,
         },
-        'gitlab': {
-            options: {
-                api: GitlabV4,
-                owner: 'meteorlxy',
-                repo: 'vssue',
-                clientId: '5a80ead2a62ec3fd3a31a78b2bf0e5602bacd0513ab3b772e580b05e15d0d2cb',
-            },
-            issueId: 1,
-        },
+        // 'gitlab': {
+        //     options: {
+        //         api: GitlabV4,
+        //         owner: 'meteorlxy',
+        //         repo: 'vssue',
+        //         clientId: '5a80ead2a62ec3fd3a31a78b2bf0e5602bacd0513ab3b772e580b05e15d0d2cb',
+        //     },
+        //     issueId: 1,
+        // },
     };
 
     export default {

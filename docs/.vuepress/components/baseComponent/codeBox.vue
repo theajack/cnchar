@@ -1,61 +1,61 @@
 // 包裹示例组件
 <template>
-  <div class="code">
-    <div class="code--title">
-      <h2>{{title}}</h2>
-      <small>{{description}}</small>
+    <div class='code'>
+        <div class='code--title'>
+            <h2>{{title}}</h2>
+            <small>{{description}}</small>
+        </div>
+        <div class='code--demo'>
+            <div class='code-content'>
+                <slot></slot>
+            </div>
+        </div>
+        <div v-if='isShow'
+             class='code--segment'>
+            <slot name='codeText'></slot>
+        </div>
+        <div v-if='$slots.codeText'
+             class='code--button'>
+            <div @click='handleToggleShow'
+                 class='code--show'>
+                {{codeTextBtn}}
+            </div>
+            <div v-if='onlineLink'
+                 class='code--online'
+                 @click='handleOnline'>
+                {{codeTextBtnOnline}}
+            </div>
+        </div>
     </div>
-    <div class="code--demo">
-      <div class="code-content">
-        <slot></slot>
-      </div>
-    </div>
-    <div v-if="isShow"
-         class="code--segment">
-      <slot name="codeText"></slot>
-    </div>
-    <div v-if="$slots.codeText"
-         class="code--button">
-      <div @click="handleToggleShow"
-           class="code--show">
-        {{codeTextBtn}}
-      </div>
-      <div v-if="onlineLink"
-           class="code--online"
-           @click="handleOnline">
-        {{codeTextBtnOnline}}
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
-export default {
-  props: {
-    title: String,
-    description: String,
-    onlineLink: {
-      type: String,
-      default: ''
-    }
-  },
-  data () {
-    return {
-      isShow: false,
-      codeTextBtn: '显示代码',
-      codeTextBtnOnline: '在线运行'
-    }
-  },
-  methods: {
-    handleToggleShow () {
-      this.isShow = !this.isShow
-      this.codeTextBtn = this.isShow ? '隐藏代码' : '显示代码'
-    },
-    handleOnline () {
-      window.open(this.onlineLink)
-    }
-  }
-}
+    export default {
+        props: {
+            title: String,
+            description: String,
+            onlineLink: {
+                type: String,
+                default: ''
+            }
+        },
+        data () {
+            return {
+                isShow: false,
+                codeTextBtn: '显示代码',
+                codeTextBtnOnline: '在线运行'
+            };
+        },
+        methods: {
+            handleToggleShow () {
+                this.isShow = !this.isShow;
+                this.codeTextBtn = this.isShow ? '隐藏代码' : '显示代码';
+            },
+            handleOnline () {
+                window.open(this.onlineLink);
+            }
+        }
+    };
 </script>
 
 <style lang="less" scoped>

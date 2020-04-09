@@ -128,9 +128,9 @@ function transEs6ByBabel () {
         .pipe(babel({presets: ['@babel/env']}))
         .pipe(gulp.dest('npm/trad'));
 
-    gulp.src('src/plugin/all/*.js')
-        .pipe(babel({presets: ['@babel/env']}))
-        .pipe(gulp.dest('npm/all'));
+    // gulp.src('src/plugin/all/*.js')
+    //     .pipe(babel({presets: ['@babel/env']}))
+    //     .pipe(gulp.dest('npm/all'));
 }
 
 task();
