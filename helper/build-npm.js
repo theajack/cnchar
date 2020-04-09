@@ -9,7 +9,7 @@ let files = [
     '../npm/trad/package.json',
     '../npm/draw/package.json',
     '../npm/cnchar/package.json',
-    '../npm/cnchar-all/package.json',
+    '../npm/all/package.json',
     '../npm/hanzi-util/package.json',
     '../npm/hanzi-util-base/package.json',
 ];
@@ -24,7 +24,7 @@ function modVersion () {
     });
 }
 let depFiles = [
-    '../npm/cnchar-all/package.json',
+    '../npm/all/package.json',
     '../npm/hanzi-util/package.json',
     '../npm/hanzi-util-base/package.json'
 ];
@@ -66,25 +66,37 @@ function copyToNPM () {
         .pipe(gulp.dest('npm/trad'));
 
     gulp.src(['src/main/index.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/cnchar-all'))
+        .pipe(gulp.dest('npm/all'))
         .pipe(gulp.dest('npm/hanzi-util'))
         .pipe(gulp.dest('npm/hanzi-util-base'));
 }
 function copyLatest () {
-    gulp.src(`dist/*.${version}.min.js`)
+    // gulp.src(`dist/*.${version}.min.js`)
+    //     .pipe(rename(function (path) {
+    //         path.basename = path.basename.replace(version, 'latest');
+    //         return path;
+    //     }))
+    //     .pipe(gulp.dest('dist'));
+    // ['cnchar', 'order', 'poly', 'trad', 'draw'].forEach(name => {
+    //     gulp.src(`dist/*.${version}.min.js`)
+    //         .pipe(rename(function (path) {
+    //             path.basename = path.basename.replace(version + '.', '');
+    //             return path;
+    //         }))
+    //         .pipe(gulp.dest('npm/' + name));
+    // });
+    gulp.src(`npm/all/cnchar.all.min.js`)
         .pipe(rename(function (path) {
-            path.basename = path.basename.replace(version, 'latest');
+            path.basename = path.basename.replace('cnchar.all.min.js', 'hanzi.util.min.js');
             return path;
         }))
-        .pipe(gulp.dest('dist'));
-    ['cnchar', 'order', 'poly', 'trad', 'draw'].forEach(name => {
-        gulp.src(`dist/*.${version}.min.js`)
-            .pipe(rename(function (path) {
-                path.basename = path.basename.replace(version + '.', '');
-                return path;
-            }))
-            .pipe(gulp.dest('npm/' + name));
-    });
+        .pipe(gulp.dest('npm/hanzi-util'));
+    gulp.src(`npm/cnchar/cnchar.min.js`)
+        .pipe(rename(function (path) {
+            path.basename = path.basename.replace('cnchar.min.js', 'hanzi.util.base.min.js');
+            return path;
+        }))
+        .pipe(gulp.dest('npm/hanzi-util-base'));
 }
 function transEs6ByBabel () {
     gulp.src('src/main/*.js')
@@ -102,6 +114,10 @@ function transEs6ByBabel () {
     gulp.src('src/plugin/trad/*.js')
         .pipe(babel({presets: ['@babel/env']}))
         .pipe(gulp.dest('npm/trad'));
+        
+    gulp.src('src/plugin/all/*.js')
+        .pipe(babel({presets: ['@babel/env']}))
+        .pipe(gulp.dest('npm/all'));
 }
 
 task();

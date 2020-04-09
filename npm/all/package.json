@@ -30,6 +30,7 @@
         "cnchar": "^2.0.9",
         "cnchar-order": "^2.0.9",
         "cnchar-poly": "^2.0.9",
-        "cnchar-trad": "^2.0.9"
+        "cnchar-trad": "^2.0.9",
+        "cnchar-draw": "^2.0.9"
     }
 }
