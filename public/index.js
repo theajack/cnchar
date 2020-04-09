@@ -15,10 +15,8 @@ console.log(cnchar.strokeToWord(1));
 console.log('美好的地方'.spell('tone'));
 
 cncharDraw('你好', {
-    type: cncharDraw.TYPE.STROKE,
+    type: cncharDraw.TYPE.NORMAL,
     style: {
-        radicalColor: '#337ab7',
-        padding: 10,
     },
     animation: {
         animateComplete () {

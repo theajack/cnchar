@@ -1,22 +1,76 @@
-# [cnchar](https://github.com/theajack/cnchar)
+# [cnchar](https://github.com/theajack/cnchar) <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/github/stars/theajack/cnchar.svg?style=social" alt="star"></a> <a href="https://theajack.gitee.io"><img src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>
 
-#### [theajack](https://www.theajack.com/)
+
+<p>
+    <a href="https://www.npmjs.com/package/cnchar"><img src="https://img.shields.io/npm/v/cnchar.svg" alt="Version"></a>
+    <a href="https://npmcharts.com/compare/cnchar?minimal=true"><img src="https://img.shields.io/npm/dm/cnchar.svg" alt="Downloads"></a>
+    <a href="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/cnchar.svg" alt="Size"></a>
+    <a href="https://github.com/theajack/cnchar/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/cnchar.svg" alt="License"></a>
+    <a href="https://github.com/theajack/cnchar/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/cnchar.svg" alt="TopLang"></a>
+    <a href="https://github.com/theajack/cnchar/issues"><img src="https://img.shields.io/github/issues-closed/theajack/cnchar.svg" alt="issue"></a>
+<!--     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a> -->
+</p>
 
 ### 🚀 好用小巧、功能全面的汉字拼音笔画 js 库
 
-**<a href="#64-使用实例大全">快速上手</a> | [在线试用](https://www.theajack.com/cnchar/) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://www.theajack.com/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/8)**
+**<a href="#66-使用实例大全">快速上手</a> | [在线试用/文档](https://theajack.gitee.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
 
 ---
 
-[TOC]
+<!-- toc -->
+
+- [前言](#%E5%89%8D%E8%A8%80)
+- [0.快速使用](#0%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8)
+- [1.功能](#1%E5%8A%9F%E8%83%BD)
+- [2.概览](#2%E6%A6%82%E8%A7%88)
+- [3 安装](#3-%E5%AE%89%E8%A3%85)
+  * [3.1 使用 npm 安装](#31-%E4%BD%BF%E7%94%A8-npm-%E5%AE%89%E8%A3%85)
+  * [3.2 使用 script 引入](#32-%E4%BD%BF%E7%94%A8-script-%E5%BC%95%E5%85%A5)
+- [4 使用](#4-%E4%BD%BF%E7%94%A8)
+  * [4.1 webpack浏览器环境(有window对象)](#41-webpack%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%9C%89window%E5%AF%B9%E8%B1%A1)
+  * [4.2 nodejs 等非浏览器环境](#42-nodejs-%E7%AD%89%E9%9D%9E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
+  * [4.3 原生浏览器环境](#43-%E5%8E%9F%E7%94%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
+- [5 API](#5-api)
+  * [5.1 拼音笔画基础 API: spell & stroke](#51-%E6%8B%BC%E9%9F%B3%E7%AC%94%E7%94%BB%E5%9F%BA%E7%A1%80-api-spell--stroke)
+  * [5.2 可视化绘制汉字: draw](#52-%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%98%E5%88%B6%E6%B1%89%E5%AD%97-draw)
+    + [5.2.1 使用](#521-%E4%BD%BF%E7%94%A8)
+    + [5.2.2 参数](#522-%E5%8F%82%E6%95%B0)
+  * [5.3 繁体、简体、火星文互转: convert](#53-%E7%B9%81%E4%BD%93%E7%AE%80%E4%BD%93%E7%81%AB%E6%98%9F%E6%96%87%E4%BA%92%E8%BD%AC-convert)
+  * [5.4 笔画序列推出原汉字: orderToWord](#54-%E7%AC%94%E7%94%BB%E5%BA%8F%E5%88%97%E6%8E%A8%E5%87%BA%E5%8E%9F%E6%B1%89%E5%AD%97-ordertoword)
+  * [5.5 通过拼音查询原汉字: spellToWord](#55-%E9%80%9A%E8%BF%87%E6%8B%BC%E9%9F%B3%E6%9F%A5%E8%AF%A2%E5%8E%9F%E6%B1%89%E5%AD%97-spelltoword)
+  * [5.6 通过笔画数查询原汉字: strokeToWord](#56-%E9%80%9A%E8%BF%87%E7%AC%94%E7%94%BB%E6%95%B0%E6%9F%A5%E8%AF%A2%E5%8E%9F%E6%B1%89%E5%AD%97-stroketoword)
+  * [5.7 查询拼音详细信息: spellInfo](#57-%E6%9F%A5%E8%AF%A2%E6%8B%BC%E9%9F%B3%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF-spellinfo)
+  * [5.8 其他 api](#58-%E5%85%B6%E4%BB%96-api)
+    + [5.8.1 .use()](#581-use)
+    + [5.8.2 .type](#582-type)
+    + [5.8.3 .check](#583-check)
+    + [5.8.4 .version](#584-version)
+    + [5.8.5 .plugins](#585-plugins)
+- [6 spell stroke 参数](#6-spell-stroke-%E5%8F%82%E6%95%B0)
+  * [6.1 spell 参数](#61-spell-%E5%8F%82%E6%95%B0)
+  * [6.2 stroke 参数](#62-stroke-%E5%8F%82%E6%95%B0)
+  * [6.3 orderToWord 参数](#63-ordertoword-%E5%8F%82%E6%95%B0)
+  * [6.4 spellToWord 参数](#64-spelltoword-%E5%8F%82%E6%95%B0)
+  * [6.5 strokeToWord 参数](#65-stroketoword-%E5%8F%82%E6%95%B0)
+  * [6.6 使用实例大全：](#66-%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B%E5%A4%A7%E5%85%A8)
+    + [6.6.0 安装使用](#660-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8)
+    + [6.6.1 cnchar 基础库功能](#661-cnchar-%E5%9F%BA%E7%A1%80%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.6.2 cnchar-poly 库功能](#662-cnchar-poly-%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.6.3 cnchar-order 库功能](#663-cnchar-order-%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.6.4 cnchar-trad 库功能](#664-cnchar-trad-%E5%BA%93%E5%8A%9F%E8%83%BD)
+      - [6.6.4.1 convert 字体转换](#6641-convert-%E5%AD%97%E4%BD%93%E8%BD%AC%E6%8D%A2)
+      - [6.6.4.2 spell 和 stroke 方法](#6642-spell-%E5%92%8C-stroke-%E6%96%B9%E6%B3%95)
+- [7 应用例子](#7-%E5%BA%94%E7%94%A8%E4%BE%8B%E5%AD%90)
+
+<!-- tocstop -->
 
 ---
 
 ### 前言
 
-感谢同学们对于 cnchar 的支持，由于 cnchar 词库来源于网络，虽然经过了本人的修改的扩充，但是还是难免有错误与缺漏之处，希望大家可以将使用中发现的错误与缺漏之处 [反馈](https://github.com/theajack/cnchar/issues/8) 给我（或自行修改提交，经过审查无误过后会合到 cnchar 中）
+感谢同学们对于 cnchar 的支持，由于 cnchar 词库来源于网络，虽然经过了本人的修改和扩充，但是还是难免有错误与缺漏之处，希望大家可以将使用中发现的错误与缺漏之处 [反馈](https://github.com/theajack/cnchar/issues/new) 给我（或自行修改提交，经过审查无误过后会合到 cnchar 中）
 
-[我要反馈错误或缺漏](https://github.com/theajack/cnchar/issues/8)
+[我要反馈错误或缺漏](https://github.com/theajack/cnchar/issues/new)
 
 ### 0.快速使用
 
@@ -35,18 +89,14 @@ import cnchar from 'cnchar';
 使用 script 标签使用：
 
 ```html
-<script src="https://www.theajack.com/cnchar/dist/cnchar.latest.min.js"></script>
-<!--
-或通过版本号引用
-<script src="https://www.theajack.com/cnchar/dist/cnchar.{version}.min.js"></script>
--->
+<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
 <script>
     '汉字'.spell();
     '汉字'.stroke();
 </script>
 ```
 
-<a href="#64-使用实例大全">更多详细使用示例</a> | <a href="#6-spell-stroke-参数">参数详细介绍</a>
+<a href="#66-使用实例大全">更多详细使用示例</a> | <a href="#6-spell-stroke-参数">参数详细介绍</a>
 
 ### 1.功能
 
@@ -54,15 +104,18 @@ import cnchar from 'cnchar';
 2. 支持 **多音词**
 3. 支持 **拼音音调**
 4. 获取汉字 **笔画数** 、支持数组分割
-5. 获取汉字 **笔画顺序** 、笔画详细名称、通过笔画顺序推出原汉字等
-6. 支持 **简体字** 、 **繁体字** 、 **火星文** 互转
-7. 支持 **查找** 某拼音的所有 **汉字** ，繁体字，多音字
-8. 支持 **查找** 指定笔画数的所有 **汉字** ，繁体字
-9. 支持 **查询拼音的信息**，包含声母、韵母、音调、音调位置的等
-10. 支持 **繁体字** 拼音、笔画数及以上所有功能，实现和简体字一样的功能
-11. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
-12. **多端可用**，可用于 原生浏览器环境、webpack 环境、nodejs 环境...，几乎支持所有 js 能运行的环境
-13. 丰富的配置，按需取用
+5. 获取汉字 **笔画顺序** 、笔画详细名称
+6. 支持可视化 **绘制汉字笔画** 、多种绘制模式可选
+7. 支持 **简体字** 、 **繁体字** 、 **火星文** 互转
+8. 支持 **查找** 某拼音的所有 **汉字** ，繁体字，多音字
+9. 支持 **查找** 指定笔画数的所有 **汉字** ，繁体字
+10. 支持 **根据笔画顺序查询** 汉字
+11. 支持 **查询拼音的信息**，包含声母、韵母、音调、音调位置的等
+12. 支持 **繁体字** 拼音、笔画数及以上所有功能，实现和简体字一样的功能
+13. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
+14. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
+15. **typescript支持**，支持在typescript中调用
+16. 丰富的配置，按需取用
 
 ### 2.概览
 
@@ -74,6 +127,7 @@ import cnchar from 'cnchar';
 | cnchar-poly  |    多音词库    |     含有识别多音词功能     |
 | cnchar-order |   笔画顺序库   |       含有识别笔画顺序、笔画名称、笔画形状等功能       |
 | cnchar-trad  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
+| cnchar-draw  |    绘制笔画库    | 指出可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
 
 ### 3 安装
 
@@ -88,7 +142,7 @@ npm i cnchar
 安装附加功能库：
 
 ```
-npm i cnchar-poly cnchar-order cnchar-trad
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw
 ```
 
 当然您也可以按需安装其中的几个，但是 `cnchar` 这个基础库是必须安装的
@@ -102,20 +156,23 @@ npm i cnchar-all
 #### 3.2 使用 script 引入
 
 ```html
-<script src="https://www.theajack.com/cnchar/dist/cnchar.latest.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.poly.latest.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.order.latest.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.trad.latest.min.js"></script>
-<!-- 或使用版本号引用 -->
-<script src="https://www.theajack.com/cnchar/dist/cnchar.{version}.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.poly.{version}.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.order.{version}.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.trad.{version}.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
 ```
+
+或使用以下cdn，包含了以上五个库
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
+```
+
 
 ### 4 使用
 
-#### 4.1 webpack、babel 等浏览器环境
+#### 4.1 webpack浏览器环境(有window对象)
 
 npm 安装好几个库之后：
 
@@ -125,6 +182,8 @@ import cnchar from 'cnchar';
 import 'cnchar-poly';
 import 'cnchar-order';
 import 'cnchar-trad';
+import 'cnchar-draw';
+// 插件请按需取用
 
 console.log('汉字'.spell()); // prototype 方式调用
 console.log(cnchar.spell('汉字')); // cnchar api 调用
@@ -142,6 +201,8 @@ var cnchar = require('cnchar');
 var poly = require('cnchar-poly');
 var order = require('cnchar-order');
 var trad = require('cnchar-trad');
+// 插件请按需取用
+// cnchar-draw 在非浏览器环境下不可使用
 cnchar.use(poly, order, trad);
 
 console.log('汉字'.spell()); // prototype 方式调用
@@ -155,10 +216,11 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 原生浏览器环境就需要使用 script 标签引入 js 文件：
 
 ```html
-<script src="https://www.theajack.com/cnchar/dist/cnchar.latest.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.poly.latest.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.order.latest.min.js"></script>
-<script src="https://www.theajack.com/cnchar/dist/cnchar.trad.latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
 <script>
     console.log('汉字'.spell()); // prototype 方式调用
     console.log(cnchar.spell('汉字')); // cnchar api 调用
@@ -166,6 +228,8 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 ```
 
 ### 5 API
+
+类型声明：[cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts)
 
 #### 5.1 拼音笔画基础 API: spell & stroke
 
@@ -187,7 +251,93 @@ string.stroke([...args])
 
 关键在于可选参数的配置，参数配置将在<a href="#user-content-6-spell-stroke-参数">第六章</a>单独介绍
 
-#### 5.2 繁体、简体、火星文互转: convert
+#### 5.2 可视化绘制汉字: draw
+
+类型声明：[cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/draw/index.d.ts)
+
+`cnchar-draw` 库用于支持在浏览器环境下可视化绘制汉字，所以该库仅在浏览器环境下可用。
+
+##### 5.2.1 使用
+
+使用方式如下：
+
+```js
+cnchar.draw('你好', options); // options 为可选参数， 在5.2.2 种会详细介绍
+```
+
+运行结果如下：
+
+![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar/assets/readme/draw.jpg)
+
+该库支持脱离cnchar 独立使用
+
+```js
+import draw from 'cnchar-draw';
+draw('你好')
+```
+
+使用cdn引用时，会在window对向上暴露 `CncharDraw` 对象
+
+##### 5.2.2 参数
+
+draw 的参数比较繁多，首先需要理解的是，draw 分为四种绘制模式：
+
+1. normal: 常规绘制
+2. animation: 带有绘制动画，支持连续绘制、同时绘制、循环绘制
+3. stroke: 按汉字笔顺单步绘制
+4. test: 测试模式，用户可以在容器内绘制汉字，cnchar-draw会检测是否绘制正确
+
+以下是 options 的所有可选参数及描述，使用详情请参考[在线文档](https://theajack.gitee.io/cnchar)：
+
+```ts
+declare interface DrawOption {
+    el?: string | HTMLElement; // 绘制的容器，支持id和dom，若是不填，会在body后append一个dom作为容器
+    type?: DrawType; // 绘制模式，默认为normal
+    style?: { // 样式类
+        showOutline?: boolean;//: true,
+        showCharacter?: boolean;//: true,
+        currentColor?: string;//: '#b44', // 仅在stroke模式下有效
+        length?: number;//: 60,
+        padding?: number;//: 5, // 数值, 默认 20。 画布的汉字和边缘之间的填充
+        outlineColor?: string;//: '#ddd', // 十六进制字符, 默认 '#DDD'。
+        strokeColor?: string;//: '#555', // 十六进制字符, 默认 '#555'。绘制每个笔划的颜色。
+        radicalColor?: string;//: null, // 十六进制字符, 默认 null。 如果存在偏旁部首数据，则在笔划中绘制偏旁部首的颜色。 如果没有设置，激光将绘制与其他笔划相同的颜色。
+        strokeFadeDuration?: number; //400
+    },
+    line?: { // 背景线条类
+        lineStraight?: boolean;// : true,
+        lineCross?: boolean;// : true,
+        lineWidth?: number;// : 1,
+        lineColor?: string;// : '#ddd',
+        lineDash?: boolean;// : true,
+        border?: boolean;// : true,
+        borderWidth?: number;// : 1,
+        borderColor?: string;// : '#ccc',
+        borderDash?: boolean;// : false,
+    },
+    animation?: {
+        strokeAnimationSpeed?: number;// : 1, // 数值, 默认 1。 绘制每个笔划的速度必须大于0。增加此数字可以更快地绘制笔划，减少绘制笔划的速度更慢。
+        delayBetweenStrokes?: number;// : 1000, // 数值, 默认 1000。 动画进行中每个笔画之间的间隔时间（以毫秒为单位）。
+        delayBetweenLoops?: number;// : 200, // 数值, 默认 2000。 循环动画时每个动画循环之间的时间（以毫秒为单位）。
+        autoAnimate?: boolean;// : true,
+        animateComplete?: Function;// : () => {},
+        stepByStep?: boolean;// : true,
+        loopAnimate?: boolean;// : false,
+    },
+    test?: {
+        strokeHighlightSpeed?: number;// : 20, // 数值, 默认 20。 在测验中给出提示时突出显示每个笔划的速度必须大于0。增加此数字以突出显示更快，减少以突出显示更慢。
+        highlightColor?: number;// : '#aaf', // 十六进制字符, 默认 '#AAF'。 用于在测验中突出显示的颜色。
+        drawingColor?: number;// : '#333', // 十六进制字符, 默认 '#333'。 测验期间绘制的线条颜色。
+        drawingWidth?: number;// : 4, // 数值, 默认 4。 进行测验时绘制的线条宽度。
+        showHintAfterMisses?: number;// : 3, // 整数, 默认 3 中风高亮提示之前的未命中数被给予用户。 设置为 false 以禁用。 创建测验时也可以设置此项。
+        highlightOnComplete?: number;// : true, // 布尔值, 默认 true。 控制当用户完成绘制整个字符时，测验是否会短暂突出显示字符。 创建测验时也可以设置此项。
+        highlightCompleteColor?: number;// : null, // 十六进制字符, 默认 null。 在测验中突出显示字符时使用的颜色。 如果未设置，则将使用highlightColor。 仅当highlightOnComplete为true时才相关。
+        onTestStatus?(args: TestStatus):void;// : null, // ({index, status, data})=>{}
+    }
+};
+```
+
+#### 5.3 繁体、简体、火星文互转: convert
 
 当引入 `cnchar-trad` 之后，cnchar 就具备了繁体、简体、火星文互转功能，使用 `cnchar.convert` 对象上的方法，你就可以使用这个功能
 
@@ -209,7 +359,7 @@ string.convertSparkToSimple();
 string.convertSparkToTrad();
 ```
 
-#### 5.3 笔画序列推出原汉字: orderToWord
+#### 5.4 笔画序列推出原汉字: orderToWord
 
 当引入 `cnchar-order` 功能库(版本 2.0.2 及以上)之后，cnchar 就支持了根据笔画名称序列推出原汉字的功能，使用方式如下：
 
@@ -284,7 +434,7 @@ cnchar.orderToWord(['横', '撇', '捺'], 'start', 'simple');
 
 如果输入的笔画不在 `cnchar.orderToWord.orders` 内，则该方法会打印一个错误提示哪些笔画有误，并返回一个空数组。
 
-#### 5.4 通过拼音查询原汉字: spellToWord
+#### 5.5 通过拼音查询原汉字: spellToWord
 
 `spellToWord` 方法用于根据拼音查询符合要求的汉字，用法如下：
 
@@ -308,7 +458,7 @@ spell 表示拼音，可以使用音调字母或音调数标方式：
 
 ü 可以使用 v 表示，例：`lü 等价于 lv`
 
-#### 5.5 通过笔画数查询原汉字: strokeToWord
+#### 5.6 通过笔画数查询原汉字: strokeToWord
 
 `strokeToWord` 方法用于根据笔画数查询符合要求的汉字，用法如下：
 
@@ -324,7 +474,7 @@ cnchar.strokeToWord(25, 'simple'); // 返回 '鬣馕囔戆攮纛'
 cnchar.strokeToWord(1, 'array'); // 返回 ['一', '乙']
 ```
 
-#### 5.6 查询拼音详细信息: spellInfo
+#### 5.7 查询拼音详细信息: spellInfo
 
 `spellInfo` 方法用于查询拼音的详细信息，用法如下：
 
@@ -358,9 +508,9 @@ cnchar.spellInfo.tones;
 // n 的一声使用 * 代替
 ```
 
-#### 5.7 其他 api
+#### 5.8 其他 api
 
-##### 5.7.1 .use()
+##### 5.8.1 .use()
 
 这个 api 的功能是显式启用 `poly`、`order`、`trad` 三个功能库
 
@@ -389,7 +539,7 @@ import 'cnchar-order';
 import 'cnchar-trad';
 ```
 
-##### 5.7.2 .type
+##### 5.8.2 .type
 
 type 对象用户获取当前可用的 `spell` 、 `stroke` 、 `orderToWord` 、`spellToWord`、`strokeToWord` 参数类型：
 
@@ -413,7 +563,7 @@ strokeToWordArg 最多可用值： `['simple','trad','array']`
 
 具体用法<a href="#user-content-6-spell-stroke-参数">第六章</a>讲到
 
-##### 5.7.3 .check
+##### 5.8.3 .check
 
 该值是一个 布尔类型，用于控制是否开启参数校验，默认值为 true
 
@@ -423,7 +573,7 @@ strokeToWordArg 最多可用值： `['simple','trad','array']`
 cnchar.check = false; // 关闭参数校验
 ```
 
-##### 5.7.4 .version
+##### 5.8.4 .version
 
 获取当前版本：
 
@@ -431,7 +581,7 @@ cnchar.check = false; // 关闭参数校验
 var version = cnchar.version; // string 类型
 ```
 
-##### 5.7.5 .plugins
+##### 5.8.5 .plugins
 
 当前使用的功能库列表，最多的情况为 `["order", "trad", "poly"]`
 
@@ -567,7 +717,7 @@ import cnchar from 'cnchar';
 script 标签引用 方式
 
 ```html
-<script src="https://www.theajack.com/cnchar/dist/cnchar.latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"></script>
 <script>
     // do something
 </script>
@@ -723,3 +873,7 @@ cnchar.convert.sparkToTrad('①个亾');
 ### 7 应用例子
 
 [汉字打字游戏](https://www.theajack.com/type/)
+
+**致谢**
+
+`cnchar-draw` 库功能基于 [hanzi-writer](https://github.com/chanind/hanzi-writer), 特此表示感谢！

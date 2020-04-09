@@ -1,4 +1,4 @@
-import {Draw} from '../plugin/draw/index';
+import {Draw} from 'cnchar-draw';
 // import {Draw} from 'cnchar-draw';
 
 declare type spellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple';

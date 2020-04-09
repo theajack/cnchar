@@ -19,51 +19,6 @@
 
 <!-- toc -->
 
-- [前言](#%E5%89%8D%E8%A8%80)
-- [0.快速使用](#0%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8)
-- [1.功能](#1%E5%8A%9F%E8%83%BD)
-- [2.概览](#2%E6%A6%82%E8%A7%88)
-- [3 安装](#3-%E5%AE%89%E8%A3%85)
-  * [3.1 使用 npm 安装](#31-%E4%BD%BF%E7%94%A8-npm-%E5%AE%89%E8%A3%85)
-  * [3.2 使用 script 引入](#32-%E4%BD%BF%E7%94%A8-script-%E5%BC%95%E5%85%A5)
-- [4 使用](#4-%E4%BD%BF%E7%94%A8)
-  * [4.1 webpack浏览器环境(有window对象)](#41-webpack%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%9C%89window%E5%AF%B9%E8%B1%A1)
-  * [4.2 nodejs 等非浏览器环境](#42-nodejs-%E7%AD%89%E9%9D%9E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
-  * [4.3 原生浏览器环境](#43-%E5%8E%9F%E7%94%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
-- [5 API](#5-api)
-  * [5.1 拼音笔画基础 API: spell & stroke](#51-%E6%8B%BC%E9%9F%B3%E7%AC%94%E7%94%BB%E5%9F%BA%E7%A1%80-api-spell--stroke)
-  * [5.2 可视化绘制汉字: draw](#52-%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%98%E5%88%B6%E6%B1%89%E5%AD%97-draw)
-    + [5.2.1 使用](#521-%E4%BD%BF%E7%94%A8)
-    + [5.2.2 参数](#522-%E5%8F%82%E6%95%B0)
-  * [5.3 繁体、简体、火星文互转: convert](#53-%E7%B9%81%E4%BD%93%E7%AE%80%E4%BD%93%E7%81%AB%E6%98%9F%E6%96%87%E4%BA%92%E8%BD%AC-convert)
-  * [5.4 笔画序列推出原汉字: orderToWord](#54-%E7%AC%94%E7%94%BB%E5%BA%8F%E5%88%97%E6%8E%A8%E5%87%BA%E5%8E%9F%E6%B1%89%E5%AD%97-ordertoword)
-  * [5.5 通过拼音查询原汉字: spellToWord](#55-%E9%80%9A%E8%BF%87%E6%8B%BC%E9%9F%B3%E6%9F%A5%E8%AF%A2%E5%8E%9F%E6%B1%89%E5%AD%97-spelltoword)
-  * [5.6 通过笔画数查询原汉字: strokeToWord](#56-%E9%80%9A%E8%BF%87%E7%AC%94%E7%94%BB%E6%95%B0%E6%9F%A5%E8%AF%A2%E5%8E%9F%E6%B1%89%E5%AD%97-stroketoword)
-  * [5.7 查询拼音详细信息: spellInfo](#57-%E6%9F%A5%E8%AF%A2%E6%8B%BC%E9%9F%B3%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF-spellinfo)
-  * [5.8 其他 api](#58-%E5%85%B6%E4%BB%96-api)
-    + [5.8.1 .use()](#581-use)
-    + [5.8.2 .type](#582-type)
-    + [5.8.3 .check](#583-check)
-    + [5.8.4 .version](#584-version)
-    + [5.8.5 .plugins](#585-plugins)
-- [6 spell stroke 参数](#6-spell-stroke-%E5%8F%82%E6%95%B0)
-  * [6.1 spell 参数](#61-spell-%E5%8F%82%E6%95%B0)
-  * [6.2 stroke 参数](#62-stroke-%E5%8F%82%E6%95%B0)
-  * [6.3 orderToWord 参数](#63-ordertoword-%E5%8F%82%E6%95%B0)
-  * [6.4 spellToWord 参数](#64-spelltoword-%E5%8F%82%E6%95%B0)
-  * [6.5 strokeToWord 参数](#65-stroketoword-%E5%8F%82%E6%95%B0)
-  * [6.6 使用实例大全：](#66-%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B%E5%A4%A7%E5%85%A8)
-    + [6.6.0 安装使用](#660-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8)
-    + [6.6.1 cnchar 基础库功能](#661-cnchar-%E5%9F%BA%E7%A1%80%E5%BA%93%E5%8A%9F%E8%83%BD)
-    + [6.6.2 cnchar-poly 库功能](#662-cnchar-poly-%E5%BA%93%E5%8A%9F%E8%83%BD)
-    + [6.6.3 cnchar-order 库功能](#663-cnchar-order-%E5%BA%93%E5%8A%9F%E8%83%BD)
-    + [6.6.4 cnchar-trad 库功能](#664-cnchar-trad-%E5%BA%93%E5%8A%9F%E8%83%BD)
-      - [6.6.4.1 convert 字体转换](#6641-convert-%E5%AD%97%E4%BD%93%E8%BD%AC%E6%8D%A2)
-      - [6.6.4.2 spell 和 stroke 方法](#6642-spell-%E5%92%8C-stroke-%E6%96%B9%E6%B3%95)
-- [7 应用例子](#7-%E5%BA%94%E7%94%A8%E4%BE%8B%E5%AD%90)
-
-<!-- tocstop -->
-
 ---
 
 ### 前言

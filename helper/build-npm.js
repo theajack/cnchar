@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const rename = require('gulp-rename');
 const fs = require('fs');
 const babel = require('gulp-babel');
+const toc = require('gulp-markdown-toc');
 let version = require('../package.json').version;
 let files = [
     '../npm/order/package.json',
@@ -53,17 +54,29 @@ function task () {
 }
 
 function copyToNPM () {
-    gulp.src(['src/main/*.json', 'src/main/index.d.ts', 'README.md', 'LICENSE'])
+    gulp.src('helper/README.md')
+        .pipe(toc())
+        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('npm/cnchar'))
+        .pipe(gulp.dest('npm/order'))
+        .pipe(gulp.dest('npm/poly'))
+        .pipe(gulp.dest('npm/trad'))
+        .pipe(gulp.dest('npm/draw'));
+
+    gulp.src(['src/main/*.json', 'src/main/index.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/cnchar'));
 
-    gulp.src(['src/plugin/order/*.json', 'README.md', 'LICENSE'])
+    gulp.src(['src/plugin/order/*.json', 'LICENSE'])
         .pipe(gulp.dest('npm/order'));
 
-    gulp.src(['src/plugin/poly/*.json', 'README.md', 'LICENSE'])
+    gulp.src(['src/plugin/poly/*.json', 'LICENSE'])
         .pipe(gulp.dest('npm/poly'));
 
-    gulp.src(['src/plugin/trad/*.json', 'README.md', 'LICENSE'])
+    gulp.src(['src/plugin/trad/*.json', 'LICENSE'])
         .pipe(gulp.dest('npm/trad'));
+
+    gulp.src(['src/plugin/draw/*.json', 'src/plugin/draw/index.d.ts', 'LICENSE'])
+        .pipe(gulp.dest('npm/draw'));
 
     gulp.src(['src/main/index.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/all'))
@@ -87,13 +100,13 @@ function copyLatest () {
     // });
     gulp.src(`npm/all/cnchar.all.min.js`)
         .pipe(rename(function (path) {
-            path.basename = path.basename.replace('cnchar.all.min.js', 'hanzi.util.min.js');
+            path.basename = path.basename.replace('cnchar.all.min', 'hanzi.util.min');
             return path;
         }))
         .pipe(gulp.dest('npm/hanzi-util'));
     gulp.src(`npm/cnchar/cnchar.min.js`)
         .pipe(rename(function (path) {
-            path.basename = path.basename.replace('cnchar.min.js', 'hanzi.util.base.min.js');
+            path.basename = path.basename.replace('cnchar.min', 'hanzi.base.min');
             return path;
         }))
         .pipe(gulp.dest('npm/hanzi-util-base'));
@@ -114,7 +127,7 @@ function transEs6ByBabel () {
     gulp.src('src/plugin/trad/*.js')
         .pipe(babel({presets: ['@babel/env']}))
         .pipe(gulp.dest('npm/trad'));
-        
+
     gulp.src('src/plugin/all/*.js')
         .pipe(babel({presets: ['@babel/env']}))
         .pipe(gulp.dest('npm/all'));

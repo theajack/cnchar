@@ -61,3 +61,4 @@
 1. 增加cnchar-draw插件，支持可视化绘制汉字笔画，多种模式可选
 2. 将cdn移至npm包中，改变cdn引用方式，删除dist目录
 3. 使用vuepress构建文档，工程化重构文档
+4. 使用gulp-markdown-toc

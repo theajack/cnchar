@@ -64,7 +64,11 @@ function use() {
 
   plugins.forEach(function (f) {
     if (typeof f === 'function') {
-      f(cnchar);
+      if (typeof f.init === 'function') {
+        f.init(cnchar);
+      } else {
+        f(cnchar);
+      }
     }
   });
 }
