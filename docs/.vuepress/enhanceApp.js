@@ -8,6 +8,7 @@ import VueHighlightJS from 'vue-highlight.js';
 import 'highlight.js/styles/vs2015.css';
 
 import '../../npm/all/cnchar.all.min.js';
+import 'easy-icon';
 
 // 引入自己的组件库
 import Cat from '../src/index';

@@ -18,13 +18,13 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
     <a href="https://github.com/theajack/cnchar/issues"><img src="https://img.shields.io/github/issues-closed/theajack/cnchar.svg" alt="issue"></a>
 </p> -->
 
-**cnchar 是一款好用小巧、功能全面的汉字拼音笔画 js 库**
+**cnchar 是一款功能全面、多端支持的汉字拼音笔画 js 库**
 
-**<a href="#66-使用实例大全">快速上手</a> | [在线试用/文档](https://theajack.gitee.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
+**<a href="/cnchar/assets/v2/guide/start.html">快速上手</a> | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
 
 ## 1. 前言
 
-感谢同学们对于 cnchar 的支持，由于 cnchar 词库来源于网络，虽然经过了本人的修改和扩充，但是还是难免有错误与缺漏之处，希望大家可以将使用中发现的错误与缺漏之处 [反馈](https://github.com/theajack/cnchar/issues/new) 给我（或自行修改提交，经过审查无误过后会合到 cnchar 中）
+感谢同学们对于 cnchar 的支持，由于 cnchar 词库来源于网络，虽然经过了本人的修改和扩充，但是还是难免有错误与缺漏之处，希望大家可以将使用中发现的错误与缺漏之处 [反馈](https://github.com/theajack/cnchar/issues/new) 给我或自行修改提交pr
 
 [我要反馈错误或缺漏](https://github.com/theajack/cnchar/issues/new)
 <!-- ![](../.vuepress/public/doc.gif) -->

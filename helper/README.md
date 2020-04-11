@@ -11,7 +11,7 @@
 <!--     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a> -->
 </p>
 
-### 🚀 好用小巧、功能全面的汉字拼音笔画 js 库
+### 🚀 功能全面、多端支持的汉字拼音笔画 js 库
 
 **<a href="#66-使用实例大全">快速上手</a> | [在线试用/文档](https://theajack.gitee.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
 

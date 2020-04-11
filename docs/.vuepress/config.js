@@ -9,8 +9,8 @@
 // 为了更好的理解，以下所有配置，注释，须配合查看页面实际效果！
 
 module.exports = {
-    title: 'Cnchar', // 标题
-    description: '好用小巧、功能全面的汉字拼音笔画js库', // 描述
+    title: 'cnchar', // 标题
+    description: '功能全面、多端支持的汉字拼音笔画js库', // 描述
     dest: './assets/v2', // 基本url
     base: '/cnchar/assets/v2/', // 基本url
     // 注入到当前页面的 HTML <head> 中的标签

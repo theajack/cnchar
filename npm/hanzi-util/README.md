@@ -1,6 +1,6 @@
 # [hanzi-util](https://github.com/theajack/cnchar)
 #### [theajack](https://www.theajack.com/)
-### 好用小巧、功能全面的汉字拼音笔画js库
+### 功能全面、多端支持的汉字拼音笔画js库
 [api详细文档地址](https://www.theajack.com/cnchar/)
 
 ----
