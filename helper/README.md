@@ -640,10 +640,10 @@ arg 参数信息如下：
 
 #### 6.5 strokeToWord 参数
 
-参数调用如下，所有 arg 参数都是可选的
+参数调用如下，count表示笔画数，所有 arg 参数都是可选的
 
 ```js
-cnchar.strokeToWord(spell,arg1,arg2,...);
+cnchar.strokeToWord(count,arg1,arg2,...);
 ```
 
 |  参数   |    作用    | 是否默认 |  依赖库   |   备注    |

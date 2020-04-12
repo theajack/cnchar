@@ -127,7 +127,7 @@ import cnchar from 'cnchar';
 | cnchar-poly  |    多音词库    |     含有识别多音词功能     |
 | cnchar-order |   笔画顺序库   |       含有识别笔画顺序、笔画名称、笔画形状等功能       |
 | cnchar-trad  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
-| cnchar-draw  |    绘制笔画库    | 指出可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
+| cnchar-draw  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
 
 ### 3 安装
 
@@ -647,13 +647,14 @@ arg 参数信息如下：
 |    参数     |      作用      | 是否默认 |   依赖库    |   备注    |
 | :---------: | :--------: | :------: | :---------: | :---: |
 |    match    |        匹配含有笔序中所有笔画的汉字        |    否    |     --      |  --  |
-| match-order | 匹配含有笔序中所有笔画的汉字前先后顺序一致 |    否    |     --      |  --  |
+| matchorder | 匹配含有笔序中所有笔画的汉字且先后顺序一致 |    否    |     --      |  --  |
 |   contain   |   匹配含有该笔序的汉字   |    否    |     --      |  --  |
 |    start    |         匹配所有以该笔序开头的汉字         |    否    |     --      |  --  |
 |    array    |   返回符合条件的数组，默认返回的是字符串   |    否    |     --      |  --  |
 |   simple    |   禁用繁体字   |    否    | cnchar-trad | 该参数仅在引入了 `cnchar-trad` 后有效 |
+|   trad    |   只查询繁体字   |    否    | cnchar-trad | 该参数仅在引入了 `cnchar-trad` 后有效 |
 
-关于匹配参数，优先级为 **match > match-order > contain > start > 默认**
+关于匹配参数，优先级为 **match > matchorder > contain > start > 默认**
 
 不含有匹配参数时表示使用全匹配，即汉字笔画数与传入的 orders 完全一致
 

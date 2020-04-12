@@ -9,14 +9,15 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 # 简介
 --------------------
 
-<!-- <p>
+<p>
     <a href="https://www.npmjs.com/package/cnchar"><img src="https://img.shields.io/npm/v/cnchar.svg" alt="Version"></a>
     <a href="https://npmcharts.com/compare/cnchar?minimal=true"><img src="https://img.shields.io/npm/dm/cnchar.svg" alt="Downloads"></a>
     <a href="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/cnchar.svg" alt="Size"></a>
     <a href="https://github.com/theajack/cnchar/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/cnchar.svg" alt="License"></a>
     <a href="https://github.com/theajack/cnchar/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/cnchar.svg" alt="TopLang"></a>
     <a href="https://github.com/theajack/cnchar/issues"><img src="https://img.shields.io/github/issues-closed/theajack/cnchar.svg" alt="issue"></a>
-</p> -->
+<!--     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a> -->
+</p>
 
 **cnchar 是一款功能全面、多端支持的汉字拼音笔画 js 库**
 
@@ -59,7 +60,7 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 | [cnchar-poly](/cnchar/assets/v2/doc/poly)  |    多音词库    |     含有识别多音词功能     |
 | [cnchar-order](/cnchar/assets/v2/doc/order) |   笔画顺序库   |       含有识别笔画顺序、笔画名称、笔画形状等功能       |
 | [cnchar-trad](/cnchar/assets/v2/doc/trad)  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
-| [cnchar-draw](/cnchar/assets/v2/doc/draw)  |    绘制笔画库    | 指出可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
+| [cnchar-draw](/cnchar/assets/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
 
  <!-- - [Github地址](https://github.com/theajack/cnchar)
  - [演示地址](https://1011cat.github.io)

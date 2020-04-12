@@ -3,7 +3,6 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import catButton from './components/catButton/catButton';
-import './element.css';
 
 const components = [
     catButton

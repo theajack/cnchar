@@ -6,18 +6,29 @@ import VueHighlightJS from 'vue-highlight.js';
 // 这里样式我选择的是atom-one-light；样式更多选择可以参见 https://highlightjs.org/static/demo/ 里的styles
 // 注意： 代码块的背景色 还是由官方设置的 $codeBgColor 决定的
 import 'highlight.js/styles/vs2015.css';
+// import 'highlight.js/styles/atom-one-dark.css';
+
 
 import '../../npm/all/cnchar.all.min.js';
 import 'easy-icon';
 
 // 引入自己的组件库
 import Cat from '../src/index';
+import '../src/style/element.css';
+import '../src/style/main.css';
+import '../../public/config';
+
+// import leancloud from 'leancloud-storage';
 
 // 你可以在这里引入自己定义的css样式，进行修改
 // import '../.vuepress/public/css/index.css'
 
 // 注意： 由于未知原因，如果引入的是iview不能放在下面export default里use，会失效，得单独放在外面
 // Vue.use(iview)
+
+// Use import
+
+// window.AV = leancloud;
 
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数

@@ -44,7 +44,7 @@
                 <div class='f-des'>cdn</div>
             </div>
         </div>
-        <div class='copy-right'>MIT Licensed | Copyright © 2020 present theajack</div>
+        <div class='copy-right'>MIT Licensed | Copyright © 2020 present <a href='https://www.github.com/theajack' target='view_window'>theajack</a></div>
     </div>
 </template>
 
@@ -153,6 +153,7 @@
         .copy-right{
             margin-top: 1rem;
             color: #aaa;
+            font-size: .8rem;
         }
         .start-w{
             max-width: 800px;

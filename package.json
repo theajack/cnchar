@@ -79,6 +79,7 @@
         }
     },
     "dependencies": {
-        "gulp-markdown-toc": "^1.1.0"
+        "gulp-markdown-toc": "^1.1.0",
+        "vuepress-plugin-comment": "^0.7.3"
     }
 }

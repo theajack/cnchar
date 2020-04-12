@@ -10,18 +10,20 @@
 </template>
 
 <script>
+    const jsbox = 'https://theajack.gitee.io/jsbox?theme=dark&remind=false';
+    const config = 'http://localhost:8081/config.js';
     export default {
         data () {
             return {
                 visible: false,
-                src: '',
+                id: '',
             };
         },
         methods: {
-            open (src = 'https://theajack.gitee.io/jsbox') {
-                if (this.src !== src) {
-                    this.src = src;
-                    this.$refs.container.src = 'https://theajack.gitee.io/jsbox';
+            open (id = 'spell') {
+                if (this.id !== id) {
+                    this.id = id;
+                    this.$refs.container.src = `${jsbox}&config=${encodeURIComponent(config)}&id=${id}`;
                 }
                 this.visible = true;
                 document.body.style.overflow = 'hidden';
@@ -50,6 +52,7 @@
             display: flex;
             align-items: center;
             padding: 0 5px;
+            background-color: #1e1e1e;
             .link{
                 margin-left: 5px;
             }
