@@ -62,11 +62,6 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 | [cnchar-trad](/cnchar/assets/v2/doc/trad)  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
 | [cnchar-draw](/cnchar/assets/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
 
- <!-- - [Github地址](https://github.com/theajack/cnchar)
- - [演示地址](https://1011cat.github.io)
- - [我的个人博客地址：shotcat.com](http://www.shotcat.com)
- - [我的掘金账户](https://juejin.im/user/59b7940d5188257e82675bc0) -->
-
- <baseComponent-star></baseComponent-star>
+<star></star>
 
 

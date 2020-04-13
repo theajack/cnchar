@@ -4,7 +4,12 @@ const {pickCnChar} = require('./util');
 const {buildLinesStr} = require('./line');
 const {stroke} = require('./stroke');
 
+let document = (typeof window === 'object') ? (window.document || null) : null;
+
 let svg = (() => {
+    if (!document) {
+        return null;
+    }
     return document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 })();
 
@@ -12,6 +17,7 @@ class Writer {
     constructor ({
         el = 'cnchar-draw',
         text = '',
+        clear = true,
         type = TYPE.NORMAL,
         style = {},
         line = {},
@@ -29,7 +35,10 @@ class Writer {
             case TYPE.TEST: opts.test = test; break;
         }
         this.option = merge(type, opts);
-        this.el = typeof el === 'string' ? document.getElementById(el) : el;
+        this.el = typeof el === 'string' ? document.querySelector(el) : el;
+        if (this.el && clear) {
+            this.el.innerHTML = '';
+        }
         if (!this.el) {
             this.el = document.createElement('div');
             document.body.appendChild(this.el);
@@ -43,17 +52,21 @@ class Writer {
         if (border) {
             svg.style.border = border;
         }
-        let cloneSvg = () => {
+        let cloneSvg = (option) => {
             let node = svg.cloneNode();
-            if (lineHTML)
+            if (lineHTML) {
                 node.innerHTML = lineHTML;
+            }
+            if (option.backgroundColor) {
+                node.style.backgroundColor = option.backgroundColor;
+            }
             return node;
         };
         if (this.type === TYPE.STROKE) {
             stroke(this, cloneSvg);
         } else {
             this.text.forEach((v) => {
-                let node = cloneSvg();
+                let node = cloneSvg(this.option);
                 this.writers.push(HanziWriter.create(node, v, this.option));
                 this.el.appendChild(node);
             });
@@ -160,6 +173,10 @@ class Writer {
 
 // eslint-disable-next-line no-unused-vars
 function draw (text = '', options = {}) {
+    if (typeof window === 'undefined') {
+        console.error('Draw 方法仅支持在浏览器环境下使用');
+        return null;
+    }
     text = pickCnChar(text);
     if (!text) {
         throw new Error('Draw 方法text必须含有中文');

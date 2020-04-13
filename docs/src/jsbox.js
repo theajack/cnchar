@@ -1,7 +1,6 @@
 import event from './event';
 let jsbox = null;
 const url = 'https://theajack.gitee.io/jsbox?theme=dark&remind=false';
-const config = 'http://localhost:8081/config.js';
 
 function main () {
     if (jsbox !== null) {
@@ -23,6 +22,7 @@ function main () {
     function id (_id = '') {
         if (jsbox._id !== _id) {
             jsbox._id = _id;
+            const config = (location.host.indexOf('localhost') !== -1) ? 'http://localhost:8080/config.js' : 'https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/config.js';
             jsbox.url = `${url}&config=${encodeURIComponent(config)}&id=${_id}`;
             iframe.src = jsbox.url;
         }
@@ -43,6 +43,7 @@ function main () {
         code,
         id
     };
+    return jsbox;
 }
 
 function hackConsole () {
@@ -119,6 +120,4 @@ function initStyle () {
     document.head.appendChild(style);
 }
 
-main();
-
-export default jsbox;
+export default main;

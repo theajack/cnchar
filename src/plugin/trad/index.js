@@ -6,7 +6,7 @@ var orderDict = require( './stroke-order-fan.json');
 
 var convert = require( './converter');
 let arg = {
-    simple: 'simple', array: 'array', order: 'order' // 开启简单模式
+    trad: 'trad', simple: 'simple', array: 'array', order: 'order' // 开启简单模式
 };
 let _ = {};// 工具方法
 
@@ -19,6 +19,8 @@ function main (cnchar) {
     let _p = String.prototype;
     cnchar.type.spell.simple = arg.simple;
     cnchar.type.stroke.simple = arg.simple;
+    cnchar.type.spell.trad = arg.trad;
+    cnchar.type.stroke.trad = arg.trad;
     reinitSpell(_p, cnchar);
     reinitStroke(_p, cnchar);
     // _p.convert = function(to,from){return convert(this,to,from);}
@@ -50,9 +52,29 @@ function reinitSpell (proto, cnchar) {
     let newSpell = function (...args) {
         let str = args[0];
         args = args.splice(1);
-        if (!_.has(args, arg.simple)) { // 默认繁体模式
-            str = convert.tradToSimple(str);
+        if (_.has(args, arg.simple)) {
+            return _spell(str, ...args);
         }
+        if (_.has(args, arg.trad)) {
+            let isArr = _.has(args, arg.array);
+            if (!isArr) {args.push(arg.array);}// 先使用array模式
+            let simpleStr = convert.tradToSimple(str);
+            let simples = [];
+            let newStr = ''; // 提取出繁体字的简体
+            for (let i = 0; i < simpleStr.length; i++) {
+                if (simpleStr[i] !== str[i]) {
+                    newStr += simpleStr[i];
+                } else {
+                    simples.push({index: i, str: str[i]});
+                }
+            }
+            let res = _spell(newStr, ...args);
+            for (let i = 0; i < simples.length; i++) {
+                res.splice(simples[i].index, 0, simples[i].str);
+            }
+            return (isArr) ? res : res.join('');
+        }
+        str = convert.tradToSimple(str);
         return _spell(str, ...args);
     };
     proto.spell = function (...args) {
@@ -84,6 +106,13 @@ function reinitStroke (proto, cnchar) {
             if (_.has(args, arg.simple)) { // 启用简单模式则 直接返回
                 return (isArr) ? res : _.sumStroke(res);
             }
+            if (_.has(args, arg.trad)) {
+                for (var j = 0; j < res.length; j++) {
+                    if (res[j] !== 0) {
+                        res[j] = -1;
+                    }
+                }
+            }
             for (var i = 0; i < countDict.length; i++) {
                 for (var j = 0; j < res.length; j++) {
                     if (res[j] === 0 && countDict[i].indexOf(str[j]) !== -1) {
@@ -91,21 +120,31 @@ function reinitStroke (proto, cnchar) {
                     }
                 }
             }
+            if (_.has(args, arg.trad)) {
+                for (var j = 0; j < res.length; j++) {
+                    if (res[j] === -1) {
+                        res[j] = 0;
+                    }
+                }
+            }
             return (isArr) ? res : _.sumStroke(res);
         } else { // strokeOrder 方法
             if (_.has(args, arg.simple)) { // 启用简单模式则 直接返回
                 return res;
-            } else { // 将其中的繁体字获取 strokeOrder
-                let igList = [];
-                for (var i = 0; i < res.length; i++) {
-                    if (typeof res[i] === 'undefined') {
-                        res[i] = orderDict[str[i]]; // 字母版笔画表
-                    } else {
-                        igList.push(i);
-                    }
-                }
-                return _.orderWithLetters(res, str, args, igList);
             }
+            if (_.has(args, arg.trad)) { // 只使用繁体字
+
+            }
+            // 将其中的繁体字获取 strokeOrder
+            let igList = [];
+            for (var i = 0; i < res.length; i++) {
+                if (typeof res[i] === 'undefined') {
+                    res[i] = orderDict[str[i]]; // 字母版笔画表
+                } else {
+                    igList.push(i);
+                }
+            }
+            return _.orderWithLetters(res, str, args, igList);
         }
     };
     proto.stroke = function (...args) {
@@ -122,5 +161,6 @@ function reinitStroke (proto, cnchar) {
         }; ;
     }
 }
+
 init();
 module.exports = init;

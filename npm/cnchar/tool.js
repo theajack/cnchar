@@ -319,8 +319,9 @@ function checkArgs(type, args, jumpNext) {
     }
   };
 
-  if (_cnchar.plugins.indexOf('trad') === -1 && has(args, 'simple')) {
-    ignore.push('simple');
+  if (_cnchar.plugins.indexOf('trad') === -1) {
+    if (has(args, 'simple')) ignore.push('simple');
+    if (has(args, 'trad')) ignore.push('trad');
   }
 
   if (type === 'spell') {

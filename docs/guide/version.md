@@ -62,7 +62,16 @@
 3. 使用vuepress构建文档，工程化重构文档
 4. 使用gulp-markdown-toc
 
-## 2.1.1 *doing
+## 2.1.1
+1. 修复cnchar-all依赖的bug
+
+## 2.1.2
 1. 增加draw背景色设置
 2. 修正几个多音词
 3. 统一 trad 和 simple 参数
+4. 移除了一字和三字的繁体（应该是大写不是繁体）
+   
+## 2.1.3
+1. draw库增加clear参数，表示绘制前是否清空容器
+2. draw库将backgroundColor参数默认值改为#fff
+3. draw库将el参数改为支持css选择器或dom

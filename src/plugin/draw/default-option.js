@@ -15,9 +15,11 @@ let Option = {
     showOutline: true,
     showCharacter: true,
     currentColor: '#b44',
+    clear: true,
     length: 60,
     padding: 5, // 数值, 默认 20。 画布的汉字和边缘之间的填充
     outlineColor: '#ddd', // 十六进制字符, 默认 '#DDD'。
+    backgroundColor: '#fff',
     strokeColor: '#555', // 十六进制字符, 默认 '#555'。绘制每个笔划的颜色。
     radicalColor: null, // 十六进制字符, 默认 null。 如果存在偏旁部首数据，则在笔划中绘制偏旁部首的颜色。 如果没有设置，激光将绘制与其他笔划相同的颜色。
     

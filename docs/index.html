@@ -1,240 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="keywords" content="汉字,拼音,笔画数">
-    <meta name="description" content="获取汉字的拼音和笔画数的js库">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=8">
-
-    <title>cnchar.js by theajack</title>
-    <link rel="icon" href="./assets/v1/images/i.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="./assets/v1/css/index.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/v1/css/use-part.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>cnchar</title>
+    <meta name="description" content="功能全面、多端支持的汉字拼音笔画js库">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/assets/v1/images/i.ico">
+    
+    <link rel="preload" href="/cnchar/assets/css/0.styles.0b7d8c5e.css" as="style"><link rel="preload" href="/cnchar/assets/js/app.6c180d28.js" as="script"><link rel="preload" href="/cnchar/assets/js/2.338d50e2.js" as="script"><link rel="preload" href="/cnchar/assets/js/8.716a2d5f.js" as="script"><link rel="preload" href="/cnchar/assets/js/4.803cde81.js" as="script"><link rel="prefetch" href="/cnchar/assets/js/10.6983a4ff.js"><link rel="prefetch" href="/cnchar/assets/js/11.94c125ca.js"><link rel="prefetch" href="/cnchar/assets/js/12.9efd22de.js"><link rel="prefetch" href="/cnchar/assets/js/13.1d748f12.js"><link rel="prefetch" href="/cnchar/assets/js/14.92555999.js"><link rel="prefetch" href="/cnchar/assets/js/15.5320422e.js"><link rel="prefetch" href="/cnchar/assets/js/16.c77f70e0.js"><link rel="prefetch" href="/cnchar/assets/js/17.01fbc09e.js"><link rel="prefetch" href="/cnchar/assets/js/18.b6c135fb.js"><link rel="prefetch" href="/cnchar/assets/js/19.421f793f.js"><link rel="prefetch" href="/cnchar/assets/js/20.4c918771.js"><link rel="prefetch" href="/cnchar/assets/js/21.8c24635f.js"><link rel="prefetch" href="/cnchar/assets/js/3.2c7a4c6e.js"><link rel="prefetch" href="/cnchar/assets/js/5.af5c9155.js"><link rel="prefetch" href="/cnchar/assets/js/6.37ec8c51.js"><link rel="prefetch" href="/cnchar/assets/js/7.576e924c.js"><link rel="prefetch" href="/cnchar/assets/js/9.5b3a4467.js">
+    <link rel="stylesheet" href="/cnchar/assets/css/0.styles.0b7d8c5e.css">
   </head>
-
   <body>
-    <!--header-->
-    <div id="header">
-      <div id="title">cnchar.js</div>
-      <div id="smallTitle">功能全面、多端支持的汉字繁体字拼音笔画js库</div>
-      <a id='viewProjectLink' target="_blank" href="https://github.com/theajack/cnchar">
-        <div id="viewProject" class="border-btn">View project on github</div>
-      </a>
-      <div>
-        <input placeholder="请输入汉字尝试一下" id='tryInput' value='正在加载cnchar...' readonly class='unloaded' type="text">
-      </div>
-      <div id='tryResult'>
-        <div id='spell'></div>
-        <div id='stroke'></div>
-        <div id='trad'></div>
-        <div id='spark'></div>
-        <div id='strokeOrder'></div>
-        <div id='draw'></div>
-      </div>
-    </div>
-    <!-- <div id="usePart" class="bg-gray2 text-black part clearfix">
-      <div class="part-title">快速使用</div>
-      <div id='useList'>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-        <span class='api-use-item'>汉字<span class="glyphicon glyphicon-arrow-right"></span>拼音</span>
-      </div>
-    </div>
-    <div id='runAPI'>
-    </div> -->
-    <!--intro-->
-    <div id="introPart" class="bg-gray text-black part clearfix">
-      <div class="part-title">功能</div>
-      <div class="func-item">
-        <img class="func-img" src="./assets/v1/images/pin.png" />
-        <div class="func-text">拼音|音调</div>
-      </div>
-      <div class="func-item">
-        <img class="func-img" src="./assets/v1/images/duo.png" />
-        <div class="func-text">多音字|词</div>
-      </div>
-      <div class="func-item">
-        <img class="func-img" src="./assets/v1/images/bi.png" />
-        <div class="func-text">笔画数|笔序</div>
-      </div>
-      <div class="func-item">
-        <img class="func-img" src="./assets/v1/images/fan.png" />
-        <div class="func-text">繁体字|火星文</div>
-      </div>
-    </div>
-    <!--download-->
-    <div id="downloadPart" class="bg-dark text-white part">
-      <div class="part-title">安装使用</div>
-      <pre class='demo-code'>import cnchar from 'cnchar';
-'汉字'.spell();
-'汉字'.stroke();</pre>
-      <pre class='demo-code'>&lt;script src="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js">&lt;/script>
-&lt;script>
-    '汉字'.spell();
-    '汉字'.stroke();
-&lt;/script></pre>
-      <!-- <div class="part-title small font-size-bigger">1.script 标签方式引入</div>
-        <div class="part-title small">引用： &lt;script src="https://www.theajack.com/cnchar/cnchar.min.js"&gt;&lt;/script&gt;</div>
-        <div class="part-title small font-size-bigger">2.npm 方式安装</div>
-        <div class="part-title small">安装: npm install cnchar</div>
-        <div class="part-title small">使用: import CnChar from 'cnchar' 或 const CnChar = require('cnchar')</div> -->
-      <!-- <div id="copyBtn" class="border-btn mb-install" onclick="J.open('cnchar.2.0.4.min.js')">复制源码</div> -->
-      <div id="copyBtn" class="border-btn mb-install"
-        onclick="J.open('https://github.com/theajack/cnchar#user-content-cnchar')">点我查看详细</div>
-    </div>
-    </div>
-    <!--api-->
-    <div id="apiPart" class="bg-gray part clearfix">
-      <div class="part-title text-black relative">简单使用</div>
-      <div class="api-item">
-        <div class="api-item-title">.spell()</div>
-        <div class="api-item-text">获取汉字完整拼音</div>
-        <div class="api-content-wrapper">
-          <div class="api-content clearfix">
-            "测试".spell()
-            <span class="api-content-result" onclick="this.txt('测试'.spell())">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell("up")
-            <span class="api-content-result" onclick="this.txt('测试'.spell('up'))">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell("low")
-            <span class="api-content-result" onclick="this.txt('测试'.spell('low'))">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell("array")
-            <span class="api-content-result" onclick="this.txt('测试'.spell('array'))">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell("array","up")
-            <span class="api-content-result" onclick="this.txt('测试'.spell('array','up'))">查看</span>
-          </div>
-          <div class="api-item-text">非汉字会返回原字符串</div>
-        </div>
-        <div class="api-test-wrapper">
-          <div class="api-item-ltitle">尝试一下</div>
-          <input type="text" class="api-test-input" placeholder="请输入汉字" />
-          <span class="api-test-btn" onclick="this.prev().val(this.prev().val().spell())">获取</span>
-        </div>
-      </div>
-      <div class="api-item">
-        <div class="api-item-title">.spell('first')</div>
-        <div class="api-item-text">获取汉字拼音首字母</div>
-        <div class="api-content-wrapper">
-          <div class="api-content clearfix">
-            "测试".spell('first')
-            <span class="api-content-result" onclick="this.txt('测试'.spell('first'))">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell('first','low')
-            <span class="api-content-result" onclick="this.txt('测试'.spell('first','low'))">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell("array",'first',"up")
-            <span class="api-content-result" onclick="this.txt('测试'.spell('array','first','up'))">查看</span>
-          </div>
-          <div style="height:1px"></div>
-          <div class="api-item-text">非汉字会返回原字符串</div>
-        </div>
-        <div class="api-test-wrapper">
-          <div class="api-item-ltitle">尝试一下</div>
-          <input type="text" class="api-test-input" placeholder="请输入汉字" />
-          <span class="api-test-btn" onclick="this.prev().val(this.prev().val().spell('first'))">获取</span>
-        </div>
-      </div>
-      <div class="api-item">
-        <div class="api-item-title">.stroke()</div>
-        <div class="api-item-text">获取汉字笔画数</div>
-
-        <div class="api-content-wrapper">
-          <!-- <div class="api-item-ltitle">如何使用</div> -->
-          <div class="api-content clearfix">
-            "测试".stroke()
-            <span class="api-content-result" onclick="this.txt('测试'.stroke())">查看</span>
-          </div>
-          <div class="api-item-text">非汉字会返回原字符串长度</div>
-        </div>
-        <div class="api-test-wrapper">
-          <div class="api-item-ltitle">尝试一下</div>
-          <input type="text" class="api-test-input" placeholder="请输入汉字" />
-          <span class="api-test-btn" onclick="this.prev().val(this.prev().val().stroke())">获取</span>
-        </div>
-      </div>
-    </div>
-    <!--relate-->
-    <div id="relatePart" class="bg-dark text-white part ">
-      <div class="part-title hassmall">友情链接</div>
-      <div class="part-title small">(欢迎访问)</div>
-      <div id="tjLinks">
-      </div>
-    </div>
-    <!--footer-->
-    <div id="footer" class="bg-black text-white part">
-      <div id="footerLink">
-        <span class="link" onclick="J.open('https://github.com/theajack')">GitHub</span>
-        <span class="split-icon">|</span>
-        <span class="link"
-          onclick="J.open('http://weibo.com/p/1005055304330572/home?from=page_100505&mod=TAB&is_all=1')">Sina
-          Micro-blog</span>
-        <span class="split-icon">|</span>
-
-        <span class="wechat-public d-hide" onclick="this.child(0).fadeToggle()">
-          WeChat Official Accounts
-          <img class="wechat-img" src="./assets/v1/images/wechat_qrcode.jpg" />
-        </span>
-        <span class="split-icon d-hide">|</span>
-
-        Email:theajack@qq.com
-        <span class="split-icon d-hide">|</span>
-        <span class="link d-hide" onclick="J.open('https://www.theajack.com')">theajack.com</span>
-        <div class=" d-show">
-          <span class="wechat-public" onclick="this.child(0).fadeToggle()">
-            WeChat Official Accounts
-            <img class="wechat-img" src="./assets/v1/images/wechat_qrcode.jpg" />
-          </span>
-          <span class="split-icon">|</span>
-          <span class="link" onclick="J.open('https://www.theajack.com')">theajack.com</span>
-        </div>
-      </div>
-      <div id="copyright">
-        <span class="glyphicon glyphicon-copyright-mark"></span> <span id='_year'>20xx</span> TheaJack All rights reserved
-      </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/gh/theajack/theajack.github.com/assets/js/jetter.min.js"></script>
-    <script src="./assets/v1/js/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js" onload='loaded()'></script>
-    <!-- <script src="https://www.theajack.com/cnchar/dist/cnchar.latest.min.js"></script>
-    <script src="https://www.theajack.com/cnchar/dist/cnchar.order.latest.min.js"></script>
-    <script src="https://www.theajack.com/cnchar/dist/cnchar.poly.latest.min.js"></script>
-    <script src="https://www.theajack.com/cnchar/dist/cnchar.trad.latest.min.js" onload='loaded()'></script> -->
-    <script src="./assets/v1/js/run.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/theajack/theajack.github.com/assets/js/link.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/theajack/theajack.github.com/assets/js/logo.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/theajack/theajack.github.com/assets/js/log.js"></script>
-    <!--<script type="text/javascript" name="cnchar.js" src="https://www.theajack.com/assets/js/stat.js"></script>-->
-    <script>
-      var _mtac = {};
-      (function () {
-        var mta = document.createElement("script");
-        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
-        mta.setAttribute("name", "MTAH5");
-        mta.setAttribute("sid", "500700068");
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(mta, s);
-      })();
-    </script>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/cnchar/" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">cnchar</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/cnchar/" class="nav-link router-link-exact-active router-link-active">
+  主页
+</a></div><div class="nav-item"><a href="/cnchar/guide/" class="nav-link">
+  使用说明
+</a></div><div class="nav-item"><a href="https://www.github.com/theajack/cnchar" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cnchar/doc/cnchar.html" class="nav-link">
+  cnchar
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/poly.html" class="nav-link">
+  cnchar-poly
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/order.html" class="nav-link">
+  cnchar-order
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/trad.html" class="nav-link">
+  cnchar-trad
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/draw.html" class="nav-link">
+  cnchar-draw
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="关于作者" class="dropdown-title"><span class="title">关于作者</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.github.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://www.gitee.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/yanxiaomu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN账号
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/cnchar/" class="nav-link router-link-exact-active router-link-active">
+  主页
+</a></div><div class="nav-item"><a href="/cnchar/guide/" class="nav-link">
+  使用说明
+</a></div><div class="nav-item"><a href="https://www.github.com/theajack/cnchar" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cnchar/doc/cnchar.html" class="nav-link">
+  cnchar
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/poly.html" class="nav-link">
+  cnchar-poly
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/order.html" class="nav-link">
+  cnchar-order
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/trad.html" class="nav-link">
+  cnchar-trad
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/doc/draw.html" class="nav-link">
+  cnchar-draw
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="关于作者" class="dropdown-title"><span class="title">关于作者</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.github.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://www.gitee.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/yanxiaomu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN账号
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><p><div class="home-wrapper"><div><img src="/cnchar/assets/img/logo.6cd28633.png" alt srcset class="logo"></div> <div class="title">cnchar</div> <div class="desc">功能全面、多端支持的汉字拼音笔画js库</div> <div class="test"><div class="test-input el-input"><!----><input type="text" autocomplete="off" placeholder="输入一些汉字试试" class="el-input__inner"><!----><!----><!----><!----></div> <div class="show-area" style="display:none;"><div> <span class="split">|</span> 共笔</div> <div>繁体:  <span class="split">|</span> 火星文: </div> <div>笔顺: </div> <div id="draw-area"></div></div></div> <div class="start-w"><button type="button" class="el-button el-button--primary"><!----><!----><span>开始 <i class="ei-location-arrow"></i></span></button></div> <div class="feature-w"><div class="f-i"><div class="f-t"><i class="ei-rocket"></i>功能全面</div> <div class="f-des">拼音、笔画数</div> <div class="f-des">多音字词</div> <div class="f-des">繁体字、火星文</div> <div class="f-des">汉字笔顺</div> <div class="f-des">多种模式绘制汉字</div> <div class="f-des">汉字推算</div> <div class="f-des">...</div></div> <div class="f-i"><div class="f-t"><i class="ei-tablet"></i>多端支持</div> <div class="f-des">浏览器</div> <div class="f-des">nodejs</div> <div class="f-des">小程序/小游戏</div> <div class="f-des">ReactNative/Weex/Uniapp/Electron</div> <div class="f-des">webpack</div> <div class="f-des">typescript支持</div> <div class="f-des">...</div></div> <div class="f-i"><div class="f-t"><i class="ei-cubes"></i>按需取用</div> <div class="f-des">功能分包</div> <div class="f-des">体积小巧</div> <div class="f-des">简单易用</div> <div class="f-des">npm</div> <div class="f-des">cdn</div></div></div> <div class="copy-right">MIT Licensed | Copyright © 2020 present <a href="https://www.github.com/theajack" target="view_window">theajack</a></div></div></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新于:</span> <span class="time">4/13/2020, 11:40:47 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><div></div></div></div>
+    <script src="/cnchar/assets/js/app.6c180d28.js" defer></script><script src="/cnchar/assets/js/2.338d50e2.js" defer></script><script src="/cnchar/assets/js/8.716a2d5f.js" defer></script><script src="/cnchar/assets/js/4.803cde81.js" defer></script>
   </body>
 </html>

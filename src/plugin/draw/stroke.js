@@ -23,7 +23,7 @@ function stroke (writer, cloneSvg) {
 
 function renderFanningStrokes ({option, target, strokes, radStrokes, cloneSvg, current, width}) {
     let radicalColor = (radStrokes.length > 0 && option.radicalColor) ? option.radicalColor : null;
-    var svg = cloneSvg();
+    var svg = cloneSvg(option);
     target.appendChild(svg);
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   

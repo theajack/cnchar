@@ -1,5 +1,8 @@
 <template>
     <div class='home-wrapper'>
+        <div>
+            <img class='logo' src='../../images/logo.png' alt='' srcset=''>
+        </div>
         <div class='title'>cnchar</div>
         <div class='desc'>功能全面、多端支持的汉字拼音笔画js库</div>
         <div class='test'>
@@ -90,8 +93,17 @@
                 return v;
             },
             start () {
-                window.location.href = '/cnchar/assets/v2/guide/';
+                window.location.href = '/cnchar/guide/';
             }
+        },
+        mounted () {
+            let timer = setInterval(() => {
+                let comment = document.getElementById('vcomments');
+                if (comment) {
+                    comment.className += ' home-comment';
+                    clearInterval(timer);
+                }
+            }, 500);
         }
     };
 </script>
@@ -99,6 +111,10 @@
 <style lang="less">
     .home-wrapper{
         text-align: center;
+        img.logo{
+            width: 100%;
+            max-width: 240px;
+        }
         .title{
             font-weight: bold;
             font-family: Microsoft Yahei;
@@ -112,7 +128,7 @@
             margin: 1.4rem 0;
         }
         .test-input{
-            max-width:500px;
+            max-width:800px;
             font-size: 1.1rem;
             .el-input__inner{
                 text-align: center;
@@ -131,7 +147,7 @@
         .feature-w{
             display: flex;
             justify-content: center;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             .f-i{
                 align-items: center;
@@ -146,20 +162,24 @@
                     }
                 }
                 .f-des{
-                   line-height: 1.4rem;
+                   line-height: 1.6rem;
                 }
             }
         }
         .copy-right{
             margin-top: 1rem;
             color: #aaa;
-            font-size: .8rem;
+            font-size: 0.9rem;
         }
         .start-w{
-            max-width: 800px;
+            max-width: 1000px;
             padding: 1.5rem 0;
             border-top: 1px solid #eee;
             margin: 0 auto;
+        }
+        .el-button{
+            font-size: 1rem;
+            padding: 0.8rem 1.2rem;
         }
     }
 </style>

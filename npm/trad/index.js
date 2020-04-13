@@ -23,6 +23,7 @@ var orderDict = require('./stroke-order-fan.json'); // 简-烦 一对多
 var convert = require('./converter');
 
 var arg = {
+  trad: 'trad',
   simple: 'simple',
   array: 'array',
   order: 'order' // 开启简单模式
@@ -40,6 +41,8 @@ function main(cnchar) {
   var _p = String.prototype;
   cnchar.type.spell.simple = arg.simple;
   cnchar.type.stroke.simple = arg.simple;
+  cnchar.type.spell.trad = arg.trad;
+  cnchar.type.stroke.trad = arg.trad;
   reinitSpell(_p, cnchar);
   reinitStroke(_p, cnchar); // _p.convert = function(to,from){return convert(this,to,from);}
 
@@ -101,11 +104,43 @@ function reinitSpell(proto, cnchar) {
     var str = args[0];
     args = args.splice(1);
 
-    if (!_.has(args, arg.simple)) {
-      // 默认繁体模式
-      str = convert.tradToSimple(str);
+    if (_.has(args, arg.simple)) {
+      return _spell.apply(void 0, [str].concat(_toConsumableArray(args)));
     }
 
+    if (_.has(args, arg.trad)) {
+      var isArr = _.has(args, arg.array);
+
+      if (!isArr) {
+        args.push(arg.array);
+      } // 先使用array模式
+
+
+      var simpleStr = convert.tradToSimple(str);
+      var simples = [];
+      var newStr = ''; // 提取出繁体字的简体
+
+      for (var i = 0; i < simpleStr.length; i++) {
+        if (simpleStr[i] !== str[i]) {
+          newStr += simpleStr[i];
+        } else {
+          simples.push({
+            index: i,
+            str: str[i]
+          });
+        }
+      }
+
+      var res = _spell.apply(void 0, [newStr].concat(_toConsumableArray(args)));
+
+      for (var _i = 0; _i < simples.length; _i++) {
+        res.splice(simples[_i].index, 0, simples[_i].str);
+      }
+
+      return isArr ? res : res.join('');
+    }
+
+    str = convert.tradToSimple(str);
     return _spell.apply(void 0, [str].concat(_toConsumableArray(args)));
   };
 
@@ -174,10 +209,26 @@ function reinitStroke(proto, cnchar) {
         return isArr ? res : _.sumStroke(res);
       }
 
+      if (_.has(args, arg.trad)) {
+        for (var j = 0; j < res.length; j++) {
+          if (res[j] !== 0) {
+            res[j] = -1;
+          }
+        }
+      }
+
       for (var i = 0; i < countDict.length; i++) {
         for (var j = 0; j < res.length; j++) {
           if (res[j] === 0 && countDict[i].indexOf(str[j]) !== -1) {
             res[j] = i;
+          }
+        }
+      }
+
+      if (_.has(args, arg.trad)) {
+        for (var j = 0; j < res.length; j++) {
+          if (res[j] === -1) {
+            res[j] = 0;
           }
         }
       }
@@ -188,20 +239,23 @@ function reinitStroke(proto, cnchar) {
       if (_.has(args, arg.simple)) {
         // 启用简单模式则 直接返回
         return res;
-      } else {
-        // 将其中的繁体字获取 strokeOrder
-        var igList = [];
-
-        for (var i = 0; i < res.length; i++) {
-          if (typeof res[i] === 'undefined') {
-            res[i] = orderDict[str[i]]; // 字母版笔画表
-          } else {
-            igList.push(i);
-          }
-        }
-
-        return _.orderWithLetters(res, str, args, igList);
       }
+
+      if (_.has(args, arg.trad)) {} // 只使用繁体字
+      // 将其中的繁体字获取 strokeOrder
+
+
+      var igList = [];
+
+      for (var i = 0; i < res.length; i++) {
+        if (typeof res[i] === 'undefined') {
+          res[i] = orderDict[str[i]]; // 字母版笔画表
+        } else {
+          igList.push(i);
+        }
+      }
+
+      return _.orderWithLetters(res, str, args, igList);
     }
   };
 

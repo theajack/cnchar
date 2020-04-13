@@ -246,9 +246,11 @@ draw 的参数比较繁多，首先需要理解的是，draw 分为四种绘制�
 
 ```ts
 declare interface DrawOption {
-    el?: string | HTMLElement; // 绘制的容器，支持id和dom，若是不填，会在body后append一个dom作为容器
+    el?: string | HTMLElement; // 绘制的容器，支持选择器或dom，若是不填，会在body后append一个dom作为容器
     type?: DrawType; // 绘制模式，默认为normal
+    clear?: boolean; // 绘制前是否清空容器 默认为true
     style?: { // 样式类
+        backgroundColor?: string, // 默认为#fff
         showOutline?: boolean;//: true,
         showCharacter?: boolean;//: true,
         currentColor?: string;//: '#b44', // 仅在stroke模式下有效

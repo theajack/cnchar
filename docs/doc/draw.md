@@ -58,7 +58,7 @@ cnchar.draw('你好', options); // options 为可选参数
   </highlight-code>
 </div>
 
-以下是 options 的所有可选参数及描述，具体使用请参考下面章节的实例
+以下是 options 的所有可选参数及描述，具体使用可以在 [JSBox](https://theajack.gitee.io/jsbox?theme=dark&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Ftheajack%2Fcnchar%2Fdocs%2Fconfig.js&id=normal-draw) 上自行在线尝试
 
 <div>
   <highlight-code lang='typescript'>
@@ -121,16 +121,18 @@ declare interface DrawOption {
 
 当`type=stroke`时，笔顺模式启用，该模式会单笔绘制汉字的每一个笔划，并且为每一个笔划生成一个绘制块
 
-请看一些例子：
+<codebox id='stroke-draw'></codebox>
 
 ## 5. 动画绘制模式
 
 当`type=animation`时，动画模式启用，该模式会按笔顺用动画绘制每一个笔划
 
-请看一些例子：
+<codebox id='animation-draw'></codebox>
 
 ## 6. 测验模式
 
 当`type=test`时，测验模式启用，该模式用户可以在容器内绘制汉字，cnchar-draw会检测是否绘制正确
 
-请看一些例子：
+请用鼠标在绘制出的**测验**两个字上按顺序画上笔画
+
+<codebox id='test-draw'></codebox>

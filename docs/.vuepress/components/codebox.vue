@@ -27,9 +27,10 @@
 </template>
 
 <script>
-    import jsbox from '../../src/jsbox';
+    import initJSBox from '../../src/jsbox';
     import {copy, extractScript, execute} from '../../src/util';
     import event from '../../src/event';
+    let jsbox = null;
     export default {
         props: {
             id: {
@@ -69,6 +70,7 @@
             };
         },
         mounted () {
+            jsbox = initJSBox();
             this.localFold = this.fold;
             if (this.code) {
                 this.localCode = this.code;

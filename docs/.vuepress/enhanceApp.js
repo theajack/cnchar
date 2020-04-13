@@ -1,5 +1,8 @@
 // 扩展 VuePress 应用  第三方应用级别配置
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
 // vue代码高亮显示库 VueHighlightJS
 import VueHighlightJS from 'vue-highlight.js';
 
@@ -13,7 +16,6 @@ import '../../npm/all/cnchar.all.min.js';
 import 'easy-icon';
 
 // 引入自己的组件库
-import Cat from '../src/index';
 import '../src/style/element.css';
 import '../src/style/main.css';
 import '../../public/config';
@@ -38,5 +40,5 @@ export default ({
 }) => {
     // ...做一些其他的应用级别的优化
     Vue.use(VueHighlightJS);
-    Vue.use(Cat);
+    Vue.use(ElementUI);
 };

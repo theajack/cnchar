@@ -1,11 +1,11 @@
 import {Draw} from 'cnchar-draw';
 // import {Draw} from 'cnchar-draw';
 
-declare type spellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple';
-declare type strokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple';
-declare type orderToWordArg = 'match'  | 'matchorder' | 'contain' | 'start' | 'simple' | 'array';
-declare type spellToWordArg = 'simple'  | 'trad' | 'poly' | 'alltone' | 'array';
-declare type strokeToWordArg = 'simple'  | 'trad' | 'array';
+declare type spellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad';
+declare type strokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
+declare type orderToWordArg = 'match'  | 'matchorder' | 'contain' | 'start' | 'array' | 'simple' | 'trad';
+declare type spellToWordArg = 'poly' | 'alltone' | 'array' | 'simple' | 'trad';
+declare type strokeToWordArg = 'array' | 'simple' | 'trad';
 declare type pluginArg = 'order' | 'trad' | 'poly';
 declare type orderName = '横折折撇' | '竖弯' | '横折' | '撇点' | '横斜钩' | '横' | '捺' | '横折钩' | '竖' | '竖钩' | '点' | '撇' | '撇折' | '竖折撇' | '横折折折钩' | '竖折折钩' | '提' | '弯钩' | '斜钩' | '横折折' | '横撇' | '横折提' | '横折折折' | '竖提' | '竖弯钩'
     | '竖折折' | '横撇弯钩' | '卧钩' | '横折弯' | '横钩';

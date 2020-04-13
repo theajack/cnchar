@@ -1,11 +1,13 @@
-window.jsbox_config = {
+let version = '@2.1.3';
+
+var jsbox_config = {
     libs: {
-        'cnchar': 'https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js',
-        'poly': 'https://cdn.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js',
-        'order': 'https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js',
-        'trad': 'https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js',
-        'draw': 'https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js',
-        'all': 'https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js',
+        'cnchar': `https://cdn.jsdelivr.net/npm/cnchar${version}/cnchar.min.js`,
+        'poly': `https://cdn.jsdelivr.net/npm/cnchar-poly${version}/cnchar.poly.min.js`,
+        'order': `https://cdn.jsdelivr.net/npm/cnchar-order${version}/cnchar.order.min.js`,
+        'trad': `https://cdn.jsdelivr.net/npm/cnchar-trad${version}/cnchar.trad.min.js`,
+        'draw': `https://cdn.jsdelivr.net/npm/cnchar-draw${version}/cnchar.draw.min.js`,
+        'all': `https://cdn.jsdelivr.net/npm/cnchar-all${version}/cnchar.all.min.js`,
     },
     codes: { //
         'easy-use': {
@@ -191,20 +193,59 @@ console.log(char6);`,
         },
         'normal-draw': {
             lang: 'html',
-            code: /* html*/`
-            <div id='drawNormal'>111</div>
-            <script>
-                cnchar.draw('你好',{
-                    el: 'drawNormal',
-                    style:{
-                        
-                    }
-                })
-            </script>
-            `,
+            code: /* html*/`<div id='drawNormal'></div>
+<script>
+    cnchar.draw('你好',{
+        el: '#drawNormal'
+    })
+</script>`,
             dep: ['cnchar', 'draw'],
-            desc: '字体转换实例'
+            desc: '常规绘制模式示例'
         },
-        
+        'stroke-draw': {
+            lang: 'html',
+            code: /* html*/`<div id='drawStroke'></div>
+<script>
+    cnchar.draw('笔顺',{
+        el: '#drawStroke',
+        type: cnchar.draw.TYPE.STROKE
+    })
+</script>`,
+            dep: ['cnchar', 'draw'],
+            desc: '笔顺绘制模式示例'
+        },
+        'animation-draw': {
+            lang: 'html',
+            code: /* html*/`<div id='drawAnimation'></div>
+<script>
+    cnchar.draw('动画绘制',{
+        el: '#drawAnimation',
+        type: cnchar.draw.TYPE.ANIMATION,
+        animation:{
+            loopAnimate: true
+        }
+    })
+</script>`,
+            dep: ['cnchar', 'draw'],
+            desc: '动画绘制模式示例'
+        },
+        'test-draw': {
+            lang: 'html',
+            code: /* html*/`<div id='drawTest'></div>
+<script>
+    cnchar.draw('测验',{
+        el: '#drawTest',
+        type: cnchar.draw.TYPE.TEST
+    })
+</script>`,
+            dep: ['cnchar', 'draw'],
+            desc: '测验绘制模式示例'
+        },
     }
 };
+
+if (typeof window === 'object') {
+    window.jsbox_config = jsbox_config;
+} else {
+    module.exports = jsbox_config;
+}

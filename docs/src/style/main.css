@@ -1,4 +1,47 @@
 #vcomments{
+    width: 90%;
     max-width: 78%;
     margin: 0 auto;
+}
+#vcomments.home-comment{
+    max-width: 1000px;
+}
+html,body{
+    font-size: 16px!important;
+}
+@media (max-width: 600px){
+    html,body{
+        font-size: 12px!important;
+    }
+}
+
+@media (min-width: 1200px){
+    html,body{
+        font-size: 18px!important;
+    }
+}
+
+@media (min-width: 500px){
+    ::-webkit-scrollbar {
+        width:5px;
+        cursor: pointer;
+        height: 5px;
+    }
+    ::-webkit-scrollbar-button    {
+        display: none;
+    }
+    ::-webkit-scrollbar-track     {
+        display: none;
+    }
+    ::-webkit-scrollbar-track-piece {
+        background-color:#88888811;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color:#88888866;
+        cursor: pointer;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        background-color:#88888888;
+        cursor: pointer;
+    }
 }

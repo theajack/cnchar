@@ -1,21 +1,11 @@
-// 很多时候，我们引入自己的组件库，路径是不对的，
-// 这时就需要引入path，并在后面的chainWebpack进行配置
-// const path = require('path')
-// function resolve (dir) {
-//   return path.join(__dirname, '../../', dir)
-// }
-
-// -------------------！！！重要！！！！-----------------
-// 为了更好的理解，以下所有配置，注释，须配合查看页面实际效果！
-
 module.exports = {
     title: 'cnchar', // 标题
     description: '功能全面、多端支持的汉字拼音笔画js库', // 描述
-    dest: './assets/v2', // 基本url
-    base: '/cnchar/assets/v2/', // 基本url
+    dest: './docs/assets/v2', // 基本url
+    base: '/cnchar/',
     // 注入到当前页面的 HTML <head> 中的标签
     head: [
-        ['link', {rel: 'icon', href: '/favicon.png'}], // 增加一个自定义的 favicon
+        ['link', {rel: 'icon', href: 'https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/assets/v1/images/i.ico'}], // 增加一个自定义的 favicon
     ],
     // dest: './dist', //打包位置
     port: 6868, // 端口号 谐音流弊流弊
@@ -31,11 +21,11 @@ module.exports = {
                 text: '文档',
                 // 这里是下拉列表展现形式。
                 items: [
-                    {text: 'cnchar', link: '/doc/cnchar.html'},
-                    {text: 'cnchar-poly', link: '/doc/poly.html'},
-                    {text: 'cnchar-order', link: '/doc/order.html'},
-                    {text: 'cnchar-trad', link: '/doc/trad.html'},
-                    {text: 'cnchar-draw', link: '/doc/draw.html'},
+                    {text: 'cnchar', link: '/doc/cnchar'},
+                    {text: 'cnchar-poly', link: '/doc/poly'},
+                    {text: 'cnchar-order', link: '/doc/order'},
+                    {text: 'cnchar-trad', link: '/doc/trad'},
+                    {text: 'cnchar-draw', link: '/doc/draw'},
                 ],
             },
             {
@@ -83,74 +73,6 @@ module.exports = {
                     ],
                 },
             ],
-            // '/doc/poly/': [
-            //     {
-            //         title: 'cnchar-order [多音词]',
-            //         path: '',
-            //         collapsable: false,
-            //         children: [
-            //             {
-            //                 title: 'Button 按钮',
-            //                 path: 'catButton',
-            //             },
-            //         ],
-            //     },
-            //     {
-            //         title: '基础组件1',
-            //         path: './', // 和上面的基础组件对应，这里基础组件1则可以点击，展示对应的介绍和说明，则此处设置为'./'，它会默认解析当前文件夹下的README.md。具体效果请查看页面进行对比
-            //     },
-            // ],
-            // '/doc/order/': [
-            //     {
-            //         title: 'cnchar-order [笔画笔顺]',
-            //         path: '',
-            //         collapsable: false,
-            //         children: [
-            //             {
-            //                 title: 'Button 按钮',
-            //                 path: 'catButton',
-            //             },
-            //         ],
-            //     },
-            //     {
-            //         title: '基础组件1',
-            //         path: './', // 和上面的基础组件对应，这里基础组件1则可以点击，展示对应的介绍和说明，则此处设置为'./'，它会默认解析当前文件夹下的README.md。具体效果请查看页面进行对比
-            //     },
-            // ],
-            // '/doc/trad/': [
-            //     {
-            //         title: 'cnchar-trad [繁体字]',
-            //         path: '',
-            //         collapsable: false,
-            //         children: [
-            //             {
-            //                 title: 'Button 按钮',
-            //                 path: 'catButton',
-            //             },
-            //         ],
-            //     },
-            //     {
-            //         title: '基础组件1',
-            //         path: './', // 和上面的基础组件对应，这里基础组件1则可以点击，展示对应的介绍和说明，则此处设置为'./'，它会默认解析当前文件夹下的README.md。具体效果请查看页面进行对比
-            //     },
-            // ],
-            // '/doc/draw/': [
-            //     {
-            //         title: 'cnchar-draw [汉字绘制]',
-            //         path: '',
-            //         collapsable: false,
-            //         children: [
-            //             {
-            //                 title: 'Button 按钮',
-            //                 path: 'catButton',
-            //             },
-            //         ],
-            //     },
-            //     {
-            //         title: '基础组件1',
-            //         path: './', // 和上面的基础组件对应，这里基础组件1则可以点击，展示对应的介绍和说明，则此处设置为'./'，它会默认解析当前文件夹下的README.md。具体效果请查看页面进行对比
-            //     },
-            // ],
             '/guide/': [
                 {
                     title: '使用说明',

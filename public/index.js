@@ -3,6 +3,13 @@ import '../src/plugin/order';
 import '../src/plugin/trad';
 import '../src/plugin/poly';
 import cncharDraw from '../src/plugin/draw';
+
+// import cnchar from '../npm/cnchar';
+// import '../npm/order';
+// import '../npm/trad';
+// import '../npm/poly';
+// import cncharDraw from '../npm/draw';
+
 // import './plugin/draw'
 // console.log('1',cnchar)
 console.log(cnchar.stroke('一个', 'order'));
@@ -15,9 +22,11 @@ console.log(cnchar.strokeToWord(1));
 console.log('美好的地方'.spell('tone'));
 
 cncharDraw('你好', {
-    type: cncharDraw.TYPE.TEST,
+    type: cncharDraw.TYPE.NORMAL,
+    el: '#drawArea',
     style: {
-        radicalColor: '#44f'
+        radicalColor: '#44f',
+        backgroundColor: '#ccc'
     },
     animation: {
         animateComplete () {
@@ -32,6 +41,13 @@ cncharDraw('你好', {
             console.log(d);
         }
     }
+});
+cncharDraw('你好', {
+    type: cncharDraw.TYPE.STROKE,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee'
+    },
 });
 
 export default cnchar;
