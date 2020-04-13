@@ -77,4 +77,4 @@
 3. draw库将el参数改为支持css选择器或dom
 
 ## 2.1.4 doing
-1. 修复cnchar-all及库在非浏览器换
+1. 修复cnchar-all及cnchar-draw库在非浏览器环境会报错的bug

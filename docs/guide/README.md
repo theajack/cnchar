@@ -56,11 +56,11 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 
 |     名称     | 描述 |   功能   |
 | :----------: | :------------------------------: | :--------------------: |
-|    [cnchar](/cnchar/assets/v2/doc/cnchar)    | 主 js 库，其他三个库依赖于这个库 |       含有简体字拼音、多音字、音调、笔画数等功能       |
-| [cnchar-poly](/cnchar/assets/v2/doc/poly)  |    多音词库    |     含有识别多音词功能     |
-| [cnchar-order](/cnchar/assets/v2/doc/order) |   笔画顺序库   |       含有识别笔画顺序、笔画名称、笔画形状等功能       |
-| [cnchar-trad](/cnchar/assets/v2/doc/trad)  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
-| [cnchar-draw](/cnchar/assets/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
+|    [cnchar](/cnchar/v2/doc/cnchar)    | 主 js 库，其他三个库依赖于这个库 |       含有简体字拼音、多音字、音调、笔画数等功能       |
+| [cnchar-poly](/cnchar/v2/doc/poly)  |    多音词库    |     含有识别多音词功能     |
+| [cnchar-order](/cnchar/v2/doc/order) |   笔画顺序库   |       含有识别笔画顺序、笔画名称、笔画形状等功能       |
+| [cnchar-trad](/cnchar/v2/doc/trad)  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
+| [cnchar-draw](/cnchar/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
 
 <star></star>
 

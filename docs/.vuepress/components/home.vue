@@ -93,7 +93,7 @@
                 return v;
             },
             start () {
-                window.location.href = '/cnchar/guide/';
+                window.location.href = '/cnchar/v2/guide/';
             }
         },
         mounted () {
