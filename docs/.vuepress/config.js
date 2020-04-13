@@ -1,7 +1,7 @@
 module.exports = {
     title: 'cnchar', // 标题
     description: '功能全面、多端支持的汉字拼音笔画js库', // 描述
-    dest: './docs/assets/v2', // 基本url
+    dest: './docs/assets/v2/', // 基本url
     base: '/cnchar/',
     // 注入到当前页面的 HTML <head> 中的标签
     head: [
