@@ -5,15 +5,19 @@ cnchar包含了一个基本库和四个功能库，用于实现不同的功能�
 
 安装[主库](https://npmjs.com/package/cnchar)：
 
-```
+<div>
+  <highlight-code>
 npm i cnchar
-```
+  </highlight-code>
+</div>
 
 按需安装功能库：
 
-```
+<div>
+  <highlight-code>
 npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw
-```
+  </highlight-code>
+</div>
 
 浏览器环境中功能库可以直接使用：
 
@@ -73,9 +77,11 @@ commonjs 模块
 
 如果您需要使用cnchar及其插件的所有功能，可以通过安装`cnchar-all`来使用完整功能，这个库引用了上面的五个库
 
-```
+<div>
+  <highlight-code>
 npm i cnchar-all
-```
+  </highlight-code>
+</div>
 
 commonjs 模块
 
@@ -97,9 +103,11 @@ cdn方式
 
 cnchar 具有两个最核心的方法`spell` 和 `stroke`，分别用于获取汉字的拼音和笔画数：
 
-<codebox id='easy-use' title='spell/stroke'></codebox>
+<div>
+  <codebox id='easy-use' title='spell/stroke'></codebox>
+</div>
 
-这只是一个最简单的使用，这两个方法具有很多参数可选，具体请参阅 [cnchar]() 部分
+这只是一个最简单的使用，这两个方法具有很多参数可选，具体请参阅 [cnchar](/cnchar/v2/doc/cnchar) 部分
 
 <!-- <codebox title='spell' id='spell' desc='拼写测试测试2'></codebox> -->
 

@@ -6,9 +6,11 @@
 
 npm安装
 
-```
+<div>
+  <highlight-code>
 npm i cnchar-order
-```
+  </highlight-code>
+</div>
 
 cdn使用
 
@@ -47,7 +49,9 @@ cnchar.use(order); // use 在浏览器环境中非必须
 
 以下演示几个多音词的例子
 
-<codebox id='order' :format='true' :fold='true'></codebox>
+<div>
+  <codebox id='order' :format='true' :fold='true'></codebox>
+</div>
 
 笔划形状模式（shape）由于系统原因，某些形状字符在 ios和macos上无法显示
 
@@ -69,7 +73,9 @@ cnchar.orderToWord(orderNames[,...args]);
 
 以下是一个简单的使用实例：
 
-<codebox id='orderToWord' :fold='true'></codebox>
+<div>
+  <codebox id='orderToWord' :fold='true'></codebox>
+</div>
 
 ### 4.2 参数详情
 
@@ -105,7 +111,9 @@ arg 参数信息如下：
 
 orderNames 只需要传入笔画名称即可，也就是下面 json 数据的 key 值
 
-<codebox id='orders' :fold='true'></codebox>
+<div>
+  <codebox id='orders' :fold='true'></codebox>
+</div>
 
 注：其中以下五对笔画没有进行区分，使用的是同样的字母表示：
 **卧钩 = 斜钩**、**横折弯 = 横折折**、**横折折折钩 = 横撇弯钩**、**横撇 = 横钩**、**竖折折 = 竖折撇**

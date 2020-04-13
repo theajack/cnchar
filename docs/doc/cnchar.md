@@ -23,7 +23,9 @@ string.spell(arg1,arg2,...); // string prototype 调用
 
 以下是几个简单的例子：
 
-<codebox id='spell'></codebox>
+<div>
+  <codebox id='spell'></codebox>
+</div>
 
 ### 2.2. 参数说明
 
@@ -54,7 +56,9 @@ string.stroke(arg1,arg2,...); // string prototype 调用
 
 以下是几个简单的例子：
 
-<codebox id='stroke'></codebox>
+<div>
+  <codebox id='stroke'></codebox>
+</div>
 
 ### 2.2. 参数说明
 
@@ -93,7 +97,9 @@ spell 表示拼音，可以使用音调字母或音调数标方式：
 
 以下是几个简单的例子：
 
-<codebox id='spellToWord'></codebox>
+<div>
+  <codebox id='spellToWord'></codebox>
+</div>
 
 ### 4.2 参数信息
 
@@ -123,7 +129,9 @@ cnchar.strokeToWord(count,arg1,arg2,...);
 
 以下是几个简单的例子：
 
-<codebox id='strokeToWord'></codebox>
+<div>
+  <codebox id='strokeToWord'></codebox>
+</div>
 
 ### 5.2 参数信息
 
@@ -165,19 +173,25 @@ cnchar.spellInfo(spell);
 
 以下是一个简单的例子：
 
-<codebox id='spellInfo'></codebox>
+<div>
+  <codebox id='spellInfo'></codebox>
+</div>
 
 ### 6.2 声母
 
 `cnchar.spellInfo.initials` 方法用于获取所有的声母，用法如下：
 
-<codebox id='initials'></codebox>
+<div>
+  <codebox id='initials'></codebox>
+</div>
 
 ### 6.3 音调
 
 `cnchar.spellInfo.tones` 方法用于获取所有的音调，用法如下：
 
-<codebox id='tones'></codebox>
+<div>
+  <codebox id='tones'></codebox>
+</div>
 
 注：n 的一声使用 * 代替
 
@@ -223,7 +237,9 @@ import 'cnchar-draw';
 
 type 对象用户获取当前可用的 `spell` 、 `stroke` 、 `orderToWord` 、`spellToWord`、`strokeToWord` 参数类型：
 
-<codebox id='type'></codebox>
+<div>
+  <codebox id='type'></codebox>
+</div>
 
 ### 7.3 .check
 
@@ -241,12 +257,16 @@ cnchar.check = false; // 关闭参数校验
 
 获取当前版本：
 
-<codebox id='version'></codebox>
+<div>
+  <codebox id='version'></codebox>
+</div>
 
 
 ### 7.5 .plugins
 
 当前使用的功能库列表，最多的情况为 `["order", "trad", "poly", "draw"]`
 
-<codebox id='plugins'></codebox>
+<div>
+  <codebox id='plugins'></codebox>
+</div>
 

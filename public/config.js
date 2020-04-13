@@ -1,13 +1,12 @@
-let version = '@2.1.3';
+// let version = '@2.1.3';
 
 var jsbox_config = {
     libs: {
-        'cnchar': `https://cdn.jsdelivr.net/npm/cnchar${version}/cnchar.min.js`,
-        'poly': `https://cdn.jsdelivr.net/npm/cnchar-poly${version}/cnchar.poly.min.js`,
-        'order': `https://cdn.jsdelivr.net/npm/cnchar-order${version}/cnchar.order.min.js`,
-        'trad': `https://cdn.jsdelivr.net/npm/cnchar-trad${version}/cnchar.trad.min.js`,
-        'draw': `https://cdn.jsdelivr.net/npm/cnchar-draw${version}/cnchar.draw.min.js`,
-        'all': `https://cdn.jsdelivr.net/npm/cnchar-all${version}/cnchar.all.min.js`,
+        'cnchar': 'jsbox.cnchar',
+        'poly': 'jsbox.cnchar-poly',
+        'order': 'jsbox.cnchar-order',
+        'trad': 'jsbox.cnchar-trad',
+        'draw': 'jsbox.cnchar-draw',
     },
     codes: { //
         'easy-use': {
@@ -29,7 +28,7 @@ console.log(spell3);
 console.log(spell4);
 console.log(spell5);`,
             desc: 'spell方法参数演示',
-            dep: ['cnchar', 'trad']
+            dep: ['trad']
         },
         'stroke': {
             code: /* javascript*/`var stroke1 = cnchar.stroke('汉字笔划', 'array'); // 数组分割
@@ -43,7 +42,7 @@ console.log(stroke3);
 console.log(stroke4);
 console.log(stroke5);`,
             desc: 'stroke方法参数演示',
-            dep: ['cnchar', 'order', 'trad']
+            dep: ['order', 'trad']
         },
         'type': {
             code: /* javascript*/`var spellArg = cnchar.type.spell;
@@ -56,7 +55,7 @@ console.log(Object.values(strokeArg));
 console.log(Object.values(orderToWordArg));
 console.log(Object.values(spellToWordArg));
 console.log(Object.values(strokeToWordArg));`,
-            dep: ['cnchar', 'order'],
+            dep: ['order'],
             desc: '所有可用的参数演示'
         },
         'version': {
@@ -82,7 +81,7 @@ console.log(word2);
 console.log(word3);
 console.log(word4);
 console.log(word5);`,
-            dep: ['cnchar', 'trad'],
+            dep: ['trad'],
             desc: '通过拼音查询原汉字'
         },
         'strokeToWord': {
@@ -94,7 +93,7 @@ console.log(word1);
 console.log(word2);
 console.log(word3);
 console.log(word4);`,
-            dep: ['cnchar', 'trad'],
+            dep: ['trad'],
             desc: '通过笔画数查询原汉字'
         },
         'spellInfo': {
@@ -119,7 +118,7 @@ console.log(tones);`,
 var spell2 = cnchar.spell('喜好美好的事物', 'tone', 'array');
 console.log(spell1);
 console.log(spell2);`,
-            dep: ['cnchar', 'poly'],
+            dep: ['poly'],
             desc: '多音词实例'
         },
         'order': {
@@ -133,7 +132,7 @@ console.log('详情模式：', order2);
 console.log('笔划形状模式：', order3);
 console.log('笔划名称模式：', order4);
 console.log('笔划数模式：', order5);`,
-            dep: ['cnchar', 'order'],
+            dep: ['order'],
             desc: '汉字笔顺演示'
         },
         'orderToWord': {
@@ -154,13 +153,13 @@ console.log(char5);
 console.log(char6);
 console.log(char7);
 console.log(char8);`,
-            dep: ['cnchar', 'order', 'trad'],
+            dep: ['order', 'trad'],
             desc: '汉字笔顺演示'
         },
         'orders': {
             code: /* javascript*/`var orders = cnchar.orderToWord.orders;
 console.log(orders);`,
-            dep: ['cnchar', 'order'],
+            dep: ['order'],
             desc: '汉字所有笔划'
         },
         'trad': {
@@ -172,7 +171,7 @@ console.log(result1);
 console.log(result2);
 console.log(result3);
 console.log(result4);`,
-            dep: ['cnchar', 'trad'],
+            dep: ['trad'],
             desc: '繁体字支持'
         },
         'convert': {
@@ -188,7 +187,7 @@ console.log(char3);
 console.log(char4);
 console.log(char5);
 console.log(char6);`,
-            dep: ['cnchar', 'trad'],
+            dep: ['trad'],
             desc: '字体转换实例'
         },
         'normal-draw': {
@@ -199,7 +198,7 @@ console.log(char6);`,
         el: '#drawNormal'
     })
 </script>`,
-            dep: ['cnchar', 'draw'],
+            dep: ['draw'],
             desc: '常规绘制模式示例'
         },
         'stroke-draw': {
@@ -211,7 +210,7 @@ console.log(char6);`,
         type: cnchar.draw.TYPE.STROKE
     })
 </script>`,
-            dep: ['cnchar', 'draw'],
+            dep: ['draw'],
             desc: '笔顺绘制模式示例'
         },
         'animation-draw': {
@@ -226,7 +225,7 @@ console.log(char6);`,
         }
     })
 </script>`,
-            dep: ['cnchar', 'draw'],
+            dep: ['draw'],
             desc: '动画绘制模式示例'
         },
         'test-draw': {
@@ -238,7 +237,7 @@ console.log(char6);`,
         type: cnchar.draw.TYPE.TEST
     })
 </script>`,
-            dep: ['cnchar', 'draw'],
+            dep: ['draw'],
             desc: '测验绘制模式示例'
         },
     }

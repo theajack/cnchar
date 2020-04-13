@@ -17,4 +17,7 @@ features:
   details: 你甚至都不需要阅读vuepress文档即可快速上手，每个文件，每行代码都有详细的注释说明。
 footer: MIT Licensed | Copyright © 2020 present theajack
 --- -->
-<home></home>
+
+<div>
+  <home></home>
+</div>

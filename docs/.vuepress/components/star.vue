@@ -1,4 +1,3 @@
-// 底部 给个star 组件 由https://codepen.io/sanzang/pen/LKvNPd 代码修改而来
 <template>
     <div class='bg'
          @click='starGithub'>

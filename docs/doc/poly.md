@@ -6,9 +6,11 @@
 
 npm安装
 
-```
+<div>
+  <highlight-code>
 npm i cnchar-poly
-```
+  </highlight-code>
+</div>
 
 cdn使用
 
@@ -32,7 +34,9 @@ cnchar.use(poly); // use 在浏览器环境中非必须
 
 以下演示几个多音词的例子
 
-<codebox id='poly'></codebox>
+<div>
+  <codebox id='poly'></codebox>
+</div>
 
 由于多音词依赖分词与词库，且cnchar是一个静态的js库，所以可能会有诸多不准确的读音
 

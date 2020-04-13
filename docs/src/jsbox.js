@@ -3,10 +3,13 @@ import {parseUrlParam} from './util';
 let jsbox = null;
 
 function getUrl () {
+    let url = '';
     if (window.location.host.indexOf('localhost') !== -1) {
-        return 'https://theajack.gitee.io/jsbox?theme=dark&remind=false';
+        url = 'https://theajack.gitee.io';
+    } else {
+        url = `${window.location.protocol}//${window.location.host}`;
     }
-    return `${window.location.protocol}//${window.location.host}/jsbox?theme=dark&remind=false`;
+    return url + '/jsbox?theme=dark&remind=false&mes=false';
 }
 
 function main () {

@@ -17,9 +17,11 @@ draw 的参数比较繁多，首先需要理解的是，draw 分为四种绘制�
 
 npm安装
 
-```
+<div>
+  <highlight-code>
 npm i cnchar-draw
-```
+  </highlight-code>
+</div>
 
 cdn使用
 
@@ -115,19 +117,25 @@ declare interface DrawOption {
 
 绘制模式默认为常规模式 `type=normal`
 
-<codebox id='normal-draw'></codebox>
+<div>
+  <codebox id='normal-draw'></codebox>
+</div>
 
 ## 4. 笔顺绘制实例
 
 当`type=stroke`时，笔顺模式启用，该模式会单笔绘制汉字的每一个笔划，并且为每一个笔划生成一个绘制块
 
-<codebox id='stroke-draw'></codebox>
+<div>
+  <codebox id='stroke-draw'></codebox>
+</div>
 
 ## 5. 动画绘制模式
 
 当`type=animation`时，动画模式启用，该模式会按笔顺用动画绘制每一个笔划
 
-<codebox id='animation-draw'></codebox>
+<div>
+  <codebox id='animation-draw'></codebox>
+</div>
 
 ## 6. 测验模式
 
@@ -135,4 +143,6 @@ declare interface DrawOption {
 
 请用鼠标在绘制出的**测验**两个字上按顺序画上笔画
 
-<codebox id='test-draw'></codebox>
+<div>
+  <codebox id='test-draw'></codebox>
+</div>

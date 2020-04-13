@@ -6,9 +6,11 @@
 
 npm安装
 
-```
+<div>
+  <highlight-code>
 npm i cnchar-trad
-```
+  </highlight-code>
+</div>
 
 cdn使用
 
@@ -32,7 +34,9 @@ cnchar.use(trad); // use 在浏览器环境中非必须
 
 以下演示几个繁体字支持的例子
 
-<codebox id='trad'></codebox>
+<div>
+  <codebox id='trad'></codebox>
+</div>
 
 ## 3. 字体转换(convert)
 
@@ -57,4 +61,6 @@ string.convertSparkToTrad();
 
 以下是几个实例：
 
-<codebox id='convert'></codebox>
+<div>
+  <codebox id='convert'></codebox>
+</div>
