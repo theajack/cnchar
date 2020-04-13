@@ -7,9 +7,9 @@
             <i class='ei-play code-btn' @click='run' title='在线运行'></i>
             <i class='ei-copy code-btn' @click='copy' title='复制代码'></i>
         </div>
-        <highlight-code :code='localCode' ref='highlight' :lang='localLang'>
-            <!-- {{localCode}} -->
-        </highlight-code>
+        <!-- <highlight-code :code='localCode' :lang='localLang'>
+            
+        </highlight-code> -->
         <div v-show='html!==""'>
             <div class='output-title'>运行结果</div>
             <div class='output-area' :class='{folded: localFold}'>
