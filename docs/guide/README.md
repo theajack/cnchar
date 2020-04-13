@@ -21,7 +21,7 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 
 **cnchar 是一款功能全面、多端支持的汉字拼音笔画 js 库**
 
-**<a href="/cnchar/assets/v2/guide/start.html">快速上手</a> | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
+[更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
 
 ## 1. 前言
 
@@ -62,6 +62,8 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 | [cnchar-trad](/cnchar/v2/doc/trad)  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
 | [cnchar-draw](/cnchar/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
 
-<star></star>
+<div>
+    <star></star>
+</div>
 
 
