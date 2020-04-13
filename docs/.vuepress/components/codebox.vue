@@ -90,11 +90,11 @@
             } else {
                 js = this.localCode;
             }
-            this.$nextTick(() => {
+            setTimeout(() => {
                 event.regist('onlog', this.onLog);
                 execute({code: js});
                 event.remove('onlog', this.onLog);
-            });
+            }, 200);
         },
         methods: {
             onLog (args) {
