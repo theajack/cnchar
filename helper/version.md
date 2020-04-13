@@ -75,3 +75,6 @@
 1. draw库增加clear参数，表示绘制前是否清空容器
 2. draw库将backgroundColor参数默认值改为#fff
 3. draw库将el参数改为支持css选择器或dom
+
+## 2.1.4 doing
+1. 修复cnchar-all及库在非浏览器换
