@@ -1,10 +1,17 @@
 import event from './event';
+import {parseUrlParam} from './util';
 let jsbox = null;
-const url = 'https://theajack.gitee.io/jsbox?theme=dark&remind=false';
+
+function getUrl () {
+    if (window.location.host.indexOf('localhost') !== -1) {
+        return 'https://theajack.gitee.io/jsbox?theme=dark&remind=false';
+    }
+    return `${window.location.protocol}//${window.location.host}/jsbox?theme=dark&remind=false`;
+}
 
 function main () {
     if (jsbox !== null) {
-        return;
+        return jsbox;
     }
     hackConsole();
     initStyle();
@@ -20,10 +27,19 @@ function main () {
         document.body.style.overflow = 'auto';
     }
     function id (_id = '') {
-        if (jsbox._id !== _id) {
+        let iframeId = _id;
+        try {
+            var iframeWindow = iframe.contentWindow;
+            var search = iframeWindow.document.location.search;
+            if (search) {
+                iframeId = parseUrlParam(search, 'id');
+            }
+        } catch (e) {
+        }
+        if (jsbox._id !== _id || iframeId !== _id) {
             jsbox._id = _id;
             const config = (location.host.indexOf('localhost') !== -1) ? 'http://localhost:8080/config.js' : 'https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/config.js';
-            jsbox.url = `${url}&config=${encodeURIComponent(config)}&id=${_id}`;
+            jsbox.url = `${getUrl()}&config=${encodeURIComponent(config)}&id=${_id}`;
             iframe.src = jsbox.url;
         }
         open();
@@ -31,7 +47,7 @@ function main () {
     function code (_code = '') {
         if (jsbox._code !== _code) {
             jsbox._code = _code;
-            jsbox.url = `${url}&code=${encodeURIComponent(code)}`;
+            jsbox.url = `${getUrl()}&code=${encodeURIComponent(code)}`;
             iframe.src = jsbox.url;
         }
         open();
