@@ -17,7 +17,7 @@
                     <i :class='"ei-angle-" +(localFold?"down":"up")'></i>
                     <span class='show-text'>{{localFold?"显示结果":"隐藏结果"}}</span>
                 </div>
-                <div v-show='!localFold' v-html='html'></div>
+                <div v-show='!localFold' ref='htmlArea'></div>
             </div>
         </div>
         <div class='powered-by'>
@@ -82,19 +82,22 @@
                 this.localLang = codes[this.id].lang === 'html' ? 'html' : 'javascript';
                 this.localDesc = codes[this.id].desc || this.desc;
             }
-            let js = '';
-            if (this.localLang === 'html') {
-                let res = extractScript(this.localCode);
-                js = res.js;
-                this.html = res.html;
-            } else {
-                js = this.localCode;
-            }
-            setTimeout(() => {
-                event.regist('onlog', this.onLog);
-                execute({code: js});
-                event.remove('onlog', this.onLog);
-            }, 200);
+            this.$nextTick(() => {
+                let js = '';
+                if (this.localLang === 'html') {
+                    let res = extractScript(this.localCode);
+                    js = res.js;
+                    this.html = res.html;
+                    this.$refs.htmlArea.innerHTML = res.html;
+                } else {
+                    js = this.localCode;
+                }
+                setTimeout(() => {
+                    event.regist('onlog', this.onLog);
+                    execute({code: js});
+                    event.remove('onlog', this.onLog);
+                }, 200);
+            });
         },
         methods: {
             onLog (args) {
@@ -113,6 +116,7 @@
                     }
                     html += `<div ${attr}>${item}</div>`;
                 });
+                this.$refs.htmlArea.innerHTML += html;
                 this.html += html;
             },
             copy () {
