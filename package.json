@@ -42,14 +42,10 @@
         "@babel/preset-env": "^7.5.5",
         "@commitlint/cli": "^8.2.0",
         "@commitlint/config-conventional": "^8.2.0",
-        "@vssue/api-gitee-v5": "^1.4.0",
-        "@vssue/api-github-v3": "^1.0.0",
-        "@vssue/vuepress-plugin-vssue": "^1.0.2",
         "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
         "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
         "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
-        "chalk": "^3.0.0",
         "easy-icon": "^1.0.2",
         "element-ui": "^2.10.1",
         "eslint": "^6.7.2",
@@ -58,18 +54,16 @@
         "eslint-plugin-vue": "^6.2.2",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
+        "gulp-markdown-toc": "^1.1.0",
         "gulp-rename": "^1.4.0",
-        "hanzi-writer": "^2.2.2",
         "highlight.js": "^9.15.8",
         "husky": "^3.1.0",
-        "inputmask": "^3.3.11",
         "less": "^3.9.0",
         "less-loader": "^5.0.0",
-        "lite-server": "^2.5.4",
-        "recast": "^0.18.2",
         "vue": "^2.5.2",
         "vue-highlight.js": "^2.2.0",
         "vuepress": "^1.0.2",
+        "vuepress-plugin-comment": "^0.7.3",
         "webpack": "^4.39.1",
         "webpack-cli": "^3.3.6",
         "webpack-dev-server": "^3.7.2"
@@ -78,9 +72,5 @@
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
-    },
-    "dependencies": {
-        "gulp-markdown-toc": "^1.1.0",
-        "vuepress-plugin-comment": "^0.7.3"
     }
 }
