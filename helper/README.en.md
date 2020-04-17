@@ -1,5 +1,8 @@
-# [cnchar](https://github.com/theajack/cnchar) <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/github/stars/theajack/cnchar.svg?style=social" alt="star"></a> <a href="https://theajack.gitee.io"><img src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>
-
+<h1>
+    <a href="https://github.com/theajack/cnchar">cnchar</a>
+    <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/github/stars/theajack/cnchar.svg?style=social" alt="star"></a>
+    <a href="https://theajack.gitee.io"><img src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>
+</h1> 
 
 <p>
     <a href="https://www.npmjs.com/package/cnchar"><img src="https://img.shields.io/npm/v/cnchar.svg" alt="Version"></a>
@@ -8,10 +11,10 @@
     <a href="https://github.com/theajack/cnchar/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/cnchar.svg" alt="License"></a>
     <a href="https://github.com/theajack/cnchar/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/cnchar.svg" alt="TopLang"></a>
     <a href="https://github.com/theajack/cnchar/issues"><img src="https://img.shields.io/github/issues-closed/theajack/cnchar.svg" alt="issue"></a>
-<!--     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a> -->
+    <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a>
 </p>
 
-### 🚀 Full-featured, multi-terminal supported Chinese Pinyin strokes js library
+<h3>🚀 Full-featured, multi-terminal supported Chinese Pinyin strokes js library</h3>
 
 **[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/v2/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new)**
 
