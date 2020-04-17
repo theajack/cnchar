@@ -13,7 +13,7 @@
 
 ### 🚀 Full-featured, multi-terminal supported Chinese Pinyin strokes js library
 
-**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new)**
+**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/v2/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new)**
 
 Since cnchar has rebuilt the warehouse once, all previous stars have been cleared. If the warehouse is helpful to you, I hope to give a star. Thank you!
 
