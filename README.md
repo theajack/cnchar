@@ -13,7 +13,7 @@
 
 ### 🚀 功能全面、多端支持的汉字拼音笔画 js 库
 
-**[在线试用/文档](https://theajack.gitee.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
+**[English](https://github.com/theajack/cnchar/blob/master/helper/README.en.md) | [在线试用/文档](https://theajack.gitee.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
 
 cnchar 由于重建过一次仓库，所以之前的 star 都清零了，如果该仓库对您有帮助，希望能给个star，谢谢！
 
@@ -21,48 +21,50 @@ cnchar 由于重建过一次仓库，所以之前的 star 都清零了，如果�
 
 <!-- toc -->
 
-- [前言](#%e5%89%8d%e8%a8%80)
-- [0.快速使用](#0%e5%bf%ab%e9%80%9f%e4%bd%bf%e7%94%a8)
-- [1.功能](#1%e5%8a%9f%e8%83%bd)
-- [2.概览](#2%e6%a6%82%e8%a7%88)
-- [3 安装](#3-%e5%ae%89%e8%a3%85)
-    - [3.1 使用 npm 安装](#31-%e4%bd%bf%e7%94%a8-npm-%e5%ae%89%e8%a3%85)
-    - [3.2 使用 script 引入](#32-%e4%bd%bf%e7%94%a8-script-%e5%bc%95%e5%85%a5)
-- [4 使用](#4-%e4%bd%bf%e7%94%a8)
-    - [4.1 webpack浏览器环境(有window对象)](#41-webpack%e6%b5%8f%e8%a7%88%e5%99%a8%e7%8e%af%e5%a2%83%e6%9c%89window%e5%af%b9%e8%b1%a1)
-    - [4.2 nodejs 等非浏览器环境](#42-nodejs-%e7%ad%89%e9%9d%9e%e6%b5%8f%e8%a7%88%e5%99%a8%e7%8e%af%e5%a2%83)
-    - [4.3 原生浏览器环境](#43-%e5%8e%9f%e7%94%9f%e6%b5%8f%e8%a7%88%e5%99%a8%e7%8e%af%e5%a2%83)
-- [5 API](#5-api)
-    - [5.1 拼音笔画基础 API: spell & stroke](#51-%e6%8b%bc%e9%9f%b3%e7%ac%94%e7%94%bb%e5%9f%ba%e7%a1%80-api-spell--stroke)
-    - [5.2 可视化绘制汉字: draw](#52-%e5%8f%af%e8%a7%86%e5%8c%96%e7%bb%98%e5%88%b6%e6%b1%89%e5%ad%97-draw)
-    - [5.2.1 使用](#521-%e4%bd%bf%e7%94%a8)
-    - [5.2.2 参数](#522-%e5%8f%82%e6%95%b0)
-    - [5.3 繁体、简体、火星文互转: convert](#53-%e7%b9%81%e4%bd%93%e7%ae%80%e4%bd%93%e7%81%ab%e6%98%9f%e6%96%87%e4%ba%92%e8%bd%ac-convert)
-    - [5.4 笔画序列推出原汉字: orderToWord](#54-%e7%ac%94%e7%94%bb%e5%ba%8f%e5%88%97%e6%8e%a8%e5%87%ba%e5%8e%9f%e6%b1%89%e5%ad%97-ordertoword)
-    - [5.5 通过拼音查询原汉字: spellToWord](#55-%e9%80%9a%e8%bf%87%e6%8b%bc%e9%9f%b3%e6%9f%a5%e8%af%a2%e5%8e%9f%e6%b1%89%e5%ad%97-spelltoword)
-    - [5.6 通过笔画数查询原汉字: strokeToWord](#56-%e9%80%9a%e8%bf%87%e7%ac%94%e7%94%bb%e6%95%b0%e6%9f%a5%e8%af%a2%e5%8e%9f%e6%b1%89%e5%ad%97-stroketoword)
-    - [5.7 查询拼音详细信息: spellInfo](#57-%e6%9f%a5%e8%af%a2%e6%8b%bc%e9%9f%b3%e8%af%a6%e7%bb%86%e4%bf%a1%e6%81%af-spellinfo)
-    - [5.8 其他 api](#58-%e5%85%b6%e4%bb%96-api)
-    - [5.8.1 .use()](#581-use)
-    - [5.8.2 .type](#582-type)
-    - [5.8.3 .check](#583-check)
-    - [5.8.4 .version](#584-version)
-    - [5.8.5 .plugins](#585-plugins)
-- [6 spell stroke 参数](#6-spell-stroke-%e5%8f%82%e6%95%b0)
-    - [6.1 spell 参数](#61-spell-%e5%8f%82%e6%95%b0)
-    - [6.2 stroke 参数](#62-stroke-%e5%8f%82%e6%95%b0)
-    - [6.3 orderToWord 参数](#63-ordertoword-%e5%8f%82%e6%95%b0)
-    - [6.4 spellToWord 参数](#64-spelltoword-%e5%8f%82%e6%95%b0)
-    - [6.5 strokeToWord 参数](#65-stroketoword-%e5%8f%82%e6%95%b0)
-    - [6.6 使用实例大全：](#66-%e4%bd%bf%e7%94%a8%e5%ae%9e%e4%be%8b%e5%a4%a7%e5%85%a8)
-    - [6.6.0 安装使用](#660-%e5%ae%89%e8%a3%85%e4%bd%bf%e7%94%a8)
-    - [6.6.1 cnchar 基础库功能](#661-cnchar-%e5%9f%ba%e7%a1%80%e5%ba%93%e5%8a%9f%e8%83%bd)
-    - [6.6.2 cnchar-poly 库功能](#662-cnchar-poly-%e5%ba%93%e5%8a%9f%e8%83%bd)
-    - [6.6.3 cnchar-order 库功能](#663-cnchar-order-%e5%ba%93%e5%8a%9f%e8%83%bd)
-    - [6.6.4 cnchar-trad 库功能](#664-cnchar-trad-%e5%ba%93%e5%8a%9f%e8%83%bd)
-        - [6.6.4.1 convert 字体转换](#6641-convert-%e5%ad%97%e4%bd%93%e8%bd%ac%e6%8d%a2)
-        - [6.6.4.2 spell 和 stroke 方法](#6642-spell-%e5%92%8c-stroke-%e6%96%b9%e6%b3%95)
-- [7 应用例子](#7-%e5%ba%94%e7%94%a8%e4%be%8b%e5%ad%90)
+- [cnchar <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/github/stars/theajack/cnchar.svg?style=social" alt="star"></a> <a href="https://theajack.gitee.io"><img src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>](#cnchar-img-src%22httpsimgshieldsiogithubstarstheajackcncharsvgstylesocial%22-alt%22star%22-img-src%22httpsimgshieldsiobadgeauthor-theajack-bluesvgstylesocial%22-alt%22author%22)
+    - [🚀 功能全面、多端支持的汉字拼音笔画 js 库](#%f0%9f%9a%80-%e5%8a%9f%e8%83%bd%e5%85%a8%e9%9d%a2%e5%a4%9a%e7%ab%af%e6%94%af%e6%8c%81%e7%9a%84%e6%b1%89%e5%ad%97%e6%8b%bc%e9%9f%b3%e7%ac%94%e7%94%bb-js-%e5%ba%93)
+    - [前言](#%e5%89%8d%e8%a8%80)
+    - [0.快速使用](#0%e5%bf%ab%e9%80%9f%e4%bd%bf%e7%94%a8)
+    - [1.功能](#1%e5%8a%9f%e8%83%bd)
+    - [2.概览](#2%e6%a6%82%e8%a7%88)
+    - [3 安装](#3-%e5%ae%89%e8%a3%85)
+      - [3.1 使用 npm 安装](#31-%e4%bd%bf%e7%94%a8-npm-%e5%ae%89%e8%a3%85)
+      - [3.2 使用 script 引入](#32-%e4%bd%bf%e7%94%a8-script-%e5%bc%95%e5%85%a5)
+    - [4 使用](#4-%e4%bd%bf%e7%94%a8)
+      - [4.1 webpack浏览器环境(有window对象)](#41-webpack%e6%b5%8f%e8%a7%88%e5%99%a8%e7%8e%af%e5%a2%83%e6%9c%89window%e5%af%b9%e8%b1%a1)
+      - [4.2 nodejs 等非浏览器环境](#42-nodejs-%e7%ad%89%e9%9d%9e%e6%b5%8f%e8%a7%88%e5%99%a8%e7%8e%af%e5%a2%83)
+      - [4.3 原生浏览器环境](#43-%e5%8e%9f%e7%94%9f%e6%b5%8f%e8%a7%88%e5%99%a8%e7%8e%af%e5%a2%83)
+    - [5 API](#5-api)
+      - [5.1 拼音笔画基础 API: spell & stroke](#51-%e6%8b%bc%e9%9f%b3%e7%ac%94%e7%94%bb%e5%9f%ba%e7%a1%80-api-spell--stroke)
+      - [5.2 可视化绘制汉字: draw](#52-%e5%8f%af%e8%a7%86%e5%8c%96%e7%bb%98%e5%88%b6%e6%b1%89%e5%ad%97-draw)
+        - [5.2.1 使用](#521-%e4%bd%bf%e7%94%a8)
+        - [5.2.2 参数](#522-%e5%8f%82%e6%95%b0)
+      - [5.3 繁体、简体、火星文互转: convert](#53-%e7%b9%81%e4%bd%93%e7%ae%80%e4%bd%93%e7%81%ab%e6%98%9f%e6%96%87%e4%ba%92%e8%bd%ac-convert)
+      - [5.4 笔画序列推出原汉字: orderToWord](#54-%e7%ac%94%e7%94%bb%e5%ba%8f%e5%88%97%e6%8e%a8%e5%87%ba%e5%8e%9f%e6%b1%89%e5%ad%97-ordertoword)
+      - [5.5 通过拼音查询原汉字: spellToWord](#55-%e9%80%9a%e8%bf%87%e6%8b%bc%e9%9f%b3%e6%9f%a5%e8%af%a2%e5%8e%9f%e6%b1%89%e5%ad%97-spelltoword)
+      - [5.6 通过笔画数查询原汉字: strokeToWord](#56-%e9%80%9a%e8%bf%87%e7%ac%94%e7%94%bb%e6%95%b0%e6%9f%a5%e8%af%a2%e5%8e%9f%e6%b1%89%e5%ad%97-stroketoword)
+      - [5.7 查询拼音详细信息: spellInfo](#57-%e6%9f%a5%e8%af%a2%e6%8b%bc%e9%9f%b3%e8%af%a6%e7%bb%86%e4%bf%a1%e6%81%af-spellinfo)
+      - [5.8 其他 api](#58-%e5%85%b6%e4%bb%96-api)
+        - [5.8.1 .use()](#581-use)
+        - [5.8.2 .type](#582-type)
+        - [5.8.3 .check](#583-check)
+        - [5.8.4 .version](#584-version)
+        - [5.8.5 .plugins](#585-plugins)
+    - [6 spell stroke 参数](#6-spell-stroke-%e5%8f%82%e6%95%b0)
+      - [6.1 spell 参数](#61-spell-%e5%8f%82%e6%95%b0)
+      - [6.2 stroke 参数](#62-stroke-%e5%8f%82%e6%95%b0)
+      - [6.3 orderToWord 参数](#63-ordertoword-%e5%8f%82%e6%95%b0)
+      - [6.4 spellToWord 参数](#64-spelltoword-%e5%8f%82%e6%95%b0)
+      - [6.5 strokeToWord 参数](#65-stroketoword-%e5%8f%82%e6%95%b0)
+      - [6.6 使用实例大全：](#66-%e4%bd%bf%e7%94%a8%e5%ae%9e%e4%be%8b%e5%a4%a7%e5%85%a8)
+        - [6.6.0 安装使用](#660-%e5%ae%89%e8%a3%85%e4%bd%bf%e7%94%a8)
+        - [6.6.1 cnchar 基础库功能](#661-cnchar-%e5%9f%ba%e7%a1%80%e5%ba%93%e5%8a%9f%e8%83%bd)
+        - [6.6.2 cnchar-poly 库功能](#662-cnchar-poly-%e5%ba%93%e5%8a%9f%e8%83%bd)
+        - [6.6.3 cnchar-order 库功能](#663-cnchar-order-%e5%ba%93%e5%8a%9f%e8%83%bd)
+        - [6.6.4 cnchar-trad 库功能](#664-cnchar-trad-%e5%ba%93%e5%8a%9f%e8%83%bd)
+          - [6.6.4.1 convert 字体转换](#6641-convert-%e5%ad%97%e4%bd%93%e8%bd%ac%e6%8d%a2)
+          - [6.6.4.2 spell 和 stroke 方法](#6642-spell-%e5%92%8c-stroke-%e6%96%b9%e6%b3%95)
+    - [7 应用例子](#7-%e5%ba%94%e7%94%a8%e4%be%8b%e5%ad%90)
 
 <!-- tocstop -->
 
@@ -269,7 +271,7 @@ cnchar.draw('你好', options); // options 为可选参数， 在5.2.2 种会详
 
 运行结果如下：
 
-![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar/assets/readme/draw.jpg)
+![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/assets/readme/draw.jpg)
 
 该库支持脱离cnchar 独立使用
 
