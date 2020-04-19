@@ -1,6 +1,6 @@
 {
     "name": "cnchar-all",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
     "main": "index.js",
     "unpkg": "cnchar.all.min.js",
@@ -27,10 +27,10 @@
     },
     "homepage": "https://www.theajack.com/cnchar/",
     "dependencies": {
-        "cnchar": "^2.1.3",
-        "cnchar-order": "^2.1.3",
-        "cnchar-poly": "^2.1.3",
-        "cnchar-trad": "^2.1.3",
-        "cnchar-draw": "^2.1.3"
+        "cnchar": "^2.1.4",
+        "cnchar-order": "^2.1.4",
+        "cnchar-poly": "^2.1.4",
+        "cnchar-trad": "^2.1.4",
+        "cnchar-draw": "^2.1.4"
     }
 }

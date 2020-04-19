@@ -1,7 +1,7 @@
 declare type DrawType = 'normal' | 'animation' | 'stroke' | 'test';
 declare type TestStatusType = 'mistake' | 'correct' | 'complete';
 declare class Writer {
-    constructor() {};
+    constructor();
     option: object;
     el: HTMLElement;
     type: DrawType;
@@ -25,6 +25,7 @@ declare interface TestStatus {
         };// 对象包含用户绘制的 pathString ，用于评分的分数。
     }
 }
+
 declare interface DrawOption {
     el?: string | HTMLElement; // 绘制的容器，支持选择器或dom，若是不填，会在body后append一个dom作为容器
     type?: DrawType; // 绘制模式，默认为normal
@@ -71,7 +72,8 @@ declare interface DrawOption {
         highlightCompleteColor?: number;// : null, // 十六进制字符, 默认 null。 在测验中突出显示字符时使用的颜色。 如果未设置，则将使用highlightColor。 仅当highlightOnComplete为true时才相关。
         onTestStatus?(args: TestStatus):void;// : null, // ({index, status, data})=>{}
     }
-};
+}
+
 export declare interface Draw {
     (text:string, option?:DrawOption):Writer;
     TYPE: {
@@ -85,7 +87,7 @@ export declare interface Draw {
         CORRECT: 'correct',
         COMPLETE: 'complete'
     }
-};
+}
 
 declare const draw: Draw;
 

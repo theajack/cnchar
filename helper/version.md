@@ -76,5 +76,6 @@
 2. draw库将backgroundColor参数默认值改为#fff
 3. draw库将el参数改为支持css选择器或dom
 
-## 2.1.4 doing
+## 2.1.4
 1. 修复cnchar-all及cnchar-draw库在非浏览器环境会报错的bug
+2. 修复 draw库和main库在ts环境中引用的异常

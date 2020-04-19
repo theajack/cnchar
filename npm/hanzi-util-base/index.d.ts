@@ -20,7 +20,7 @@ declare interface spellInfoReturnStatic {
 declare interface CnCharStatic {
     spell(sentence: string, ...args: Array<spellArg>): string | Array<any>;
     stroke(sentence: string, ...args: Array<strokeArg>): number | Array<any>;
-    draw?: Draw;
+    draw: Draw;
     use(...plugins: Array<Function>): void;
     orderToWord: {
         (orders: string | Array<orderName>, ...args: Array<orderToWordArg>): string | Array<string>;
