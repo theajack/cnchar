@@ -18,7 +18,7 @@
 
 **[English](https://github.com/theajack/cnchar/blob/master/helper/README.en.md) | [在线试用/文档](https://theajack.gitee.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
 
-cnchar 由于重建过一次仓库，所以之前的 star 都清零了，如果该仓库对您有帮助，希望能给个star，谢谢！
+cnchar 由于重建过一次仓库，所以之前的 star 清零了 (〒︿〒)！
 
 ---
 
