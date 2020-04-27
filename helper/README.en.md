@@ -14,11 +14,11 @@
     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a>
 </p>
 
-<h3>🚀 Full-featured, multi-terminal supported Chinese Pinyin strokes js library</h3>
+<h3>🚀 Full-featured, multi-end support for hanyu pinyin strokes js library</h3>
 
-**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/v2/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new)**
+**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/v2/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
 
-Since cnchar has rebuilt the warehouse once, all previous stars have been cleared. If the warehouse is helpful to you, I hope to give a star. Thank you!
+CNCHAR Since the repository was rebuilt once, the previous STARs were all cleared, if that repository is helpful to you, I hope to give a STAR, thanks!
 
 ---
 
