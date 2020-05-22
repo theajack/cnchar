@@ -41,16 +41,7 @@ function spellToWord (...args) {
     if (typeof spell !== 'string') {
         throw new Error('spellToWord: 输入必须是字符串');
     }
-    if (spell.indexOf('v') !== -1) {
-        spell = spell.replace('v', 'ü');
-    }
-    let tone = spell[spell.length - 1];
-    if (parseInt(tone).toString() === tone) {
-        spell = spell.substr(0, spell.length - 1);
-        tone = parseInt(tone);
-    } else {
-        tone = false;
-    }
+    let info = _.transformTone(spell, false);
     args = args.splice(1);
     _.checkArgs('spellToWord', args);
     let argRes = {
@@ -63,10 +54,6 @@ function spellToWord (...args) {
         argRes.simple = argRes.trad = true;
     }
     let res = '';
-    let info = _.removeTone(spell, false);
-    if (tone !== false) {
-        info.tone = tone;
-    }
     let str = dict[info.spell].substr(2);
     for (let i = 0; i < str.length; i += 2) {
         let word = str[i];
@@ -98,4 +85,4 @@ function spellToWord (...args) {
     }
     return res;
 }
-module.exports = initSpellToWord;
+module.exports = {initSpellToWord, spellInfo};

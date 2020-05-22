@@ -2,6 +2,7 @@ import cnchar from '../src/main/index';
 import '../src/plugin/order';
 import '../src/plugin/trad';
 import '../src/plugin/poly';
+import '../src/plugin/idiom';
 import cncharDraw from '../src/plugin/draw';
 
 // import cnchar from '../npm/cnchar';

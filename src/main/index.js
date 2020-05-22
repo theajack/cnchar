@@ -1,7 +1,9 @@
 let version = require('./version');
-let {spell, tones, stroke, arg, has, _throw, _wran, dealUpLowFirst, removeTone, sumStroke, isCnChar, checkArgs, initCnchar} = require('./tool');
+let {spell, tones, stroke, arg, has, _throw, _wran,
+    dealUpLowFirst, removeTone, sumStroke, isCnChar,
+    checkArgs, initCnchar, transformTone} = require('./tool');
 let dict = require('./dict');
-let initSpellToWord = require('./spellToWord');
+let {initSpellToWord} = require('./spellToWord');
 let initStrokeToWord = require('./strokeToWord');
 
 function _spell (...args) {
@@ -42,7 +44,8 @@ let cnchar = {
     },
     plugins: [],
     use,
-    _: {arg, has, _throw, tones, _wran, dealUpLowFirst, removeTone, sumStroke, isCnChar, checkArgs, dict: {}},
+    _: {arg, has, _throw, tones, _wran, dealUpLowFirst, removeTone,
+        sumStroke, isCnChar, checkArgs, transformTone, dict: {}},
     type: {
         spell: arg,
         stroke: {
