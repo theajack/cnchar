@@ -52,13 +52,41 @@ function idiomWithChar (input) {
 // needTone：是否需要匹配音调
 function idiomWithSpell (input, needTone) {
     transformSpell(input, needTone);
-    let args = ['low', 'array'];
-    if (needTone) {
-        args.push('tone');
+
+    let spell = (needTone) ? (word) => _cnchar.spell(word, 'low', 'tone') : (word) => _cnchar.spell(word, 'low');
+    // let args = ['low', 'array'];
+    // if (needTone) {
+    //     args.push('tone');
+    // }
+    let d = new Date();
+    let res = [];
+    for (let k = 0; k < dict.length; k++) {
+        let fit = true;
+        for (let i = 0; i < dict[k].length; i++) {
+            if (input[i] && spell(dict[k][i]) !== input[i]) {
+                fit = false;
+                break;
+            }
+        }
+        if (fit) {
+            console.log((new Date()) - d);
+            return dict[k];
+            // res.push(dict[k]);
+        }
+        // return true;
     }
-    return dict.filter((item) => {
-        return compareCommon(input, _cnchar.spell(item, ...args));
-    });
+    // let res = dict.filter((item) => {
+    // let item = '五光十色';
+    // for (let i = 0; i < item.length; i++) {
+    //     if (input[i] && spell(item[i]) !== input[i]) {
+    //         return false;
+    //     }
+    // }
+    // return true;
+    // return compareCommon(input, spell(item));
+    // });
+    console.log((new Date()) - d);
+    return res;
 }
 
 function transformSpell (input, needTone) {
