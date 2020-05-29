@@ -11,6 +11,7 @@ let _cnchar = null;
 let total = dict.length;
 
 let arg = {
+    
     char: 'char',
     stroke: 'stroke',
     spell: 'spell',
