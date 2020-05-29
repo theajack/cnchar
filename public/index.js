@@ -3,7 +3,9 @@ import '../src/plugin/order';
 import '../src/plugin/trad';
 import '../src/plugin/poly';
 import '../src/plugin/idiom';
-import cncharDraw from '../src/plugin/draw';
+
+import spell from '../src/main/spell-dict-jian.json';
+// import cncharDraw from '../src/plugin/draw';
 
 // import cnchar from '../npm/cnchar';
 // import '../npm/order';
@@ -22,34 +24,36 @@ console.log(cnchar.spellInfo('lǘ'));
 console.log(cnchar.strokeToWord(1));
 console.log('美好的地方'.spell('tone'));
 
-cncharDraw('你好', {
-    type: cncharDraw.TYPE.NORMAL,
-    el: '#drawArea',
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#ccc'
-    },
-    animation: {
-        animateComplete () {
-            console.log('animateComplete');
-        },
-        loopAnimate: true,
-        autoAnimate: false, // false 时点击出发animate 只能触发一次
-        // stepByStep: false
-    },
-    test: {
-        onTestStatus (d) {
-            console.log(d);
-        }
-    }
-});
-cncharDraw('你好', {
-    type: cncharDraw.TYPE.STROKE,
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#eee'
-    },
-});
+window.keys = Object.keys(spell);
+
+// cncharDraw('你好', {
+//     type: cncharDraw.TYPE.NORMAL,
+//     el: '#drawArea',
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#ccc'
+//     },
+//     animation: {
+//         animateComplete () {
+//             console.log('animateComplete');
+//         },
+//         loopAnimate: true,
+//         autoAnimate: false, // false 时点击出发animate 只能触发一次
+//         // stepByStep: false
+//     },
+//     test: {
+//         onTestStatus (d) {
+//             console.log(d);
+//         }
+//     }
+// });
+// cncharDraw('你好', {
+//     type: cncharDraw.TYPE.STROKE,
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#eee'
+//     },
+// });
 
 export default cnchar;
 
