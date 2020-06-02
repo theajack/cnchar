@@ -11,13 +11,11 @@ let _cnchar = null;
 let total = dict.length;
 
 let arg = {
-    
     char: 'char',
     stroke: 'stroke',
     spell: 'spell',
     tone: 'tone'
 };
-
 
 // spell > stroke > char
 // spell 和 stroke 仅在 引入cnchar之后才可用
