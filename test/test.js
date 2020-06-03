@@ -39,16 +39,27 @@ function testSingle ({
 };
 
 function main (config, argsConfig) {
+    let d = new Date();
     blue('Test start:');
+    console.log();
+    let success = true;
     config.forEach((item) => {
         let result = testSingle(item, argsConfig);
         if (result.pass) {
             green(`PASS: [${result.name}]; result:${JSON.stringify(result.result)}`);
         } else {
+            if (success) {success = false;}
             red(`FAIL: [${result.name}]; result:${JSON.stringify(result.result)}; but expect: ${JSON.stringify(result.expect)}`);
         }
         console.log();
     });
+    let text = `****** TEST ${success ? 'successed' : 'failed'} in ${(new Date()) - d}ms! ******`;
+    if (success) {
+        green(text);
+    } else {
+        red(text);
+    }
+    console.log();
 }
 function objectEqual (o1, o2) {
     return objectEqualBase(o1, o2) && objectEqualBase(o2, o1);

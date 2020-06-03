@@ -1,21 +1,15 @@
-declare type DrawType = 'normal' | 'animation' | 'stroke' | 'test';
-declare type TestStatusType = 'mistake' | 'correct' | 'complete';
+declare type xhyArg = 'fuzzy' | 'answer' | 'second';
 
-export declare interface Draw {
-    (text:string, option?:DrawOption):Writer;
-    TYPE: {
-        ANIMATION: 'animation',
-        NORMAL: 'normal',
-        STROKE: 'stroke',
-        TEST: 'test'
-    },
-    TEST_STATUS: {
-        MISTAKE: 'mistake',
-        CORRECT: 'correct',
-        COMPLETE: 'complete'
+export declare interface XHY {
+    (text:string, ...xhyArgs: Array<xhyArg>):Array<string>;
+}
+
+declare const xhy: XHY;
+
+declare module 'cnchar' {
+    interface CnCharStatic {
+        xhy: XHY;
     }
 }
 
-declare const draw: Draw;
-
-export default draw;
+export default xhy;

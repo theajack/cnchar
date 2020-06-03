@@ -4,11 +4,13 @@
  * 拼音 ['shi', '']
  */
 const dict = require('./idiom.json');
-const {initToneCodes, getCharCode} = require('./tone');
-window.getCharCode = getCharCode;
+// const {initToneCodes, getCharCode} = require('./tone');
+
+const spellDict = require('./spell.json');
+const spellNoToneDict = require('./spell.notone.json');
+
 let _cnchar = null;
 
-let total = dict.length;
 
 let arg = {
     char: 'char',
@@ -59,107 +61,105 @@ function idiomWithChar (input) {
 }
 // needTone：是否需要匹配音调
 function idiomWithSpell (input, tone) {
-    let low = 0;
-    let high = total;
-    input = input.toLowerCase();
+    // console.log(input, tone);
+    const total = dict.length;
+    let _dict = tone ? spellDict : spellNoToneDict;
+
     if (tone) {
-        input = _cnchar._.transformTone(input, 'tone').spell;
+        input = _cnchar._.transformTone(input, true).spell;
     }
-    let target = input.split('').map(c => getCharCode(c, tone));
-    let area = step1FindArea(low, high, target, tone);
-    if (area === TYPE.ERROR) {
+
+    let filter = _dict.filter((item) => {
+        return input === item.split(':')[0];
+    });
+
+    if (filter.length === 0) {
         return [];
     }
-    let floor = step2FindFloor(area.low, area.mid, target, tone).mid;
-    let ceil = step3FindCeil(area.mid, area.high, target, tone).mid;
-    return dict.slice(floor, ceil + 1);
-}
 
-const TYPE = {
-    MORE: 1, // 大于
-    LESS: 2, // 小于
-    EVEN: 3, // 等于
-    ERROR: -1
-};
-
-function binarySearch (low, high, condition) {
-    if (low > high) {
-        return TYPE.ERROR;
-    }
-    let mid = Math.floor((low + high) / 2);
-    let res = condition(mid);
-    if (res === TYPE.MORE) {
-        return binarySearch(low, mid - 1, condition);
-    } else if (res === TYPE.LESS) {
-        return binarySearch(mid + 1, high, condition);
-    } else {
-        return {low, high, mid};
-    }
-}
-
-function step1FindArea (low, high, target, tone) { // 找到一个区间，该区间包含所有拼音，且中值为该拼音
-    return binarySearch(low, high, (mid) => {
-        return compareSpell(mid, target, tone);
+    let res = [];
+    let n = _dict.length - 1;
+    filter.forEach(item => {
+        let index = _dict.indexOf(item);
+        let curDIndex = item.split(':')[1];
+        let nextDIndex = index === n ? total : _dict[index + 1].split(':')[1];
+        res = res.concat(dict.slice(curDIndex, nextDIndex));
     });
-}
 
-function step2FindFloor (low, high, target, tone) { // 查找下界
-    return binarySearch(low, high, (mid) => {
-        return compareBoundary(mid, target, TYPE.MORE, TYPE.LESS, -1, tone);
-    });
-}
-function step3FindCeil (low, high, target, tone) { // 查找上界
-    return binarySearch(low, high, (mid) => {
-        return compareBoundary(mid, target, TYPE.LESS, TYPE.MORE, 1, tone);
-    });
-}
-// typeCenter 朝区域中心的大小type； typeSide 朝区域两端的大小type
-function compareBoundary (mid, target, typeCenter, typeSide, neighborPlus, tone) {
-    let res = compareSpell(mid, target, tone);
-    if (res === typeSide) {
-        return res;
-    }
-    if (res === TYPE.EVEN) {
-        let neighborIndex = mid + neighborPlus;
-        if (neighborIndex < 0 || neighbor >= total) {
-            return TYPE.EVEN;
-        }
-        let neighbor = compareSpell(neighborIndex, target, tone); // + 1
-        if (neighbor === TYPE.EVEN) {
-            return typeCenter;
-        } else if (neighbor === typeSide) {
-            return TYPE.EVEN;
-        } else {
-            console.error(neighbor);
-            throw new Error('idoim Error');
-        }
-    }
-}
-
-
-window.dict = dict;
-window.compareSpell = compareSpell;
-function compareSpell (mid, target, tone) {
-    let arr = ['low'];
-    if (tone) {arr.push('tone');}
-    let _spell = _cnchar.spell(dict[mid][0], ...arr); // 获取成语第一个字的拼音
+    return res;
     
-    for (let i = 0; i < _spell.length; i++) {
-        if (!target[i]) { // 中值与目标值前面拼音一样，但是中长度大于目标 说明 中 > 目标
-            return TYPE.MORE;
-        }
-        let code = getCharCode(_spell[i], tone);
-        if (code > target[i]) { // 中值 > 目标
-            return TYPE.MORE;
-        } else if (code < target[i]) { // 中值 < 目标
-            return TYPE.LESS;
-        }
-    }
-    if (_spell.length === target.length) {
-        return TYPE.EVEN;
-    }
-    return TYPE.LESS; // 中值与目标值前面拼音一样，但是中长度小于目标 说明 中 < 目标
+    // let low = 0;
+    // let high = total;
+    // input = input.toLowerCase();
+    // if (tone) {
+    //     input = _cnchar._.transformTone(input, 'tone').spell;
+    // }
+    // let target = input.split('').map(c => getCharCode(c, tone));
+    // let area = step1FindArea(low, high, target, tone);
+    // if (area === TYPE.ERROR) {
+    //     return [];
+    // }
+    // let floor = step2FindFloor(area.low, area.mid, target, tone).mid;
+    // let ceil = step3FindCeil(area.mid, area.high, target, tone).mid;
+    // return dict.slice(floor, ceil + 1);
 }
+
+
+// 二分查找拼音依赖拼音准确率，可能会不准确，故放弃
+
+// function binarySearch (low, high, condition) {
+//     if (low > high) {
+//         return TYPE.ERROR;
+//     }
+//     let mid = Math.floor((low + high) / 2);
+//     let res = condition(mid);
+//     if (res === TYPE.MORE) {
+//         return binarySearch(low, mid - 1, condition);
+//     } else if (res === TYPE.LESS) {
+//         return binarySearch(mid + 1, high, condition);
+//     } else {
+//         return {low, high, mid};
+//     }
+// }
+
+// function step1FindArea (low, high, target, tone) { // 找到一个区间，该区间包含所有拼音，且中值为该拼音
+//     return binarySearch(low, high, (mid) => {
+//         return _cnchar._.compareSpell(mid, target, tone);
+//     });
+// }
+
+// function step2FindFloor (low, high, target, tone) { // 查找下界
+//     return binarySearch(low, high, (mid) => {
+//         return compareBoundary(mid, target, TYPE.MORE, TYPE.LESS, -1, tone);
+//     });
+// }
+// function step3FindCeil (low, high, target, tone) { // 查找上界
+//     return binarySearch(low, high, (mid) => {
+//         return compareBoundary(mid, target, TYPE.LESS, TYPE.MORE, 1, tone);
+//     });
+// }
+// typeCenter 朝区域中心的大小type； typeSide 朝区域两端的大小type
+// function compareBoundary (mid, target, typeCenter, typeSide, neighborPlus, tone) {
+//     let res = _cnchar._.compareSpell(mid, target, tone);
+//     if (res === typeSide) {
+//         return res;
+//     }
+//     if (res === TYPE.EVEN) {
+//         let neighborIndex = mid + neighborPlus;
+//         if (neighborIndex < 0 || neighbor >= total) {
+//             return TYPE.EVEN;
+//         }
+//         let neighbor = _cnchar._.compareSpell(neighborIndex, target, tone); // + 1
+//         if (neighbor === TYPE.EVEN) {
+//             return typeCenter;
+//         } else if (neighbor === typeSide) {
+//             return TYPE.EVEN;
+//         } else {
+//             console.error(neighbor);
+//             throw new Error('idoim Error');
+//         }
+//     }
+// }
 
 function idiomWithStroke (input) {
     if (typeof input === 'number') { // 总笔画数为多少
@@ -196,7 +196,7 @@ function checkArg (args, name) {
 
 function setCnchar (cnchar) {
     _cnchar = cnchar;
-    initToneCodes(cnchar);
+    // initToneCodes(cnchar);
 }
 
 module.exports = {idiom, arg, setCnchar};

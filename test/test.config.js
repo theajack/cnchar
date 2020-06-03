@@ -161,5 +161,141 @@ module.exports = [
             '①个亾',
             '壹个人'
         ]
+    },
+    {
+        name: '测试成语',
+        test (cnchar) {
+            return [
+                cnchar.idiom(['五', '', '十', '']),
+                cnchar.idiom([4, 6, 2, 6], 'stroke'),
+                cnchar.idiom('shang', 'spell').slice(0, 2),
+                cnchar.idiom('shang4', 'spell', 'tone').slice(0, 2)
+            ];
+        },
+        expect: [
+            ['五风十雨', '五光十色'],
+            ['五光十色'],
+            ['伤风败化', '伤风败俗'],
+            ['上兵伐谋', '上不着天，下不着地']
+        ]
+    },
+    {
+        name: '测试歇后语',
+        test (cnchar) {
+            return [
+                cnchar.xhy('大水冲了龙王庙'),
+                cnchar.xhy('大水', 'fuzzy').slice(0, 2),
+                cnchar.xhy('大水', 'fuzzy', 'answer').slice(0, 2),
+                cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second')
+            ];
+        },
+        expect: [
+            ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人'],
+            ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪'],
+            ['泥沙俱下', '后浪推前浪'],
+            ['醉汉过铁索桥', '扶着醉汉过破桥']
+        ]
+    },
+    {
+        name: '测试 transformTone',
+        test (cnchar) {
+            return [
+                cnchar.transformTone('lv2'),
+                cnchar.transformTone('lv2', true),
+                cnchar.transformTone('lv2', true, 'up'),
+                cnchar.transformTone('lǘ')
+            ];
+        },
+        expect: [
+            {spell: 'lü', tone: 2, index: 2, isTrans: true},
+            {spell: 'lǘ', tone: 2, index: 2, isTrans: true},
+            {spell: 'LǗ', tone: 2, index: 2, isTrans: true},
+            {spell: 'lü', tone: 2, index: 2, isTrans: false}
+        ]
+    },
+    {
+        name: '测试 isCnChar',
+        test (cnchar) {
+            return [
+                cnchar.isCnChar('a'),
+                cnchar.isCnChar('1'),
+                cnchar.isCnChar('？'),
+                cnchar.isCnChar('国'),
+                cnchar.isCnChar('國'),
+            ];
+        },
+        expect: [
+            false, false, false, true, true
+        ]
+    },
+    {
+        name: '测试 compareSpell',
+        test (cnchar) {
+            return [
+                cnchar.compareSpell('ao', 'ai'),
+                cnchar.compareSpell('ai', 'ai'),
+                cnchar.compareSpell('pín', 'pǐn', 'tone'),
+                cnchar.compareSpell('pin2', 'pǐn', 'tone'),
+                cnchar.compareSpell('频', 'pǐn', 'tone'),
+                cnchar.compareSpell('品', '频', 'tone'),
+                cnchar.compareSpell('贫', '频', 'tone'),
+            ];
+        },
+        expect: [
+            'more', 'even', 'less', 'less', 'less', 'more', 'even'
+        ]
+    },
+    {
+        name: '测试 compareStroke',
+        test (cnchar) {
+            return [
+                cnchar.compareStroke('你', '好'),
+                cnchar.compareStroke('你', '苏'),
+                cnchar.compareStroke('好', '苏'),
+                cnchar.compareStroke('一个', '好'),
+                cnchar.compareStroke('你', 14),
+            ];
+        },
+        expect: [
+            'more', 'even', 'less', 'less', 'less'
+        ]
+    },
+    {
+        name: '测试 sortSpell',
+        test (cnchar) {
+            return [
+                cnchar.sortSpell(['你', '好', '吗']),
+                cnchar.sortSpell('你好吗'),
+                cnchar.sortSpell(['拼', '品', '频', '爱'], 'tone'),
+                cnchar.sortSpell(['拼', '品', 'pin2', 'ai'], 'tone'),
+                cnchar.sortSpell(['拼', '品', '频', '爱'], 'tone', 'desc'),
+                cnchar.sortSpell('拼品频爱', 'tone', 'desc'),
+            ];
+        },
+        expect: [
+            ['好', '吗', '你'],
+            '好吗你',
+            ['爱', '拼', '频', '品'],
+            ['ai', '拼', 'pin2', '品'],
+            ['品', '频', '拼', '爱'],
+            '品频拼爱'
+        ]
+    },
+    {
+        name: '测试 sortStroke',
+        test (cnchar) {
+            return [
+                cnchar.sortStroke(['一', '三', '二']),
+                cnchar.sortStroke('一三二'),
+                cnchar.sortStroke(['一', '三', 2]),
+                cnchar.sortStroke(['一', '三', '二'], 'desc'),
+            ];
+        },
+        expect: [
+            ['一', '二', '三'],
+            '一二三',
+            ['一', 2, '三'],
+            ['三', '二', '一']
+        ]
     }
 ];

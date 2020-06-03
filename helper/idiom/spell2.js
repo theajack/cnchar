@@ -45,3 +45,5 @@ for (let i = uselessIndexesNoTone.length - 1; i >= 0; i--) {
 }
 fs.writeFileSync('./helper/idiom/spell2.json', JSON.stringify(spellDict, null, 4), 'utf8');
 fs.writeFileSync('./helper/idiom/spell2.notone.json', JSON.stringify(spellDictNoTone, null, 4), 'utf8');
+fs.writeFileSync('./helper/idiom/spell2.min.json', JSON.stringify(spellDict), 'utf8');
+fs.writeFileSync('./helper/idiom/spell2.min.notone.json', JSON.stringify(spellDictNoTone), 'utf8');

@@ -1,6 +1,4 @@
-// powerd by hanzi-writer v2.2.2
-const xhy = require('./writer');
-
+const {xhy, arg} = require('./xhy');
 
 function main (cnchar) {
     if (cnchar.plugins.indexOf('xhy') !== -1) {
@@ -8,6 +6,7 @@ function main (cnchar) {
     }
     cnchar.plugins.push('xhy');
     cnchar.xhy = xhy;
+    cnchar.type.xhy = arg;
 }
 
 function init (cnchar) {

@@ -2,29 +2,31 @@ import cnchar from '../src/main/index';
 import '../src/plugin/order';
 import '../src/plugin/trad';
 import '../src/plugin/poly';
+import '../src/plugin/draw';
 import '../src/plugin/idiom';
+import '../src/plugin/xhy';
 
-import spell from '../src/main/spell-dict-jian.json';
-// import cncharDraw from '../src/plugin/draw';
+// import spell from '../src/main/spell-dict-jian.json';
+// // import cncharDraw from '../src/plugin/draw';
 
-// import cnchar from '../npm/cnchar';
-// import '../npm/order';
-// import '../npm/trad';
-// import '../npm/poly';
-// import cncharDraw from '../npm/draw';
+// // import cnchar from '../npm/cnchar';
+// // import '../npm/order';
+// // import '../npm/trad';
+// // import '../npm/poly';
+// // import cncharDraw from '../npm/draw';
 
-// import './plugin/draw'
-// console.log('1',cnchar)
-console.log(cnchar.stroke('一个', 'order'));
-console.log(cnchar.stroke('長城', 'count', 'order', 'name'));
-// console.log(cnchar.orderToWord(['横', '撇', '捺']));
-// console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
-console.log(cnchar.spellToWord('lv2'));
-console.log(cnchar.spellInfo('lǘ'));
-console.log(cnchar.strokeToWord(1));
-console.log('美好的地方'.spell('tone'));
+// // import './plugin/draw'
+// // console.log('1',cnchar)
+// console.log(cnchar.stroke('一个', 'order'));
+// console.log(cnchar.stroke('長城', 'count', 'order', 'name'));
+// // console.log(cnchar.orderToWord(['横', '撇', '捺']));
+// // console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
+// console.log(cnchar.spellToWord('lv2'));
+// console.log(cnchar.spellInfo('lǘ'));
+// console.log(cnchar.strokeToWord(1));
+// console.log('美好的地方'.spell('tone'));
 
-window.keys = Object.keys(spell);
+// window.keys = Object.keys(spell);
 
 // cncharDraw('你好', {
 //     type: cncharDraw.TYPE.NORMAL,

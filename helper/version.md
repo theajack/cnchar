@@ -80,6 +80,10 @@
 1. 修复cnchar-all及cnchar-draw库在非浏览器环境会报错的bug
 2. 修复 draw库和main库在ts环境中引用的异常
 
-## 2.1.5
-1. 鸟字增加默认读音
-2. 彷徨读音修正
+## 2.2.0
+1. 增加cnchar-idiom 成语库
+2. 增加cnchar-xhy 歇后语库
+3. 增加transformTone,isCnchar,compareSpell,compareStroke,sortSpell,sortStroke工具方法，方便开发者更便捷的操作拼音和汉字
+4. 对ts声明文件进行修改，对ts的支持更加友好
+5. 鸟字增加默认读音
+6. 彷徨读音修正

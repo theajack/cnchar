@@ -163,4 +163,5 @@ function reinitStroke (proto, cnchar) {
 }
 
 init();
+
 module.exports = init;

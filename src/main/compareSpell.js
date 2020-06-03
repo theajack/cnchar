@@ -32,4 +32,6 @@ function getCharCode (char, tone = false) {
     return code;
 }
 
+// 比较拼音大小的方法考虑移到cnchar工具方法中
+
 module.exports = {initToneCodes, getCharCode};

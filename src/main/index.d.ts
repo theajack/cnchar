@@ -1,14 +1,10 @@
-import {Draw} from 'cnchar-draw';
-// import {Draw} from 'cnchar-draw';
-
 declare type spellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad';
 declare type strokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
-declare type orderToWordArg = 'match'  | 'matchorder' | 'contain' | 'start' | 'array' | 'simple' | 'trad';
 declare type spellToWordArg = 'poly' | 'alltone' | 'array' | 'simple' | 'trad';
 declare type strokeToWordArg = 'array' | 'simple' | 'trad';
 declare type pluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy';
-declare type orderName = '横折折撇' | '竖弯' | '横折' | '撇点' | '横斜钩' | '横' | '捺' | '横折钩' | '竖' | '竖钩' | '点' | '撇' | '撇折' | '竖折撇' | '横折折折钩' | '竖折折钩' | '提' | '弯钩' | '斜钩' | '横折折' | '横撇' | '横折提' | '横折折折' | '竖提' | '竖弯钩'
-    | '竖折折' | '横撇弯钩' | '卧钩' | '横折弯' | '横钩';
+declare type toneType = 0 | 1 | 2 | 3 | 4;
+declare type compareType = 'more' | 'less' | 'even';
 
 declare interface spellInfoReturnStatic {
     spell: string;
@@ -17,40 +13,42 @@ declare interface spellInfoReturnStatic {
     tone: number;
     index: number;
 }
-declare interface CnCharStatic {
-    spell(sentence: string, ...args: Array<spellArg>): string | Array<any>;
-    stroke(sentence: string, ...args: Array<strokeArg>): number | Array<any>;
-    draw: Draw;
+export declare interface CnCharStatic {
+    spell(sentence: string, ...args?: Array<spellArg>): string | Array<any>;
+    stroke(sentence: string, ...args?: Array<strokeArg>): number | Array<any>;
     use(...plugins: Array<Function>): void;
-    orderToWord: {
-        (orders: string | Array<orderName>, ...args: Array<orderToWordArg>): string | Array<string>;
-        orders: object;
-    };
-    spellToWord(spell: string, ...args: Array<spellToWordArg>): string | Array<string>;
-    strokeToWord(stroke: number, ...args: Array<strokeToWordArg>): string | Array<string>;
+    spellToWord(spell: string, ...args?: Array<spellToWordArg>): string | Array<string>;
+    strokeToWord(stroke: number, ...args?: Array<strokeToWordArg>): string | Array<string>;
     spellInfo: {
         (spell: string): spellInfoReturnStatic;
         tones: Array<string>;
         initials: Array<string>;
     };
-    convert: {
-        simpleToSpark(sentence: string): string;
-        simpleToTrad(sentence: string): string;
-        sparkToSimple(sentence: string): string;
-        sparkToTrad(sentence: string): string;
-        tradToSimple(sentence: string): string;
-        tradToSpark(sentence: string): string;
-    };
     plugins: Array<pluginArg>;
     type: {
         spell: object;
         stroke: object;
-        orderToWord: object;
         spellToWord: object;
         strokeToWord: object;
+        orderToWord?: object;
+        idiom?: object;
+        xhy?: object;
     };
     check: boolean;
     readonly version: string;
+
+    transformTone(spell: string, tone?: boolean, type?: 'low' | 'up'): {
+        spell: string;
+        tone: toneType;
+        index: number; 
+        isTrans: boolean;
+    };
+    isCnChar(word: string): boolean;
+    compareSpell(spell1: string, spell2: string, tone?: boolean): compareType;
+    compareStroke(stroke1: string, stroke2: string): compareType;
+    sortSpell(spells:Array<string> | string, ...args?: Array<'tone'|'desc'>): Array<string> | string;
+    sortStroke(strokes:Array<string|number> | string, desc?: 'desc'): Array<string> | string;
+    
 }
 
 declare const cnchar: CnCharStatic;

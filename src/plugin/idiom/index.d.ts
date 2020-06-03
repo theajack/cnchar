@@ -1,21 +1,15 @@
-declare type DrawType = 'normal' | 'animation' | 'stroke' | 'test';
-declare type TestStatusType = 'mistake' | 'correct' | 'complete';
+declare type idiomArg = 'char' | 'stroke' | 'spell' | 'tone';
 
-export declare interface Draw {
-    (text:string, option?:DrawOption):Writer;
-    TYPE: {
-        ANIMATION: 'animation',
-        NORMAL: 'normal',
-        STROKE: 'stroke',
-        TEST: 'test'
-    },
-    TEST_STATUS: {
-        MISTAKE: 'mistake',
-        CORRECT: 'correct',
-        COMPLETE: 'complete'
+export declare interface Idiom {
+    (text:string, ...idiomArgs: Array<idiomArg>):Array<string>;
+}
+
+declare const idiom: Idiom;
+
+declare module 'cnchar' {
+    interface CnCharStatic {
+        idiom: Idiom;
     }
 }
 
-declare const draw: Draw;
-
-export default draw;
+export default idiom;
