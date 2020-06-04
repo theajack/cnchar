@@ -1,8 +1,8 @@
-<h1>
-    <a href="https://github.com/theajack/cnchar">cnchar</a>
+<p>
+    <a href="https://github.com/theajack/cnchar" style='font-size:40px;margin-right:10px;font-weight:bold;'>cnchar</a>
     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/github/stars/theajack/cnchar.svg?style=social" alt="star"></a>
     <a href="https://theajack.gitee.io"><img src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>
-</h1> 
+</p> 
 
 <p>
     <a href="https://www.npmjs.com/package/cnchar"><img src="https://img.shields.io/npm/v/cnchar.svg" alt="Version"></a>
