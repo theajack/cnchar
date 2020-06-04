@@ -536,11 +536,53 @@ cnchar.strokeToWord(1, 'array'); // 返回 ['一', '乙']
 
 #### 5.7 成语功能
 
-cnchar在2.2.0加入了成语功能，安装 `cnchar-draw`
+cnchar在2.2.0加入了成语功能，启用该功能需要安装 `cnchar-idiom` 功能库，该库可以独立于cnchar主库运行
+
+使用方式如下：
+
+```ts
+cnchar.idiom(text:string, ...idiomArgs: Array<idiomArg>):Array<string>;
+```
+
+看一个具体例子
+
+```js
+// 根据汉字查询成语，末尾的空格可以省略
+cnchar.idiom(['五', '', '十', '']); // ['五风十雨', '五光十色']
+// 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
+cnchar.idiom([4, 6, 2, 0], 'stroke'); // ["不当人子", ... ]
+// 根据拼音查询成语
+cnchar.idiom('shang', 'spell'); // ["伤风败化", "伤风败俗", ...]
+// 带音调
+cnchar.idiom('shang4', 'spell', 'tone'); // ["上兵伐谋", "上不着天，下不着地", ... ]
+```
 
 #### 5.8 歇后语功能
 
+cnchar在2.2.0加入了歇后语功能，启用该功能需要安装 `cnchar-xhy` 功能库，该库可以独立于cnchar主库运行
+
+使用方式如下：
+
+```ts
+cnchar.xhy(text:string, ...xhyArgs: Array<xhyArg>):Array<string>;
+```
+
+看一个具体例子
+
+```js
+// 精确查询
+cnchar.xhy('大水冲了龙王庙'); // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人'],
+// 模糊查询
+cnchar.xhy('大水', 'fuzzy'); // ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪', ... ]
+// 只返回答案结果
+cnchar.xhy('大水', 'fuzzy', 'answer');  // ['泥沙俱下', '后浪推前浪', ... ]
+// 根据歇后语后一句查询
+cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second'); // ['醉汉过铁索桥', '扶着醉汉过破桥']
+```
+
 #### 5.9 汉字、拼音工具方法
+
+cnchar 将库内部使用的一些操作拼音和汉字的方法整理暴露出来，方便开发者便捷高效的操作拼音和汉字
 
 ##### 5.9.1 查询拼音详细信息: spellInfo
 
