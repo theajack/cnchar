@@ -87,3 +87,5 @@
 4. 对ts声明文件进行修改，对ts的支持更加友好
 5. 鸟字增加默认读音
 6. 彷徨读音修正
+7. cnchar-draw 增加 Promise-polyfill
+8. 文档增加Object.assign-polyfill
