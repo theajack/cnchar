@@ -32,6 +32,18 @@ Thank you for your support for cnchar. Since the cnchar lexicon comes from the I
 
 [I want to report errors or omissions](https://github.com/theajack/cnchar/issues/new)
 
+About this document
+
+Since the document is long, please do a brief introduction, please read as needed
+
+-Chapter zero can help developers quickly access cnchar
+-Chapters 1 and 2 introduce the functions of cnchar and its function library
+-Chapter 3 introduces the installation and use of cnchar
+-Chapter 4 introduces the differences in the use of cnchar in various environments
+-Chapter 5 introduces the API usage of cnchar and its function library in detail
+-Chapter 6 lists the parameters of each method and a large number of cnchar use examples
+-Chapter 7 introduces some cnchar use cases
+  
 ### 0. Quick use
 
 Use npm to install:
@@ -94,7 +106,7 @@ cnchar|The main js library, the other three libraries depend on this library|Con
 | cnchar-idiom | idiom library | support idiom query and other functions | 2.2+ |
 | cnchar-xhy | Xiehou language library | Support Xiehouyu query and other functions | 2.2+ |
 
-### 3 Installation
+### 3. Installation
 
 #### 3.1 Install with npm
 
@@ -137,7 +149,7 @@ Or use the following cdn, which contains the above seven libraries
 ```
 
 
-### 4 Use
+### 4. Use
 
 #### 4.1 webpack browser environment(with window object)
 
@@ -200,9 +212,11 @@ The native browser environment requires the use of script tags to import js file
 </script>
 ```
 
-### 5 API
+### 5. API
 
 Type declaration: [cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts) | [cnchar-order.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/order/index.d.ts) | [cnchar-trad.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/trad/index.d.ts)
+
+Note: This chapter only introduces API usage, please refer to Chapter 6 for more usage examples
 
 #### 5.1 Basic Pinyin Stroke API: spell & stroke
 
@@ -449,7 +463,15 @@ cnchar.strokeToWord(25,'simple'); // returns'鬣馕囔戆攮纛'
 cnchar.strokeToWord(1,'array'); // returns ['一','乙']
 ```
 
-#### 5.7 Query pinyin details: spellInfo
+#### 5.7 Idiom Function
+
+cnchar added idiom function in 2.2.0, install `cnchar-draw`
+
+#### 5.8 Xiehouyu function
+
+#### 5.9 Chinese Characters and Pinyin Tools
+
+##### 5.9.1 Query pinyin details: spellInfo
 
 The `spellInfo` method is used to query the detailed information of Pinyin, the usage is as follows:
 
@@ -483,9 +505,126 @@ cnchar.spellInfo.tones;
 // Use * instead of n
 ```
 
-#### 5.8 Other APIs
+##### 5.9.2 Pinyin tone operation: transformTone
 
-##### 5.8.1 .use()
+The `transformTone` method is used to convert toned pinyin to toneless pinyin, and the tone position and tone
+
+The usage is as follows:
+
+```ts
+cnchar.transformTone(spell: string, tone?: boolean, type?: 'low' | 'up');
+/* return value
+{
+     spell: string; // converted pinyin
+     tone: toneType; // tone
+     index: number; // tone position
+     isTrans: boolean; // Whether it is converted such as lv2 -> lǘ
+}
+*/
+```
+
+tone is an optional parameter, indicating whether the return value spell needs to bring a tone, the default is false
+
+type is an optional parameter, indicating that the return value spell sets the case, the default is'low'
+
+The transformTone spell parameter supports the use of v instead of ü, and the use of numbers at the end to represent the tone, for example, `lv is equivalent to lü`shang4 is equivalent to shàng`
+
+##### 5.9.3 Is it Chinese characters: isCnChar
+
+The `isCnChar` method is used to determine whether a character is a Chinese character
+
+```ts
+cnchar.isCnChar(word: string): boolean;
+```
+
+##### 5.9.4 Compare Pinyin (Chinese character) size: compareSpell
+
+`CompareSpell` method is used to compare the size of Pinyin or Chinese characters according to Pinyin
+
+This method supports comparison according to Pinyin and tones. For sorting, please refer to the `sortSpell` method
+
+```ts
+cnchar.compareSpell(spell1: string, spell2: string, tone?: boolean);
+```
+
+The tone parameter indicates whether to compare according to the tone, the default is false
+
+This method returns a string,'more','less','even' means that spell1 is greater than, less than, equal to spell2
+
+example:
+
+```js
+cnchar.compareSpell('ao', 'ai') // Returns 'more' because o comes after i
+cnchar.compareSpell('奥', 'ai') // Returns 'more'
+```
+
+##### 5.9.5 Compare the number of strokes of Chinese characters: compareStroke
+
+The `compareStroke` method is used to compare the size of Chinese characters according to the number of strokes. It can be used to sort the first Chinese character strokes according to the name. For sorting, please refer to the `sortStroke` method
+
+```ts
+cnchar.compareStroke(stroke1: string, stroke2: string);
+```
+
+This method supports the input of Chinese characters or numbers, Chinese characters can be input multiple
+
+This method returns a string,'more','less','even' means stroke1 is greater than, less than, equal to stroke2
+
+example:
+
+```js
+cnchar.compareStroke('你', '好') // Returns 'more'
+cnchar.compareStroke(20, '好') // Returns 'more'
+cnchar.compareStroke('一个', '好') // Returns 'less'
+```
+
+##### 5.9.6 Sort by pinyin: sortSpell
+
+The `sortSpell` method is used to sort Chinese characters or Pinyin according to Pinyin, supports input arrays or strings, supports sorting by tone, and supports reverse order
+
+```ts
+cnchar.sortSpell(spells:Array<string> | string, ...args?: Array<'tone'|'desc'>): Array<string> | string;
+```
+
+The spells parameter can be an array or a string
+
+When it is an array, the array elements can be Chinese characters or Pinyin, and the returned array is
+
+When it is a string, the string must be all Chinese characters, and the returned string
+
+There are two optional parameters for this method,'tone' means sorting by tone, and'desc' means reverse order, by default, no distinction is made between tone and ascending order. Please see some examples
+
+```js
+cnchar.sortSpell(['你', '好', '吗']) // ['好', '吗', '你']
+cnchar.sortSpell('你好吗') // '好吗你'
+cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
+```
+
+##### 5.9.7 Sort by number of strokes: sortStroke
+
+The `sortStroke` method is used to sort Chinese characters according to the number of strokes
+
+```ts
+cnchar.sortStroke(strokes:Array<string|number> | string, desc?:'desc'): Array<string> | string;
+```
+
+The strokes parameter can be an array or a string
+
+When it is an array, the array elements can be Chinese characters or numbers, and the returned array
+
+When it is a string, the string must be all Chinese characters, and the returned string
+
+This method has an optional parameter,'desc' means reverse order, default ascending order. Please see some examples
+
+```js
+cnchar.sortStroke(['一', '三', '二']) // ['一', '二', '三']
+cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三'],
+cnchar.sortStroke('一三二', 'desc') // '三二一'
+```
+
+#### 5.10 Other APIs
+
+##### 5.10.1 .use()
 
 The function of this API is to explicitly enable the three function libraries `poly`,`order`, and `trad`
 
@@ -514,7 +653,7 @@ import 'cnchar-order';
 import 'cnchar-trad';
 ```
 
-##### 5.8.2 .type
+##### 5.10.2 .type
 
 The type object user gets the currently available `spell`,` stroke`, `orderToWord`,` spellToWord`, `strokeToWord` parameter types:
 
@@ -538,7 +677,7 @@ strokeToWordArg Maximum available values: `['simple','trad','array']`
 
 Specific usage <a href="#user-content-6-spell-stroke-parameters"> Chapter 6 </a>
 
-##### 5.8.3 .check
+##### 5.10.3 .check
 
 This value is a Boolean type, used to control whether to enable parameter verification, the default value is true
 
@@ -548,7 +687,7 @@ Parameter verification can check the incoming parameters of `spell` and` stroke`
 cnchar.check = false; // Turn off parameter check
 ```
 
-##### 5.8.4 .version
+##### 5.10.4 .version
 
 Get the current version:
 
@@ -556,7 +695,7 @@ Get the current version:
 var version = cnchar.version; // string type
 ```
 
-##### 5.8.5 .plugins
+##### 5.10.5 .plugins
 
 List of currently used function libraries, the most common case is `["order","trad","poly"]`
 
@@ -754,10 +893,6 @@ cnchar.spellToWord('lv2'); // returns"驴闾榈"
 
 // strokeToWord function
 cnchar.strokeToWord(2); // returns"丁七乃乜九了二人亻儿入八冂几凵刀刁力勹"
-
-// spellInfo function
-cnchar.spellInfo('shàng');
-// returns {spell:"shang", tone: 4, index: 3, initial:"sh", final:"ang"}
 ```
 
 Remarks:
@@ -878,9 +1013,97 @@ The library adds pinyin stroke function extension for traditional characters, an
 
 ##### 6.8.5 cnchar-idiom library function
 
+This library extends the idiom function for cnchar
+
+```js
+cnchar.idiom(['五', '', '十', '']) // ['五风十雨', '五光十色']
+cnchar.idiom([4, 6, 2, 6], 'stroke') // ['五光十色']
+cnchar.idiom('shang', 'spell') // ['伤风败化', '伤风败俗', ... ]
+cnchar.idiom('shang4', 'spell', 'tone') // ['伤风败化', '伤风败俗', ... ]
+```
 
 ##### 6.8.6 cnchar-xhy library function
 
+This library extends the function of Xiehouyu for cnchar
+
+```js
+cnchar.xhy('大水冲了龙王庙') // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人']
+cnchar.xhy('大水', 'fuzzy') // ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪', ... ]
+cnchar.xhy('大水', 'fuzzy', 'answer') // ['泥沙俱下', '后浪推前浪', ... ]
+cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second') // ['醉汉过铁索桥', '扶着醉汉过破桥']
+```
+
+##### 6.8.7 Tools and methods
+
+cnchar provides some Chinese character tool methods to facilitate developers to operate pinyin and Chinese characters more conveniently and efficiently
+
+###### 6.8.7.1 spellInfo
+
+```js
+cnchar.spellInfo('shàng');
+// Returns {spell: "shang", tone: 4, index: 3, initial: "sh", final: "ang"}
+```
+
+###### 6.8.7.2 isCnChar
+
+```js
+cnchar.isCnChar('a') // false
+cnchar.isCnChar('1') // false
+cnchar.isCnChar('？') // false
+cnchar.isCnChar('国') // true
+cnchar.isCnChar('國') // true
+```
+
+###### 6.8.7.3 transformTone
+
+```js
+cnchar.transformTone('lv2') // {spell: 'lü', tone: 2, index: 2, isTrans: true}
+cnchar.transformTone('lv2', true) // {spell: 'lǘ', tone: 2, index: 2, isTrans: true}
+cnchar.transformTone('lv2', true, 'up') // {spell: 'LǗ', tone: 2, index: 2, isTrans: true}
+cnchar.transformTone('lǘ') // {spell: 'lü', tone: 2, index: 2, isTrans: false}
+```
+
+###### 6.8.7.4 compareSpell
+
+```js
+cnchar.compareSpell('ao', 'ai') // 'more'
+cnchar.compareSpell('ai', 'ai') // 'even'
+cnchar.compareSpell('pín', 'pǐn', 'tone') // 'less'
+cnchar.compareSpell('pin2', 'pǐn', 'tone') // 'less'
+cnchar.compareSpell('频', 'pǐn', 'tone') // 'less'
+cnchar.compareSpell('品', '频', 'tone') // 'more'
+cnchar.compareSpell('贫', '频', 'tone') // 'even'
+```
+
+###### 6.8.7.5 compareStroke
+
+```js
+cnchar.compareStroke('你', '好') // 'more'
+cnchar.compareStroke('你', '苏') // 'even'
+cnchar.compareStroke('好', '苏') // 'less'
+cnchar.compareStroke('一个', '好') // 'less'
+cnchar.compareStroke('你', 14) // 'less'
+```
+
+###### 6.8.7.6 sortSpell
+
+```js
+cnchar.sortSpell(['你', '好', '吗']) // ['好', '吗', '你']
+cnchar.sortSpell('你好吗') // '好吗你'
+cnchar.sortSpell(['拼', '品', '频', '爱'], 'tone') // ['爱', '拼', '频', '品']
+cnchar.sortSpell(['拼', '品', 'pin2', 'ai'], 'tone') // ['ai', '拼', 'pin2', '品']
+cnchar.sortSpell(['拼', '品', '频', '爱'], 'tone', 'desc') // ['品', '频', '拼', '爱']
+cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
+```
+
+###### 6.8.7.7 sortStroke
+
+```js
+cnchar.sortStroke(['一', '三', '二']) // ['一', '二', '三']
+cnchar.sortStroke('一三二') // '一二三'
+cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三']
+cnchar.sortStroke(['一', '三', '二'], 'desc') // ['三', '二', '一']
+```
 
 ### 7 Application examples
 

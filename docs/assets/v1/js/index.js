@@ -40,7 +40,7 @@
             J.id('spark').txt('火星文：' + str.convertSimpleToSpark('spark'));
             str = pickCnChar(str);
             if (str !== '') {
-                window.cnchar.draw(str, {el: 'draw'});
+                window.cnchar.draw(str, {el: '#draw'});
             }
         }
     }

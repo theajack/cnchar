@@ -19,6 +19,7 @@ import 'easy-icon';
 import '../src/style/element.css';
 import '../src/style/main.css';
 import '../../public/config';
+import '../src/object-assign.polyfill';
 
 // import leancloud from 'leancloud-storage';
 

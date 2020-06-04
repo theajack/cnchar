@@ -1,4 +1,5 @@
 // powerd by hanzi-writer v2.2.2
+require('./promise-polyfill');
 const draw = require('./writer');
 
 

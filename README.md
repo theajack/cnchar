@@ -22,20 +22,24 @@ cnchar 由于重建过一次仓库，所以之前的 star 清零了 (〒︿〒)�
 
 ---
 
+
+<details>
+    <summary>展开目录</summary>
+
 <!-- toc -->
 
 - [前言](#前言)
 - [0.快速使用](#0快速使用)
 - [1.功能](#1功能)
 - [2.概览](#2概览)
-- [3 安装](#3-安装)
+- [3.安装](#3安装)
   - [3.1 使用 npm 安装](#31-使用-npm-安装)
   - [3.2 使用 script 引入](#32-使用-script-引入)
-- [4 使用](#4-使用)
+- [4.使用](#4使用)
   - [4.1 webpack浏览器环境(有window对象)](#41-webpack浏览器环境有window对象)
   - [4.2 nodejs 等非浏览器环境](#42-nodejs-等非浏览器环境)
   - [4.3 原生浏览器环境](#43-原生浏览器环境)
-- [5 API](#5-api)
+- [5.API](#5api)
   - [5.1 拼音笔画基础 API: spell & stroke](#51-拼音笔画基础-api-spell--stroke)
   - [5.2 可视化绘制汉字: draw](#52-可视化绘制汉字-draw)
     - [5.2.1 使用](#521-使用)
@@ -44,14 +48,23 @@ cnchar 由于重建过一次仓库，所以之前的 star 清零了 (〒︿〒)�
   - [5.4 笔画序列推出原汉字: orderToWord](#54-笔画序列推出原汉字-ordertoword)
   - [5.5 通过拼音查询原汉字: spellToWord](#55-通过拼音查询原汉字-spelltoword)
   - [5.6 通过笔画数查询原汉字: strokeToWord](#56-通过笔画数查询原汉字-stroketoword)
-  - [5.7 查询拼音详细信息: spellInfo](#57-查询拼音详细信息-spellinfo)
-  - [5.8 其他 api](#58-其他-api)
-    - [5.8.1 .use()](#581-use)
-    - [5.8.2 .type](#582-type)
-    - [5.8.3 .check](#583-check)
-    - [5.8.4 .version](#584-version)
-    - [5.8.5 .plugins](#585-plugins)
-- [6 spell stroke 参数](#6-spell-stroke-参数)
+  - [5.7 成语功能](#57-成语功能)
+  - [5.8 歇后语功能](#58-歇后语功能)
+  - [5.9 汉字、拼音工具方法](#59-汉字拼音工具方法)
+    - [5.9.1 查询拼音详细信息: spellInfo](#591-查询拼音详细信息-spellinfo)
+    - [5.9.2 拼音音调操作: transformTone](#592-拼音音调操作-transformtone)
+    - [5.9.3 是否是汉字: isCnChar](#593-是否是汉字-iscnchar)
+    - [5.9.4 比较拼音（汉字）大小: compareSpell](#594-比较拼音汉字大小-comparespell)
+    - [5.9.5 比较汉字笔画数大小: compareStroke](#595-比较汉字笔画数大小-comparestroke)
+    - [5.9.6 根据拼音排序: sortSpell](#596-根据拼音排序-sortspell)
+    - [5.9.7 根据笔画数排序: sortStroke](#597-根据笔画数排序-sortstroke)
+  - [5.10 其他 api](#510-其他-api)
+    - [5.10.1 .use()](#5101-use)
+    - [5.10.2 .type](#5102-type)
+    - [5.10.3 .check](#5103-check)
+    - [5.10.4 .version](#5104-version)
+    - [5.10.5 .plugins](#5105-plugins)
+- [6.spell stroke 参数](#6spell-stroke-参数)
   - [6.1 spell 参数](#61-spell-参数)
   - [6.2 stroke 参数](#62-stroke-参数)
   - [6.3 orderToWord 参数](#63-ordertoword-参数)
@@ -69,9 +82,20 @@ cnchar 由于重建过一次仓库，所以之前的 star 清零了 (〒︿〒)�
       - [6.8.4.2 spell 和 stroke 方法](#6842-spell-和-stroke-方法)
     - [6.8.5 cnchar-idiom 库功能](#685-cnchar-idiom-库功能)
     - [6.8.6 cnchar-xhy 库功能](#686-cnchar-xhy-库功能)
-- [7 应用例子](#7-应用例子)
+    - [6.8.7 工具方法](#687-工具方法)
+      - [6.8.7.1 spellInfo](#6871-spellinfo)
+      - [6.8.7.2 isCnChar](#6872-iscnchar)
+      - [6.8.7.3 transformTone](#6873-transformtone)
+      - [6.8.7.4 compareSpell](#6874-comparespell)
+      - [6.8.7.5 compareStroke](#6875-comparestroke)
+      - [6.8.7.6 sortSpell](#6876-sortspell)
+      - [6.8.7.7 sortStroke](#6877-sortstroke)
+- [7.应用例子](#7应用例子)
 
 <!-- tocstop -->
+
+
+</details>
 
 ---
 
@@ -80,6 +104,18 @@ cnchar 由于重建过一次仓库，所以之前的 star 清零了 (〒︿〒)�
 感谢同学们对于 cnchar 的支持，由于 cnchar 词库来源于网络，虽然经过了本人的修改和扩充，但是还是难免有错误与缺漏之处，希望大家可以将使用中发现的错误与缺漏之处 [反馈](https://github.com/theajack/cnchar/issues/new) 给我（或自行修改提交，经过审查无误过后会合到 cnchar 中）
 
 [我要反馈错误或缺漏](https://github.com/theajack/cnchar/issues/new)
+
+关于该文档
+
+由于文档较长，做一下简介，请按照需要阅读
+
+- 第零章可以帮助开发者快速接入cnchar
+- 第一、二章介绍了cnchar的功能及其功能库
+- 第三章介绍了cnchar的安装和使用
+- 第四章介绍了各种不同环境下cnchar的使用差异
+- 第五章详细介绍了cnchar及其功能库的API使用
+- 第六章列举了各个方法的参数和大量的cnchar使用实例
+- 第七章介绍了一些cnchar使用案例
 
 ### 0.快速使用
 
@@ -143,7 +179,7 @@ import cnchar from 'cnchar';
 | cnchar-idiom  |    成语库    | 支持成语查询等功能 | 2.2+ |
 | cnchar-xhy  |    歇后语库    | 支持歇后语查询等功能 | 2.2+ |
 
-### 3 安装
+### 3.安装
 
 #### 3.1 使用 npm 安装
 
@@ -184,8 +220,7 @@ npm i cnchar-all
 <script src="https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
 ```
 
-
-### 4 使用
+### 4.使用
 
 #### 4.1 webpack浏览器环境(有window对象)
 
@@ -248,10 +283,11 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 </script>
 ```
 
-### 5 API
+### 5.API
 
 类型声明：[cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts) | [cnchar-order.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/order/index.d.ts) | [cnchar-trad.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/trad/index.d.ts)
 
+注：该章节仅介绍API用法，更多使用实例请参考第六章
 
 #### 5.1 拼音笔画基础 API: spell & stroke
 
@@ -498,7 +534,15 @@ cnchar.strokeToWord(25, 'simple'); // 返回 '鬣馕囔戆攮纛'
 cnchar.strokeToWord(1, 'array'); // 返回 ['一', '乙']
 ```
 
-#### 5.7 查询拼音详细信息: spellInfo
+#### 5.7 成语功能
+
+cnchar在2.2.0加入了成语功能，安装 `cnchar-draw`
+
+#### 5.8 歇后语功能
+
+#### 5.9 汉字、拼音工具方法
+
+##### 5.9.1 查询拼音详细信息: spellInfo
 
 `spellInfo` 方法用于查询拼音的详细信息，用法如下：
 
@@ -532,9 +576,126 @@ cnchar.spellInfo.tones;
 // n 的一声使用 * 代替
 ```
 
-#### 5.8 其他 api
+##### 5.9.2 拼音音调操作: transformTone
 
-##### 5.8.1 .use()
+`transformTone` 方法用于将有音调拼音转换为无音调拼音，且可以获取音调位置和声调
+
+使用方式如下：
+
+```ts
+cnchar.transformTone(spell: string, tone?: boolean, type?: 'low' | 'up');
+/* 返回值
+{
+    spell: string; // 转换后的拼音
+    tone: toneType; // 声调
+    index: number; // 音调位置
+    isTrans: boolean; // 是否是经过转换的比如 lv2 -> lǘ
+}
+*/
+```
+
+tone 为可选参数，表示返回值spell是否需要带上声调，默认为 false
+
+type 为可选参数，表示返回值spell设置大小写，默认为 'low'
+
+transformTone spell参数 支持使用 v 代替 ü，支持使用末尾带数字表示声调，比如 `lv 等价于 lü` `shang4 等价于 shàng`
+
+##### 5.9.3 是否是汉字: isCnChar
+
+`isCnChar` 方法用于判断一个字符是否是汉字
+
+```ts
+cnchar.isCnChar(word: string): boolean;
+```
+
+##### 5.9.4 比较拼音（汉字）大小: compareSpell
+
+`compareSpell` 方法用于按照拼音比较拼音或汉字的大小，可用于通讯录姓名拼音排序等场景
+
+该方法支持按照拼音和声调比较，如需排序可以参考 `sortSpell` 方法
+
+```ts
+cnchar.compareSpell(spell1: string, spell2: string, tone?: boolean);
+```
+
+tone参数表示是否需要按照音调比较，默认为false
+
+该方法返回一个字符串，'more', 'less', 'even' 分别表示 spell1 大于、小于、等于 spell2
+
+例
+
+```js
+cnchar.compareSpell('ao', 'ai') // 返回 'more' 因为 o 排在 i 之后
+cnchar.compareSpell('奥', 'ai') // 返回 'more'
+```
+
+##### 5.9.5 比较汉字笔画数大小: compareStroke
+
+`compareStroke` 方法用于按照笔画数比较汉字大小，可用于按照姓名首个汉字笔画排序等场景，排序可以参考 `sortStroke` 方法
+
+```ts
+cnchar.compareStroke(stroke1: string, stroke2: string);
+```
+
+该方法支持输入汉字或数字，汉字可以输入多个
+
+该方法返回一个字符串，'more', 'less', 'even' 分别表示 stroke1 大于、小于、等于 stroke2
+
+例子：
+
+```js
+cnchar.compareStroke('你', '好') // 返回 'more'
+cnchar.compareStroke(20, '好') // 返回 'more'
+cnchar.compareStroke('一个', '好') // 返回 'less'
+```
+
+##### 5.9.6 根据拼音排序: sortSpell
+
+`sortSpell` 方法用于按照拼音排序汉字或拼音，支持输入数组或字符串，支持按照声调排序、支持倒序
+
+```ts
+cnchar.sortSpell(spells:Array<string> | string, ...args?: Array<'tone'|'desc'>): Array<string> | string;
+```
+
+spells参数可以是数组或字符串
+
+当为数组时，数组元素可以时汉字或拼音，返回的是数组
+
+当为字符串时，字符串必须全部是汉字，返回的是字符串
+
+该方法可选参数有两个，'tone' 表示按照音调排序，'desc' 表示倒序，默认不区分声调且升序。请看一些例子
+
+```js
+cnchar.sortSpell(['你', '好', '吗']) // ['好', '吗', '你']
+cnchar.sortSpell('你好吗') // '好吗你'
+cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
+```
+
+##### 5.9.7 根据笔画数排序: sortStroke
+
+`sortStroke` 方法用于按照笔画数排序汉字
+
+```ts
+cnchar.sortStroke(strokes:Array<string|number> | string, desc?: 'desc'): Array<string> | string;
+```
+
+strokes参数可以是数组或字符串
+
+当为数组时，数组元素可以时汉字或数字，返回的是数组
+
+当为字符串时，字符串必须全部是汉字，返回的是字符串
+
+该方法有一个可选参数，'desc' 表示倒序，默认升序。请看一些例子
+
+```js
+cnchar.sortStroke(['一', '三', '二']) // ['一', '二', '三']
+cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三'],
+cnchar.sortStroke('一三二', 'desc') // '三二一'
+```
+
+#### 5.10 其他 api
+
+##### 5.10.1 .use()
 
 这个 api 的功能是显式启用 `poly`、`order`、`trad` 三个功能库
 
@@ -563,7 +724,7 @@ import 'cnchar-order';
 import 'cnchar-trad';
 ```
 
-##### 5.8.2 .type
+##### 5.10.2 .type
 
 type 对象用户获取当前可用的 `spell` 、 `stroke` 、 `orderToWord` 、`spellToWord`、`strokeToWord` 参数类型：
 
@@ -587,7 +748,7 @@ strokeToWordArg 最多可用值： `['simple','trad','array']`
 
 具体用法<a href="#user-content-6-spell-stroke-参数">第六章</a>讲到
 
-##### 5.8.3 .check
+##### 5.10.3 .check
 
 该值是一个 布尔类型，用于控制是否开启参数校验，默认值为 true
 
@@ -597,7 +758,7 @@ strokeToWordArg 最多可用值： `['simple','trad','array']`
 cnchar.check = false; // 关闭参数校验
 ```
 
-##### 5.8.4 .version
+##### 5.10.4 .version
 
 获取当前版本：
 
@@ -605,7 +766,7 @@ cnchar.check = false; // 关闭参数校验
 var version = cnchar.version; // string 类型
 ```
 
-##### 5.8.5 .plugins
+##### 5.10.5 .plugins
 
 当前使用的功能库列表，最多的情况为 `["order", "trad", "poly"]`
 
@@ -613,7 +774,7 @@ var version = cnchar.version; // string 类型
 var plugins = cnchar.plugins; // array 类型
 ```
 
-### 6 spell stroke 参数
+### 6.spell stroke 参数
 
 #### 6.1 spell 参数
 
@@ -803,10 +964,6 @@ cnchar.spellToWord('lv2'); // 返回 "驴闾榈"
 
 //strokeToWord 功能
 cnchar.strokeToWord(2); // 返回 "丁七乃乜九了二人亻儿入八冂几凵刀刁力勹"
-
-//spellInfo 功能
-cnchar.spellInfo('shàng');
-// 返回 {spell: "shang", tone: 4, index: 3, initial: "sh", final: "ang"}
 ```
 
 备注：
@@ -927,11 +1084,99 @@ cnchar.convert.sparkToTrad('①个亾');
 
 ##### 6.8.5 cnchar-idiom 库功能
 
+该库为cnchar扩展了成语功能
+
+```js
+cnchar.idiom(['五', '', '十', '']) // ['五风十雨', '五光十色']
+cnchar.idiom([4, 6, 2, 6], 'stroke') // ['五光十色']
+cnchar.idiom('shang', 'spell') // ['伤风败化', '伤风败俗', ... ]
+cnchar.idiom('shang4', 'spell', 'tone') // ['伤风败化', '伤风败俗', ... ]
+```
 
 ##### 6.8.6 cnchar-xhy 库功能
 
+该库为cnchar扩展了歇后语功能
 
-### 7 应用例子
+```js
+cnchar.xhy('大水冲了龙王庙') // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人']
+cnchar.xhy('大水', 'fuzzy') // ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪', ... ]
+cnchar.xhy('大水', 'fuzzy', 'answer') // ['泥沙俱下', '后浪推前浪', ... ]
+cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second') // ['醉汉过铁索桥', '扶着醉汉过破桥']
+```
+
+##### 6.8.7 工具方法
+
+cnchar提供了一些汉字工具方法，方便开发者更便捷高效地操作拼音和汉字
+
+###### 6.8.7.1 spellInfo
+
+```js
+cnchar.spellInfo('shàng');
+// 返回 {spell: "shang", tone: 4, index: 3, initial: "sh", final: "ang"}
+```
+
+###### 6.8.7.2 isCnChar
+
+```js
+cnchar.isCnChar('a') // false
+cnchar.isCnChar('1') // false
+cnchar.isCnChar('？') // false
+cnchar.isCnChar('国') // true
+cnchar.isCnChar('國') // true
+```
+
+###### 6.8.7.3 transformTone
+
+```js
+cnchar.transformTone('lv2') // {spell: 'lü', tone: 2, index: 2, isTrans: true}
+cnchar.transformTone('lv2', true) // {spell: 'lǘ', tone: 2, index: 2, isTrans: true}
+cnchar.transformTone('lv2', true, 'up') // {spell: 'LǗ', tone: 2, index: 2, isTrans: true}
+cnchar.transformTone('lǘ') // {spell: 'lü', tone: 2, index: 2, isTrans: false}
+```
+
+###### 6.8.7.4 compareSpell
+
+```js
+cnchar.compareSpell('ao', 'ai') // 'more'
+cnchar.compareSpell('ai', 'ai') // 'even'
+cnchar.compareSpell('pín', 'pǐn', 'tone') // 'less'
+cnchar.compareSpell('pin2', 'pǐn', 'tone') // 'less'
+cnchar.compareSpell('频', 'pǐn', 'tone') // 'less'
+cnchar.compareSpell('品', '频', 'tone') // 'more'
+cnchar.compareSpell('贫', '频', 'tone') // 'even'
+```
+
+###### 6.8.7.5 compareStroke
+
+```js
+cnchar.compareStroke('你', '好') // 'more'
+cnchar.compareStroke('你', '苏') // 'even'
+cnchar.compareStroke('好', '苏') // 'less'
+cnchar.compareStroke('一个', '好') // 'less'
+cnchar.compareStroke('你', 14) // 'less'
+```
+
+###### 6.8.7.6 sortSpell
+
+```js
+cnchar.sortSpell(['你', '好', '吗']) // ['好', '吗', '你']
+cnchar.sortSpell('你好吗') // '好吗你'
+cnchar.sortSpell(['拼', '品', '频', '爱'], 'tone') // ['爱', '拼', '频', '品']
+cnchar.sortSpell(['拼', '品', 'pin2', 'ai'], 'tone') // ['ai', '拼', 'pin2', '品']
+cnchar.sortSpell(['拼', '品', '频', '爱'], 'tone', 'desc') // ['品', '频', '拼', '爱']
+cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
+```
+
+###### 6.8.7.7 sortStroke
+
+```js
+cnchar.sortStroke(['一', '三', '二']) // ['一', '二', '三']
+cnchar.sortStroke('一三二') // '一二三'
+cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三']
+cnchar.sortStroke(['一', '三', '二'], 'desc') // ['三', '二', '一']
+```
+
+### 7.应用例子
 
 [汉字打字游戏](https://www.theajack.com/type/)
 
