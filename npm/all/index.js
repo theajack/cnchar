@@ -10,5 +10,9 @@ var poly = require('cnchar-poly');
 
 var draw = require('cnchar-draw');
 
-cnchar.use(order, trad, poly, draw);
+var idiom = require('cnchar-idiom');
+
+var xhy = require('cnchar-xhy');
+
+cnchar.use(order, trad, poly, draw, idiom, xhy);
 module.exports = cnchar;

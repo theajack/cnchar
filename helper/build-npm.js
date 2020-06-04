@@ -149,9 +149,10 @@ function transEs6ByBabel () {
     gulp.src('src/plugin/xhy/*.js')
         .pipe(babel({presets: ['@babel/env']}))
         .pipe(gulp.dest('npm/xhy'));
-    // gulp.src('src/plugin/all/*.js')
-    //     .pipe(babel({presets: ['@babel/env']}))
-    //     .pipe(gulp.dest('npm/all'));
+        
+    gulp.src('src/plugin/all/*.js')
+        .pipe(babel({presets: ['@babel/env']}))
+        .pipe(gulp.dest('npm/all'));
 }
 
 task();

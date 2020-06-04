@@ -145,59 +145,9 @@ arg 参数信息如下：
 
 注：`simple`与`trad`参数若是都不存在，则当引入`cnchar-trad`时会同时匹配繁简体，没有引入`cnchar-trad`时则只匹配简体
 
-## 6. 查询拼音详细信息
+## 6. 其他api
 
-### 6.1 api使用
-
-`spellInfo` 方法用于查询拼音的详细信息，用法如下：
-
-<div>
-  <highlight-code lang='javascript'>
-cnchar.spellInfo(spell);
-  </highlight-code>
-</div>
-
-该方法返回一个json：
-
-<div>
-  <highlight-code lang='json'>
-{
-    "spell": string, // 去音调的拼音小写
-    "tone": number, // 音调 0-5
-    "index": number, // 音调位置
-    "initial": string, // 声母
-    "final": string // 韵母
-}
-  </highlight-code>
-</div>
-
-以下是一个简单的例子：
-
-<div>
-  <codebox id='spellInfo'></codebox>
-</div>
-
-### 6.2 声母
-
-`cnchar.spellInfo.initials` 方法用于获取所有的声母，用法如下：
-
-<div>
-  <codebox id='initials'></codebox>
-</div>
-
-### 6.3 音调
-
-`cnchar.spellInfo.tones` 方法用于获取所有的音调，用法如下：
-
-<div>
-  <codebox id='tones'></codebox>
-</div>
-
-注：n 的一声使用 * 代替
-
-## 7. 其他api
-
-### 7.1 .use()
+### 6.1 .use()
 
 这个 api 的功能是显式启用 `poly`、`order`、`trad`、`draw` 四个功能库
 
@@ -233,7 +183,7 @@ import 'cnchar-draw';
   </highlight-code>
 </div>
 
-### 7.2 .type
+### 6.2 .type
 
 type 对象用户获取当前可用的 `spell` 、 `stroke` 、 `orderToWord` 、`spellToWord`、`strokeToWord` 参数类型：
 
@@ -241,7 +191,7 @@ type 对象用户获取当前可用的 `spell` 、 `stroke` 、 `orderToWord` �
   <codebox id='type'></codebox>
 </div>
 
-### 7.3 .check
+### 6.3 .check
 
 该值是一个 布尔类型，用于控制是否开启参数校验，默认值为 true
 
@@ -253,7 +203,7 @@ cnchar.check = false; // 关闭参数校验
   </highlight-code>
 </div>
 
-### 7.4 .version
+### 6.4 .version
 
 获取当前版本：
 
@@ -262,7 +212,7 @@ cnchar.check = false; // 关闭参数校验
 </div>
 
 
-### 7.5 .plugins
+### 6.5 .plugins
 
 当前使用的功能库列表，最多的情况为 `["order", "trad", "poly", "draw"]`
 

@@ -63,18 +63,7 @@ function spellToWord() {
     throw new Error('spellToWord: 输入必须是字符串');
   }
 
-  if (spell.indexOf('v') !== -1) {
-    spell = spell.replace('v', 'ü');
-  }
-
-  var tone = spell[spell.length - 1];
-
-  if (parseInt(tone).toString() === tone) {
-    spell = spell.substr(0, spell.length - 1);
-    tone = parseInt(tone);
-  } else {
-    tone = false;
-  }
+  var info = _.transformTone(spell, false);
 
   args = args.splice(1);
 
@@ -92,27 +81,18 @@ function spellToWord() {
   }
 
   var res = '';
-
-  var info = _.removeTone(spell, false);
-
-  if (tone !== false) {
-    info.tone = tone;
-  }
-
   var str = dict[info.spell].substr(2);
 
   for (var i = 0; i < str.length; i += 2) {
     var word = str[i];
-
-    var _tone = parseInt(str[i + 1]);
-
-    var isPoly = _tone > 4;
+    var tone = parseInt(str[i + 1]);
+    var isPoly = tone > 4;
 
     if (isPoly) {
-      _tone = _tone - 5;
+      tone = tone - 5;
     }
 
-    if (res.indexOf(word) === -1 && (argRes.alltone || _tone === info.tone)) {
+    if (res.indexOf(word) === -1 && (argRes.alltone || tone === info.tone)) {
       if (!argRes.poly || isPoly) {
         res += word;
       }
@@ -144,4 +124,7 @@ function spellToWord() {
   return res;
 }
 
-module.exports = initSpellToWord;
+module.exports = {
+  initSpellToWord: initSpellToWord,
+  spellInfo: spellInfo
+};

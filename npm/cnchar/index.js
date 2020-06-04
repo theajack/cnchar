@@ -15,13 +15,22 @@ var _require = require('./tool'),
     sumStroke = _require.sumStroke,
     isCnChar = _require.isCnChar,
     checkArgs = _require.checkArgs,
-    initCnchar = _require.initCnchar;
+    initCnchar = _require.initCnchar,
+    transformTone = _require.transformTone;
 
 var dict = require('./dict');
 
-var initSpellToWord = require('./spellToWord');
+var _require2 = require('./spellToWord'),
+    initSpellToWord = _require2.initSpellToWord;
 
 var initStrokeToWord = require('./strokeToWord');
+
+var _require3 = require('./sort'),
+    compareSpell = _require3.compareSpell,
+    sortSpell = _require3.sortSpell,
+    compareStroke = _require3.compareStroke,
+    sortStroke = _require3.sortStroke,
+    initSort = _require3.initSort;
 
 function _spell() {
   for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -95,6 +104,7 @@ var cnchar = {
     sumStroke: sumStroke,
     isCnChar: isCnChar,
     checkArgs: checkArgs,
+    transformTone: transformTone,
     dict: {}
   },
   type: {
@@ -102,7 +112,14 @@ var cnchar = {
     stroke: {
       array: arg.array
     }
-  }
+  },
+  // 工具方法
+  transformTone: transformTone,
+  isCnChar: isCnChar,
+  compareSpell: compareSpell,
+  compareStroke: compareStroke,
+  sortSpell: sortSpell,
+  sortStroke: sortStroke
 };
 
 function init() {
@@ -110,6 +127,7 @@ function init() {
   initCnchar(cnchar);
   initSpellToWord(cnchar);
   initStrokeToWord(cnchar);
+  initSort(cnchar);
 
   if (typeof window !== 'undefined') {
     window.cnchar = window.CnChar = cnchar;

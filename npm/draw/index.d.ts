@@ -91,4 +91,10 @@ export declare interface Draw {
 
 declare const draw: Draw;
 
+declare module 'cnchar' {
+    interface CnCharStatic {
+        draw: Draw;
+    }
+}
+
 export default draw;

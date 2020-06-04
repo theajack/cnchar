@@ -2,6 +2,9 @@
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+var _require = require('./spellToWord'),
+    spellInfo = _require.spellInfo;
+
 var tones = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
 
 var noTones = 'aoeiuün';
@@ -363,7 +366,15 @@ function checkArgs(type, args, jumpNext) {
     } else if (has(args, 'contain')) {
       check(['start']);
     }
-  } else if (type === 'strokeToWord') {} else if (type === 'spellToWord') {}
+  } else if (type === 'strokeToWord') {} else if (type === 'spellToWord') {} else if (type === 'idiom') {
+    if (has(args, 'spell')) {
+      check(['stroke', 'char']);
+    } else if (has(args, 'stroke')) {
+      check(['tone', 'char']);
+    } else {
+      check(['tone']);
+    }
+  } else if (type === 'xhy') {}
 
   warnArgs(useless, '无效', type);
   warnArgs(ignore, '被忽略', type);
@@ -374,6 +385,58 @@ function warnArgs(arr, txt, type) {
   if (arr.length > 0) {
     _wran("\u4EE5\u4E0B\u53C2\u6570".concat(txt, ":").concat(JSON.stringify(arr), ";  \u53EF\u9009\u503C\uFF1A[").concat(Object.keys(_cnchar.type[type]), "]"));
   }
+} // lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
+// lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
+// needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
+
+
+function transformTone(spell, needTone) {
+  var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'low';
+
+  if (spell.indexOf('v') !== -1) {
+    spell = spell.replace('v', 'ü');
+  }
+
+  var tone = spell[spell.length - 1];
+  var index = -1;
+  var isTrans = false;
+
+  if (parseInt(tone).toString() === tone) {
+    // lv2
+    spell = spell.substr(0, spell.length - 1);
+    var info = spellInfo(spell);
+    index = info.index;
+    tone = parseInt(tone);
+    isTrans = true;
+
+    if (needTone) {
+      spell = setTone(spell, index - 1, tone);
+    }
+  } else {
+    // lǘ
+    var _info = spellInfo(spell);
+
+    index = _info.index;
+    tone = _info.tone; // 声调已经带好了的情况
+
+    if (!needTone && tone !== 0) {
+      // 需要去除音调并且有音调
+      spell = _info.spell;
+    }
+  }
+
+  if (type === 'low') {
+    spell = spell.toLowerCase();
+  } else if (type === 'up') {
+    spell = spell.toUpperCase();
+  }
+
+  return {
+    spell: spell,
+    tone: tone,
+    index: index,
+    isTrans: isTrans
+  };
 }
 
 module.exports = {
@@ -389,5 +452,6 @@ module.exports = {
   sumStroke: sumStroke,
   checkArgs: checkArgs,
   initCnchar: initCnchar,
-  tones: tones
+  tones: tones,
+  transformTone: transformTone
 };

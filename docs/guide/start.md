@@ -1,7 +1,7 @@
 
 ## 1. npm安装
 
-cnchar包含了一个基本库和四个功能库，用于实现不同的功能，您可以按需安装其中的功能库，但是 `cnchar` 这个基础库是必须安装的
+cnchar包含了一个基本库和六个功能库，用于实现不同的功能，您可以按需安装其中的功能库，但是 `cnchar` 这个基础库是必须安装的（draw、idiom、xhy三个库可以独立使用）
 
 安装[主库](https://npmjs.com/package/cnchar)：
 
@@ -15,7 +15,7 @@ npm i cnchar
 
 <div>
   <highlight-code>
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy
   </highlight-code>
 </div>
 
@@ -29,6 +29,8 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw
     import 'cnchar-order';
     import 'cnchar-trad';
     import 'cnchar-draw';
+    import 'cnchar-idiom';
+    import 'cnchar-xhy';
   </highlight-code>
 </div>
 
@@ -41,7 +43,9 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw
     import poly from 'cnchar-poly';
     import order from 'cnchar-order';
     import trad from 'cnchar-trad';
-    cnchar.use(poly, order, trad);
+    import idiom from 'cnchar-idiom';
+    import xhy from 'cnchar-xhy';
+    cnchar.use(poly, order, trad, idiom, xhy);
   </highlight-code>
 </div>
 
@@ -54,7 +58,9 @@ commonjs 模块
     var poly = require('cnchar-poly');
     var order = require('cnchar-order');
     var trad = require('cnchar-trad');
-    cnchar.use(poly, order, trad);
+    var idiom = require('cnchar-idiom');
+    var xhy = require('cnchar-xhy');
+    cnchar.use(poly, order, trad, idiom, xhy);
   </highlight-code>
 </div>
 
@@ -70,12 +76,14 @@ commonjs 模块
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js">&lt;/script>
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js">&lt;/script>
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js">&lt;/script>
+      &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"> &lt;/script>
+      &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"> &lt;/script>
   </highlight-code>
 </div>
 
 ## 3. cnchar-all
 
-如果您需要使用cnchar及其插件的所有功能，可以通过安装`cnchar-all`来使用完整功能，这个库引用了上面的五个库
+如果您需要使用cnchar及其插件的所有功能，可以通过安装`cnchar-all`来使用完整功能，这个库引用了上面的七个库
 
 <div>
   <highlight-code>

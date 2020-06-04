@@ -122,7 +122,7 @@ Install additional function library:
 npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw
 ```
 
-Of course, you can also install a few of them on demand, but the basic library `cnchar` must be installed
+Of course, you can also install a few of them on demand, but the basic library `cnchar` must be installed (draw, idiom, xhy three libraries can be used independently)
 
 Or you can use the full functionality by installing `cnchar-all`, this library references the above four libraries
 

@@ -21,11 +21,14 @@ module.exports = {
                 text: '文档',
                 // 这里是下拉列表展现形式。
                 items: [
-                    {text: 'cnchar', link: '/doc/cnchar'},
-                    {text: 'cnchar-poly', link: '/doc/poly'},
-                    {text: 'cnchar-order', link: '/doc/order'},
-                    {text: 'cnchar-trad', link: '/doc/trad'},
-                    {text: 'cnchar-draw', link: '/doc/draw'},
+                    {text: 'cnchar: 拼音+笔画', link: '/doc/cnchar'},
+                    {text: 'cnchar-poly: 多音词', link: '/doc/poly'},
+                    {text: 'cnchar-order: 笔顺', link: '/doc/order'},
+                    {text: 'cnchar-trad: 繁体字', link: '/doc/trad'},
+                    {text: 'cnchar-draw: 汉字可视化', link: '/doc/draw'},
+                    {text: 'cnchar-idiom: 成语', link: '/doc/idiom'},
+                    {text: 'cnchar-xhy: 歇后语', link: '/doc/xhy'},
+                    {text: '工具方法', link: '/doc/tool'},
                 ],
             },
             {
@@ -69,6 +72,18 @@ module.exports = {
                         {
                             title: 'cnchar-draw',
                             path: 'draw',
+                        },
+                        {
+                            title: 'cnchar-idiom',
+                            path: 'idiom',
+                        },
+                        {
+                            title: 'cnchar-xhy',
+                            path: 'xhy',
+                        },
+                        {
+                            title: '工具方法',
+                            path: 'tool',
                         },
                     ],
                 },

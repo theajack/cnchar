@@ -1,6 +1,6 @@
 {
     "name": "cnchar",
-    "version": "2.1.5",
+    "version": "2.2.0",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
     "main": "index.html",
     "author": "theajack <contact@theajack.com>",
@@ -29,13 +29,14 @@
         "build:idiom": "webpack --config webpack-config/build.plugin.js --env.pluginname=idiom",
         "build:xhy": "webpack --config webpack-config/build.plugin.js --env.pluginname=xhy",
         "build:all": "webpack --config webpack-config/build.plugin.js --env.pluginname=all",
-        "build:plugin": "npm run build:poly && npm run build:order && npm run build:trad && npm run build:draw && npm run build:all",
+        "build:plugin": "npm run build:poly && npm run build:order && npm run build:trad && npm run build:draw && npm run build:idiom && npm run build:xhy && npm run build:all",
         "build:npm": "node ./helper/build-npm.js",
         "start": "webpack-dev-server --open --config webpack-config/dev.js",
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",
         "publish": "npm publish npm/cnchar && npm publish npm/order && npm publish npm/poly && npm publish npm/trad && npm publish npm/draw && npm publish npm/idiom && npm publish npm/xhy && npm publish npm/all && npm publish npm/hanzi-util-base && npm publish npm/hanzi-util",
         "lint": "eslint src --ext js",
         "test": "node test",
+        "test:npm": "node test npm",
         "dev:docs": "vuepress dev docs",
         "build:docs": "vuepress build docs && npm run build:config"
     },

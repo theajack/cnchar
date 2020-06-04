@@ -21,8 +21,6 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 
 **cnchar 是一款功能全面、多端支持的汉字拼音笔画 js 库**
 
-cnchar 由于重建过一次仓库，所以之前的 star 都清零了，如果该仓库对您有帮助，希望能给个star，谢谢！
-
 **[更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new)**
 
 ## 1. 前言
@@ -46,23 +44,28 @@ cnchar 由于重建过一次仓库，所以之前的 star 都清零了，如果�
 10. 支持 **根据笔画顺序查询** 汉字
 11. 支持 **查询拼音的信息**，包含声母、韵母、音调、音调位置的等
 12. 支持 **繁体字** 拼音、笔画数及以上所有功能，实现和简体字一样的功能
-13. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
-14. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
-15. **typescript支持**，支持在typescript中调用
-16. 丰富的配置，按需取用
+13. 支持 **成语** 查询功能，可以按照汉字、拼音（声调）、笔画数查询成语
+14. 支持 **歇后语** 查询功能，支持模糊查询
+15. 提供汉字工具方法，方便开发者更便捷高效地 **操作拼音和汉字**
+16. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
+17. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
+18. **typescript支持**，支持在typescript中调用
+19. 丰富的配置，按功能拆分成7个库按需取用
 
 
 ## 3. 概览
 
-考虑到不同的需求，cnchar 的功能被拆分到以下五个库中：
+考虑到不同的需求，cnchar 的功能被拆分到以下七个库中，方便开发者按需取用：
 
-|     名称     | 描述 |   功能   |
-| :----------: | :------------------------------: | :--------------------: |
-|    [cnchar](/cnchar/v2/doc/cnchar)    | 主 js 库，其他三个库依赖于这个库 |       含有简体字拼音、多音字、音调、笔画数等功能       |
-| [cnchar-poly](/cnchar/v2/doc/poly)  |    多音词库    |     含有识别多音词功能     |
-| [cnchar-order](/cnchar/v2/doc/order) |   笔画顺序库   |       含有识别笔画顺序、笔画名称、笔画形状等功能       |
-| [cnchar-trad](/cnchar/v2/doc/trad)  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 |
-| [cnchar-draw](/cnchar/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 |
+|     名称     | 描述 |   功能   | 支持版本 |
+| :----------: | :------------------------------: | :--------------------: | :--------------------: |
+|    [cnchar](/cnchar/v2/doc/cnchar)    | 主 js 库，其他三个库依赖于这个库 |       含有简体字拼音、多音字、音调、笔画数等功能       | -- |
+| [cnchar-poly](/cnchar/v2/doc/poly)  |    多音词库    |     含有识别多音词功能     | -- |
+| [cnchar-order](/cnchar/v2/doc/order) |   笔画顺序库   |       含有识别笔画顺序、笔画名称、笔画形状等功能       | -- |
+| [cnchar-trad](/cnchar/v2/doc/trad)  |    繁体字库    | 支持繁体、火星、简体互转，支持繁体拼音笔画多音字全功能 | -- |
+| [cnchar-draw](/cnchar/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 | 2.1+ |
+| [cnchar-idiom](/cnchar/v2/doc/idiom)   |    成语库    | 支持成语查询等功能 | 2.2+ |
+| [cnchar-xhy](/cnchar/v2/doc/xhy)   |    歇后语库    | 支持歇后语查询等功能 | 2.2+ |
 
 <div>
     <star></star>
