@@ -1,3 +1,5 @@
+import './extend';
+
 declare const trad: Function;
 
 declare module 'cnchar' {

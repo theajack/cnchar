@@ -1,10 +1,13 @@
-<h1>
-    <a href="https://github.com/theajack/cnchar">cnchar</a>
+<p align="center">
+    <img src='https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
+</p> 
+
+<p align="center">
     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/github/stars/theajack/cnchar.svg?style=social" alt="star"></a>
     <a href="https://theajack.gitee.io"><img src="https://img.shields.io/badge/author-theajack-blue.svg?style=social" alt="Author"></a>
-</h1> 
+</p> 
 
-<p>
+<p align="center">
     <a href="https://www.npmjs.com/package/cnchar"><img src="https://img.shields.io/npm/v/cnchar.svg" alt="Version"></a>
     <a href="https://npmcharts.com/compare/cnchar?minimal=true"><img src="https://img.shields.io/npm/dm/cnchar.svg" alt="Downloads"></a>
     <a href="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/cnchar.svg" alt="Size"></a>
@@ -191,7 +194,7 @@ npm i cnchar
 安装附加功能库：
 
 ```
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy
 ```
 
 当然您也可以按需安装其中的几个，但是 `cnchar` 这个基础库是必须安装的（draw、idiom、xhy三个库可以独立使用）
@@ -1180,11 +1183,11 @@ cnchar.transformTone('lǘ') // {spell: 'lü', tone: 2, index: 2, isTrans: false}
 ```js
 cnchar.compareSpell('ao', 'ai') // 'more'
 cnchar.compareSpell('ai', 'ai') // 'even'
-cnchar.compareSpell('pín', 'pǐn', 'tone') // 'less'
-cnchar.compareSpell('pin2', 'pǐn', 'tone') // 'less'
-cnchar.compareSpell('频', 'pǐn', 'tone') // 'less'
-cnchar.compareSpell('品', '频', 'tone') // 'more'
-cnchar.compareSpell('贫', '频', 'tone') // 'even'
+cnchar.compareSpell('pín', 'pǐn', true) // 'less'
+cnchar.compareSpell('pin2', 'pǐn', true) // 'less'
+cnchar.compareSpell('频', 'pǐn', true) // 'less'
+cnchar.compareSpell('品', '频', true) // 'more'
+cnchar.compareSpell('贫', '频', true) // 'even'
 ```
 
 ###### 6.8.7.5 compareStroke

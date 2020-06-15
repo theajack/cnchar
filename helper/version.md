@@ -89,3 +89,8 @@
 6. 彷徨读音修正
 7. cnchar-draw 增加 Promise-polyfill
 8. 文档增加Object.assign-polyfill
+   
+## 2.2.1
+1. 修复ts声明文件的bug
+2. ts声明文件增加字符串扩展方法
+3. 修复构建npm的bug

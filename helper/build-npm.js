@@ -67,31 +67,33 @@ function copyToNPM () {
         .pipe(gulp.dest('npm/idiom'))
         .pipe(gulp.dest('npm/xhy'));
 
-    gulp.src(['src/main/*.json', 'src/main/index.d.ts', 'LICENSE'])
+    gulp.src(['src/main/*.json', 'src/main/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/cnchar'));
 
-    gulp.src(['src/plugin/order/*.json', 'LICENSE'])
+    gulp.src(['src/plugin/order/*.json', 'src/plugin/order/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/order'));
 
-    gulp.src(['src/plugin/poly/*.json', 'LICENSE'])
+    gulp.src(['src/plugin/poly/*.json', 'src/plugin/poly/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/poly'));
 
-    gulp.src(['src/plugin/trad/*.json', 'LICENSE'])
+    gulp.src(['src/plugin/trad/*.json', 'src/plugin/trad/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/trad'));
 
-    gulp.src(['src/plugin/draw/*.json', 'src/plugin/draw/index.d.ts', 'LICENSE'])
+    gulp.src(['src/plugin/draw/*.json', 'src/plugin/draw/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/draw'));
 
-    gulp.src(['src/plugin/idiom/*.json', 'src/plugin/idiom/index.d.ts', 'LICENSE'])
+    gulp.src(['src/plugin/idiom/*.json', 'src/plugin/idiom/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/idiom'));
 
-    gulp.src(['src/plugin/xhy/*.json', 'src/plugin/xhy/index.d.ts', 'LICENSE'])
+    gulp.src(['src/plugin/xhy/*.json', 'src/plugin/xhy/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/xhy'));
 
-    gulp.src(['src/main/index.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/all'))
-        .pipe(gulp.dest('npm/hanzi-util'))
+    gulp.src(['src/main/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/hanzi-util-base'));
+
+    gulp.src(['helper/all/*.d.ts', 'LICENSE'])
+        .pipe(gulp.dest('npm/all'))
+        .pipe(gulp.dest('npm/hanzi-util'));
 }
 function copyLatest () {
     // gulp.src(`dist/*.${version}.min.js`)

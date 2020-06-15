@@ -1,7 +1,7 @@
 declare type idiomArg = 'char' | 'stroke' | 'spell' | 'tone';
 
 export declare interface Idiom {
-    (text:string | Array<string>, ...idiomArgs: Array<idiomArg>):Array<string>;
+    (text:string | Array<string|number>, ...idiomArgs: Array<idiomArg>):Array<string>;
 }
 
 declare const idiom: Idiom;

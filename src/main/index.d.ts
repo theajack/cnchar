@@ -1,3 +1,5 @@
+import './extend';
+
 declare type spellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad';
 declare type strokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
 declare type spellToWordArg = 'poly' | 'alltone' | 'array' | 'simple' | 'trad';
@@ -14,11 +16,11 @@ declare interface spellInfoReturnStatic {
     index: number;
 }
 export declare interface CnCharStatic {
-    spell(sentence: string, ...args?: Array<spellArg>): string | Array<any>;
-    stroke(sentence: string, ...args?: Array<strokeArg>): number | Array<any>;
+    spell(sentence: string, ...args: Array<spellArg>): string | Array<any>;
+    stroke(sentence: string, ...args: Array<strokeArg>): number | Array<any>;
     use(...plugins: Array<Function>): void;
-    spellToWord(spell: string, ...args?: Array<spellToWordArg>): string | Array<string>;
-    strokeToWord(stroke: number, ...args?: Array<strokeToWordArg>): string | Array<string>;
+    spellToWord(spell: string, ...args: Array<spellToWordArg>): string | Array<string>;
+    strokeToWord(stroke: number, ...args: Array<strokeToWordArg>): string | Array<string>;
     spellInfo: {
         (spell: string): spellInfoReturnStatic;
         tones: Array<string>;
@@ -45,8 +47,8 @@ export declare interface CnCharStatic {
     };
     isCnChar(word: string): boolean;
     compareSpell(spell1: string, spell2: string, tone?: boolean): compareType;
-    compareStroke(stroke1: string, stroke2: string): compareType;
-    sortSpell(spells:Array<string> | string, ...args?: Array<'tone'|'desc'>): Array<string> | string;
+    compareStroke(stroke1: string | number, stroke2: string | number): compareType;
+    sortSpell(spells:Array<string> | string, ...args: Array<'tone'|'desc'>): Array<string> | string;
     sortStroke(strokes:Array<string|number> | string, desc?: 'desc'): Array<string> | string;
     
 }
