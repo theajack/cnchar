@@ -27,12 +27,12 @@
     },
     "homepage": "https://www.theajack.com/cnchar/",
     "dependencies": {
-        "cnchar": "^2.2.1",
-        "cnchar-order": "^2.2.1",
-        "cnchar-poly": "^2.2.1",
-        "cnchar-trad": "^2.2.1",
-        "cnchar-draw": "^2.2.1",
-        "cnchar-idiom": "^2.2.1",
-        "cnchar-xhy": "^2.2.1"
+        "cnchar": "^2.2.2",
+        "cnchar-order": "^2.2.2",
+        "cnchar-poly": "^2.2.2",
+        "cnchar-trad": "^2.2.2",
+        "cnchar-draw": "^2.2.2",
+        "cnchar-idiom": "^2.2.2",
+        "cnchar-xhy": "^2.2.2"
     }
 }
