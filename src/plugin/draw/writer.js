@@ -47,13 +47,13 @@ class Writer {
     }
     init () {
         let {lineHTML, border} = buildLinesStr(this.option);
-        svg.setAttribute('width', this.option.width);
-        svg.setAttribute('height', this.option.height);
-        if (border) {
-            svg.style.border = border;
-        }
         let cloneSvg = (option) => {
             let node = svg.cloneNode();
+            node.setAttribute('width', this.option.width);
+            node.setAttribute('height', this.option.height);
+            if (border) {
+                node.style.border = border;
+            }
             if (lineHTML) {
                 node.innerHTML = lineHTML;
             }

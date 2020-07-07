@@ -9,11 +9,13 @@ import '../src/plugin/xhy';
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';
 
-// // import cnchar from '../npm/cnchar';
-// // import '../npm/order';
-// // import '../npm/trad';
-// // import '../npm/poly';
-// // import cncharDraw from '../npm/draw';
+// import cnchar from '../npm/cnchar';
+// import '../npm/order';
+// import '../npm/trad';
+// import '../npm/poly';
+// import '../npm/draw';
+// import '../npm/idiom';
+// import '../npm/xhy';
 
 // // import './plugin/draw'
 // // console.log('1',cnchar)
@@ -49,13 +51,45 @@ import '../src/plugin/xhy';
 //         }
 //     }
 // });
-// cncharDraw('你好', {
-//     type: cncharDraw.TYPE.STROKE,
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#eee'
-//     },
-// });
+cnchar.draw('中国', {
+    type: cnchar.draw.TYPE.NORMAL,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 100,
+            
+    },
+});
+cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.STROKE,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 60,
+    },
+});
+
+cnchar.draw('中国', {
+    type: cnchar.draw.TYPE.TEST,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 100,
+            
+    },
+});
+
+cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 120,
+            
+    },
+});
+
+window.cnchar = cnchar;
 
 export default cnchar;
 

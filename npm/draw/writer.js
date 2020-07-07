@@ -103,15 +103,14 @@ var Writer = /*#__PURE__*/function () {
           lineHTML = _buildLinesStr.lineHTML,
           border = _buildLinesStr.border;
 
-      svg.setAttribute('width', this.option.width);
-      svg.setAttribute('height', this.option.height);
-
-      if (border) {
-        svg.style.border = border;
-      }
-
       var cloneSvg = function cloneSvg(option) {
         var node = svg.cloneNode();
+        node.setAttribute('width', _this.option.width);
+        node.setAttribute('height', _this.option.height);
+
+        if (border) {
+          node.style.border = border;
+        }
 
         if (lineHTML) {
           node.innerHTML = lineHTML;
