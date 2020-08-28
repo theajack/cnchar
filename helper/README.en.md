@@ -329,6 +329,10 @@ declare interface DrawOption {
 };
 ```
 
+##### 5.2.3 Use in WeChat Mini Program
+
+The library is driven by HanziWriter, and currently only supports use in the web environment. If you need to use WeChat Mini Programs, please refer to [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
+
 #### 5.3 Traditional, Simplified and Martian conversion: convert
 
 After the introduction of `cnchar-trad`, cnchar has the traditional, simplified, and Martian text conversion function. You can use this function by using the method on the` cnchar.convert` object.

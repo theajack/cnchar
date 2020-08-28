@@ -21,68 +21,72 @@
 
 **[English](https://github.com/theajack/cnchar/blob/master/helper/README.en.md) | [在线试用/文档](https://theajack.gitee.io/cnchar) | [备用文档地址](https://theajack.com/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
 
+cnchar 由于重建过一次仓库，所以之前的 star 清零了 (〒︿〒)！
+
 ---
+
 
 <details>
     <summary>展开目录</summary>
 
 <!-- toc -->
 
-- [前言](#前言)
-- [0.快速使用](#0快速使用)
-- [1.功能](#1功能)
-- [2.概览](#2概览)
-- [3.安装](#3安装)
-  - [3.1 使用 npm 安装](#31-使用-npm-安装)
-  - [3.2 使用 script 引入](#32-使用-script-引入)
-- [4.使用](#4使用)
-  - [4.1 webpack浏览器环境(有window对象)](#41-webpack浏览器环境有window对象)
-  - [4.2 nodejs 等非浏览器环境](#42-nodejs-等非浏览器环境)
-  - [4.3 原生浏览器环境](#43-原生浏览器环境)
+- [前言](#%E5%89%8D%E8%A8%80)
+- [0.快速使用](#0%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8)
+- [1.功能](#1%E5%8A%9F%E8%83%BD)
+- [2.概览](#2%E6%A6%82%E8%A7%88)
+- [3.安装](#3%E5%AE%89%E8%A3%85)
+  * [3.1 使用 npm 安装](#31-%E4%BD%BF%E7%94%A8-npm-%E5%AE%89%E8%A3%85)
+  * [3.2 使用 script 引入](#32-%E4%BD%BF%E7%94%A8-script-%E5%BC%95%E5%85%A5)
+- [4.使用](#4%E4%BD%BF%E7%94%A8)
+  * [4.1 webpack浏览器环境(有window对象)](#41-webpack%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%9C%89window%E5%AF%B9%E8%B1%A1)
+  * [4.2 nodejs 等非浏览器环境](#42-nodejs-%E7%AD%89%E9%9D%9E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
+  * [4.3 原生浏览器环境](#43-%E5%8E%9F%E7%94%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
 - [5.API](#5api)
-  - [5.1 拼音笔画基础 API: spell & stroke](#51-拼音笔画基础-api-spell--stroke)
-  - [5.2 可视化绘制汉字: draw](#52-可视化绘制汉字-draw)
-    - [5.2.1 使用](#521-使用)
-    - [5.2.2 参数](#522-参数)
-  - [5.3 繁体、简体、火星文互转: convert](#53-繁体简体火星文互转-convert)
-  - [5.4 笔画序列推出原汉字: orderToWord](#54-笔画序列推出原汉字-ordertoword)
-  - [5.5 通过拼音查询原汉字: spellToWord](#55-通过拼音查询原汉字-spelltoword)
-  - [5.6 通过笔画数查询原汉字: strokeToWord](#56-通过笔画数查询原汉字-stroketoword)
-  - [5.7 成语功能](#57-成语功能)
-  - [5.8 歇后语功能](#58-歇后语功能)
-  - [5.9 汉字、拼音工具方法](#59-汉字拼音工具方法)
-    - [5.9.1 查询拼音详细信息: spellInfo](#591-查询拼音详细信息-spellinfo)
-    - [5.9.2 拼音音调操作: transformTone](#592-拼音音调操作-transformtone)
-    - [5.9.3 是否是汉字: isCnChar](#593-是否是汉字-iscnchar)
-    - [5.9.4 比较拼音（汉字）大小: compareSpell](#594-比较拼音汉字大小-comparespell)
-    - [5.9.5 比较汉字笔画数大小: compareStroke](#595-比较汉字笔画数大小-comparestroke)
-    - [5.9.6 根据拼音排序: sortSpell](#596-根据拼音排序-sortspell)
-    - [5.9.7 根据笔画数排序: sortStroke](#597-根据笔画数排序-sortstroke)
-  - [5.10 其他 api](#510-其他-api)
-    - [5.10.1 .use()](#5101-use)
-    - [5.10.2 .type](#5102-type)
-    - [5.10.3 .check](#5103-check)
-    - [5.10.4 .version](#5104-version)
-    - [5.10.5 .plugins](#5105-plugins)
-- [6.spell stroke 参数](#6spell-stroke-参数)
-  - [6.1 spell 参数](#61-spell-参数)
-  - [6.2 stroke 参数](#62-stroke-参数)
-  - [6.3 orderToWord 参数](#63-ordertoword-参数)
-  - [6.4 spellToWord 参数](#64-spelltoword-参数)
-  - [6.5 strokeToWord 参数](#65-stroketoword-参数)
-  - [6.6 idiom 参数](#66-idiom-参数)
-  - [6.7 xhy 参数](#67-xhy-参数)
-  - [6.8 使用实例大全：](#68-使用实例大全)
-    - [6.8.0 安装使用](#680-安装使用)
-    - [6.8.1 cnchar 基础库功能](#681-cnchar-基础库功能)
-    - [6.8.2 cnchar-poly 库功能](#682-cnchar-poly-库功能)
-    - [6.8.3 cnchar-order 库功能](#683-cnchar-order-库功能)
-    - [6.8.4 cnchar-trad 库功能](#684-cnchar-trad-库功能)
-      - [6.8.4.1 convert 字体转换](#6841-convert-字体转换)
-      - [6.8.4.2 spell 和 stroke 方法](#6842-spell-和-stroke-方法)
-    - [6.8.5 cnchar-idiom 库功能](#685-cnchar-idiom-库功能)
-    - [6.8.6 cnchar-xhy 库功能](#686-cnchar-xhy-库功能)
-    - [6.8.7 工具方法](#687-工具方法)
+  * [5.1 拼音笔画基础 API: spell & stroke](#51-%E6%8B%BC%E9%9F%B3%E7%AC%94%E7%94%BB%E5%9F%BA%E7%A1%80-api-spell--stroke)
+  * [5.2 可视化绘制汉字: draw](#52-%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%98%E5%88%B6%E6%B1%89%E5%AD%97-draw)
+    + [5.2.1 使用](#521-%E4%BD%BF%E7%94%A8)
+    + [5.2.2 参数](#522-%E5%8F%82%E6%95%B0)
+    + [5.2.3 微信小程序中使用](#523-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BD%BF%E7%94%A8)
+  * [5.3 繁体、简体、火星文互转: convert](#53-%E7%B9%81%E4%BD%93%E7%AE%80%E4%BD%93%E7%81%AB%E6%98%9F%E6%96%87%E4%BA%92%E8%BD%AC-convert)
+  * [5.4 笔画序列推出原汉字: orderToWord](#54-%E7%AC%94%E7%94%BB%E5%BA%8F%E5%88%97%E6%8E%A8%E5%87%BA%E5%8E%9F%E6%B1%89%E5%AD%97-ordertoword)
+  * [5.5 通过拼音查询原汉字: spellToWord](#55-%E9%80%9A%E8%BF%87%E6%8B%BC%E9%9F%B3%E6%9F%A5%E8%AF%A2%E5%8E%9F%E6%B1%89%E5%AD%97-spelltoword)
+  * [5.6 通过笔画数查询原汉字: strokeToWord](#56-%E9%80%9A%E8%BF%87%E7%AC%94%E7%94%BB%E6%95%B0%E6%9F%A5%E8%AF%A2%E5%8E%9F%E6%B1%89%E5%AD%97-stroketoword)
+  * [5.7 成语功能](#57-%E6%88%90%E8%AF%AD%E5%8A%9F%E8%83%BD)
+  * [5.8 歇后语功能](#58-%E6%AD%87%E5%90%8E%E8%AF%AD%E5%8A%9F%E8%83%BD)
+  * [5.9 汉字、拼音工具方法](#59-%E6%B1%89%E5%AD%97%E6%8B%BC%E9%9F%B3%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95)
+    + [5.9.1 查询拼音详细信息: spellInfo](#591-%E6%9F%A5%E8%AF%A2%E6%8B%BC%E9%9F%B3%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF-spellinfo)
+    + [5.9.2 拼音音调操作: transformTone](#592-%E6%8B%BC%E9%9F%B3%E9%9F%B3%E8%B0%83%E6%93%8D%E4%BD%9C-transformtone)
+    + [5.9.3 是否是汉字: isCnChar](#593-%E6%98%AF%E5%90%A6%E6%98%AF%E6%B1%89%E5%AD%97-iscnchar)
+    + [5.9.4 比较拼音（汉字）大小: compareSpell](#594-%E6%AF%94%E8%BE%83%E6%8B%BC%E9%9F%B3%E6%B1%89%E5%AD%97%E5%A4%A7%E5%B0%8F-comparespell)
+    + [5.9.5 比较汉字笔画数大小: compareStroke](#595-%E6%AF%94%E8%BE%83%E6%B1%89%E5%AD%97%E7%AC%94%E7%94%BB%E6%95%B0%E5%A4%A7%E5%B0%8F-comparestroke)
+    + [5.9.6 根据拼音排序: sortSpell](#596-%E6%A0%B9%E6%8D%AE%E6%8B%BC%E9%9F%B3%E6%8E%92%E5%BA%8F-sortspell)
+    + [5.9.7 根据笔画数排序: sortStroke](#597-%E6%A0%B9%E6%8D%AE%E7%AC%94%E7%94%BB%E6%95%B0%E6%8E%92%E5%BA%8F-sortstroke)
+  * [5.10 其他 api](#510-%E5%85%B6%E4%BB%96-api)
+    + [5.10.1 .use()](#5101-use)
+    + [5.10.2 .type](#5102-type)
+    + [5.10.3 .check](#5103-check)
+    + [5.10.4 .version](#5104-version)
+    + [5.10.5 .plugins](#5105-plugins)
+- [6.spell stroke 参数](#6spell-stroke-%E5%8F%82%E6%95%B0)
+  * [6.1 spell 参数](#61-spell-%E5%8F%82%E6%95%B0)
+  * [6.2 stroke 参数](#62-stroke-%E5%8F%82%E6%95%B0)
+  * [6.3 orderToWord 参数](#63-ordertoword-%E5%8F%82%E6%95%B0)
+  * [6.4 spellToWord 参数](#64-spelltoword-%E5%8F%82%E6%95%B0)
+  * [6.5 strokeToWord 参数](#65-stroketoword-%E5%8F%82%E6%95%B0)
+  * [6.6 idiom 参数](#66-idiom-%E5%8F%82%E6%95%B0)
+  * [6.7 xhy 参数](#67-xhy-%E5%8F%82%E6%95%B0)
+  * [6.8 使用实例大全：](#68-%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B%E5%A4%A7%E5%85%A8)
+    + [6.8.0 安装使用](#680-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8)
+    + [6.8.1 cnchar 基础库功能](#681-cnchar-%E5%9F%BA%E7%A1%80%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.8.2 cnchar-poly 库功能](#682-cnchar-poly-%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.8.3 cnchar-order 库功能](#683-cnchar-order-%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.8.4 cnchar-trad 库功能](#684-cnchar-trad-%E5%BA%93%E5%8A%9F%E8%83%BD)
+      - [6.8.4.1 convert 字体转换](#6841-convert-%E5%AD%97%E4%BD%93%E8%BD%AC%E6%8D%A2)
+      - [6.8.4.2 spell 和 stroke 方法](#6842-spell-%E5%92%8C-stroke-%E6%96%B9%E6%B3%95)
+    + [6.8.5 cnchar-idiom 库功能](#685-cnchar-idiom-%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.8.6 cnchar-xhy 库功能](#686-cnchar-xhy-%E5%BA%93%E5%8A%9F%E8%83%BD)
+    + [6.8.7 工具方法](#687-%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95)
       - [6.8.7.1 spellInfo](#6871-spellinfo)
       - [6.8.7.2 isCnChar](#6872-iscnchar)
       - [6.8.7.3 transformTone](#6873-transformtone)
@@ -90,7 +94,7 @@
       - [6.8.7.5 compareStroke](#6875-comparestroke)
       - [6.8.7.6 sortSpell](#6876-sortspell)
       - [6.8.7.7 sortStroke](#6877-sortstroke)
-- [7.应用例子](#7应用例子)
+- [7.应用例子](#7%E5%BA%94%E7%94%A8%E4%BE%8B%E5%AD%90)
 
 <!-- tocstop -->
 
@@ -394,7 +398,12 @@ declare interface DrawOption {
         onTestStatus?(args: TestStatus):void;// : null, // ({index, status, data})=>{}
     }
 };
+
 ```
+
+##### 5.2.3 微信小程序中使用
+
+该库由 HanziWriter 驱动，目前仅支持在web环境下使用，如需微信小程序使用请参考 [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
 
 #### 5.3 繁体、简体、火星文互转: convert
 

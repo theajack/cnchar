@@ -146,3 +146,7 @@ declare interface DrawOption {
 <div>
   <codebox id='test-draw'></codebox>
 </div>
+
+## 7. 微信小程序中使用
+
+该库由 HanziWriter 驱动，目前仅支持在web环境下使用，如需微信小程序使用请参考 [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)

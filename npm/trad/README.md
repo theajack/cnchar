@@ -47,6 +47,7 @@ cnchar 由于重建过一次仓库，所以之前的 star 清零了 (〒︿〒)�
   * [5.2 可视化绘制汉字: draw](#52-%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%98%E5%88%B6%E6%B1%89%E5%AD%97-draw)
     + [5.2.1 使用](#521-%E4%BD%BF%E7%94%A8)
     + [5.2.2 参数](#522-%E5%8F%82%E6%95%B0)
+    + [5.2.3 微信小程序中使用](#523-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BD%BF%E7%94%A8)
   * [5.3 繁体、简体、火星文互转: convert](#53-%E7%B9%81%E4%BD%93%E7%AE%80%E4%BD%93%E7%81%AB%E6%98%9F%E6%96%87%E4%BA%92%E8%BD%AC-convert)
   * [5.4 笔画序列推出原汉字: orderToWord](#54-%E7%AC%94%E7%94%BB%E5%BA%8F%E5%88%97%E6%8E%A8%E5%87%BA%E5%8E%9F%E6%B1%89%E5%AD%97-ordertoword)
   * [5.5 通过拼音查询原汉字: spellToWord](#55-%E9%80%9A%E8%BF%87%E6%8B%BC%E9%9F%B3%E6%9F%A5%E8%AF%A2%E5%8E%9F%E6%B1%89%E5%AD%97-spelltoword)
@@ -397,7 +398,12 @@ declare interface DrawOption {
         onTestStatus?(args: TestStatus):void;// : null, // ({index, status, data})=>{}
     }
 };
+
 ```
+
+##### 5.2.3 微信小程序中使用
+
+该库由 HanziWriter 驱动，目前仅支持在web环境下使用，如需微信小程序使用请参考 [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
 
 #### 5.3 繁体、简体、火星文互转: convert
 

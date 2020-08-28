@@ -331,7 +331,12 @@ declare interface DrawOption {
         onTestStatus?(args: TestStatus):void;// : null, // ({index, status, data})=>{}
     }
 };
+
 ```
+
+##### 5.2.3 微信小程序中使用
+
+该库由 HanziWriter 驱动，目前仅支持在web环境下使用，如需微信小程序使用请参考 [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
 
 #### 5.3 繁体、简体、火星文互转: convert
 
