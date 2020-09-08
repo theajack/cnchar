@@ -22,6 +22,8 @@ cnchar.idiom('shang', 'spell'); // ["伤风败化", "伤风败俗", ...]
 cnchar.idiom('shang4', 'spell', 'tone'); // ["上兵伐谋", "上不着天，下不着地", ... ]
 ```
 
+使用cdn引用时，会在window对向上暴露 `CncharIdiom` 对象
+
 ## 2. idiom 参数
 
 参数调用如下，value表示查询对象，可以试拼音汉字笔画数，所有 arg 参数都是可选的

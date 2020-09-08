@@ -46,11 +46,12 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 12. 支持 **繁体字** 拼音、笔画数及以上所有功能，实现和简体字一样的功能
 13. 支持 **成语** 查询功能，可以按照汉字、拼音（声调）、笔画数查询成语
 14. 支持 **歇后语** 查询功能，支持模糊查询
-15. 提供汉字工具方法，方便开发者更便捷高效地 **操作拼音和汉字**
-16. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
-17. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
-18. **typescript支持**，支持在typescript中调用
-19. 丰富的配置，按功能拆分成7个库按需取用
+15. 支持 **偏旁部首** 查询功能
+16. 提供汉字工具方法，方便开发者更便捷高效地 **操作拼音和汉字**
+17. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
+18. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
+19. **typescript支持**，支持在typescript中调用
+20. 丰富的配置，按功能拆分成7个库按需取用
 
 
 ## 3. 概览
@@ -66,6 +67,7 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 | [cnchar-draw](/cnchar/v2/doc/draw)  |    绘制笔画库    | 支持可视化绘制汉字，有 normal,animation,stroke,test 四种模式可选，该库仅在浏览器环境下可用 | 2.1+ |
 | [cnchar-idiom](/cnchar/v2/doc/idiom)   |    成语库    | 支持成语查询等功能 | 2.2+ |
 | [cnchar-xhy](/cnchar/v2/doc/xhy)   |    歇后语库    | 支持歇后语查询等功能 | 2.2+ |
+| [cnchar-radical](/cnchar/v2/doc/radical)   |    偏旁部首库    | 支持查询汉字偏旁部首 | 2.2.5+ |
 
 <div>
     <star></star>

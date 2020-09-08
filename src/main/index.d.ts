@@ -4,7 +4,7 @@ declare type spellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'si
 declare type strokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
 declare type spellToWordArg = 'poly' | 'alltone' | 'array' | 'simple' | 'trad';
 declare type strokeToWordArg = 'array' | 'simple' | 'trad';
-declare type pluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy';
+declare type pluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy' | 'radical';
 declare type toneType = 0 | 1 | 2 | 3 | 4;
 declare type compareType = 'more' | 'less' | 'even';
 
@@ -35,6 +35,7 @@ export declare interface CnCharStatic {
         orderToWord?: object;
         idiom?: object;
         xhy?: object;
+        radical?: object;
     };
     check: boolean;
     readonly version: string;

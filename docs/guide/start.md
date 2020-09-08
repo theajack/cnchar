@@ -1,7 +1,7 @@
 
 ## 1. npm安装
 
-cnchar包含了一个基本库和六个功能库，用于实现不同的功能，您可以按需安装其中的功能库，但是 `cnchar` 这个基础库是必须安装的（draw、idiom、xhy三个库可以独立使用）
+cnchar包含了一个基本库和六个功能库，用于实现不同的功能，您可以按需安装其中的功能库，但是 `cnchar` 这个基础库是必须安装的（draw、idiom、xhy、radical四个库可以独立使用）
 
 安装[主库](https://npmjs.com/package/cnchar)：
 
@@ -15,7 +15,7 @@ npm i cnchar
 
 <div>
   <highlight-code>
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical
   </highlight-code>
 </div>
 
@@ -31,6 +31,7 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy
     import 'cnchar-draw';
     import 'cnchar-idiom';
     import 'cnchar-xhy';
+    import 'cnchar-radical';
   </highlight-code>
 </div>
 
@@ -45,7 +46,8 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy
     import trad from 'cnchar-trad';
     import idiom from 'cnchar-idiom';
     import xhy from 'cnchar-xhy';
-    cnchar.use(poly, order, trad, idiom, xhy);
+    import radical from 'cnchar-radical';
+    cnchar.use(poly, order, trad, idiom, xhy, radical);
   </highlight-code>
 </div>
 
@@ -60,7 +62,8 @@ commonjs 模块
     var trad = require('cnchar-trad');
     var idiom = require('cnchar-idiom');
     var xhy = require('cnchar-xhy');
-    cnchar.use(poly, order, trad, idiom, xhy);
+    var radical = require('cnchar-radical');
+    cnchar.use(poly, order, trad, idiom, xhy, radical);
   </highlight-code>
 </div>
 
@@ -77,6 +80,7 @@ commonjs 模块
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js">&lt;/script>
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js">&lt;/script>
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"> &lt;/script>
+      &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"> &lt;/script>
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"> &lt;/script>
   </highlight-code>
 </div>

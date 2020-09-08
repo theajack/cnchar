@@ -11,6 +11,7 @@ let files = [
     '../npm/draw/package.json',
     '../npm/idiom/package.json',
     '../npm/xhy/package.json',
+    '../npm/radical/package.json',
     '../npm/cnchar/package.json',
     '../npm/all/package.json',
     '../npm/hanzi-util/package.json',
@@ -65,6 +66,7 @@ function copyToNPM () {
         .pipe(gulp.dest('npm/trad'))
         .pipe(gulp.dest('npm/draw'))
         .pipe(gulp.dest('npm/idiom'))
+        .pipe(gulp.dest('npm/radical'))
         .pipe(gulp.dest('npm/xhy'));
 
     gulp.src(['src/main/*.json', 'src/main/*.d.ts', 'LICENSE'])
@@ -85,6 +87,9 @@ function copyToNPM () {
     gulp.src(['src/plugin/idiom/*.json', 'src/plugin/idiom/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/idiom'));
 
+    gulp.src(['src/plugin/radical/*.json', 'src/plugin/radical/*.d.ts', 'LICENSE'])
+        .pipe(gulp.dest('npm/radical'));
+        
     gulp.src(['src/plugin/xhy/*.json', 'src/plugin/xhy/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/xhy'));
 
@@ -151,6 +156,10 @@ function transEs6ByBabel () {
     gulp.src('src/plugin/xhy/*.js')
         .pipe(babel({presets: ['@babel/env']}))
         .pipe(gulp.dest('npm/xhy'));
+
+    gulp.src('src/plugin/radical/*.js')
+        .pipe(babel({presets: ['@babel/env']}))
+        .pipe(gulp.dest('npm/radical'));
         
     gulp.src('src/plugin/all/*.js')
         .pipe(babel({presets: ['@babel/env']}))

@@ -28,6 +28,7 @@ module.exports = {
                     {text: 'cnchar-draw: 汉字可视化', link: '/doc/draw'},
                     {text: 'cnchar-idiom: 成语', link: '/doc/idiom'},
                     {text: 'cnchar-xhy: 歇后语', link: '/doc/xhy'},
+                    {text: 'cnchar-radical: 偏旁部首', link: '/doc/radical'},
                     {text: '工具方法', link: '/doc/tool'},
                 ],
             },
@@ -80,6 +81,10 @@ module.exports = {
                         {
                             title: 'cnchar-xhy',
                             path: 'xhy',
+                        },
+                        {
+                            title: 'cnchar-radical',
+                            path: 'radical',
                         },
                         {
                             title: '工具方法',

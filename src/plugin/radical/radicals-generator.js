@@ -1,7 +1,7 @@
-function buildData() {
-    const { createReadStream, promises: fsPromises } = require('fs');
-    const { join } = require('path');
-    const { createInterface } = require('readline');
+function buildData () {
+    const {createReadStream, promises: fsPromises} = require('fs');
+    const {join} = require('path');
+    const {createInterface} = require('readline');
     const wordRegex = /"word": "(?<word>.*)"/;
     const radicalsRegex = /"radicals": "(?<radicals>.*)"/;
     // https://raw.githubusercontent.com/pwxcoo/chinese-xinhua/master/data/word.json
@@ -16,7 +16,7 @@ function buildData() {
             autoClose: true,
             emitClose: true,
         });
-        const readLine = createInterface({ input: readStream });
+        const readLine = createInterface({input: readStream});
         readStream.on('error', (err) => reject(err));
         readLine.on('close', () => resolve(words));
         readLine.on('line', (line) => {

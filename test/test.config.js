@@ -297,5 +297,22 @@ module.exports = [
             ['一', 2, '三'],
             ['三', '二', '一']
         ]
+    },
+    {
+        name: '测试偏旁部首',
+        test (cnchar) {
+            return [
+                cnchar.radical('你'),
+                cnchar.radical('你好呀'),
+                cnchar.radical('你好呀', 'array'),
+                cnchar.radical(['你', '好', '呀']),
+            ];
+        },
+        expect: [
+            '亻',
+            '亻女口',
+            ['亻', '女', '口'],
+            ['亻', '女', '口']
+        ]
     }
 ];

@@ -22,6 +22,8 @@ cnchar.xhy('大水', 'fuzzy', 'answer');  // ['泥沙俱下', '后浪推前浪',
 cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second'); // ['醉汉过铁索桥', '扶着醉汉过破桥']
 ```
 
+使用cdn引用时，会在window对向上暴露 `CncharXHY` 对象
+
 ## 2. xhy 参数
 
 参数调用如下，value表示歇后语查询对象，可以是歇后语的第一句或第二句，所有 arg 参数都是可选的

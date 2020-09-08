@@ -1,6 +1,6 @@
 {
     "name": "cnchar-draw",
-    "version": "2.2.4",
+    "version": "2.2.5",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
     "main": "index.js",
     "unpkg": "cnchar.draw.min.js",

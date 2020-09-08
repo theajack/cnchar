@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1. 介绍 | cnchar</title>
+    <meta name="description" content="功能全面、多端支持的汉字拼音笔画js库">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/assets/v1/images/i.ico">
+    
+    <link rel="preload" href="/cnchar/v2/assets/css/0.styles.f8ccd877.css" as="style"><link rel="preload" href="/cnchar/v2/assets/js/app.1ef4e9a2.js" as="script"><link rel="preload" href="/cnchar/v2/assets/js/2.02fcc548.js" as="script"><link rel="preload" href="/cnchar/v2/assets/js/14.793898e3.js" as="script"><link rel="prefetch" href="/cnchar/v2/assets/js/10.35940bd6.js"><link rel="prefetch" href="/cnchar/v2/assets/js/11.5f7eeac4.js"><link rel="prefetch" href="/cnchar/v2/assets/js/12.077923da.js"><link rel="prefetch" href="/cnchar/v2/assets/js/13.356e982d.js"><link rel="prefetch" href="/cnchar/v2/assets/js/15.4b7779c5.js"><link rel="prefetch" href="/cnchar/v2/assets/js/16.7f808694.js"><link rel="prefetch" href="/cnchar/v2/assets/js/17.a5cba3ff.js"><link rel="prefetch" href="/cnchar/v2/assets/js/18.91861afe.js"><link rel="prefetch" href="/cnchar/v2/assets/js/19.f46096eb.js"><link rel="prefetch" href="/cnchar/v2/assets/js/20.490147a5.js"><link rel="prefetch" href="/cnchar/v2/assets/js/21.e07d886f.js"><link rel="prefetch" href="/cnchar/v2/assets/js/22.16178b4d.js"><link rel="prefetch" href="/cnchar/v2/assets/js/23.7bc08b9f.js"><link rel="prefetch" href="/cnchar/v2/assets/js/24.213eeff8.js"><link rel="prefetch" href="/cnchar/v2/assets/js/3.21c3e3be.js"><link rel="prefetch" href="/cnchar/v2/assets/js/4.828d46cb.js"><link rel="prefetch" href="/cnchar/v2/assets/js/5.207091e3.js"><link rel="prefetch" href="/cnchar/v2/assets/js/6.dfd0aa9a.js"><link rel="prefetch" href="/cnchar/v2/assets/js/7.1a244848.js"><link rel="prefetch" href="/cnchar/v2/assets/js/8.fe6aa719.js"><link rel="prefetch" href="/cnchar/v2/assets/js/9.18ff6ea2.js">
+    <link rel="stylesheet" href="/cnchar/v2/assets/css/0.styles.f8ccd877.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/cnchar/v2/" class="home-link router-link-active"><!----> <span class="site-name">cnchar</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/cnchar/v2/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/cnchar/v2/guide/" class="nav-link">
+  使用说明
+</a></div><div class="nav-item"><a href="https://www.github.com/theajack/cnchar" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/cnchar.html" class="nav-link">
+  cnchar: 拼音+笔画
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/poly.html" class="nav-link">
+  cnchar-poly: 多音词
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/order.html" class="nav-link">
+  cnchar-order: 笔顺
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/trad.html" class="nav-link">
+  cnchar-trad: 繁体字
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/draw.html" class="nav-link">
+  cnchar-draw: 汉字可视化
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/idiom.html" class="nav-link">
+  cnchar-idiom: 成语
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/xhy.html" class="nav-link">
+  cnchar-xhy: 歇后语
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/radical.html" class="nav-link router-link-exact-active router-link-active">
+  cnchar-radical: 偏旁部首
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/tool.html" class="nav-link">
+  工具方法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="关于作者" class="dropdown-title"><span class="title">关于作者</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.github.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://www.gitee.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/yanxiaomu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN账号
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/cnchar/v2/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/cnchar/v2/guide/" class="nav-link">
+  使用说明
+</a></div><div class="nav-item"><a href="https://www.github.com/theajack/cnchar" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/cnchar.html" class="nav-link">
+  cnchar: 拼音+笔画
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/poly.html" class="nav-link">
+  cnchar-poly: 多音词
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/order.html" class="nav-link">
+  cnchar-order: 笔顺
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/trad.html" class="nav-link">
+  cnchar-trad: 繁体字
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/draw.html" class="nav-link">
+  cnchar-draw: 汉字可视化
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/idiom.html" class="nav-link">
+  cnchar-idiom: 成语
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/xhy.html" class="nav-link">
+  cnchar-xhy: 歇后语
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/radical.html" class="nav-link router-link-exact-active router-link-active">
+  cnchar-radical: 偏旁部首
+</a></li><li class="dropdown-item"><!----> <a href="/cnchar/v2/doc/tool.html" class="nav-link">
+  工具方法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="关于作者" class="dropdown-title"><span class="title">关于作者</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.github.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://www.gitee.com/theajack" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/yanxiaomu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN账号
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>cnchar文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/cnchar/v2/doc/cnchar.html" class="sidebar-link">cnchar</a></li><li><a href="/cnchar/v2/doc/poly.html" class="sidebar-link">cnchar-poly</a></li><li><a href="/cnchar/v2/doc/order.html" class="sidebar-link">cnchar-order</a></li><li><a href="/cnchar/v2/doc/trad.html" class="sidebar-link">cnchar-trad</a></li><li><a href="/cnchar/v2/doc/draw.html" class="sidebar-link">cnchar-draw</a></li><li><a href="/cnchar/v2/doc/idiom.html" class="sidebar-link">cnchar-idiom</a></li><li><a href="/cnchar/v2/doc/xhy.html" class="sidebar-link">cnchar-xhy</a></li><li><a href="/cnchar/v2/doc/radical.html" class="active sidebar-link">cnchar-radical</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/cnchar/v2/doc/radical.html#_1-介绍" class="sidebar-link">1. 介绍</a></li><li class="sidebar-sub-header"><a href="/cnchar/v2/doc/radical.html#_2-radical-参数" class="sidebar-link">2. radical 参数</a></li><li class="sidebar-sub-header"><a href="/cnchar/v2/doc/radical.html#_3-实例" class="sidebar-link">3. 实例</a></li></ul></li><li><a href="/cnchar/v2/doc/tool.html" class="sidebar-link">工具方法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_1-介绍"><a href="#_1-介绍" class="header-anchor">#</a> 1. 介绍</h2> <p>cnchar在2.2.5加入了偏旁部首功能，启用该功能需要安装 <code>cnchar-radical</code> 功能库，该库可以独立于cnchar主库运行</p> <p>感谢 <code>kewell-tsao</code> 提供的 pr</p> <p>使用方式如下：</p> <div class="language-ts extra-class"><pre class="language-ts"><code>cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span>text<span class="token operator">:</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">...</span>radicalArgs<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>radicalArg<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+</code></pre></div><p>看一个具体例子</p> <div class="language-js extra-class"><pre class="language-js"><code>cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token string">'你'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;亻&quot;,</span>
+cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token string">'你好呀'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;亻女口&quot;</span>
+<span class="token comment">// 返回数组</span>
+cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token string">'你好呀'</span><span class="token punctuation">,</span> <span class="token string">'array'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [&quot;亻&quot;, &quot;女&quot;, &quot;口&quot;]</span>
+<span class="token comment">// 传入数组会默认返回数组</span>
+cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;你&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;好&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;呀&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [&quot;亻&quot;, &quot;女&quot;, &quot;口&quot;]</span>
+</code></pre></div><p>使用cdn引用时，会在window对向上暴露 <code>CncharRadical</code> 对象</p> <h2 id="_2-radical-参数"><a href="#_2-radical-参数" class="header-anchor">#</a> 2. radical 参数</h2> <p>参数调用如下，value表示需要查询偏旁的汉字，可以是字符串或数组</p> <div class="language-js extra-class"><pre class="language-js"><code>cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span>arg1<span class="token punctuation">,</span>arg2<span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><table><thead><tr><th style="text-align:center;">参数</th> <th style="text-align:center;">作用</th> <th style="text-align:center;">是否默认</th> <th style="text-align:center;">依赖库</th> <th style="text-align:center;">备注</th></tr></thead> <tbody><tr><td style="text-align:center;">array</td> <td style="text-align:center;">是否返回数组</td> <td style="text-align:center;">否</td> <td style="text-align:center;">--</td> <td style="text-align:center;">当传入为数组时默认返回数组</td></tr></tbody></table> <h2 id="_3-实例"><a href="#_3-实例" class="header-anchor">#</a> 3. 实例</h2> <p>该库为cnchar扩展了偏旁部首功能</p> <div class="language-js extra-class"><pre class="language-js"><code>cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token string">'你'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;亻&quot;,</span>
+cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token string">'你好呀'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;亻女口&quot;</span>
+cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token string">'你好呀'</span><span class="token punctuation">,</span> <span class="token string">'array'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [&quot;亻&quot;, &quot;女&quot;, &quot;口&quot;]</span>
+cnchar<span class="token punctuation">.</span><span class="token function">radical</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;你&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;好&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;呀&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [&quot;亻&quot;, &quot;女&quot;, &quot;口&quot;]</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/cnchar/v2/doc/xhy.html" class="prev">
+        cnchar-xhy
+      </a></span> <span class="next"><a href="/cnchar/v2/doc/tool.html">
+        工具方法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div></div></div></div>
+    <script src="/cnchar/v2/assets/js/app.1ef4e9a2.js" defer></script><script src="/cnchar/v2/assets/js/2.02fcc548.js" defer></script><script src="/cnchar/v2/assets/js/14.793898e3.js" defer></script>
+  </body>
+</html>

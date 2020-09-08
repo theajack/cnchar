@@ -80,7 +80,7 @@
 1. 修复cnchar-all及cnchar-draw库在非浏览器环境会报错的bug
 2. 修复 draw库和main库在ts环境中引用的异常
 
-## 2.2.0 [2020/6/4]
+## 2.2.0
 1. 增加cnchar-idiom 成语库
 2. 增加cnchar-xhy 歇后语库
 3. 增加transformTone,isCnchar,compareSpell,compareStroke,sortSpell,sortStroke工具方法，方便开发者更便捷的操作拼音和汉字
@@ -89,3 +89,20 @@
 6. 彷徨读音修正
 7. cnchar-draw 增加 Promise-polyfill
 8. 文档增加Object.assign-polyfill
+   
+## 2.2.1
+1. 修复ts声明文件的bug
+2. ts声明文件增加字符串扩展方法
+3. 修复构建npm的bug
+   
+## 2.2.2
+1. 增加几个多音字的默认读音
+
+## 2.2.3
+1. 修复draw库不同绘制实例样式会干扰的bug
+
+## 2.2.4
+1. 增加 红 字的默认读音
+
+## 2.2.5
+1. 增加cnchar-radical, 偏旁部首插件库

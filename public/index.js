@@ -5,6 +5,7 @@ import '../src/plugin/poly';
 import '../src/plugin/draw';
 import '../src/plugin/idiom';
 import '../src/plugin/xhy';
+import '../src/plugin/radical';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';

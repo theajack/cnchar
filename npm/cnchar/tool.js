@@ -374,7 +374,7 @@ function checkArgs(type, args, jumpNext) {
     } else {
       check(['tone']);
     }
-  } else if (type === 'xhy') {}
+  } else if (type === 'xhy') {} else if (type === 'radical') {}
 
   warnArgs(useless, '无效', type);
   warnArgs(ignore, '被忽略', type);
