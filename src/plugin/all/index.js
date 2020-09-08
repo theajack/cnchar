@@ -5,5 +5,6 @@ var poly = require('../poly');
 var draw = require('../draw');
 var idiom = require('../idiom');
 var xhy = require('../xhy');
-cnchar.use(order, trad, poly, draw, idiom, xhy);
+var radical = require('../radical');
+cnchar.use(order, trad, poly, draw, idiom, xhy, radical);
 module.exports = cnchar;
