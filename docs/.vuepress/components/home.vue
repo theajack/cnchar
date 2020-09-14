@@ -25,7 +25,7 @@
                 <div class='f-des'>繁体字、火星文</div>
                 <div class='f-des'>汉字笔顺、偏旁部首</div>
                 <div class='f-des'>多种模式绘制汉字</div>
-                <div class='f-des'>汉字推算</div>
+                <div class='f-des'>汉字推算、拼音排序</div>
                 <div class='f-des'>...</div>
             </div>
             <div class='f-i'>
