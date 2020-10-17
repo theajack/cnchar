@@ -68,14 +68,14 @@ module.exports = [
         expect: [
             ['j', 'slf'],
             [
-                [{shape: '㇐', type: '平笔', foldCount: '0', name: '横'}],
+                [{shape: '一', type: '平笔', foldCount: '0', name: '横'}],
                 [
-                    {shape: '㇓', type: '平笔', foldCount: '0', name: '撇'},
+                    {shape: '丿', type: '平笔', foldCount: '0', name: '撇'},
                     {shape: '㇏', type: '平笔', foldCount: '0', name: '捺'},
-                    {shape: '㇑', type: '平笔', foldCount: '0', name: '竖'}
+                    {shape: '丨', type: '平笔', foldCount: '0', name: '竖'}
                 ]
             ],
-            [['㇐'], ['㇓', '㇏', '㇑']],
+            [['一'], ['丿', '㇏', '丨']],
             [['横'], ['撇', '捺', '竖']],
             [1, 3],
         ]

@@ -1,20 +1,20 @@
 "use strict";
 
-var cnchar = require('../../main');
+var cnchar = require('./cnchar.all.min.js');
 
-var order = require('../order');
+// var order = require('../order');
 
-var trad = require('../trad');
+// var trad = require('../trad');
 
-var poly = require('../poly');
+// var poly = require('../poly');
 
-var draw = require('../draw');
+// var draw = require('../draw');
 
-var idiom = require('../idiom');
+// var idiom = require('../idiom');
 
-var xhy = require('../xhy');
+// var xhy = require('../xhy');
 
-var radical = require('../radical');
+// var radical = require('../radical');
 
-cnchar.use(order, trad, poly, draw, idiom, xhy, radical);
+// cnchar.use(order, trad, poly, draw, idiom, xhy, radical);
 module.exports = cnchar;

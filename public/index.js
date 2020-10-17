@@ -1,11 +1,11 @@
-import cnchar from '../src/main/index';
-import '../src/plugin/order';
-import '../src/plugin/trad';
-import '../src/plugin/poly';
-import '../src/plugin/draw';
-import '../src/plugin/idiom';
-import '../src/plugin/xhy';
-import '../src/plugin/radical';
+// import cnchar from '../src/main/index';
+// import '../src/plugin/order';
+// import '../src/plugin/trad';
+// import '../src/plugin/poly';
+// import '../src/plugin/draw';
+// import '../src/plugin/idiom';
+// import '../src/plugin/xhy';
+// import '../src/plugin/radical';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';
@@ -17,17 +17,29 @@ import '../src/plugin/radical';
 // import '../npm/draw';
 // import '../npm/idiom';
 // import '../npm/xhy';
+// import '../npm/radical';
 
-// // import './plugin/draw'
-// // console.log('1',cnchar)
-// console.log(cnchar.stroke('一个', 'order'));
-// console.log(cnchar.stroke('長城', 'count', 'order', 'name'));
-// // console.log(cnchar.orderToWord(['横', '撇', '捺']));
-// // console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
-// console.log(cnchar.spellToWord('lv2'));
-// console.log(cnchar.spellInfo('lǘ'));
-// console.log(cnchar.strokeToWord(1));
-// console.log('美好的地方'.spell('tone'));
+import cnchar from '../npm/cnchar/cnchar.min.js';
+import '../npm/order/cnchar.order.min.js';
+import '../npm/trad/cnchar.trad.min.js';
+import '../npm/poly/cnchar.poly.min.js';
+import '../npm/draw/cnchar.draw.min.js';
+import '../npm/idiom/cnchar.idiom.min.js';
+import '../npm/xhy/cnchar.xhy.min.js';
+import '../npm/radical/cnchar.radical.min.js';
+console.log(cnchar);
+
+// import './plugin/draw'
+// console.log('1',cnchar)
+console.log(cnchar.stroke('一个', 'order'));
+console.log(cnchar.stroke('長城', 'count', 'order', 'name'));
+// console.log(cnchar.orderToWord(['横', '撇', '捺']));
+// console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
+console.log(cnchar.spellToWord('lv2'));
+console.log(cnchar.spellInfo('lǘ'));
+console.log(cnchar.strokeToWord(1));
+console.log('美好的地方'.spell('tone'));
+
 
 // window.keys = Object.keys(spell);
 

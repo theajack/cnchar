@@ -241,11 +241,11 @@ function stroke(dict, args) {
   args = args.splice(1);
   checkArgs('stroke', args);
 
-  for (var i = 0; i < dict.length; i++) {
+  for (var i in dict) {
     for (var j = 0; j < strs.length; j++) {
       if (typeof strs[j] === 'string') {
         if (dict[i].indexOf(strs[j]) !== -1) {
-          strs[j] = i;
+          strs[j] = parseInt(i);
         }
       }
     }

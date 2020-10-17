@@ -12,13 +12,13 @@
 		"name": "竖弯"
 	},
 	"c": {
-		"shape": "㇕",
+		"shape": "𠃍",
 		"type": "折笔",
 		"foldCount": "1",
 		"name": "横折"
 	},
 	"d": {
-		"shape": "㇒",
+		"shape": "㇀",
 		"type": "平笔",
 		"foldCount": "1",
 		"name": "撇点"
@@ -30,7 +30,7 @@
 		"name": "横斜钩"
 	},
 	"j": {
-		"shape": "㇐",
+		"shape": "一",
 		"type": "平笔",
 		"foldCount": "0",
 		"name": "横"
@@ -42,49 +42,49 @@
 		"name": "捺"
 	},
 	"r": {
-		"shape": "㇆",
+		"shape": "𠃌",
 		"type": "折笔",
 		"foldCount": "2",
 		"name": "横折钩"
 	},
 	"f": {
-		"shape": "㇑",
+		"shape": "丨",
 		"type": "平笔",
 		"foldCount": "0",
 		"name": "竖"
 	},
 	"g": {
-		"shape": "㇚",
+		"shape": "亅",
 		"type": "平笔",
 		"foldCount": "0",
 		"name": "竖钩"
 	},
 	"k": {
-		"shape": "㇔",
+		"shape": "丶",
 		"type": "平笔",
 		"foldCount": "0",
 		"name": "点"
 	},
 	"s": {
-		"shape": "㇓",
+		"shape": "丿",
 		"type": "平笔",
 		"foldCount": "0",
 		"name": "撇"
 	},
 	"n": {
-		"shape": "㇜",
+		"shape": "𠃋",
 		"type": "折笔",
 		"foldCount": "1",
 		"name": "撇折"
 	},
 	"x": {
-		"shape": "ㄣ|㇞",
+		"shape": "ㄣ|𠃑",
 		"type": "折笔",
 		"foldCount": "2",
 		"name": "竖折撇|竖折折"
 	},
 	"w": {
-		"shape": "㇡|㇌",
+		"shape": "𠄎|㇌",
 		"type": "折笔",
 		"foldCount": "4",
 		"name": "横折折折钩|横撇弯钩"
@@ -120,7 +120,7 @@
 		"name": "横折折|横折弯"
 	},
 	"e": {
-		"shape": "㇇|㇖",
+		"shape": "㇇|乛",
 		"type": "折笔",
 		"foldCount": "1",
 		"name": "横撇|横钩"
@@ -138,19 +138,19 @@
 		"name": "横折折折"
 	},
 	"h": {
-		"shape": "㇙",
+		"shape": "𠄌",
 		"type": "折笔",
 		"foldCount": "1",
 		"name": "竖提"
 	},
 	"m": {
-		"shape": "㇛",
+		"shape": "𡿨",
 		"type": "折笔",
 		"foldCount": "1",
 		"name": "撇点"
 	},
 	"u": {
-		"shape": "㇟",
+		"shape": "乚",
 		"type": "折笔",
 		"foldCount": "2",
 		"name": "竖弯钩"

@@ -21,8 +21,6 @@
 
 **[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/v2/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
 
-CNCHAR Since the repository was rebuilt once, the previous STARs were all cleared, if that repository is helpful to you, I hope to give a STAR, thanks!
-
 ---
 
 <!--toc-->

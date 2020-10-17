@@ -23,10 +23,15 @@ let path = require('path');
 module.exports = (env) => {
     let plugin = env.pluginname;
     return {
+        mode: 'production',
         entry: path.resolve('./', 'src/plugin/' + plugin + '/index.js'),
         output: {
             path: path.resolve('./', 'npm/' + plugin),
-            filename: 'cnchar.' + plugin + '.min.js'
+            filename: 'cnchar.' + plugin + '.min.js',
+            library: 'cnchar' + plugin[0].toUpperCase() + plugin.substr(1),
+            libraryTarget: 'umd',
+            umdNamedDefine: true,
+            globalObject: 'this'
         },
         module: {
             rules: [{

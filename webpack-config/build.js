@@ -21,10 +21,18 @@ tool.write('./src/main/version.js', 'module.exports = \'' + version + '\';');
 // };
 
 module.exports = {
+    mode: 'production',
     entry: path.resolve('./', 'src/main/index.js'),
     output: {
         path: path.resolve('./', 'npm/cnchar'),
-        filename: 'cnchar.min.js'
+        filename: 'cnchar.min.js',
+        library: 'cnchar',
+        libraryTarget: 'umd',
+        umdNamedDefine: true,
+        globalObject: 'this'
+    },
+    externals: {
+        cnchar: 'cnchar'
     },
     module: {
         rules: [{

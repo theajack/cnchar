@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='drawArea'></div>
+    <!-- <script src="../npm/all/cnchar.all.min.js"></script> -->
+    <script src="../npm/cnchar/cnchar.min.js"></script>
+    <script src="../npm/order/cnchar.order.min.js"></script>
+    <script src="../npm/trad/cnchar.trad.min.js"></script>
+    <script src="../npm/poly/cnchar.poly.min.js"></script>
+    <script src="../npm/draw/cnchar.draw.min.js"></script>
+    <script src="../npm/idiom/cnchar.idiom.min.js"></script>
+    <script src="../npm/xhy/cnchar.xhy.min.js"></script>
+    <script src="../npm/radical/cnchar.radical.min.js"></script>
+    <script>
+        console.log(cnchar);
+        console.log(cnchar.stroke('一个', 'order'));
+        console.log(cnchar.stroke('長城', 'count', 'order', 'name'));
+        // console.log(cnchar.orderToWord(['横', '撇', '捺']));
+        // console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
+        console.log(cnchar.spellToWord('lv2'));
+        console.log(cnchar.spellInfo('lǘ'));
+        console.log(cnchar.strokeToWord(1));
+        console.log('美好的地方'.spell('tone'));
+        cnchar.draw('中国', {
+            type: cnchar.draw.TYPE.NORMAL,
+            style: {
+                radicalColor: '#44f',
+                backgroundColor: '#eee',
+                length: 100,
+                    
+            },
+        });
+        cnchar.draw('你好', {
+            type: cnchar.draw.TYPE.STROKE,
+            style: {
+                radicalColor: '#44f',
+                backgroundColor: '#eee',
+                length: 60,
+            },
+        });
+
+        cnchar.draw('中国', {
+            type: cnchar.draw.TYPE.TEST,
+            style: {
+                radicalColor: '#44f',
+                backgroundColor: '#eee',
+                length: 100,
+                    
+            },
+        });
+
+        cnchar.draw('你好', {
+            type: cnchar.draw.TYPE.ANIMATION,
+            style: {
+                radicalColor: '#44f',
+                backgroundColor: '#eee',
+                length: 120,
+                    
+            },
+        });
+    </script>
+</body>
+</html>

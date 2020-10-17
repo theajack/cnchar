@@ -1,9 +1,20 @@
-var cnchar = require('./cnchar/index');
-var poly = require('./poly/index');
-var order = require('./order/index');
-var trad = require('./trad/index');
+// var cnchar = require('./cnchar/index');
+// var poly = require('./poly/index');
+// var order = require('./order/index');
+// var trad = require('./trad/index');
+// var idiom = require('./idiom/index');
+// var xhy = require('./xhy/index');
+// var radical = require('./radical/index');
 
-cnchar.use(order, trad, poly);
+var cnchar = require('./cnchar/cnchar.min.js');
+var poly = require('./poly/cnchar.poly.min.js');
+var order = require('./order/cnchar.order.min.js');
+var trad = require('./trad/cnchar.trad.min.js');
+var idiom = require('./idiom/cnchar.idiom.min.js');
+var xhy = require('./xhy/cnchar.xhy.min.js');
+var radical = require('./radical/cnchar.radical.min.js');
+
+cnchar.use(order, trad, poly, idiom, xhy, radical);
 console.log(cnchar.stroke('一个', 'order'));
 console.log(cnchar.stroke('長城', 'count', 'order', 'name'));
 console.log(cnchar.orderToWord(['横', '撇', '捺']));
@@ -11,6 +22,7 @@ console.log('美好的地方'.spell('tone'));
 console.log('长大了'.spell());
 console.log('长大了'.spell('poly'));
 console.log(cnchar.strokeToWord(25, 'simple'));
-console.log(cnchar.spellToWord('lv2', 'simple'));
-console.log(cnchar.spellInfo('Shàng'));
+console.log(cnchar.idiom(['五', '', '十', '']));
+console.log(cnchar.xhy('大水冲了龙王庙'));
+console.log(cnchar.radical('你好呀'));
 // module.exports = cnchar
