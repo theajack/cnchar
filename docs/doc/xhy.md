@@ -5,22 +5,17 @@ cnchar在2.2.0加入了歇后语功能，启用该功能需要安装 `cnchar-xhy
 
 使用方式如下：
 
-```ts
-cnchar.xhy(text:string, ...xhyArgs: Array<xhyArg>):Array<string>;
-```
+<div>
+  <highlight-code lang='typescript'>
+cnchar.xhy(text:string, ...xhyArgs: Array&lt;xhyArg>):Array&lt;string>;
+  </highlight-code>
+</div>
 
 看一个具体例子
 
-```js
-// 精确查询
-cnchar.xhy('大水冲了龙王庙'); // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人'],
-// 模糊查询
-cnchar.xhy('大水', 'fuzzy'); // ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪', ... ]
-// 只返回答案结果
-cnchar.xhy('大水', 'fuzzy', 'answer');  // ['泥沙俱下', '后浪推前浪', ... ]
-// 根据歇后语后一句查询
-cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second'); // ['醉汉过铁索桥', '扶着醉汉过破桥']
-```
+<div>
+  <codebox id='xhy' :fold='true'></codebox>
+</div>
 
 使用cdn引用时，会在window对向上暴露 `CncharXHY` 对象
 
@@ -28,9 +23,11 @@ cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second'); // ['醉汉过铁索桥
 
 参数调用如下，value表示歇后语查询对象，可以是歇后语的第一句或第二句，所有 arg 参数都是可选的
 
-```js
+<div>
+  <highlight-code lang='typescript'>
 cnchar.xhy(value,arg1,arg2,...);
-```
+  </highlight-code>
+</div>
 
 |  参数   |    作用    | 是否默认 |  依赖库   |   备注    |
 | :-----: | :----: | :------: | :---: | :---: |
@@ -43,9 +40,11 @@ cnchar.xhy(value,arg1,arg2,...);
 
 该库为cnchar扩展了歇后语功能
 
-```js
+<div>
+  <highlight-code lang='javascript'>
 cnchar.xhy('大水冲了龙王庙') // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人']
 cnchar.xhy('大水', 'fuzzy') // ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪', ... ]
 cnchar.xhy('大水', 'fuzzy', 'answer') // ['泥沙俱下', '后浪推前浪', ... ]
 cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second') // ['醉汉过铁索桥', '扶着醉汉过破桥']
-```
+  </highlight-code>
+</div>

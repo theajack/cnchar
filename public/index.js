@@ -65,6 +65,7 @@ console.log('美好的地方'.spell('tone'));
 //     }
 // });
 cnchar.draw('中国', {
+    el: '#drawArea',
     type: cnchar.draw.TYPE.NORMAL,
     style: {
         radicalColor: '#44f',
@@ -81,14 +82,13 @@ cnchar.draw('你好', {
         length: 60,
     },
 });
-
 cnchar.draw('中国', {
     type: cnchar.draw.TYPE.TEST,
     style: {
         radicalColor: '#44f',
         backgroundColor: '#eee',
         length: 100,
-            
+                
     },
 });
 

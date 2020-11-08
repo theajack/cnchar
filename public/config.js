@@ -2,11 +2,15 @@
 
 var jsbox_config = {
     libs: {
+        // jsbox public/lib/lib.js
         'cnchar': 'jsbox.cnchar',
         'poly': 'jsbox.cnchar-poly',
         'order': 'jsbox.cnchar-order',
         'trad': 'jsbox.cnchar-trad',
         'draw': 'jsbox.cnchar-draw',
+        'idiom': 'jsbox.cnchar-idiom',
+        'xhy': 'jsbox.cnchar-xhy',
+        'radical': 'jsbox.cnchar-radical',
     },
     codes: { //
         'easy-use': {
@@ -240,6 +244,43 @@ console.log(char6);`,
             dep: ['draw'],
             desc: '测验绘制模式示例'
         },
+        'idiom': {
+            code: /* javascript*/`// 根据汉字查询成语，末尾的空格可以省略
+var res1 = cnchar.idiom(['五', '', '十', '']); // ['五风十雨', '五光十色']
+// 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
+var res2 = cnchar.idiom([4, 6, 2, 0], 'stroke'); // ["不当人子", ... ]
+// 根据拼音查询成语
+var res3 = cnchar.idiom('shang', 'spell'); // ["伤风败化", "伤风败俗", ...]
+// 带音调
+var res4 = cnchar.idiom('shang4', 'spell', 'tone'); // ["上兵伐谋", "上不着天，下不着地", ... ]
+console.log(res1, res2, res3, res4)`,
+            dep: ['idiom'],
+            desc: '成语查询实例'
+        },
+        'xhy': {
+            code: /* javascript*/`// 精确查询
+var res1 = cnchar.xhy('大水冲了龙王庙'); // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人'],
+// 模糊查询
+var res2 = cnchar.xhy('大水', 'fuzzy'); // ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪', ... ]
+// 只返回答案结果
+var res3 = cnchar.xhy('大水', 'fuzzy', 'answer');  // ['泥沙俱下', '后浪推前浪', ... ]
+// 根据歇后语后一句查询
+var res4 = cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second'); // ['醉汉过铁索桥', '扶着醉汉过破桥']
+console.log(res1, res2, res3, res4)`,
+            dep: ['xhy'],
+            desc: '歇后语查询'
+        },
+        'radical': {
+            code: /* javascript*/`var res1 = cnchar.radical('你'); // "亻",
+var res2 = cnchar.radical('你好呀'); // "亻女口"
+// 返回数组
+var res3 = cnchar.radical('你好呀', 'array'); // ["亻", "女", "口"]
+// 传入数组会默认返回数组
+var res4 = cnchar.radical(["你", "好", "呀"]); // ["亻", "女", "口"]
+console.log(res1, res2, res3, res4)`,
+            dep: ['radical'],
+            desc: '偏旁部首查询'
+        }
     }
 };
 

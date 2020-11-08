@@ -16,6 +16,7 @@
         </div>
         <div class='start-w'>
             <el-button type='primary' @click='start'>开始 <i class='ei-location-arrow'></i></el-button>
+            <el-button type='primary' @click='run'>运行 <i class='ei-play'></i></el-button>
         </div>
         <div class='feature-w'>
             <div class='f-i'>
@@ -95,6 +96,9 @@
             },
             start () {
                 window.location.href = '/cnchar/v2/guide/';
+            },
+            run () {
+                window.open('https://theajack.gitee.io/jsbox/?theme=dark&lang=html&lib=cnchar-all&code=DwZwLgngNgpgfAWAFAAI0oMQGMB2WAWAhgE4C0JMhA3sunSlAJY4yn4yMDm+YAXCgGYADAAcAHgG5a6AL7JgAenDR48gCaMAbikZqAvAHJcBEuWKUDcRRs2IkwGzv0G1xQgHczFqwpt3QWMSMImB2dJokKK4eAILmhCh6UQD2WACuALYwOGAAdJwwYACisFk5AEIQAJJqABQubp4UhAYAlFKo6NHucZS5zCzEABIAKgCyADKJKAYGHeGRySGMyTjTNJ30KFiwJPwAZoRQIDAANNJbMFD83b2E55v0yrD8G1tbbhpYRwDCyVDJYj8AwYAAsoP2Bge73oACNCFgANacYjJNI4NR-AFAmYYGD4qEXGEMbKcMD4fgANiERLocke9LoSzAKxwuUgIhg02MRGIuW6uRGAE0AApFXIAOQA8gAlMYxCbzdA8kj8xr1QAG8oBfTShKGZrPayCJ+tW7IgnO5eF5ao8gtF4oAyiMZVKANJFJVoFV87r1QCSNoB1bV1JpwhqQxuWpo5XKS3pt7jtYtyMQlVXlIyqUolnu2VtVvoMgAj9QDuicHI6GOkSIsQUOYQNMANq05V5vngVGImD1QAAcoAqOV1BkBahgxDa0PecfbyU79UA7qmAOfUB1g0TkB0ORwOcIQsmPm17W7l18QRskAOpD2oNgyAKisB4BwkwHgC9jAwAXVa462BkAcf5awAhboAGdUATtMDFyEBOSgKB6jAVYYF3R46AMQB-VMAck1ADC5ECwKuSD3z3GYUPQ0DwMggwRH+CA4JhScwA7GAT3PYg6gAJgAVlOGYQEYDIRFgCiJwPXQVgyS8DEAFLkBwHQBBZXEt8P3oOMxHwCB6mQwAWG0AJsVUMATPzAGjnQBMvV4rY40+RhvmI7VAAEVAyUBfIk1FSTJsjyApilKRzKhqepvS8FpWn6HBBhGGAxDAaY61yAArZJmHqAAdHA2iJZccBAf4YFyAFOFqOtWnkJRAmCUIgA');
             }
         },
         mounted () {

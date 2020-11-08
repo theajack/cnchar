@@ -5,11 +5,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 // let version = '@2.1.3';
 var jsbox_config = {
   libs: {
+    // jsbox public/lib/lib.js
     'cnchar': 'jsbox.cnchar',
     'poly': 'jsbox.cnchar-poly',
     'order': 'jsbox.cnchar-order',
     'trad': 'jsbox.cnchar-trad',
-    'draw': 'jsbox.cnchar-draw'
+    'draw': 'jsbox.cnchar-draw',
+    'idiom': 'jsbox.cnchar-idiom',
+    'xhy': 'jsbox.cnchar-xhy',
+    'radical': 'jsbox.cnchar-radical'
   },
   codes: {
     //
@@ -157,6 +161,27 @@ var jsbox_config = {
       "<div id='drawTest'></div>\n<script>\n    cnchar.draw('\u6D4B\u9A8C',{\n        el: '#drawTest',\n        type: cnchar.draw.TYPE.TEST\n    })\n</script>",
       dep: ['draw'],
       desc: '测验绘制模式示例'
+    },
+    'idiom': {
+      code:
+      /* javascript*/
+      "// \u6839\u636E\u6C49\u5B57\u67E5\u8BE2\u6210\u8BED\uFF0C\u672B\u5C3E\u7684\u7A7A\u683C\u53EF\u4EE5\u7701\u7565\nvar res1 = cnchar.idiom(['\u4E94', '', '\u5341', '']); // ['\u4E94\u98CE\u5341\u96E8', '\u4E94\u5149\u5341\u8272']\n// \u6839\u636E\u7B14\u753B\u6570\u67E5\u8BE2\u6210\u8BED\uFF0C0\u8868\u793A\u5339\u914D\u4EFB\u610F\u7B14\u753B\uFF0C\u672B\u5C3E\u76840\u53EF\u4EE5\u7701\u7565\nvar res2 = cnchar.idiom([4, 6, 2, 0], 'stroke'); // [\"\u4E0D\u5F53\u4EBA\u5B50\", ... ]\n// \u6839\u636E\u62FC\u97F3\u67E5\u8BE2\u6210\u8BED\nvar res3 = cnchar.idiom('shang', 'spell'); // [\"\u4F24\u98CE\u8D25\u5316\", \"\u4F24\u98CE\u8D25\u4FD7\", ...]\n// \u5E26\u97F3\u8C03\nvar res4 = cnchar.idiom('shang4', 'spell', 'tone'); // [\"\u4E0A\u5175\u4F10\u8C0B\", \"\u4E0A\u4E0D\u7740\u5929\uFF0C\u4E0B\u4E0D\u7740\u5730\", ... ]\nconsole.log(res1, res2, res3, res4)",
+      dep: ['idiom'],
+      desc: '成语查询实例'
+    },
+    'xhy': {
+      code:
+      /* javascript*/
+      "// \u7CBE\u786E\u67E5\u8BE2\nvar res1 = cnchar.xhy('\u5927\u6C34\u51B2\u4E86\u9F99\u738B\u5E99'); // ['\u5927\u6C34\u51B2\u4E86\u9F99\u738B\u5E99-\u81EA\u5BB6\u4EBA\u4E0D\u8BC6\u81EA\u5BB6\u4EBA', '\u5927\u6C34\u51B2\u4E86\u9F99\u738B\u5E99-\u4E00\u5BB6\u4EBA\u4E0D\u8BA4\u4E00\u5BB6\u4EBA'],\n// \u6A21\u7CCA\u67E5\u8BE2\nvar res2 = cnchar.xhy('\u5927\u6C34', 'fuzzy'); // ['\u6C5F\u6CB3\u91CC\u957F\u5927\u6C34-\u6CE5\u6C99\u4FF1\u4E0B', '\u6C5F\u6CB3\u53D1\u5927\u6C34-\u540E\u6D6A\u63A8\u524D\u6D6A', ... ]\n// \u53EA\u8FD4\u56DE\u7B54\u6848\u7ED3\u679C\nvar res3 = cnchar.xhy('\u5927\u6C34', 'fuzzy', 'answer');  // ['\u6CE5\u6C99\u4FF1\u4E0B', '\u540E\u6D6A\u63A8\u524D\u6D6A', ... ]\n// \u6839\u636E\u6B47\u540E\u8BED\u540E\u4E00\u53E5\u67E5\u8BE2\nvar res4 = cnchar.xhy('\u4E0A\u6643\u4E0B\u6447', 'fuzzy', 'answer', 'second'); // ['\u9189\u6C49\u8FC7\u94C1\u7D22\u6865', '\u6276\u7740\u9189\u6C49\u8FC7\u7834\u6865']\nconsole.log(res1, res2, res3, res4)",
+      dep: ['xhy'],
+      desc: '歇后语查询'
+    },
+    'radical': {
+      code:
+      /* javascript*/
+      "var res1 = cnchar.radical('\u4F60'); // \"\u4EBB\",\nvar res2 = cnchar.radical('\u4F60\u597D\u5440'); // \"\u4EBB\u5973\u53E3\"\n// \u8FD4\u56DE\u6570\u7EC4\nvar res3 = cnchar.radical('\u4F60\u597D\u5440', 'array'); // [\"\u4EBB\", \"\u5973\", \"\u53E3\"]\n// \u4F20\u5165\u6570\u7EC4\u4F1A\u9ED8\u8BA4\u8FD4\u56DE\u6570\u7EC4\nvar res4 = cnchar.radical([\"\u4F60\", \"\u597D\", \"\u5440\"]); // [\"\u4EBB\", \"\u5973\", \"\u53E3\"]\nconsole.log(res1, res2, res3, res4)",
+      dep: ['radical'],
+      desc: '偏旁部首查询'
     }
   }
 };

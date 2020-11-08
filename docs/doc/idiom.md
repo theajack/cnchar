@@ -5,22 +5,17 @@ cnchar在2.2.0加入了成语功能，启用该功能需要安装 `cnchar-idiom`
 
 使用方式如下：
 
-```ts
-cnchar.idiom(text:string, ...idiomArgs: Array<idiomArg>):Array<string>;
-```
+<div>
+  <highlight-code lang='typescript'>
+cnchar.idiom(text:string, ...idiomArgs: Array&lt;idiomArg>):Array&lt;string>;
+  </highlight-code>
+</div>
 
 看一个具体例子
 
-```js
-// 根据汉字查询成语，末尾的空格可以省略
-cnchar.idiom(['五', '', '十', '']); // ['五风十雨', '五光十色']
-// 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
-cnchar.idiom([4, 6, 2, 0], 'stroke'); // ["不当人子", ... ]
-// 根据拼音查询成语
-cnchar.idiom('shang', 'spell'); // ["伤风败化", "伤风败俗", ...]
-// 带音调
-cnchar.idiom('shang4', 'spell', 'tone'); // ["上兵伐谋", "上不着天，下不着地", ... ]
-```
+<div>
+  <codebox id='idiom' :fold='true'></codebox>
+</div>
 
 使用cdn引用时，会在window对向上暴露 `CncharIdiom` 对象
 
@@ -28,9 +23,11 @@ cnchar.idiom('shang4', 'spell', 'tone'); // ["上兵伐谋", "上不着天，下
 
 参数调用如下，value表示查询对象，可以试拼音汉字笔画数，所有 arg 参数都是可选的
 
-```js
+<div>
+  <highlight-code lang='typescript'>
 cnchar.idiom(value,arg1,arg2,...);
-```
+  </highlight-code>
+</div>
 
 |  参数   |    作用    | 是否默认 |  依赖库   |   备注    |
 | :-----: | :----: | :------: | :---: | :---: |
@@ -46,9 +43,13 @@ cnchar.idiom(value,arg1,arg2,...);
 
 该库为cnchar扩展了成语功能
 
-```js
+<div>
+  <highlight-code lang='javascript'>
 cnchar.idiom(['五', '', '十', '']) // ['五风十雨', '五光十色']
 cnchar.idiom([4, 6, 2, 6], 'stroke') // ['五光十色']
 cnchar.idiom('shang', 'spell') // ['伤风败化', '伤风败俗', ... ]
 cnchar.idiom('shang4', 'spell', 'tone') // ['伤风败化', '伤风败俗', ... ]
-```
+  </highlight-code>
+</div>
+
+
