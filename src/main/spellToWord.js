@@ -1,5 +1,5 @@
 let dict = require('./spell-dict-jian.json');
-let initialDict = require('./initial.json');
+let initialDict = require('./info-dict.json').initial;
 
 let arg = {simple: 'simple', trad: 'trad', poly: 'poly', alltone: 'alltone', array: 'array'};
 let _ = {};// 工具方法
@@ -8,7 +8,7 @@ function initSpellToWord (cnchar) {
     _ = cnchar._;
     cnchar.spellToWord = spellToWord;
     spellInfo.tones = _.tones.split('');
-    spellInfo.initials = initialDict;
+    spellInfo.initials = initialDict.initial;
     cnchar.spellInfo = spellInfo;
     cnchar.type.spellToWord = arg;
 }

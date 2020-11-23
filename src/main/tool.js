@@ -1,13 +1,10 @@
 const {spellInfo} = require('./spellToWord');
+let {_wran, isCnChar, has} = require('./util');
+let defDict = require('./spell-default.json');
+
 const tones = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
 const noTones = 'aoeiuün';
-let defDict = require('./spell-default.json');
-function _throw (err) {
-    throw new Error('CnChar Error:' + err);
-}
-function _wran (err) {
-    console.warn('CnChar Warning:' + err);
-}
+
 let arg = {
     array: 'array',
     low: 'low',
@@ -21,13 +18,6 @@ function initCnchar (cnchar) {
     _cnchar = cnchar;
 }
 
-function isCnChar (word) {
-    let unicode = word.charCodeAt(0);
-    return unicode >= 19968 && unicode <= 40869;
-}
-function has (args, name) {
-    return args.indexOf(name) !== -1;
-}
 
 function spell (dict, args) {
     let strs = args[0].split('');
@@ -311,6 +301,16 @@ function warnArgs (arr, txt, type) {
         _wran(`以下参数${txt}:${JSON.stringify(arr)};  可选值：[${Object.keys(_cnchar.type[type])}]`);
     }
 }
+// lv2 => lǘ
+function shapeSpell (spell) {
+    let tones = '01234';
+    if (tones.indexOf(spell[spell.length - 1]) === -1) {
+        return spell;
+    }
+    let info = transformTone(spell, true, 'low');
+    return setTone(info.spell, info.index, info.tone);
+}
+
 // lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
 // lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
 // needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
@@ -346,6 +346,7 @@ function transformTone (spell, needTone, type = 'low') {
     return {spell, tone, index, isTrans};
 }
 
+
 module.exports = {
-    _throw, _wran, arg, isCnChar, has, spell, stroke, dealUpLowFirst, removeTone, sumStroke, checkArgs, initCnchar, tones, transformTone
+    shapeSpell, arg, spell, stroke, dealUpLowFirst, removeTone, sumStroke, checkArgs, initCnchar, tones, transformTone
 };

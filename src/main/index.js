@@ -1,8 +1,11 @@
 let version = require('./version');
-let {spell, tones, stroke, arg, has, _throw, _wran,
-    dealUpLowFirst, removeTone, sumStroke, isCnChar,
-    checkArgs, initCnchar, transformTone} = require('./tool');
+let {spell, tones, stroke, arg,
+    dealUpLowFirst, removeTone, sumStroke,
+    checkArgs, initCnchar, transformTone,
+    shapeSpell} = require('./tool');
+let {has, _throw, _wran, isCnChar, isPolyWord, mapJson} = require('./util');
 let dict = require('./dict');
+let {setSpellDefault, setIntoJson, setSpell, setStrokeCount} = require('./config');
 let {initSpellToWord} = require('./spellToWord');
 let initStrokeToWord = require('./strokeToWord');
 let {compareSpell, sortSpell, compareStroke, sortStroke, initSort} = require('./sort');
@@ -45,8 +48,8 @@ let cnchar = {
     },
     plugins: [],
     use,
-    _: {arg, has, _throw, tones, _wran, dealUpLowFirst, removeTone,
-        sumStroke, isCnChar, checkArgs, transformTone, dict: {}},
+    _: {arg, has, _throw, tones, setIntoJson, _wran, dealUpLowFirst, removeTone,
+        sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson},
     type: {
         spell: arg,
         stroke: {
@@ -59,9 +62,13 @@ let cnchar = {
     compareSpell,
     compareStroke,
     sortSpell,
-    sortStroke
+    sortStroke,
+    setSpellDefault,
+    setSpell,
+    setStrokeCount,
+    isPolyWord,
+    shapeSpell,
 };
-
 function init () {
     initStrProto();
     initCnchar(cnchar);

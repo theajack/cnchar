@@ -1,11 +1,11 @@
-// import cnchar from '../src/main/index';
-// import '../src/plugin/order';
-// import '../src/plugin/trad';
-// import '../src/plugin/poly';
-// import '../src/plugin/draw';
-// import '../src/plugin/idiom';
-// import '../src/plugin/xhy';
-// import '../src/plugin/radical';
+import cnchar from '../src/main/index';
+import '../src/plugin/order';
+import '../src/plugin/trad';
+import '../src/plugin/poly';
+import '../src/plugin/draw';
+import '../src/plugin/idiom';
+import '../src/plugin/xhy';
+import '../src/plugin/radical';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';
@@ -19,14 +19,14 @@
 // import '../npm/xhy';
 // import '../npm/radical';
 
-import cnchar from '../npm/cnchar/cnchar.min.js';
-import '../npm/order/cnchar.order.min.js';
-import '../npm/trad/cnchar.trad.min.js';
-import '../npm/poly/cnchar.poly.min.js';
-import '../npm/draw/cnchar.draw.min.js';
-import '../npm/idiom/cnchar.idiom.min.js';
-import '../npm/xhy/cnchar.xhy.min.js';
-import '../npm/radical/cnchar.radical.min.js';
+// import cnchar from '../npm/cnchar/cnchar.min.js';
+// import '../npm/order/cnchar.order.min.js';
+// import '../npm/trad/cnchar.trad.min.js';
+// import '../npm/poly/cnchar.poly.min.js';
+// import '../npm/draw/cnchar.draw.min.js';
+// import '../npm/idiom/cnchar.idiom.min.js';
+// import '../npm/xhy/cnchar.xhy.min.js';
+// import '../npm/radical/cnchar.radical.min.js';
 console.log(cnchar);
 
 // import './plugin/draw'
@@ -64,43 +64,43 @@ console.log('美好的地方'.spell('tone'));
 //         }
 //     }
 // });
-cnchar.draw('中国', {
-    el: '#drawArea',
-    type: cnchar.draw.TYPE.NORMAL,
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#eee',
-        length: 100,
+// cnchar.draw('中国', {
+//     el: '#drawArea',
+//     type: cnchar.draw.TYPE.NORMAL,
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#eee',
+//         length: 100,
             
-    },
-});
-cnchar.draw('你好', {
-    type: cnchar.draw.TYPE.STROKE,
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#eee',
-        length: 60,
-    },
-});
-cnchar.draw('中国', {
-    type: cnchar.draw.TYPE.TEST,
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#eee',
-        length: 100,
+//     },
+// });
+// cnchar.draw('你好', {
+//     type: cnchar.draw.TYPE.STROKE,
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#eee',
+//         length: 60,
+//     },
+// });
+// cnchar.draw('中国', {
+//     type: cnchar.draw.TYPE.TEST,
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#eee',
+//         length: 100,
                 
-    },
-});
+//     },
+// });
 
-cnchar.draw('你好', {
-    type: cnchar.draw.TYPE.ANIMATION,
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#eee',
-        length: 120,
+// cnchar.draw('你好', {
+//     type: cnchar.draw.TYPE.ANIMATION,
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#eee',
+//         length: 120,
             
-    },
-});
+//     },
+// });
 
 window.cnchar = cnchar;
 

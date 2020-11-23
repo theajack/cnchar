@@ -37,10 +37,17 @@ function _poly (...args) {
     return res;
 }
 
+function setPolyWord (word, spell) {
+    if (_.setIntoJson) {
+        _.setIntoJson(polyPhrases, word, spell);
+    }
+}
+
 function main (cnchar) {
     if (cnchar.plugins.indexOf('poly') !== -1) {
         return;
     }
+    cnchar.setPolyWord = setPolyWord;
     cnchar.plugins.push('poly');
     _spell = cnchar._origin.spell;
     _ = cnchar._;

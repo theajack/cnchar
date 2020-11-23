@@ -7,6 +7,12 @@ let arg = {
     letter: 'letter', shape: 'shape', count: 'count', name: 'name', detail: 'detail', array: 'array', order: 'order' // array 只是为了兼容 .stroke()
 };
 
+function setOrder (key, value) {
+    _.mapJson(key, value, (k, v) => {
+        orders[k] = v;
+    });
+}
+
 function main (cnchar) {
     if (cnchar.plugins.indexOf('order') !== -1) {
         return;
@@ -14,6 +20,8 @@ function main (cnchar) {
     cnchar.plugins.push('order');
     let _old = cnchar._origin.stroke;
     _ = cnchar._;
+    
+    cnchar.setOrder = setOrder;
     let _new = function (...args) {
         if (_.has(args, arg.order)) { // 使用order
             return _order(...args);

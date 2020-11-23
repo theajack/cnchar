@@ -3,11 +3,12 @@
  * 笔画 [1,0,1,0]
  * 拼音 ['shi', '']
  */
-const dict = require('./idiom.json');
+// 小程序中json直接放一个数组会有异常，所以包一个key
+const dict = require('./idiom.json').idiom;
 // const {initToneCodes, getCharCode} = require('./tone');
 
-const spellDict = require('./spell.json');
-const spellNoToneDict = require('./spell.notone.json');
+const spellDict = require('./spell.json').spell;
+const spellNoToneDict = require('./spell.notone.json').spell;
 
 let _cnchar = null;
 
