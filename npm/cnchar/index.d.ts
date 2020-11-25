@@ -47,11 +47,18 @@ export declare interface CnCharStatic {
         isTrans: boolean;
     };
     isCnChar(word: string): boolean;
+    isPolyWord(word: string): boolean;
     compareSpell(spell1: string, spell2: string, tone?: boolean): compareType;
     compareStroke(stroke1: string | number, stroke2: string | number): compareType;
     sortSpell(spells:Array<string> | string, ...args: Array<'tone'|'desc'>): Array<string> | string;
     sortStroke(strokes:Array<string|number> | string, desc?: 'desc'): Array<string> | string;
-    
+    setSpellDefault(word: string, spell: string): void;
+    setSpellDefault(json: {[key: string]: string}): void;
+    setSpell(word: string, spell: string): void;
+    setSpell(json: {[key: string]: string}): void;
+    setStrokeCount(word: string, count: number): void;
+    setStrokeCount(json: {[key: string]: number}): void;
+    shapeSpell(spell: string): string;
 }
 
 declare const cnchar: CnCharStatic;

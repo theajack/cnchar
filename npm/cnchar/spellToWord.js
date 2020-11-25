@@ -2,7 +2,7 @@
 
 var dict = require('./spell-dict-jian.json');
 
-var initialDict = require('./initial.json');
+var initialDict = require('./info-dict.json').initial;
 
 var arg = {
   simple: 'simple',

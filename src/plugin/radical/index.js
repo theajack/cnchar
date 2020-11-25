@@ -1,5 +1,5 @@
 
-const {radical, arg, setCnchar} = require('./radical');
+const {radical, arg, setCnchar, setRadical} = require('./radical');
 
 function main (cnchar) {
     if (cnchar.plugins.indexOf('radical') !== -1) {
@@ -24,6 +24,7 @@ function init (cnchar) {
 }
 
 radical.init = init;
+radical.setRadical = setRadical;
 
 init();
 

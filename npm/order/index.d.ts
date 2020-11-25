@@ -11,6 +11,8 @@ declare module 'cnchar' {
             (orders: string | Array<orderName>, ...args: Array<orderToWordArg>): string | Array<string>;
             orders: object;
         };
+        setOrder(word: string, order: string): void;
+        setOrder(json: {[key: string]: string}): void;
     }
 }
 

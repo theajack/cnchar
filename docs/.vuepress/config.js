@@ -30,6 +30,7 @@ module.exports = {
                     {text: 'cnchar-xhy: 歇后语', link: '/doc/xhy'},
                     {text: 'cnchar-radical: 偏旁部首', link: '/doc/radical'},
                     {text: '工具方法', link: '/doc/tool'},
+                    {text: '自定义数据', link: '/doc/custom'},
                 ],
             },
             {
@@ -90,6 +91,10 @@ module.exports = {
                             title: '工具方法',
                             path: 'tool',
                         },
+                        {
+                            title: '自定义数据',
+                            path: 'custom',
+                        },
                     ],
                 },
             ],
@@ -108,9 +113,13 @@ module.exports = {
                             path: 'start',
                         },
                         {
+                            title: '文档',
+                            path: '/doc/cnchar',
+                        },
+                        {
                             title: '更新日志',
                             path: 'version',
-                        },
+                        }
                     ],
                 },
             ],

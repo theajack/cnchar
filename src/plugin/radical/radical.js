@@ -37,8 +37,15 @@ function setCnchar (cnchar) {
     // initToneCodes(cnchar);
 }
 
+function setRadical (key, value) {
+    _cnchar._.mapJson(key, value, (k, v) => {
+        radicals[k] = v;
+    });
+}
+
 module.exports = {
     radical,
     arg,
-    setCnchar
+    setCnchar,
+    setRadical
 };

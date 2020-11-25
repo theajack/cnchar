@@ -1,5 +1,5 @@
-var countDict = require( './stroke-count-fan.json');
-var orderDict = require( './stroke-order-fan.json');
+var countDict = require('./stroke-count-fan.json');
+var orderDict = require('./stroke-order-fan.json');
 
 // 简-烦 一对多
 // https://blog.csdn.net/e15273/article/details/79954700
@@ -113,7 +113,8 @@ function reinitStroke (proto, cnchar) {
                     }
                 }
             }
-            for (var i = 0; i < countDict.length; i++) {
+            for (let i in countDict) {
+                i = parseInt(i);
                 for (var j = 0; j < res.length; j++) {
                     if (res[j] === 0 && countDict[i].indexOf(str[j]) !== -1) {
                         res[j] = i;

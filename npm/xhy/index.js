@@ -4,13 +4,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 var _require = require('./xhy'),
     xhy = _require.xhy,
-    arg = _require.arg;
+    arg = _require.arg,
+    addXhy = _require.addXhy,
+    setCnchar = _require.setCnchar;
 
 function main(cnchar) {
   if (cnchar.plugins.indexOf('xhy') !== -1) {
     return;
   }
 
+  setCnchar(cnchar);
   cnchar.plugins.push('xhy');
   cnchar.xhy = xhy;
   cnchar.type.xhy = arg;
@@ -29,5 +32,6 @@ function init(cnchar) {
 }
 
 xhy.init = init;
+xhy.addXhy = addXhy;
 init();
 module.exports = xhy;

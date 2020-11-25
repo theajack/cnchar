@@ -16,6 +16,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var polyPhrases = require('./polyphone-phrase-simple.json');
 
+var _cnchar = null;
 var _ = {}; // 工具方法
 // let arg = {origin:'origin'}
 
@@ -41,7 +42,7 @@ function _poly() {
 
   var tone = _.has(args, _.arg.tone); // // 多音字参数参数将被忽略
   // if(_.has(args,_.arg.poly))
-  //     _._wran('多音字参数 poly 被忽略')
+  //     _._warn('多音字参数 poly 被忽略')
 
 
   if (tone) {
@@ -75,14 +76,30 @@ function _poly() {
   return res;
 }
 
+function setPolyPhrase(word, spell) {
+  if (_typeof(word) === 'object') {
+    for (var k in word) {
+      setPolyPhrase(k, word[k]);
+    }
+
+    return;
+  }
+
+  polyPhrases[word] = spell.split(' ').map(function (s) {
+    return _cnchar.shapeSpell(s);
+  }).join(' ');
+}
+
 function main(cnchar) {
   if (cnchar.plugins.indexOf('poly') !== -1) {
     return;
   }
 
+  cnchar.setPolyPhrase = setPolyPhrase;
   cnchar.plugins.push('poly');
   _spell = cnchar._origin.spell;
   _ = cnchar._;
+  _cnchar = cnchar;
 
   var _new = function _new() {
     for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {

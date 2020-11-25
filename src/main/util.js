@@ -21,7 +21,7 @@ function has (args, name) {
 }
 
 function isPolyWord (word) {
-    if (word) {
+    if (!word) {
         return false;
     }
     if (word.length > 1) {
@@ -36,7 +36,7 @@ function isPolyWord (word) {
 function _throw (err) {
     throw new Error('CnChar Error:' + err);
 }
-function _wran (err) {
+function _warn (err) {
     console.warn('CnChar Warning:' + err);
 }
 
@@ -46,7 +46,7 @@ module.exports = {
     has,
     isPolyWord,
     _throw,
-    _wran
+    _warn
 };
 
 

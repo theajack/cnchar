@@ -2,8 +2,8 @@ declare const poly: Function;
 
 declare module 'cnchar' {
     interface CnCharStatic {
-        setPolyWord(word: string, spell: string): void;
-        setPolyWord(json: {[key: string]: string}): void;
+        setPolyPhrase(word: string, spell: string): void;
+        setPolyPhrase(json: {[key: string]: string}): void;
     }
 }
 

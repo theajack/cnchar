@@ -54,6 +54,11 @@ export declare interface CnCharStatic {
     sortStroke(strokes:Array<string|number> | string, desc?: 'desc'): Array<string> | string;
     setSpellDefault(word: string, spell: string): void;
     setSpellDefault(json: {[key: string]: string}): void;
+    setSpell(word: string, spell: string): void;
+    setSpell(json: {[key: string]: string}): void;
+    setStrokeCount(word: string, count: number): void;
+    setStrokeCount(json: {[key: string]: number}): void;
+    shapeSpell(spell: string): string;
 }
 
 declare const cnchar: CnCharStatic;

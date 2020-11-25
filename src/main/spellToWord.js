@@ -8,7 +8,7 @@ function initSpellToWord (cnchar) {
     _ = cnchar._;
     cnchar.spellToWord = spellToWord;
     spellInfo.tones = _.tones.split('');
-    spellInfo.initials = initialDict.initial;
+    spellInfo.initials = initialDict;
     cnchar.spellInfo = spellInfo;
     cnchar.type.spellToWord = arg;
 }

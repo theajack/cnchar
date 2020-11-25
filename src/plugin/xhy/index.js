@@ -1,9 +1,11 @@
-const {xhy, arg} = require('./xhy');
+const {xhy, arg, addXhy, setCnchar} = require('./xhy');
+
 
 function main (cnchar) {
     if (cnchar.plugins.indexOf('xhy') !== -1) {
         return;
     }
+    setCnchar(cnchar);
     cnchar.plugins.push('xhy');
     cnchar.xhy = xhy;
     cnchar.type.xhy = arg;
@@ -21,6 +23,8 @@ function init (cnchar) {
 }
 
 xhy.init = init;
+
+xhy.addXhy = addXhy;
 
 init();
 

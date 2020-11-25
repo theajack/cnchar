@@ -5,20 +5,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 var _require = require('./spellToWord'),
     spellInfo = _require.spellInfo;
 
-var tones = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
-
-var noTones = 'aoeiuün';
+var _require2 = require('./util'),
+    _warn = _require2._warn,
+    isCnChar = _require2.isCnChar,
+    has = _require2.has;
 
 var defDict = require('./spell-default.json');
 
-function _throw(err) {
-  throw new Error('CnChar Error:' + err);
-}
+var tones = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
 
-function _wran(err) {
-  console.warn('CnChar Warning:' + err);
-}
-
+var noTones = 'aoeiuün';
 var arg = {
   array: 'array',
   low: 'low',
@@ -31,15 +27,6 @@ var _cnchar = null;
 
 function initCnchar(cnchar) {
   _cnchar = cnchar;
-}
-
-function isCnChar(word) {
-  var unicode = word.charCodeAt(0);
-  return unicode >= 19968 && unicode <= 40869;
-}
-
-function has(args, name) {
-  return args.indexOf(name) !== -1;
 }
 
 function spell(dict, args) {
@@ -232,7 +219,11 @@ function setTone(spell, index, tone) {
   }
 
   var p = spell[index];
-  return spell.replace(p, tones[noTones.indexOf(p) * 4 + (tone - 1)]);
+  var toneP = tones[noTones.indexOf(p) * 4 + (tone - 1)];
+
+  if (p !== toneP) {
+    return spell.replace(p, toneP);
+  }
 } // 笔画数
 
 
@@ -376,15 +367,34 @@ function checkArgs(type, args, jumpNext) {
     }
   } else if (type === 'xhy') {} else if (type === 'radical') {}
 
-  warnArgs(useless, '无效', type);
-  warnArgs(ignore, '被忽略', type);
-  warnArgs(redunt, '冗余', type);
+  warnArgs(useless, '无效', type, args);
+  warnArgs(ignore, '被忽略', type, args);
+  warnArgs(redunt, '冗余', type, args);
 }
 
-function warnArgs(arr, txt, type) {
+function warnArgs(arr, txt, type, args) {
   if (arr.length > 0) {
-    _wran("\u4EE5\u4E0B\u53C2\u6570".concat(txt, ":").concat(JSON.stringify(arr), ";  \u53EF\u9009\u503C\uFF1A[").concat(Object.keys(_cnchar.type[type]), "]"));
+    var mes = "\u4EE5\u4E0B\u53C2\u6570".concat(txt, ":").concat(JSON.stringify(arr), ";");
+
+    if (txt === '被忽略' && type === 'stroke' && !has(args, 'order')) {
+      mes += ' 要启用笔顺模式必须使用 order 参数';
+    } else {
+      mes += " \u53EF\u9009\u503C\uFF1A[".concat(Object.keys(_cnchar.type[type]), "]");
+    }
+
+    _warn(mes);
   }
+} // lv2 => lǘ
+
+
+function shapeSpell(spell) {
+  var tones = '01234';
+
+  if (tones.indexOf(spell[spell.length - 1]) === -1) {
+    return spell;
+  }
+
+  return transformTone(spell, true, 'low').spell;
 } // lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
 // lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
 // needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
@@ -440,11 +450,8 @@ function transformTone(spell, needTone) {
 }
 
 module.exports = {
-  _throw: _throw,
-  _wran: _wran,
+  shapeSpell: shapeSpell,
   arg: arg,
-  isCnChar: isCnChar,
-  has: has,
   spell: spell,
   stroke: stroke,
   dealUpLowFirst: dealUpLowFirst,

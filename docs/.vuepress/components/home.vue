@@ -21,12 +21,12 @@
         <div class='feature-w'>
             <div class='f-i'>
                 <div class='f-t'><i class='ei-rocket'></i>功能全面</div>
-                <div class='f-des'>拼音、笔画数</div>
+                <div class='f-des'>拼音/笔画数</div>
                 <div class='f-des'>多音字词</div>
-                <div class='f-des'>繁体字、火星文</div>
-                <div class='f-des'>汉字笔顺、偏旁部首</div>
+                <div class='f-des'>繁体字/火星文</div>
+                <div class='f-des'>汉字笔顺/偏旁部首</div>
                 <div class='f-des'>多种模式绘制汉字</div>
-                <div class='f-des'>汉字推算、拼音排序</div>
+                <div class='f-des'>汉字推算/拼音排序</div>
                 <div class='f-des'>...</div>
             </div>
             <div class='f-i'>
@@ -41,11 +41,13 @@
             </div>
             <div class='f-i'>
                 <div class='f-t'><i class='ei-cubes'></i>按需取用</div>
+                <div class='f-des'>支持自定义数据</div>
                 <div class='f-des'>功能分包</div>
                 <div class='f-des'>体积小巧</div>
                 <div class='f-des'>简单易用</div>
                 <div class='f-des'>npm</div>
                 <div class='f-des'>cdn</div>
+                <div class='f-des'>...</div>
             </div>
         </div>
         <div class='copy-right'>MIT Licensed | Copyright © 2020 present <a href='https://www.github.com/theajack' target='view_window'>theajack</a></div>

@@ -5,7 +5,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 var _require = require('./radical'),
     radical = _require.radical,
     arg = _require.arg,
-    setCnchar = _require.setCnchar;
+    setCnchar = _require.setCnchar,
+    setRadical = _require.setRadical;
 
 function main(cnchar) {
   if (cnchar.plugins.indexOf('radical') !== -1) {
@@ -32,5 +33,6 @@ function init(cnchar) {
 }
 
 radical.init = init;
+radical.setRadical = setRadical;
 init();
 module.exports = radical;

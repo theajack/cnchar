@@ -117,5 +117,10 @@
 4. cdn 文件使用umd模块
 
 ## 2.2.8
-1. 修正 眝 耄 耋 三个字的偏旁
-2. 修正 
+1. 增加 自定义 设置数据的方法 setSpell setSpellDefault setStrokeCount setOrder setPolyPhrase setRadical addXhy
+2. 增加 shapeSpell 方法，用于将拼音数字声调模式转成带声调的拼音
+3. 增加 isPolyWord 方法，用于高效判断一个汉字是否是多音字
+4. 修正 眝 耄 耋 三个字的偏旁
+5. 修正 苦 被 厕 默认读音 修正 雪茄 读音
+6. 歇后语没有查询到默认返回空数组
+7. 修复小程序下json文件为数组加载不到的问题

@@ -1,5 +1,5 @@
 const {spellInfo} = require('./spellToWord');
-let {_wran, isCnChar, has} = require('./util');
+let {_warn, isCnChar, has} = require('./util');
 let defDict = require('./spell-default.json');
 
 const tones = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
@@ -164,7 +164,10 @@ function setTone (spell, index, tone) {
         return spell;
     }
     let p = spell[index];
-    return spell.replace(p, tones[noTones.indexOf(p) * 4 + (tone - 1)]);
+    let toneP = tones[noTones.indexOf(p) * 4 + (tone - 1)];
+    if (p !== toneP) {
+        return spell.replace(p, toneP);
+    }
 }
 
 // 笔画数
@@ -288,17 +291,21 @@ function checkArgs (type, args, jumpNext) {
             check(['tone']);
         }
     } else if (type === 'xhy') {
-        
     } else if (type === 'radical') {
-        
     }
-    warnArgs(useless, '无效', type);
-    warnArgs(ignore, '被忽略', type);
-    warnArgs(redunt, '冗余', type);
+    warnArgs(useless, '无效', type, args);
+    warnArgs(ignore, '被忽略', type, args);
+    warnArgs(redunt, '冗余', type, args);
 }
-function warnArgs (arr, txt, type) {
+function warnArgs (arr, txt, type, args) {
     if (arr.length > 0) {
-        _wran(`以下参数${txt}:${JSON.stringify(arr)};  可选值：[${Object.keys(_cnchar.type[type])}]`);
+        let mes = `以下参数${txt}:${JSON.stringify(arr)};`;
+        if (txt === '被忽略' && type === 'stroke' && !has(args, 'order')) {
+            mes += ' 要启用笔顺模式必须使用 order 参数';
+        } else {
+            mes += ` 可选值：[${Object.keys(_cnchar.type[type])}]`;
+        }
+        _warn(mes);
     }
 }
 // lv2 => lǘ
@@ -307,8 +314,7 @@ function shapeSpell (spell) {
     if (tones.indexOf(spell[spell.length - 1]) === -1) {
         return spell;
     }
-    let info = transformTone(spell, true, 'low');
-    return setTone(info.spell, info.index, info.tone);
+    return transformTone(spell, true, 'low').spell;
 }
 
 // lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
@@ -321,6 +327,7 @@ function transformTone (spell, needTone, type = 'low') {
     let tone = spell[spell.length - 1];
     let index = -1;
     let isTrans = false;
+
     if (parseInt(tone).toString() === tone) { // lv2
         spell = spell.substr(0, spell.length - 1);
         let info = spellInfo(spell);

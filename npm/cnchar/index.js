@@ -7,30 +7,41 @@ var _require = require('./tool'),
     tones = _require.tones,
     stroke = _require.stroke,
     arg = _require.arg,
-    has = _require.has,
-    _throw = _require._throw,
-    _wran = _require._wran,
     dealUpLowFirst = _require.dealUpLowFirst,
     removeTone = _require.removeTone,
     sumStroke = _require.sumStroke,
-    isCnChar = _require.isCnChar,
     checkArgs = _require.checkArgs,
     initCnchar = _require.initCnchar,
-    transformTone = _require.transformTone;
+    transformTone = _require.transformTone,
+    shapeSpell = _require.shapeSpell;
+
+var _require2 = require('./util'),
+    has = _require2.has,
+    _throw = _require2._throw,
+    _warn = _require2._warn,
+    isCnChar = _require2.isCnChar,
+    isPolyWord = _require2.isPolyWord,
+    mapJson = _require2.mapJson;
 
 var dict = require('./dict');
 
-var _require2 = require('./spellToWord'),
-    initSpellToWord = _require2.initSpellToWord;
+var _require3 = require('./config'),
+    setSpellDefault = _require3.setSpellDefault,
+    setIntoJson = _require3.setIntoJson,
+    setSpell = _require3.setSpell,
+    setStrokeCount = _require3.setStrokeCount;
+
+var _require4 = require('./spellToWord'),
+    initSpellToWord = _require4.initSpellToWord;
 
 var initStrokeToWord = require('./strokeToWord');
 
-var _require3 = require('./sort'),
-    compareSpell = _require3.compareSpell,
-    sortSpell = _require3.sortSpell,
-    compareStroke = _require3.compareStroke,
-    sortStroke = _require3.sortStroke,
-    initSort = _require3.initSort;
+var _require5 = require('./sort'),
+    compareSpell = _require5.compareSpell,
+    sortSpell = _require5.sortSpell,
+    compareStroke = _require5.compareStroke,
+    sortStroke = _require5.sortStroke,
+    initSort = _require5.initSort;
 
 function _spell() {
   for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -98,14 +109,16 @@ var cnchar = {
     has: has,
     _throw: _throw,
     tones: tones,
-    _wran: _wran,
+    setIntoJson: setIntoJson,
+    _warn: _warn,
     dealUpLowFirst: dealUpLowFirst,
     removeTone: removeTone,
     sumStroke: sumStroke,
     isCnChar: isCnChar,
     checkArgs: checkArgs,
     transformTone: transformTone,
-    dict: {}
+    dict: {},
+    mapJson: mapJson
   },
   type: {
     spell: arg,
@@ -119,7 +132,12 @@ var cnchar = {
   compareSpell: compareSpell,
   compareStroke: compareStroke,
   sortSpell: sortSpell,
-  sortStroke: sortStroke
+  sortStroke: sortStroke,
+  setSpellDefault: setSpellDefault,
+  setSpell: setSpell,
+  setStrokeCount: setStrokeCount,
+  isPolyWord: isPolyWord,
+  shapeSpell: shapeSpell
 };
 
 function init() {

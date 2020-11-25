@@ -218,3 +218,35 @@ cnchar.sortStroke('一三二') // '一二三'
 cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三']
 cnchar.sortStroke(['一', '三', '二'], 'desc') // ['三', '二', '一']
 ```
+
+## 9. 是否是多音字：isPolyWord
+
+`isPolyWord` 方法用于判断一个字符是否是汉字
+
+```ts
+cnchar.isPolyWord(word: string): boolean;
+```
+
+使用实例
+
+```js
+cnchar.isPolyWord('中') // true
+cnchar.isPolyWord('国') // false
+```
+
+## 10. 转换拼音：shapeSpell
+
+`shapeSpell` 将数字表示的声调转为拼音声调
+
+如 `lv2` 会被转换成 `lǘ`，`ta1` 会被转换成 `tā`， 方便用户输入
+
+```ts
+cnchar.shapeSpell(spell: string): string;
+```
+
+使用实例
+
+```js
+cnchar.shapeSpell('lv2') // lǘ
+cnchar.shapeSpell('shang4') // shàng
+```

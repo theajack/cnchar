@@ -1,9 +1,10 @@
 let defDict = require('./spell-default.json');
 let spellDict = require('./spell-dict-jian.json');
 let strokeDict = require('./stroke-count-jian.json');
+let infoDict = require('./info-dict.json');
 let {mapJson} = require('./util');
+let {transformTone, spell, arg, shapeSpell, stroke} = require('./tool');
 
-let {transformTone, spell, arg, shapeSpell} = require('./tool');
 // 设置多音字默认拼音
 function setSpellDefault (word, spell) {
     setIntoJson({
@@ -59,6 +60,9 @@ function setIntoSpellBase (dict, currentSpell, word, spells, isPoly = false) {
         let cinfo = currentSpell[0];
         dict[cinfo.spell] = dict[cinfo.spell].replace(`${word}${cinfo.tone}`, `${word}${cinfo.tone + 5}`);
     }
+    if (isPoly) {
+        addPolyWord(word);
+    }
 }
 
 function setIntoSpell (dict, word, spells) {
@@ -96,12 +100,26 @@ function setSpell (word, spells) {
 
 function setStrokeCount (word, count) {
     mapJson(word, count, (k, v) => {
+        let oldCount = stroke(strokeDict, [k]);
+        if (oldCount === count) {
+            return;
+        }
+        // 去除旧笔画数
+        if (oldCount !== 0) {
+            strokeDict[oldCount] = strokeDict[oldCount].replace(k, '');
+        }
         if (strokeDict[v]) {
             strokeDict[v] += k;
         } else {
             strokeDict[v] = k;
         }
     });
+}
+
+function addPolyWord (word) {
+    if (infoDict.polyWord.indexOf(word) === -1) {
+        infoDict.polyWord += word;
+    }
 }
 
 module.exports = {

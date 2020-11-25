@@ -93,6 +93,7 @@ Use the script tag to use:
 18. **Multi-end available**, can be used in**browser, nodejs, applet / mini-game, ReactNative / Weex / Uniapp / Electron, webpack**..., supports all environments where js can run
 19. **typescript support**, support calling in typescript
 20. Rich configuration, split into 7 libraries according to function
+21. Support **custom** pinyin strokes and other data, use more flexible
 
 ### 2. Overview
 
@@ -133,7 +134,7 @@ Or you can use the full functionality by installing `cnchar-all`, this library r
 npm i cnchar-all
 ```
 
-#### 3.2 Introduce using script
+#### 3.2 Introduce using cdn
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
@@ -619,7 +620,15 @@ The `isCnChar` method is used to determine whether a character is a Chinese char
 cnchar.isCnChar(word: string): boolean;
 ```
 
-##### 5.10.4 Compare Pinyin (Chinese character) size: compareSpell
+##### 5.10.4 Is it a polyphonic word: isPolyWord
+
+The `isPolyWord` method is used to determine whether a character is a Chinese character
+
+```ts
+cnchar.isPolyWord(word: string): boolean;
+```
+
+##### 5.10.5 Compare Pinyin (Chinese character) size: compareSpell
 
 `CompareSpell` method is used to compare the size of Pinyin or Chinese characters according to Pinyin
 
@@ -640,7 +649,7 @@ cnchar.compareSpell('ao', 'ai') // Returns 'more' because o comes after i
 cnchar.compareSpell('奥', 'ai') // Returns 'more'
 ```
 
-##### 5.10.5 Compare the number of strokes of Chinese characters: compareStroke
+##### 5.10.6 Compare the number of strokes of Chinese characters: compareStroke
 
 The `compareStroke` method is used to compare the size of Chinese characters according to the number of strokes. It can be used to sort the first Chinese character strokes according to the name. For sorting, please refer to the `sortStroke` method
 
@@ -660,7 +669,7 @@ cnchar.compareStroke(20, '好') // Returns 'more'
 cnchar.compareStroke('一个', '好') // Returns 'less'
 ```
 
-##### 5.10.6 Sort by pinyin: sortSpell
+##### 5.10.7 Sort by pinyin: sortSpell
 
 The `sortSpell` method is used to sort Chinese characters or Pinyin according to Pinyin, supports input arrays or strings, supports sorting by tone, and supports reverse order
 
@@ -682,7 +691,7 @@ cnchar.sortSpell('你好吗') // '好吗你'
 cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
 ```
 
-##### 5.10.7 Sort by number of strokes: sortStroke
+##### 5.10.8 Sort by number of strokes: sortStroke
 
 The `sortStroke` method is used to sort Chinese characters according to the number of strokes
 
@@ -704,9 +713,94 @@ cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三'],
 cnchar.sortStroke('一三二', 'desc') // '三二一'
 ```
 
-#### 5.11 Other APIs
+##### 5.10.9 Convert digital tones to pinyin tones: shapeSpell
 
-##### 5.11.1 .use()
+`shapeSpell` converts tones represented by numbers to pinyin tones
+
+For example, `lv2` will be converted to `lǘ`, and `ta1` will be converted to `tā` for user input
+
+```ts
+cnchar.shapeSpell(spell: string): string;
+```
+
+#### 5.11 Custom data
+
+Since the cnchar data comes from the Internet, although it has undergone a lot of modifications, it is still inevitable that there will be errors and omissions
+
+So cnchar provides an api to modify the default data to facilitate developers to modify and add data
+
+##### 5.11.1 setSpell
+
+Set Pinyin data
+
+```ts
+cnchar.setSpell(word: string, spell: string): void;
+cnchar.setSpell(json: {[key: string]: string}): void;
+```
+
+##### 5.11.2 setSpellDefault
+
+Set the default pronunciation of polyphones
+
+```ts
+cnchar.setSpellDefault(word: string, spell: string): void;
+cnchar.setSpellDefault(json: {[key: string]: string}): void;
+```
+
+##### 5.11.3 setStrokeCount
+
+Set the number of strokes of Chinese characters
+
+```ts
+cnchar.setStrokeCount(word: string, count: number): void;
+cnchar.setStrokeCount(json: {[key: string]: number}): void;
+```
+
+##### 5.11.4 setPolyPhrase
+
+Set the pronunciation of polysyllabic words, rely on `cnchar-poly` library
+
+```ts
+cnchar.setPolyPhrase(word: string, spell: string): void;
+cnchar.setPolyPhrase(json: {[key: string]: string}): void;
+```
+
+##### 5.11.5 setOrder
+
+Set the stroke order of Chinese characters, rely on the `cnchar-order` library
+
+The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+
+```ts
+cnchar.setOrder(word: string, order: string): void;
+cnchar.setOrder(json: {[key: string]: string}): void;
+```
+
+##### 5.11.6 setRadical
+
+Set the radicals of Chinese characters, rely on the `cnchar-radical` library
+
+```ts
+cnchar.radical.setRadical(word: string, radical: string): void;
+cnchar.radical.setRadical(json: {[key: string]: string}): void;
+```
+
+##### 5.11.7 addXhy
+
+Add allegorical words, rely on `cnchar-xhy` library
+
+```ts
+cnchar.xhy.addXhy(args: Array<Array<string> | string>): void;
+cnchar.xhy.addXhy(xhyHead: string, xhyTail: string): void;
+```
+
+#### 5.12 Other api
+
+##### 5.12.1 .use()
+
+#### 5.12 Other APIs
+
+##### 5.12.1 .use()
 
 The function of this API is to explicitly enable the three function libraries `poly`,`order`, and `trad`
 
@@ -735,7 +829,7 @@ import 'cnchar-order';
 import 'cnchar-trad';
 ```
 
-##### 5.11.2 .type
+##### 5.12.2 .type
 
 The type object user gets the currently available `spell`,` stroke`, `orderToWord`,` spellToWord`, `strokeToWord`, `idiom`, `xhy`, `radical` parameter types:
 
@@ -770,7 +864,7 @@ The above values are all json
 
 Specific usage <a href="#user-content-6-spell-stroke-parameters"> Chapter 6 </a>
 
-##### 5.11.3 .check
+##### 5.12.3 .check
 
 This value is a Boolean type, used to control whether to enable parameter verification, the default value is true
 
@@ -780,7 +874,7 @@ Parameter verification can check the incoming parameters of `spell` and` stroke`
 cnchar.check = false; // Turn off parameter check
 ```
 
-##### 5.11.4 .version
+##### 5.12.4 .version
 
 Get the current version:
 
@@ -788,7 +882,7 @@ Get the current version:
 var version = cnchar.version; // string type
 ```
 
-##### 5.11.5 .plugins
+##### 5.12.5 .plugins
 
 List of currently used function libraries, the most common case is `["order","trad","poly"]`
 
@@ -1203,6 +1297,8 @@ cnchar.compareStroke('你', 14) // 'less'
 
 ###### 6.9.8.6 sortSpell
 
+Pinyin supports tonal digital mode (lv2=>lǘ)
+
 ```js
 cnchar.sortSpell(['你', '好', '吗']) // ['好', '吗', '你']
 cnchar.sortSpell('你好吗') // '好吗你'
@@ -1219,6 +1315,113 @@ cnchar.sortStroke(['一', '三', '二']) // ['一', '二', '三']
 cnchar.sortStroke('一三二') // '一二三'
 cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三']
 cnchar.sortStroke(['一', '三', '二'], 'desc') // ['三', '二', '一']
+```
+
+###### 6.9.8.8 isPolyWord
+
+```js
+cnchar.isPolyWord('中') // true
+cnchar.isPolyWord('国') // false
+```
+
+###### 6.9.8.9 shapeSpell
+
+```js
+cnchar.shapeSpell('lv2') // lǘ
+cnchar.shapeSpell('shang4') // shàng
+```
+
+###### 6.9.8.10 setSpell
+
+Pinyin supports tonal digital mode (lv2=>lǘ)
+
+```js
+// Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar
+cnchar.setSpell('x', 'x');
+cnchar.setSpell('x', ['x1', 'x2']); // Multiple pronunciations
+cnchar.setSpell({ // Multiple Chinese characters
+    'x': 'x',
+    'y': ['y1', 'y2']
+});
+```
+
+###### 6.9.8.11 setSpellDefault
+
+Pinyin supports tonal digital mode (lv2=>lǘ)
+
+```js
+// Used to set or modify the default pronunciation of polyphonic characters in cnchar
+cnchar.setSpellDefault('长', 'zhǎng');
+cnchar.setSpellDefault({ // Multiple Chinese characters
+    '长': 'zhǎng',
+    '中': 'zhòng'
+});
+```
+
+###### 6.9.8.12 setStrokeCount
+
+```js
+// Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar
+cnchar.setStrokeCount('大', 3);
+cnchar.setStrokeCount({ // Multiple Chinese characters
+    '大': 3,
+    '子': 3
+});
+```
+
+###### 6.9.8.13 setOrder
+
+Depend on `cnchar-order`
+
+The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+
+```js
+// Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar
+cnchar.setOrder('大', 'jsl');
+cnchar.setOrder({ // Multiple Chinese characters
+    '大': 'jsl',
+    '子': 'egj'
+});
+```
+
+###### 6.9.8.14 setPolyPhrase
+
+Pinyin supports tonal digital mode (lv2=>lǘ)
+
+Depend on `cnchar-poly`
+
+```js
+// Used to add phrases that are not contained in cnchar or modify incorrect phrases in cnchar
+cnchar.setPolyPhrase('测试', 'cè shi4');
+cnchar.setPolyPhrase({ // Multiple Chinese characters
+    '测试': 'cè shì',
+    '体验': 'tǐ yàn'
+});
+```
+
+###### 6.9.8.14 setRadical
+
+Depend on `cnchar-radical`
+
+```js
+// Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar
+cnchar.radical.setRadical('x', 'x');
+cnchar.radical.setRadical({ // Multiple Chinese characters
+    'x': 'x',
+    'y': 'y'
+});
+```
+
+###### 6.9.8.15 addXhy
+
+Depend on `cnchar-xhy`
+
+```js
+cnchar.xhy.addXhy('歇后语第一句', '歇后语第二句');
+cnchar.xhy.addXhy([ // Multiple
+    ['歇后语第一句', '歇后语第二句'],
+    ['歇后语第一句2', '歇后语第二句2'],
+]);
 ```
 
 ### 7 Application examples

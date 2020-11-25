@@ -99,6 +99,7 @@ import cnchar from 'cnchar';
 18. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
 19. **typescript支持**，支持在typescript中调用
 20. 丰富的配置，按功能拆分成7个库按需取用
+21. 支持**自定义**拼音笔画等数据，使用更灵活
 
 ### 2.概览
 
@@ -139,7 +140,7 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy c
 npm i cnchar-all
 ```
 
-#### 3.2 使用 script 引入
+#### 3.2 cdn 引入
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
@@ -624,7 +625,15 @@ transformTone spell参数 支持使用 v 代替 ü，支持使用末尾带数字
 cnchar.isCnChar(word: string): boolean;
 ```
 
-##### 5.10.4 比较拼音（汉字）大小: compareSpell
+##### 5.10.4 是否是多音字: isPolyWord
+
+`isPolyWord` 方法用于判断一个字符是否是汉字
+
+```ts
+cnchar.isPolyWord(word: string): boolean;
+```
+
+##### 5.10.5 比较拼音（汉字）大小: compareSpell
 
 `compareSpell` 方法用于按照拼音比较拼音或汉字的大小，可用于通讯录姓名拼音排序等场景
 
@@ -645,7 +654,7 @@ cnchar.compareSpell('ao', 'ai') // 返回 'more' 因为 o 排在 i 之后
 cnchar.compareSpell('奥', 'ai') // 返回 'more'
 ```
 
-##### 5.10.5 比较汉字笔画数大小: compareStroke
+##### 5.10.6 比较汉字笔画数大小: compareStroke
 
 `compareStroke` 方法用于按照笔画数比较汉字大小，可用于按照姓名首个汉字笔画排序等场景，排序可以参考 `sortStroke` 方法
 
@@ -665,7 +674,7 @@ cnchar.compareStroke(20, '好') // 返回 'more'
 cnchar.compareStroke('一个', '好') // 返回 'less'
 ```
 
-##### 5.10.6 根据拼音排序: sortSpell
+##### 5.10.7 根据拼音排序: sortSpell
 
 `sortSpell` 方法用于按照拼音排序汉字或拼音，支持输入数组或字符串，支持按照声调排序、支持倒序
 
@@ -687,7 +696,7 @@ cnchar.sortSpell('你好吗') // '好吗你'
 cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
 ```
 
-##### 5.10.7 根据笔画数排序: sortStroke
+##### 5.10.8 根据笔画数排序: sortStroke
 
 `sortStroke` 方法用于按照笔画数排序汉字
 
@@ -709,9 +718,91 @@ cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三'],
 cnchar.sortStroke('一三二', 'desc') // '三二一'
 ```
 
-#### 5.11 其他 api
+##### 5.10.9 将数字表示的声调转为拼音声调: shapeSpell
 
-##### 5.11.1 .use()
+`shapeSpell` 将数字表示的声调转为拼音声调
+
+如 `lv2` 会被转换成 `lǘ`，`ta1` 会被转换成 `tā`， 方便用户输入
+
+```ts
+cnchar.shapeSpell(spell: string): string;
+```
+
+#### 5.11 自定义数据
+
+由于 cnchar 数据来源于网络，虽然经过了大量修改，但是还是难免会有错漏
+
+所以 cnchar 提供了修改默认数据的api，方便开发者修改与添加数据
+
+##### 5.11.1 setSpell
+
+设置拼音数据
+
+```ts
+cnchar.setSpell(word: string, spell: string): void;
+cnchar.setSpell(json: {[key: string]: string}): void;
+```
+
+
+##### 5.11.2 setSpellDefault
+
+设置多音字的默认读音
+
+```ts
+cnchar.setSpellDefault(word: string, spell: string): void;
+cnchar.setSpellDefault(json: {[key: string]: string}): void;
+```
+
+##### 5.11.3 setStrokeCount
+
+设置汉字笔画数
+
+```ts
+cnchar.setStrokeCount(word: string, count: number): void;
+cnchar.setStrokeCount(json: {[key: string]: number}): void;
+```
+
+##### 5.11.4 setPolyPhrase
+
+设置多音词的读音， 依赖 `cnchar-poly` 库
+
+```ts
+cnchar.setPolyPhrase(word: string, spell: string): void;
+cnchar.setPolyPhrase(json: {[key: string]: string}): void;
+```
+
+##### 5.11.5 setOrder
+
+设置汉字笔顺， 依赖 `cnchar-order` 库
+
+添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+
+```ts
+cnchar.setOrder(word: string, order: string): void;
+cnchar.setOrder(json: {[key: string]: string}): void;
+```
+
+##### 5.11.6 setRadical
+
+设置汉字偏旁部首， 依赖 `cnchar-radical` 库
+
+```ts
+cnchar.radical.setRadical(word: string, radical: string): void;
+cnchar.radical.setRadical(json: {[key: string]: string}): void;
+```
+
+##### 5.11.7 addXhy
+
+添加歇后语， 依赖 `cnchar-xhy` 库
+
+```ts
+cnchar.xhy.addXhy(args: Array<Array<string> | string>): void;
+cnchar.xhy.addXhy(xhyHead: string, xhyTail: string): void;
+```
+
+#### 5.12 其他 api
+
+##### 5.12.1 .use()
 
 这个 api 的功能是显式启用 `poly`、`order`、`trad` 三个功能库
 
@@ -740,7 +831,7 @@ import 'cnchar-order';
 import 'cnchar-trad';
 ```
 
-##### 5.11.2 .type
+##### 5.12.2 .type
 
 type 对象用户获取当前可用的 `spell` 、 `stroke` 、 `orderToWord` 、`spellToWord`、`strokeToWord`、`idiom`、 `xhy`、`radical` 参数类型：
 
@@ -775,7 +866,7 @@ radicalArg 最多可用值： `['array']`
 
 具体用法<a href="#user-content-6-spell-stroke-参数">第六章</a>讲到
 
-##### 5.11.3 .check
+##### 5.12.3 .check
 
 该值是一个 布尔类型，用于控制是否开启参数校验，默认值为 true
 
@@ -785,7 +876,7 @@ radicalArg 最多可用值： `['array']`
 cnchar.check = false; // 关闭参数校验
 ```
 
-##### 5.11.4 .version
+##### 5.12.4 .version
 
 获取当前版本：
 
@@ -793,7 +884,7 @@ cnchar.check = false; // 关闭参数校验
 var version = cnchar.version; // string 类型
 ```
 
-##### 5.11.5 .plugins
+##### 5.12.5 .plugins
 
 当前使用的功能库列表，最多的情况为 `["order", "trad", "poly"]`
 
@@ -801,7 +892,7 @@ var version = cnchar.version; // string 类型
 var plugins = cnchar.plugins; // array 类型
 ```
 
-### 6.spell stroke 参数
+### 6.参数介绍
 
 #### 6.1 spell 参数
 
@@ -1208,6 +1299,8 @@ cnchar.compareStroke('你', 14) // 'less'
 
 ###### 6.9.8.6 sortSpell
 
+拼音支持声调数字模式（lv2=>lǘ）
+
 ```js
 cnchar.sortSpell(['你', '好', '吗']) // ['好', '吗', '你']
 cnchar.sortSpell('你好吗') // '好吗你'
@@ -1224,6 +1317,113 @@ cnchar.sortStroke(['一', '三', '二']) // ['一', '二', '三']
 cnchar.sortStroke('一三二') // '一二三'
 cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三']
 cnchar.sortStroke(['一', '三', '二'], 'desc') // ['三', '二', '一']
+```
+
+###### 6.9.8.8 isPolyWord
+
+```js
+cnchar.isPolyWord('中') // true
+cnchar.isPolyWord('国') // false
+```
+
+###### 6.9.8.9 shapeSpell
+
+```js
+cnchar.shapeSpell('lv2') // lǘ
+cnchar.shapeSpell('shang4') // shàng
+```
+
+###### 6.9.8.10 setSpell
+
+拼音支持声调数字模式（lv2=>lǘ）
+
+```js
+// 用于添加cnchar中不包含的汉字 或修改 cnchar中有误的汉字
+cnchar.setSpell('x', 'x');
+cnchar.setSpell('x', ['x1', 'x2']); // 多个读音
+cnchar.setSpell({ // 多个汉字
+    'x': 'x',
+    'y': ['y1', 'y2']
+});
+```
+
+###### 6.9.8.11 setSpellDefault
+
+拼音支持声调数字模式（lv2=>lǘ）
+
+```js
+// 用于设置或修改 cnchar 中多音字的默认读音
+cnchar.setSpellDefault('长', 'zhǎng');
+cnchar.setSpellDefault({ // 多个汉字
+    '长': 'zhǎng',
+    '中': 'zhòng'
+});
+```
+
+###### 6.9.8.12 setStrokeCount
+
+```js
+// 用于添加cnchar中不包含的汉字 或修改 cnchar中有误的汉字
+cnchar.setStrokeCount('大', 3);
+cnchar.setStrokeCount({ // 多个
+    '大': 3,
+    '子': 3
+});
+```
+
+###### 6.9.8.13 setOrder
+
+依赖 `cnchar-order`
+
+添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+
+```js
+// 用于添加cnchar中不包含的汉字 或修改 cnchar中有误的汉字
+cnchar.setOrder('大', 'jsl');
+cnchar.setOrder({ // 多个
+    '大': 'jsl',
+    '子': 'egj'
+});
+```
+
+###### 6.9.8.14 setPolyPhrase
+
+拼音支持声调数字模式（lv2=>lǘ）
+
+依赖 `cnchar-poly`
+
+```js
+// 用于添加cnchar中不包含的词组 或修改 cnchar中有误的词组
+cnchar.setPolyPhrase('测试', 'cè shi4');
+cnchar.setPolyPhrase({ // 多个
+    '测试': 'cè shì',
+    '体验': 'tǐ yàn'
+});
+```
+
+###### 6.9.8.15 setRadical
+
+依赖 `cnchar-radical`
+
+```js
+// 用于添加cnchar中不包含的汉字 或修改 cnchar中有误的汉字
+cnchar.radical.setRadical('x', 'x');
+cnchar.radical.setRadical({ // 多个
+    'x': 'x',
+    'y': 'y'
+});
+```
+
+###### 6.9.8.16 addXhy
+
+依赖 `cnchar-xhy`
+
+```js
+cnchar.xhy.addXhy('歇后语第一句', '歇后语第二句');
+cnchar.xhy.addXhy([ // 多条
+    ['歇后语第一句', '歇后语第二句'],
+    ['歇后语第一句2', '歇后语第二句2'],
+]);
 ```
 
 ### 7.应用例子

@@ -217,10 +217,12 @@ function reinitStroke(proto, cnchar) {
         }
       }
 
-      for (var i = 0; i < countDict.length; i++) {
+      for (var _i2 in countDict) {
+        _i2 = parseInt(_i2);
+
         for (var j = 0; j < res.length; j++) {
-          if (res[j] === 0 && countDict[i].indexOf(str[j]) !== -1) {
-            res[j] = i;
+          if (res[j] === 0 && countDict[_i2].indexOf(str[j]) !== -1) {
+            res[j] = _i2;
           }
         }
       }

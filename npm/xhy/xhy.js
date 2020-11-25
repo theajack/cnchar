@@ -1,7 +1,8 @@
 "use strict";
 
-var dict = require('./xhy.json');
+var dict = require('./xhy.json').dict;
 
+var _cnchar = null;
 var arg = {
   'fuzzy': 'fuzzy',
   'answer': 'answer',
@@ -14,6 +15,11 @@ function xhy() {
   }
 
   var str = args.shift();
+
+  if (_cnchar) {
+    _cnchar._.checkArgs('xhy', args);
+  }
+
   var isFuzzy = args.indexOf(arg.fuzzy) !== -1;
   var onlyAnswer = args.indexOf(arg.answer) !== -1;
   var second = args.indexOf(arg.second) !== -1;
@@ -38,6 +44,8 @@ function xhy() {
       }
     }
   }
+
+  return [];
 }
 
 function shapeAnswer(item, onlyAnswer, answerIndex) {
@@ -61,8 +69,35 @@ function shapeAnswer(item, onlyAnswer, answerIndex) {
   return answer;
 }
 
+function addXhy(arg, arg2) {
+  if (typeof arg === 'string' && typeof arg2 === 'string') {
+    addXhy([arg, arg2]);
+    return;
+  }
+
+  if (!(arg instanceof Array)) {
+    _cnchar._._warn('addXhy 参数必须为数组');
+
+    return;
+  }
+
+  if (arg[0] instanceof Array) {
+    arg.forEach(function (item) {
+      xhy.addXhy(item);
+    });
+    return;
+  }
+
+  dict.push(arg);
+}
+
+function setCnchar(cnchar) {
+  _cnchar = cnchar;
+}
+
 module.exports = {
   xhy: xhy,
-  arg: arg
+  arg: arg,
+  addXhy: addXhy,
+  setCnchar: setCnchar
 };
-;

@@ -3,7 +3,7 @@ let {spell, tones, stroke, arg,
     dealUpLowFirst, removeTone, sumStroke,
     checkArgs, initCnchar, transformTone,
     shapeSpell} = require('./tool');
-let {has, _throw, _wran, isCnChar, isPolyWord, mapJson} = require('./util');
+let {has, _throw, _warn, isCnChar, isPolyWord, mapJson} = require('./util');
 let dict = require('./dict');
 let {setSpellDefault, setIntoJson, setSpell, setStrokeCount} = require('./config');
 let {initSpellToWord} = require('./spellToWord');
@@ -48,7 +48,7 @@ let cnchar = {
     },
     plugins: [],
     use,
-    _: {arg, has, _throw, tones, setIntoJson, _wran, dealUpLowFirst, removeTone,
+    _: {arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,
         sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson},
     type: {
         spell: arg,

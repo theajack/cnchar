@@ -1,5 +1,7 @@
 var polyPhrases = require('./polyphone-phrase-simple.json');
 
+let _cnchar = null;
+
 let _ = {};// 工具方法
 
 // let arg = {origin:'origin'}
@@ -17,7 +19,7 @@ function _poly (...args) {
     let tone = _.has(args, _.arg.tone);
     // // 多音字参数参数将被忽略
     // if(_.has(args,_.arg.poly))
-    //     _._wran('多音字参数 poly 被忽略')
+    //     _._warn('多音字参数 poly 被忽略')
     if (tone) {newArgs.push(_.arg.tone);} // 音调参数
     // 其他几个参数等获取到多音拼音之后在处理
     let res = _spell(str, ...newArgs); // 获取
@@ -37,20 +39,27 @@ function _poly (...args) {
     return res;
 }
 
-function setPolyWord (word, spell) {
-    if (_.setIntoJson) {
-        _.setIntoJson(polyPhrases, word, spell);
+function setPolyPhrase (word, spell) {
+    if (typeof word === 'object') {
+        for (let k in word) {
+            setPolyPhrase(k, word[k]);
+        }
+        return;
     }
+    polyPhrases[word] = spell.split(' ').map(s => {
+        return _cnchar.shapeSpell(s);
+    }).join(' ');
 }
 
 function main (cnchar) {
     if (cnchar.plugins.indexOf('poly') !== -1) {
         return;
     }
-    cnchar.setPolyWord = setPolyWord;
+    cnchar.setPolyPhrase = setPolyPhrase;
     cnchar.plugins.push('poly');
     _spell = cnchar._origin.spell;
     _ = cnchar._;
+    _cnchar = cnchar;
     var _new = function (...args) {
         if (_.has(args, arg.poly)) { // 有 poly参数则不使用多音词模式
             return _spell(...args);

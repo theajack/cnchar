@@ -52,6 +52,7 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 18. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
 19. **typescript支持**，支持在typescript中调用
 20. 丰富的配置，按功能拆分成7个库按需取用
+21. 支持**自定义**拼音笔画等数据，使用更灵活
 
 
 ## 3. 概览

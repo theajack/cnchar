@@ -314,5 +314,167 @@ module.exports = [
             ['亻', '女', '口'],
             ['亻', '女', '口']
         ]
-    }
+    },
+    {
+        name: '测试isPolyWord',
+        test (cnchar) {
+            return [
+                cnchar.isPolyWord('你'),
+                cnchar.isPolyWord('中'),
+            ];
+        },
+        expect: [
+            false,
+            true
+        ]
+    },
+    {
+        name: '测试 shapeSpell',
+        test (cnchar) {
+            return [
+                cnchar.shapeSpell('lv2'),
+                cnchar.shapeSpell('shang4'),
+                cnchar.shapeSpell('men2')
+            ];
+        },
+        expect: [
+            'lǘ',
+            'shàng',
+            'mén'
+        ]
+    },
+    {
+        name: '测试 setSpell',
+        test (cnchar) {
+            cnchar.setSpell('你', 'ni');
+            cnchar.setSpell('我', ['wo1', 'ha4']);
+            cnchar.setSpell({
+                '他': 'ta4',
+                '它': ['ta2', 'ha3']
+            });
+            return [
+                cnchar.spell('你', 'tone', 'poly'),
+                cnchar.spell('我', 'tone', 'poly'),
+                cnchar.spell('他', 'tone', 'poly'),
+                cnchar.spell('它', 'tone', 'poly'),
+                cnchar.isPolyWord('你')
+            ];
+        },
+        expect: [
+            '(Nǐ|Ni)',
+            '(Wǒ|Wō|Hà)',
+            '(Tā|Tà)',
+            '(Tā|Tá|Hǎ)',
+            true
+        ]
+    },
+    {
+        name: '测试 setSpellDefault',
+        test (cnchar) {
+            cnchar.setSpellDefault('长', 'zhǎng');
+            cnchar.setSpellDefault({ // 多个汉字
+                '行': 'háng',
+                '中': 'zhòng'
+            });
+            return [
+                cnchar.spell('长', 'tone'),
+                cnchar.spell('行', 'tone'),
+                cnchar.spell('中', 'tone')
+            ];
+        },
+        expect: [
+            'Zhǎng',
+            'Háng',
+            'Zhòng'
+        ]
+    },
+    {
+        name: '测试 setStrokeCount',
+        test (cnchar) {
+            cnchar.setStrokeCount('大', 4);
+            cnchar.setStrokeCount({ // 多个
+                '一': 2,
+                '二': 1
+            });
+            return [
+                cnchar.stroke('大'),
+                cnchar.stroke('一'),
+                cnchar.stroke('二')
+            ];
+        },
+        expect: [
+            4, 2, 1
+        ]
+    },
+    {
+        name: '测试 setOrder',
+        test (cnchar) {
+            cnchar.setOrder('大', 'abc');
+            cnchar.setOrder({ // 多个
+                '三': 'abc',
+                '子': 'efg'
+            });
+            return [
+                cnchar.stroke('大', 'order'),
+                cnchar.stroke('三', 'order'),
+                cnchar.stroke('子', 'order')
+            ];
+        },
+        expect: [
+            ['abc'], ['abc'], ['efg']
+        ]
+    },
+    {
+        name: '测试 setPolyPhrase',
+        test (cnchar) {
+            cnchar.setPolyPhrase('测试', 'ce1 shì');
+            cnchar.setPolyPhrase({ // 多个
+                '我们': 'wo men2',
+                '体验': 'tǐ yàn'
+            });
+            return [
+                cnchar.spell('测试', 'tone'),
+                cnchar.spell('我们', 'tone'),
+                cnchar.spell('体验', 'tone')
+            ];
+        },
+        expect: ['CēShì', 'WoMén', 'TǐYàn']
+    },
+    {
+        name: '测试 setRadical',
+        test (cnchar) {
+            cnchar.radical.setRadical('你', '口');
+            cnchar.radical.setRadical({ // 多个
+                '我': '亻',
+                '他': '口'
+            });
+            return [
+                cnchar.radical('你'),
+                cnchar.radical('我'),
+                cnchar.radical('他')
+            ];
+        },
+        expect: ['口', '亻', '口']
+    },,
+    {
+        name: '测试 addXhy',
+        test (cnchar) {
+            cnchar.xhy.addXhy('歇后语第一句', '歇后语第二句');
+            cnchar.xhy.addXhy([ // 多条
+                ['歇后语第一句2', '歇后语第二句2'],
+                ['歇后语第一句3', '歇后语第二句3'],
+            ]);
+            return [
+                cnchar.xhy('歇后语第一句'),
+                cnchar.xhy('歇后语第二句2', 'second'),
+                cnchar.xhy('第一句3', 'fuzzy')
+            ];
+        },
+        expect: [
+            ['歇后语第一句-歇后语第二句'],
+            ['歇后语第一句2-歇后语第二句2'],
+            ['歇后语第一句3-歇后语第二句3']
+        ]
+    },
+    
 ];

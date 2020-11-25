@@ -21,6 +21,12 @@ var arg = {
 
 };
 
+function setOrder(key, value) {
+  _.mapJson(key, value, function (k, v) {
+    orders[k] = v;
+  });
+}
+
 function main(cnchar) {
   if (cnchar.plugins.indexOf('order') !== -1) {
     return;
@@ -29,6 +35,7 @@ function main(cnchar) {
   cnchar.plugins.push('order');
   var _old = cnchar._origin.stroke;
   _ = cnchar._;
+  cnchar.setOrder = setOrder;
 
   var _new = function _new() {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
