@@ -2497,8 +2497,6 @@
 	"轻徭薄税": "qīng yáo báo shuì",
 	"轻繇薄赋": "qīng yáo báo fù",
 	"轻音乐": "qīng yīn yuè",
-	"轻重倒置": "qīng zhòng dào zhì",
-	"轻重量级": "qīng zhòng liàng jí",
 	"倾肠倒肚": "qīng cháng dào dǔ",
 	"倾筐倒庋": "qīng kuāng dào guǐ",
 	"倾筐倒箧": "qīng kuāng dào qiè",
@@ -2615,7 +2613,6 @@
 	"十载寒窗": "shí zǎi hán chuāng",
 	"实偪处此": "shí bèng chǔ cǐ",
 	"实逼处此": "shí bī chǔ cǐ",
-	"拾带重还": "shí dài zhòng huán",
 	"食不重肉": "shí bù zhóng ròu",
 	"食不重味": "shí bù chóng wèi",
 	"市场调节": "shì chǎng tiáo jié",
@@ -2945,7 +2942,6 @@
 	"运动量": "yùn dòng liàng",
 	"运输量": "yùn shū liàng",
 	"载驰载驱": "zǎi chí zǎi qū",
-	"载重量": "zài zhòng liàng",
 	"赃盈恶贯": "zāng yíng è guàn",
 	"凿龟数策": "záo guī shǔ cè",
 	"造恶不悛": "zào è bù quān",
@@ -2985,7 +2981,6 @@
 	"植善倾恶": "zhí shàn qīng è",
 	"只争朝夕": "zhǐ zhēng zhāo xī",
 	"栉比鳞差": "zhì bǐ lín cǐ",
-	"致远任重": "zhì yuǎn rèn zhòng",
 	"众好众恶": "zhòng hào zhòng wù",
 	"众口难调": "zhòng kǒu nán tiáo",
 	"重操旧业": "chóng cāo jiù yè",
@@ -3115,5 +3110,6 @@
 	"飞来横祸": "fēi lái hèng huò",
 	"蛮横": "mán hèng",
 	"彷徨": "páng huáng",
-	"雪茄": "xuě jiā"
+	"雪茄": "xuě jiā",
+	"重来": "chóng lái"
 }
