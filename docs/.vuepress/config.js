@@ -147,7 +147,6 @@ module.exports = {
         //         platform: 'gitee',
 
         //         // owner与repo配置 https://github.com/${owner}/${repo}
-        //         // 例如我的仓库地址为https://github.com/1011cat/shotCat_doc 则owner为1011cat，repo为shotCat_doc
         //         owner: 'theajack',
         //         repo: 'cnchar',
 

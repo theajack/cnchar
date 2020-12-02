@@ -13,7 +13,7 @@
     export default {
         methods: {
             starGithub () {
-                window.open('https://github.com/1011cat/shotCat_doc');
+                window.open('https://github.com/theajack/cnchar');
             }
         }
     };
