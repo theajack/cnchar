@@ -2,8 +2,14 @@ module.exports = {
   "parser": '@typescript-eslint/parser',
   "plugins": [
     '@typescript-eslint',
-    'vue/essential'
+    "vue/lib/configs/essential"
   ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "commonjs": true
+  },
   "extends": [
     // "standard",
     // "plugin:vue/essential"
@@ -71,12 +77,12 @@ module.exports = {
     "comma-spacing": "error",
     "key-spacing": "error",
     "no-undef": "error",
-    // "vue/script-indent": ["warn", 4, {
-    //   "baseIndent": 1,
-    //   "switchCase": 1
-    // }],
-    // "vue/html-indent": ["error", 4],
-    // "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
+    "vue/script-indent": ["warn", 4, {
+      "baseIndent": 1,
+      "switchCase": 1
+    }],
+    "vue/html-indent": ["error", 4],
+    "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
   },
   "overrides": [
     {
