@@ -2,7 +2,6 @@ module.exports = {
   "parser": '@typescript-eslint/parser',
   "plugins": [
     '@typescript-eslint',
-    "vue/lib/configs/essential"
   ],
   "env": {
     "browser": true,
@@ -10,10 +9,11 @@ module.exports = {
     "node": true,
     "commonjs": true
   },
-  "extends": [
-    // "standard",
-    // "plugin:vue/essential"
-  ],
+  // 接入vue失败 暂且eslint 忽略vue文件
+  // "extends": [
+  //   // "standard",
+  //   "plugin:vue/essential"
+  // ],
   "parserOptions": {
     "parser": "babel-eslint",
     "ecmaVersion": 2018,
@@ -77,12 +77,12 @@ module.exports = {
     "comma-spacing": "error",
     "key-spacing": "error",
     "no-undef": "error",
-    "vue/script-indent": ["warn", 4, {
-      "baseIndent": 1,
-      "switchCase": 1
-    }],
-    "vue/html-indent": ["error", 4],
-    "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
+    // "vue/script-indent": ["warn", 4, {
+    //   "baseIndent": 1,
+    //   "switchCase": 1
+    // }],
+    // "vue/html-indent": ["error", 4],
+    // "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
   },
   "overrides": [
     {
