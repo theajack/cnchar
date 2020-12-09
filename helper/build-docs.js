@@ -25,10 +25,6 @@ var _mtac = {};
     mta.setAttribute("sid", "500700068");
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(mta, s);
-
-    var log = document.createElement("script");
-    log.src = "https://cdn.jsdelivr.net/gh/theajack/theajack.github.com/assets/js/log.js";
-    s.parentNode.insertBefore(log, s);
 })();
 </script>`;
     var html = fs.readFileSync('./docs/index.html', 'utf8');
