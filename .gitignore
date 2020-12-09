@@ -1,6 +1,5 @@
 node_modules
-.vscode
 nodejs
 src_import_version
-package-lock.json
+# package-lock.json
 vuepress/.vuepress/secret.js
