@@ -4,5 +4,4 @@ npm
 cnchar.min.js
 src_import_version
 !.vuepress
-assets/v2/**
-docs/v2/**
+docs

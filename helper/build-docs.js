@@ -6,6 +6,12 @@ function main () {
     gulp.src('public/config.js')
         .pipe(babel({presets: ['@babel/env']}))
         .pipe(gulp.dest('docs'));
+    gulp.src('vuepress/assets/readme/**')
+        .pipe(gulp.dest('docs/assets/readme'));
+    gulp.src('vuepress/assets/v1/**')
+        .pipe(gulp.dest('docs/assets/v1'));
+    gulp.src('vuepress/v1.html')
+        .pipe(gulp.dest('docs'));
     addMta();
 }
 
@@ -19,10 +25,14 @@ var _mtac = {};
     mta.setAttribute("sid", "500700068");
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(mta, s);
+
+    var log = document.createElement("script");
+    log.src = "https://cdn.jsdelivr.net/gh/theajack/theajack.github.com/assets/js/log.js";
+    s.parentNode.insertBefore(log, s);
 })();
 </script>`;
-    var html = fs.readFileSync('./docs/v2/index.html', 'utf8');
+    var html = fs.readFileSync('./docs/index.html', 'utf8');
     html = html.replace('</body>', mta + '</body>');
-    fs.writeFileSync('./docs/v2/index.html', html, 'utf8');
+    fs.writeFileSync('./docs/index.html', html, 'utf8');
 }
 main();

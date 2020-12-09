@@ -3,4 +3,4 @@ node_modules
 nodejs
 src_import_version
 package-lock.json
-docs/.vuepress/secret.js
+vuepress/.vuepress/secret.js

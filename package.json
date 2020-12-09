@@ -20,7 +20,6 @@
     ],
     "scripts": {
         "build": "npm run build:main && npm run build:plugin && npm run build:npm",
-        "build:config": "node ./helper/build-config.js",
         "build:main": "webpack --config webpack-config/build.js",
         "build:poly": "webpack --config webpack-config/build.plugin.js --env.pluginname=poly",
         "build:order": "webpack --config webpack-config/build.plugin.js --env.pluginname=order",
@@ -38,8 +37,9 @@
         "lint": "eslint src --ext js",
         "test": "node test",
         "test:npm": "node test npm",
-        "dev:docs": "vuepress dev docs",
-        "build:docs": "vuepress build docs && npm run build:config"
+        "dev:docs": "vuepress dev vuepress",
+        "build:docs": "bash helper/build-docs.sh",
+        "build:docs-win": "vuepress build vuepress && node ./helper/build-docs.js"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",
