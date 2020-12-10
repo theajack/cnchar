@@ -3,7 +3,7 @@ module.exports = {
     description: '功能全面、多端支持的汉字拼音笔画js库', // 描述
     dest: './docs/', // 基本url
     // base: '/cnchar/',
-    base: '/',
+    base: '/cnchar/',
     // 注入到当前页面的 HTML <head> 中的标签
     head: [
         ['link', {rel: 'icon', href: 'https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/assets/v1/images/i.ico'}], // 增加一个自定义的 favicon
