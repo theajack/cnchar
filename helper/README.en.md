@@ -19,7 +19,7 @@
 
 <h3>🚀 Full-featured, multi-end support for hanyu pinyin strokes js library</h3>
 
-**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/v2/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
+**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://cnchar.js.org) | [Update log](https://theajack.gitee.io/cnchar/v2/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
 
 ---
 
@@ -282,7 +282,7 @@ There are many parameters of draw, the first thing to understand is that draw is
 3. stroke: draw in a single step according to Chinese characters
 4. test: Test mode, the user can draw Chinese characters in the container, cnchar-draw will detect whether it is drawn correctly
 
-The following are all optional parameters and descriptions of options, please refer to [online documentation](https://theajack.gitee.io/cnchar) for usage details:
+The following are all optional parameters and descriptions of options, please refer to [online documentation](https://cnchar.js.org) for usage details:
 
 ```ts
 declare interface DrawOption {

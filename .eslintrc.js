@@ -7,7 +7,8 @@ module.exports = {
   },
   "extends": [
     // "standard",
-    "plugin:vue/essential"
+    // "plugin:vue",
+    // "plugin:html"
   ],
   "parserOptions": {
     "parser": "babel-eslint",
@@ -37,10 +38,6 @@ module.exports = {
     "indent": ["error", 4, {
       "SwitchCase": 1
     }],
-    "vue/script-indent": ["warn", 4, {
-      "baseIndent": 1,
-      "switchCase": 1
-    }],
     "space-infix-ops": ["error", {"int32Hint": false}],
     "space-before-function-paren": ["error", {
       "anonymous": "always",
@@ -66,15 +63,19 @@ module.exports = {
     "comma-spacing": "error",
     "key-spacing": "error",
     "no-undef": "error",
-    "vue/html-indent": ["error", 4],
-    "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
+    // "vue/script-indent": ["warn", 4, {
+    //   "baseIndent": 1,
+    //   "switchCase": 1
+    // }],
+    // "vue/html-indent": ["error", 4],
+    // "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
   },
-  "overrides": [
-    {
-       "files": ["*.vue"],
-       "rules": {
-         "indent": "off"
-       }
-     }
-   ]
+  // "overrides": [
+  //   {
+  //      "files": ["*.vue"],
+  //      "rules": {
+  //        "indent": "off"
+  //      }
+  //    }
+  //  ]
 }
