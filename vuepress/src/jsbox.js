@@ -4,10 +4,11 @@ let jsbox = null;
 
 function getUrl () {
     let url = '';
-    if (window.location.host.indexOf('localhost') !== -1) {
+    let host = window.location.host;
+    if (host.indexOf('localhost') !== -1 || host === 'theajack.gitee.io') {
         url = 'https://theajack.gitee.io';
     } else {
-        url = `${window.location.protocol}//${window.location.host}`;
+        url = `${window.location.protocol}//www.theajack.com/jsbox`;
     }
     return url + '/jsbox?theme=dark&remind=false&mes=false';
 }
