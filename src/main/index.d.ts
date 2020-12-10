@@ -43,7 +43,7 @@ export declare interface CnCharStatic {
     transformTone(spell: string, tone?: boolean, type?: 'low' | 'up'): {
         spell: string;
         tone: toneType;
-        index: number; 
+        index: number;
         isTrans: boolean;
     };
     isCnChar(word: string): boolean;
@@ -59,6 +59,10 @@ export declare interface CnCharStatic {
     setStrokeCount(word: string, count: number): void;
     setStrokeCount(json: {[key: string]: number}): void;
     shapeSpell(spell: string): string;
+
+    _: {
+        
+    }
 }
 
 declare const cnchar: CnCharStatic;
