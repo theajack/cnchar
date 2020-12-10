@@ -19,7 +19,7 @@
 
 <h3>🚀 功能全面、多端支持的汉字拼音笔画 js 库</h3>
 
-**[English](https://github.com/theajack/cnchar/blob/master/helper/README.en.md) | [在线试用/文档](https://theajack.gitee.io/cnchar) | [备用文档地址](https://theajack.com/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
+**[English](https://github.com/theajack/cnchar/blob/master/helper/README.en.md) | [在线试用/文档](https://cnchar.js.org/) | [备用文档地址](https://theajack.gitee.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [应用:打字游戏](https://theajack.gitee.io/type/) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
 
 ---
 
@@ -286,7 +286,7 @@ draw 的参数比较繁多，首先需要理解的是，draw 分为四种绘制�
 3. stroke: 按汉字笔顺单步绘制
 4. test: 测试模式，用户可以在容器内绘制汉字，cnchar-draw会检测是否绘制正确
 
-以下是 options 的所有可选参数及描述，使用详情请参考[在线文档](https://theajack.gitee.io/cnchar)：
+以下是 options 的所有可选参数及描述，使用详情请参考[在线文档](https://cnchar.js.org)：
 
 ```ts
 declare interface DrawOption {

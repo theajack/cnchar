@@ -6,3 +6,5 @@ src_import_version
 !.vuepress
 docs
 vuepress/config.js
+**/*.vue
+**/*.html
