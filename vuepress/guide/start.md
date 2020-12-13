@@ -119,7 +119,7 @@ cnchar 具有两个最核心的方法`spell` 和 `stroke`，分别用于获取�
   <codebox id='easy-use' title='spell/stroke'></codebox>
 </div>
 
-这只是一个最简单的使用，这两个方法具有很多参数可选，具体请参阅 [cnchar](/cnchar/v2/doc/cnchar) 部分
+这只是一个最简单的使用，这两个方法具有很多参数可选，具体请参阅 [cnchar](/cnchar/doc/cnchar) 部分
 
 <!-- <codebox title='spell' id='spell' desc='拼写测试测试2'></codebox> -->
 
