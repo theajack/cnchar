@@ -1,9 +1,9 @@
-let defDict = require('./spell-default.json');
-let spellDict = require('./spell-dict-jian.json');
-let strokeDict = require('./stroke-count-jian.json');
-let infoDict = require('./info-dict.json');
-let {mapJson} = require('./util');
-let {transformTone, spell, arg, shapeSpell, stroke} = require('./tool');
+const defDict = require('./spell-default.json');
+const spellDict = require('./spell-dict-jian.json');
+const strokeDict = require('./stroke-count-jian.json');
+const infoDict = require('./info-dict.json');
+const {mapJson} = require('./util');
+const {transformTone, spell, arg, shapeSpell, stroke} = require('./tool');
 
 // 设置多音字默认拼音
 function setSpellDefault (word, spell) {
@@ -25,7 +25,7 @@ function setIntoJson ({target, key, value, isSpell = false}) {
 
 function setIntoSpellBase (dict, currentSpell, word, spells, isPoly = false) {
     if (typeof word === 'object') {
-        for (let k in word) {
+        for (const k in word) {
             setIntoSpellBase(dict, currentSpell[k], k, word[k]);
         }
         return;
@@ -36,8 +36,8 @@ function setIntoSpellBase (dict, currentSpell, word, spells, isPoly = false) {
         }));
         return;
     }
-    let info = transformTone(spells);
-    let str = dict[info.spell];
+    const info = transformTone(spells);
+    const str = dict[info.spell];
 
     if (currentSpell.length >= 1) {
         for (let i = 0; i < currentSpell.length; i++) {
@@ -48,7 +48,7 @@ function setIntoSpellBase (dict, currentSpell, word, spells, isPoly = false) {
         if (!isPoly) isPoly = true;
     }
 
-    let appendStr = `${word}${info.tone + (isPoly ? 5 : 0)}`;
+    const appendStr = `${word}${info.tone + (isPoly ? 5 : 0)}`;
 
     if (!str) {
         dict[info.spell] = `${info.index}:` + appendStr;
@@ -57,7 +57,7 @@ function setIntoSpellBase (dict, currentSpell, word, spells, isPoly = false) {
     }
     // 修改之前的拼音
     if (currentSpell.length === 1) {
-        let cinfo = currentSpell[0];
+        const cinfo = currentSpell[0];
         dict[cinfo.spell] = dict[cinfo.spell].replace(`${word}${cinfo.tone}`, `${word}${cinfo.tone + 5}`);
     }
     if (isPoly) {
@@ -69,7 +69,7 @@ function setIntoSpell (dict, word, spells) {
     let currentSpell;
     if (typeof word === 'object') {
         currentSpell = {};
-        for (let k in word) {
+        for (const k in word) {
             currentSpell[k] = _getCurrentSpellInfo(dict, k);
         }
     } else {
@@ -100,7 +100,7 @@ function setSpell (word, spells) {
 
 function setStrokeCount (word, count) {
     mapJson(word, count, (k, v) => {
-        let oldCount = stroke(strokeDict, [k]);
+        const oldCount = stroke(strokeDict, [k]);
         if (oldCount === count) {
             return;
         }

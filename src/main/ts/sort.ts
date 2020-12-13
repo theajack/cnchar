@@ -1,35 +1,43 @@
-const {initToneCodes, getCharCode} = require('./compareSpell');
+import {initToneCodes, getCharCode} from './compareSpell';
+import {CnCharInterface, CompareType, SortSpellArg} from './types';
 
-let _cnchar = null;
+let _cnchar: CnCharInterface;
 
-const arg = {
+const arg:{
+    [prop in SortSpellArg]: SortSpellArg
+} = {
     'tone': 'tone',
     'desc': 'desc',
-    'array': 'array'
 };
- 
-function initSort (__cnchar) {
+
+export function initSort (__cnchar: CnCharInterface) {
     _cnchar = __cnchar;
     initToneCodes(__cnchar);
 }
 
-const TYPE = {
+const TYPE:{
+    [prop: string]: CompareType
+} = {
     MORE: 'more', // 大于
     LESS: 'less', // 小于
     EVEN: 'even', // 等于
     ERROR: 'error'
 };
 
-function pretreat (spell, tone) {
-    const arr = ['low'];
+function pretreat (spell: string, tone: boolean): string {
+    const arr: Array<spellArg> = ['low'];
     if (tone) {arr.push('tone');}
     if (_cnchar.isCnChar(spell)) {
-        return _cnchar.spell(spell, ...arr);
+        return _cnchar.spell(spell, ...arr) as string;
     }
     return _cnchar._.transformTone(spell, tone).spell;
 }
 
-function compareSpell (spell1, spell2, tone = false) {
+export function compareSpell (
+    spell1: string,
+    spell2: string,
+    tone: boolean = false
+): CompareType {
     spell1 = pretreat(spell1, tone);
     spell2 = pretreat(spell2, tone);
     for (let i = 0; i < spell1.length; i++) {
@@ -50,8 +58,11 @@ function compareSpell (spell1, spell2, tone = false) {
     return TYPE.LESS; // spell1与spell2值前面拼音一样，但是spell1长度小于spell2 说明 中 < spell2
 }
 
-function sortSpell (spells, ...args) {
-    let isString = false;
+export function sortSpell (
+    spells:Array<string> | string,
+    ...args: Array<SortSpellArg>
+): Array<string> | string {
+    let isString: boolean = false;
     if (typeof spells === 'string') {
         spells = spells.split('');
         isString = true;
@@ -76,12 +87,15 @@ function sortSpell (spells, ...args) {
     return result;
 }
 
-function compareStroke (stroke1, stroke2) {
+export function compareStroke (
+    stroke1: string | number,
+    stroke2: string | number
+): CompareType {
     if (typeof stroke1 === 'string') {
-        stroke1 = _cnchar.stroke(stroke1);
+        stroke1 = _cnchar.stroke(stroke1) as number;
     }
     if (typeof stroke2 === 'string') {
-        stroke2 = _cnchar.stroke(stroke2);
+        stroke2 = _cnchar.stroke(stroke2) as number;
     }
 
     if (stroke1 > stroke2) {
@@ -93,14 +107,16 @@ function compareStroke (stroke1, stroke2) {
     return TYPE.EVEN;
 }
 
-function sortStroke (strokes, ...args) {
-    let isString = false;
+export function sortStroke (
+    strokes: Array<string | number> | string,
+    desc?: 'desc' | 'asc'
+): Array<string | number> | string {
+    let isString: boolean = false;
     if (typeof strokes === 'string') {
         strokes = strokes.split('');
         isString = true;
     }
-    const desc = args.indexOf(arg.desc) !== -1;
-    const more = desc ? -1 : 1;
+    const more = (desc === arg.desc) ? -1 : 1;
     const less = more * -1;
     const result = strokes.sort((a, b) => {
         const res = compareStroke(a, b);
@@ -117,5 +133,3 @@ function sortStroke (strokes, ...args) {
     }
     return result;
 }
-
-module.exports = {sortSpell, sortStroke, initSort, compareSpell, compareStroke};

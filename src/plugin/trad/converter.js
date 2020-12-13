@@ -36,7 +36,7 @@ function convert (str, to, from) {
     }
     let res = '';
     for (var i = 0; i < str.length; i++) {
-        let index = fromDict.indexOf(str[i]);
+        const index = fromDict.indexOf(str[i]);
         res += ((index !== -1) ? toDict[index] : str[i]);
     }
     return res;

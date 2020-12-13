@@ -3,7 +3,7 @@ var strokeTable = require('./stroke-table.json');
 var initOrderToWord = require('./orderToWord.js');
 
 let _ = {};// 工具方法
-let arg = {
+const arg = {
     letter: 'letter', shape: 'shape', count: 'count', name: 'name', detail: 'detail', array: 'array', order: 'order' // array 只是为了兼容 .stroke()
 };
 
@@ -18,11 +18,11 @@ function main (cnchar) {
         return;
     }
     cnchar.plugins.push('order');
-    let _old = cnchar._origin.stroke;
+    const _old = cnchar._origin.stroke;
     _ = cnchar._;
     
     cnchar.setOrder = setOrder;
-    let _new = function (...args) {
+    const _new = function (...args) {
         if (_.has(args, arg.order)) { // 使用order
             return _order(...args);
         }
@@ -51,11 +51,11 @@ function init (cnchar) {
 }
 
 function _order (...args) {
-    let strs = args[0].split(''); // 待处理的字符串数组
+    const strs = args[0].split(''); // 待处理的字符串数组
     args = args.splice(1);
     _.checkArgs('stroke', args);
     // 多音字参数参数将被忽略
-    let res = [];
+    const res = [];
     for (var i = 0; i < strs.length; i++) {
         res[i] = orders[strs[i]]; // 字母版笔画表
     }

@@ -1,17 +1,18 @@
-const TYPE = {
+
+export const TYPE = {
     NORMAL: 'normal',
     ANIMATION: 'animation',
     STROKE: 'stroke',
     TEST: 'test'
 };
 
-const TEST_STATUS = {
+export const TEST_STATUS = {
     MISTAKE: 'mistake',
     CORRECT: 'correct',
     COMPLETE: 'complete'
 };
 
-const Option = {
+const DrawOption = {
     showOutline: true,
     showCharacter: true,
     currentColor: '#b44',
@@ -59,11 +60,12 @@ const Option = {
     onTestStatus: null, // {index, status, data}
 };
 
-function isUd (v) {
+function isUd (v: any): boolean {
     return typeof v === 'undefined';
 }
 
-function merge (type, args) {
+// 使用npm link配置本地开发目录
+export function merge (type, args) {
     const json = {};
     for (const key in args) {
         const arg = args[key];
@@ -92,15 +94,11 @@ function checkTypeDefault (type, args, json) {
 }
 
 function check (json, attrs) {
-    attrs = attrs || Object.keys(Option);
+    attrs = attrs || Object.keys(DrawOption);
     attrs.forEach(attr => {
         if (isUd(json[attr])) {
-            json[attr] = Option[attr];
+            json[attr] = DrawOption[attr];
         }
     });
     return json;
 }
-
-module.exports = {
-    TYPE, Option, merge, TEST_STATUS
-};

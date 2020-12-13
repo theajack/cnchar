@@ -13,7 +13,7 @@ const spellNoToneDict = require('./spell.notone.json').spell;
 let _cnchar = null;
 
 
-let arg = {
+const arg = {
     char: 'char',
     stroke: 'stroke',
     spell: 'spell',
@@ -27,7 +27,7 @@ function idiom (...args) {
         console.warn('idiom: 请输入搜索项');
         return;
     }
-    let input = args[0];
+    const input = args[0];
     args = args.slice(1);
     if (args.indexOf(arg.spell) !== -1 && typeof input !== 'string') {
         console.warn('idiom spell 模式下仅支持查询首个汉字的拼音');
@@ -64,13 +64,13 @@ function idiomWithChar (input) {
 function idiomWithSpell (input, tone) {
     // console.log(input, tone);
     const total = dict.length;
-    let _dict = tone ? spellDict : spellNoToneDict;
+    const _dict = tone ? spellDict : spellNoToneDict;
 
     if (tone) {
         input = _cnchar._.transformTone(input, true).spell;
     }
 
-    let filter = _dict.filter((item) => {
+    const filter = _dict.filter((item) => {
         return input === item.split(':')[0];
     });
 
@@ -79,11 +79,11 @@ function idiomWithSpell (input, tone) {
     }
 
     let res = [];
-    let n = _dict.length - 1;
+    const n = _dict.length - 1;
     filter.forEach(item => {
-        let index = _dict.indexOf(item);
-        let curDIndex = item.split(':')[1];
-        let nextDIndex = index === n ? total : _dict[index + 1].split(':')[1];
+        const index = _dict.indexOf(item);
+        const curDIndex = item.split(':')[1];
+        const nextDIndex = index === n ? total : _dict[index + 1].split(':')[1];
         res = res.concat(dict.slice(curDIndex, nextDIndex));
     });
 

@@ -1,4 +1,5 @@
-import cnchar from '../src/main/index';
+// import cnchar from '../src/main/index';
+import cnchar from '../src/main/ts/index';
 import '../src/plugin/order';
 import '../src/plugin/trad';
 import '../src/plugin/poly';
@@ -8,7 +9,8 @@ import '../src/plugin/xhy';
 import '../src/plugin/radical';
 
 // import spell from '../src/main/spell-dict-jian.json';
-// // import cncharDraw from '../src/plugin/draw';
+// window.keys = Object.keys(spell);
+import cncharDraw from '../src/plugin/draw';
 
 // import cnchar from '../npm/cnchar';
 // import '../npm/order';
@@ -33,76 +35,72 @@ console.log(cnchar);
 // console.log('1',cnchar)
 console.log(cnchar.stroke('一个', 'order'));
 console.log(cnchar.stroke('長城', 'count', 'order', 'name'));
-// console.log(cnchar.orderToWord(['横', '撇', '捺']));
-// console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
+console.log(cnchar.orderToWord(['横', '撇', '捺']));
+console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
 console.log(cnchar.spellToWord('lv2'));
 console.log(cnchar.spellInfo('lǘ'));
 console.log(cnchar.strokeToWord(1));
 console.log('美好的地方'.spell('tone'));
 
 
-// window.keys = Object.keys(spell);
-
-// cncharDraw('你好', {
-//     type: cncharDraw.TYPE.NORMAL,
-//     el: '#drawArea',
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#ccc'
-//     },
-//     animation: {
-//         animateComplete () {
-//             console.log('animateComplete');
-//         },
-//         loopAnimate: true,
-//         autoAnimate: false, // false 时点击出发animate 只能触发一次
-//         // stepByStep: false
-//     },
-//     test: {
-//         onTestStatus (d) {
-//             console.log(d);
-//         }
-//     }
-// });
-// cnchar.draw('中国', {
-//     el: '#drawArea',
-//     type: cnchar.draw.TYPE.NORMAL,
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#eee',
-//         length: 100,
+cncharDraw('你好', {
+    type: cncharDraw.TYPE.NORMAL,
+    el: '#drawArea',
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#ccc'
+    },
+    animation: {
+        animateComplete () {
+            console.log('animateComplete');
+        },
+        loopAnimate: true,
+        autoAnimate: false, // false 时点击出发animate 只能触发一次
+        // stepByStep: false
+    },
+    test: {
+        onTestStatus (d) {
+            console.log(d);
+        }
+    }
+});
+cnchar.draw('中国', {
+    el: '#drawArea',
+    type: cnchar.draw.TYPE.NORMAL,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 100,
             
-//     },
-// });
-// cnchar.draw('你好', {
-//     type: cnchar.draw.TYPE.STROKE,
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#eee',
-//         length: 60,
-//     },
-// });
-// cnchar.draw('中国', {
-//     type: cnchar.draw.TYPE.TEST,
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#eee',
-//         length: 100,
+    },
+});
+cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.STROKE,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 60,
+    },
+});
+cnchar.draw('中国', {
+    type: cnchar.draw.TYPE.TEST,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 100,
                 
-//     },
-// });
+    },
+});
 
-// cnchar.draw('你好', {
-//     type: cnchar.draw.TYPE.ANIMATION,
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#eee',
-//         length: 120,
+cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 120,
             
-//     },
-// });
-
-window.cnchar = cnchar;
+    },
+});
 
 export default cnchar;
 

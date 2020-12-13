@@ -77,6 +77,10 @@ module.exports = {
     "comma-spacing": "error",
     "key-spacing": "error",
     "no-undef": "error",
+    "prefer-const": ["error", {
+      "destructuring": "any",
+      "ignoreReadBeforeAssign": false
+    }]
     // "vue/script-indent": ["warn", 4, {
     //   "baseIndent": 1,
     //   "switchCase": 1

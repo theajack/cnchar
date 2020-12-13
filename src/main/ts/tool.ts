@@ -1,36 +1,46 @@
-const {spellInfo} = require('./spellToWord');
-const {_warn, isCnChar, has} = require('./util');
-const defDict = require('./spell-default.json');
+import {spellInfo} from './spellToWord';
+import {_warn, isCnChar, has} from './util';
+import defultDict from './spell-default.json';
+import {AllArgs, CnCharInterface, TypeProp, ToneType, SpellArg, StrokeArg, TypeValueObject} from './types/index';
+import {Json, ITransformReturn} from './types/common';
 
-const tones = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
-const noTones = 'aoeiuün';
+const defDict = defultDict as Json<string>;
 
-const arg = {
+export const tones: string = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
+const noTones: string = 'aoeiuün';
+
+export const arg: {
+    [prop in SpellArg]: SpellArg
+} = {
     array: 'array',
     low: 'low',
     up: 'up',
     first: 'first',
     poly: 'poly',
     tone: 'tone',
+    simple: 'simple',
+    trad: 'trad',
 };
-let _cnchar = null;
-function initCnchar (cnchar) {
+
+let _cnchar: CnCharInterface;
+export function initCnchar (cnchar: CnCharInterface): void {
     _cnchar = cnchar;
 }
 
+const NOT_CNCHAR: string = 'NOT_CNCHAR';
 
-function spell (dict, args) {
-    const strs = args[0].split('');
-    args = args.splice(1);
+export function spell (dict: Json<string>, originArgs: Array<string>): string | Array<string> {
+    const strs = originArgs[0].split('');
+    const args = (originArgs.splice(1)) as Array<SpellArg>;
     checkArgs('spell', args);
     const poly = has(args, arg.poly);
     const tone = has(args, arg.tone);
-    let res = [];
+    const res: Array<Array<string>> = [];
     for (const sp in dict) { // 遍历拼音
-        const ds = dict[sp];
-        const pos = ds[0];
+        const ds: string = dict[sp]; // 某个拼音的所有汉字字符串
+        const pos = parseInt(ds[0]); // 某个拼音的音调位置
         for (let i = 0; i < strs.length; i++) { // 遍历字符数组
-            const ch = strs[i];
+            const ch: string = strs[i];
             if (isCnChar(ch)) { // 如果是汉字
                 let index = ds.indexOf(ch);
                 if (index !== -1) {
@@ -41,7 +51,7 @@ function spell (dict, args) {
                         }
                         res[i].push(ssp.res);
                         let dsNew = ds;
-                        const n = dsNew.match(new RegExp(ch, 'g')).length;
+                        const n = (dsNew.match(new RegExp(ch, 'g')) as Array<string>).length;
                         for (let k = 1; k < n; k++) {
                             dsNew = dsNew.substr(index + 2);
                             index = dsNew.indexOf(ch);
@@ -53,33 +63,42 @@ function spell (dict, args) {
                                 ssp.res = removeTone(defDict[ch], tone).spell; // 默认有音调
                             }
                         }
-                        res[i] = ssp.res;
+                        res[i] = [ssp.res];
                         strs[i] = '';
                     }
                 }
             } else if (ch !== '') { // 如果不是汉字
-                res[i] = ':' + ch;
+                res[i] = [NOT_CNCHAR, ch];
             }
         }
     }
     dealUpLowFirst(res, args);
+    // 从res中读取数据
+    const result: Array<string> = [];
     for (let i = 0; i < strs.length; i++) {
         const item = res[i];
         if (typeof item === 'undefined') {
-            res[i] = strs[i]; // 查不到的汉字返回原字
-        } else if (typeof item !== 'string') {
-            res[i] = `(${res[i].join('|')})`;
-        } else if (item[0] === ':') {
-            res[i] = item.substr(1); // 非汉字返回原字符
+            result[i] = strs[i]; // 查不到的汉字返回原字
+        } else if (item.length > 1) {
+            if (item[0] === NOT_CNCHAR) {
+                result[i] = item[1]; // 非汉字返回原字符
+            } else {
+                result[i] = `(${res[i].join('|')})`;
+            }
+        } else {
+            result[i] = item[0];
         }
     }
     if (!has(args, arg.array)) {
-        res = res.join('');
+        return result.join('');
     }
-    return res;
+    return result;
 }
 
-function dealUpLowFirst (res, args) {
+export function dealUpLowFirst (
+    res: Array<Array<string>> | Array<string>,
+    args: Array<SpellArg>
+): void {
     if (_cnchar._.poly) {
         dealResCase(res, low);
         // 当启用了 多音词时 需要强制默认小写
@@ -95,36 +114,50 @@ function dealUpLowFirst (res, args) {
     }
 }
 
-function dealResCase (res, func) {
-    res.forEach((item, i) => {
+function dealResCase (
+    res: Array<Array<string>> | Array<string>,
+    func:(str: string) => string
+): void {
+    res.forEach((item: Array<string> | string, index: number) => {
         if (typeof item !== 'string') {
-            item.forEach((s, j) => {item[j] = func(s);});
+            if (item[0] !== NOT_CNCHAR) {
+                item.forEach((s, j) => {item[j] = func(s);});
+            }
         } else {
-            if (item[0] !== ':')
-                res[i] = func(item);
+            res[index] = func(item);
         }
     });
 }
 
-function first (s) {
+function first (s: string): string {
     return s[0];
 }
 
-function up (s) {
+function up (s: string): string {
     return s.toUpperCase();
 }
-function upFirst (s) {
+function upFirst (s: string): string {
     return up(s[0]) + s.substr(1);
 }
-function low (s) {
+function low (s: string): string {
     return s.toLowerCase();
 }
 
 
-function getSpell (spell, str, index, isPoly, isTone, pos) {
-    const res = {res: spell, poly: false};
+function getSpell (
+    spell: string,
+    str: string,
+    index: number,
+    isPoly: boolean,
+    isTone: boolean,
+    pos: number
+): {
+    res: string,
+    poly: boolean,
+    isPolyWord: boolean
+} {
     let tone = parseInt(str[index + 1]);
-    res.isPolyWord = (tone >= 5);
+    const res = {res: spell, poly: false, isPolyWord: (tone >= 5)};
     if (!isPoly && !isTone) {
         return res;
     }
@@ -135,23 +168,25 @@ function getSpell (spell, str, index, isPoly, isTone, pos) {
         }
     }
     if (isTone) {
-        res.res = setTone(spell, pos, tone);
+        res.res = setTone(spell, pos, tone as ToneType);
     }
     return res;
 }
 
 // tone=false : 根据有音调的拼音获得无音调的拼音和音调
 // tone=true : 返回原拼音
-function removeTone (spell, tone) {
+export function removeTone (spell: string, tone: boolean): {
+    spell: string, tone?: ToneType, index?: number
+} {
     if (tone) {
         return {spell};
     }
     for (let i = 0; i < spell.length; i++) {
-        const index = tones.indexOf(spell[i]);
+        const index: number = tones.indexOf(spell[i]);
         if (index !== -1) { // 命中
             return {
                 spell: spell.substr(0, i) + noTones[Math.floor(index / 4)] + spell.substr(i + 1),
-                tone: (index % 4) + 1,
+                tone: ((index % 4) + 1) as ToneType,
                 index: i + 1
             };
         }
@@ -159,7 +194,7 @@ function removeTone (spell, tone) {
     return {spell, tone: 0, index: -1};
 }
 
-function setTone (spell, index, tone) {
+function setTone (spell: string, index: number, tone: ToneType): string {
     if (tone === 0) { // 轻声
         return spell;
     }
@@ -168,34 +203,38 @@ function setTone (spell, index, tone) {
     if (p !== toneP) {
         return spell.replace(p, toneP);
     }
+    return spell;
 }
 
 // 笔画数
-function stroke (dict, args) {
-    const strs = args[0].split('');
-    args = args.splice(1);
+export function stroke (
+    dict: Json<string>,
+    originArgs: Array<string>
+): number | Array<number> {
+    const strs = originArgs[0].split('');
+    const strokes: Array<number> = [];
+    const args = originArgs.splice(1) as Array<StrokeArg>;
     checkArgs('stroke', args);
     for (const i in dict) {
         for (let j = 0; j < strs.length; j++) {
-            if (typeof strs[j] === 'string') {
-                if (dict[i].indexOf(strs[j]) !== -1) {
-                    strs[j] = parseInt(i);
+            if (strs[j]) {
+                if (dict[i].indexOf(strs[j] as string) !== -1) {
+                    strs[j] = '';
+                    strokes[j] = parseInt(i);
                 }
             }
         }
     }
-    strs.forEach(function (c, i) {
-        if (typeof c === 'string') {
-            strs[i] = 0;
-        }
+    strs.forEach((c: string, i: number): void => {
+        if (c) {strokes[i] = 0;}
     });
-    if (!has(args, arg.array)) {
-        return sumStroke(strs);
+    if (!has(args, arg.array as StrokeArg)) {
+        return sumStroke(strokes);
     }
-    return strs;
+    return strokes;
 }
-function sumStroke (strs) {
-    let sum = 0;
+export function sumStroke (strs: Array<number>): number {
+    let sum: number = 0;
     strs.forEach(function (c) {
         sum += c;
     });
@@ -207,8 +246,12 @@ function sumStroke (strs) {
 
 // stroke 所有参数 ["letter", "shape", "count", "name", "detail", "array", "order", "simple"]
 //
-let _hasCheck = false;
-function checkArgs (type, args, jumpNext) {
+let _hasCheck: boolean = false;
+export function checkArgs (
+    type: TypeProp,
+    args: Array<AllArgs>,
+    jumpNext?: boolean
+): void {
     if (!_cnchar.check) {
         return;
     }
@@ -217,25 +260,23 @@ function checkArgs (type, args, jumpNext) {
         return;
     }
     if (jumpNext) { _hasCheck = true; }
-    const useless = [];
-    const t = _cnchar.type;
+    const useless: Array<AllArgs> = [];
     for (let i = args.length - 1; i >= 0; i--) {
         const arg = args[i];
-        if (!t[type][arg]) {
+        if (!(_cnchar.type[type] as TypeValueObject)[arg]) {
             useless.push(arg);
             args.splice(i, 1);
         }
     }
-    const ignore = [];
-    const redunt = [];
-    const check = (name, arr) => {
-        if (typeof name === 'object') {
+    const ignore: Array<AllArgs> = [];
+    const redunt: Array<AllArgs> = [];
+    const check = (name: AllArgs | Array<AllArgs>, arr: Array<AllArgs> = ignore): void => {
+        if (name instanceof Array) {
             name.forEach((item) => {
                 check(item, arr);
             });
             return;
         }
-        arr = arr || ignore;
         if (has(args, name)) { arr.push(name); }
     };
     if (_cnchar.plugins.indexOf('trad') === -1) {
@@ -297,20 +338,25 @@ function checkArgs (type, args, jumpNext) {
     warnArgs(ignore, '被忽略', type, args);
     warnArgs(redunt, '冗余', type, args);
 }
-function warnArgs (arr, txt, type, args) {
+function warnArgs (
+    arr: Array<AllArgs>,
+    txt: string,
+    type: TypeProp,
+    args: Array<AllArgs>
+): void {
     if (arr.length > 0) {
-        let mes = `以下参数${txt}:${JSON.stringify(arr)};`;
+        let mes: string = `以下参数${txt}:${JSON.stringify(arr)};`;
         if (txt === '被忽略' && type === 'stroke' && !has(args, 'order')) {
             mes += ' 要启用笔顺模式必须使用 order 参数';
         } else {
-            mes += ` 可选值：[${Object.keys(_cnchar.type[type])}]`;
+            mes += ` 可选值：[${Object.keys((_cnchar.type[type] as TypeValueObject))}]`;
         }
         _warn(mes);
     }
 }
 // lv2 => lǘ
-function shapeSpell (spell) {
-    const tones = '01234';
+export function shapeSpell (spell: string): string {
+    const tones: string = '01234';
     if (tones.indexOf(spell[spell.length - 1]) === -1) {
         return spell;
     }
@@ -320,19 +366,24 @@ function shapeSpell (spell) {
 // lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
 // lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
 // needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
-function transformTone (spell, needTone, type = 'low') {
+export function transformTone (
+    spell: string,
+    needTone: boolean = false,
+    type: 'low' | 'up' = 'low'
+): ITransformReturn {
     if (spell.indexOf('v') !== -1) {
         spell = spell.replace('v', 'ü');
     }
-    let tone = spell[spell.length - 1];
-    let index = -1;
-    let isTrans = false;
+    const lastStr: string = spell[spell.length - 1];
+    let tone: ToneType;
+    let index: number = -1;
+    let isTrans: boolean = false;
 
-    if (parseInt(tone).toString() === tone) { // lv2
+    if (parseInt(lastStr).toString() === lastStr) { // lv2
         spell = spell.substr(0, spell.length - 1);
         const info = spellInfo(spell);
         index = info.index;
-        tone = parseInt(tone);
+        tone = parseInt(lastStr) as ToneType;
         isTrans = true;
         if (needTone) {
             spell = setTone(spell, index - 1, tone);
@@ -352,8 +403,3 @@ function transformTone (spell, needTone, type = 'low') {
     }
     return {spell, tone, index, isTrans};
 }
-
-
-module.exports = {
-    shapeSpell, arg, spell, stroke, dealUpLowFirst, removeTone, sumStroke, checkArgs, initCnchar, tones, transformTone
-};

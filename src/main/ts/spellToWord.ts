@@ -1,36 +1,30 @@
-import dict from './spell-dict-jian.json';
+import originDict from './spell-dict-jian.json';
 import {initial as initialDict} from './info-dict.json';
+import {CnCharInterface, CncharToolInterface, ToneType, TypeValueObject, SpellToWordArg} from './types/index';
+import {SpellInfoInterface, Json, spellInfoReturnInterface} from './types/common';
 
-import {CnCharStatic} from './index.d';
-
+const dict = originDict as Json<string>;
 // let dict = require('./spell-dict-jian.json');
 // let initialDict = require('./info-dict.json').initial;
 
-let arg = {simple: 'simple', trad: 'trad', poly: 'poly', alltone: 'alltone', array: 'array'};
-let _ = {};// 工具方法
+const arg: {
+    [prop in SpellToWordArg]: SpellToWordArg
+} = {simple: 'simple', trad: 'trad', poly: 'poly', alltone: 'alltone', array: 'array'};
+let _: CncharToolInterface;// 工具方法
 
-declare interface 
 
-function initSpellToWord (cnchar: CnCharStatic) {
-    _ = cnchar._;
-    cnchar.spellToWord = spellToWord;
-    spellInfo.tones = _.tones.split('');
-    spellInfo.initials = initialDict;
-    cnchar.spellInfo = spellInfo;
-    cnchar.type.spellToWord = arg;
-}
 // 获取拼音信息 spell,tone,index,initial,final
-function spellInfo (spell) {
+export const spellInfo = ((spell: string): spellInfoReturnInterface => {
     spell = spell.toLowerCase();
-    let info = _.removeTone(spell, false);
+    const info = _.removeTone(spell, false);
     if (info.index === -1) {
         if (!dict[info.spell]) {
             throw new Error('【spellInfo】错误的拼音: ' + spell);
         }
         info.index = parseInt(dict[info.spell][0]) + 1;
     }
-    let initial = '';
-    let final = info.spell;
+    let initial: string = '';
+    let final: string = info.spell;
     for (let i = 0; i < initialDict.length; i++) {
         if (info.spell.indexOf(initialDict[i]) === 0) {
             initial = initialDict[i];
@@ -38,21 +32,32 @@ function spellInfo (spell) {
             break;
         }
     }
-    info.initial = initial;
-    info.final = final;
-    return info;
-}
-spellInfo.tones:Array;
+    return {
+        spell: info.spell,
+        tone: info.tone as ToneType,
+        index: info.index as number,
+        initial,
+        final,
+    };
+}) as unknown as SpellInfoInterface;
 
-function spellToWord (...args) {
-    let spell = args[0].toLowerCase();
+export function initSpellToWord (cnchar: CnCharInterface): void {
+    _ = cnchar._;
+    spellInfo.tones = _.tones.split('');
+    spellInfo.initials = initialDict;
+    cnchar.spellInfo = spellInfo;
+    cnchar.type.spellToWord = arg as TypeValueObject;
+}
+
+export function spellToWord (...originArgs: Array<string>): string | Array<string> {
+    const spell = originArgs[0].toLowerCase();
     if (typeof spell !== 'string') {
         throw new Error('spellToWord: 输入必须是字符串');
     }
-    let info = _.transformTone(spell, false);
-    args = args.splice(1);
+    const info = _.transformTone(spell, false);
+    const args = originArgs.splice(1) as Array<SpellToWordArg>;
     _.checkArgs('spellToWord', args);
-    let argRes = {
+    const argRes = {
         simple: _.has(args, arg.simple),
         trad: _.has(args, arg.trad),
         poly: _.has(args, arg.poly),
@@ -62,11 +67,11 @@ function spellToWord (...args) {
         argRes.simple = argRes.trad = true;
     }
     let res = '';
-    let str = dict[info.spell].substr(2);
+    const str = dict[info.spell].substr(2);
     for (let i = 0; i < str.length; i += 2) {
-        let word = str[i];
+        const word = str[i];
         let tone = parseInt(str[i + 1]);
-        let isPoly = tone > 4;
+        const isPoly = tone > 4;
         if (isPoly) {tone = tone - 5;}
         if (res.indexOf(word) === -1 && (argRes.alltone || tone === info.tone)) {
             if (!argRes.poly || isPoly) {
@@ -77,7 +82,7 @@ function spellToWord (...args) {
     if (argRes.trad && _.convert) {
         let tradRes = '';
         for (let i = 0; i < res.length; i++) {
-            let trad = _.convert.simpleToTrad(res[i]);
+            const trad = _.convert.simpleToTrad(res[i]);
             if (trad !== res[i]) {
                 tradRes += trad;
             }
@@ -92,5 +97,4 @@ function spellToWord (...args) {
         return res.split('');
     }
     return res;
-}
-module.exports = {initSpellToWord, spellInfo};
+};

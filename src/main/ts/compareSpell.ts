@@ -1,9 +1,9 @@
-let _cnchar = null;
-const toneCodes = [];
+import {CnCharInterface} from './types';
 
-initToneCodes();
-
-function initToneCodes (__cnchar) {
+let _cnchar: CnCharInterface;
+const toneCodes: Array<number> = [];
+ 
+export function initToneCodes (__cnchar: CnCharInterface): void {
     _cnchar = __cnchar;
     'aoeiuvn'.split('').forEach(item => {
         const code = item.charCodeAt(0);
@@ -13,7 +13,7 @@ function initToneCodes (__cnchar) {
     });
 }
 
-function getToneCodes (char) {
+function getToneCodes (char: string): number {
     const index = _cnchar._.tones.indexOf(char);
     if (index === -1) {
         return -1;
@@ -21,7 +21,7 @@ function getToneCodes (char) {
     return toneCodes[index];
 }
 
-function getCharCode (char, tone = false) {
+export function getCharCode (char: string, tone: boolean = false): number {
     if (!tone) {
         return char.charCodeAt(0);
     }
@@ -31,7 +31,3 @@ function getCharCode (char, tone = false) {
     }
     return code;
 }
-
-// 比较拼音大小的方法考虑移到cnchar工具方法中
-
-module.exports = {initToneCodes, getCharCode};

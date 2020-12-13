@@ -1,14 +1,14 @@
-let version = require('./version');
-let {spell, tones, stroke, arg,
+const version = require('./version');
+const {spell, tones, stroke, arg,
     dealUpLowFirst, removeTone, sumStroke,
     checkArgs, initCnchar, transformTone,
     shapeSpell} = require('./tool');
-let {has, _throw, _warn, isCnChar, isPolyWord, mapJson} = require('./util');
-let dict = require('./dict');
-let {setSpellDefault, setIntoJson, setSpell, setStrokeCount} = require('./config');
-let {initSpellToWord} = require('./spellToWord');
-let initStrokeToWord = require('./strokeToWord');
-let {compareSpell, sortSpell, compareStroke, sortStroke, initSort} = require('./sort');
+const {has, _throw, _warn, isCnChar, isPolyWord, mapJson} = require('./util');
+const dict = require('./dict');
+const {setSpellDefault, setIntoJson, setSpell, setStrokeCount} = require('./config');
+const {initSpellToWord} = require('./spellToWord');
+const initStrokeToWord = require('./strokeToWord');
+const {compareSpell, sortSpell, compareStroke, sortStroke, initSort} = require('./sort');
 
 function _spell (...args) {
     return spell(dict.spell, args);
@@ -37,7 +37,7 @@ function use (...plugins) {
     });
 }
 
-let cnchar = {
+const cnchar = {
     version,
     spell: _spell,
     stroke: _stroke,
@@ -49,7 +49,7 @@ let cnchar = {
     plugins: [],
     use,
     _: {arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,
-        sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson},
+        sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson, poly: false},
     type: {
         spell: arg,
         stroke: {

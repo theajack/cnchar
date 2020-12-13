@@ -2,7 +2,7 @@ const dict = require('./xhy.json').dict;
 
 let _cnchar = null;
 
-let arg = {
+const arg = {
     'fuzzy': 'fuzzy',
     'answer': 'answer',
     'second': 'second'
@@ -10,20 +10,20 @@ let arg = {
 
 function xhy (...args) {
     
-    let str = args.shift();
+    const str = args.shift();
     if (_cnchar) {
         _cnchar._.checkArgs('xhy', args);
     }
-    let isFuzzy = args.indexOf(arg.fuzzy) !== -1;
-    let onlyAnswer = args.indexOf(arg.answer) !== -1;
-    let second = args.indexOf(arg.second) !== -1;
-    let quesIndex = second ? 1 : 0;
-    let answerIndex = 1 - quesIndex;
+    const isFuzzy = args.indexOf(arg.fuzzy) !== -1;
+    const onlyAnswer = args.indexOf(arg.answer) !== -1;
+    const second = args.indexOf(arg.second) !== -1;
+    const quesIndex = second ? 1 : 0;
+    const answerIndex = 1 - quesIndex;
     if (isFuzzy) {
         let res = [];
         for (let i = 0; i < dict.length; i++) {
             if (dict[i][quesIndex].indexOf(str) !== -1) {
-                let answer = shapeAnswer(dict[i], onlyAnswer, answerIndex);
+                const answer = shapeAnswer(dict[i], onlyAnswer, answerIndex);
                 res = res.concat(answer);
             }
         }
@@ -46,7 +46,7 @@ function shapeAnswer (item, onlyAnswer, answerIndex) {
         answer = [item[answerIndex]];
     }
     if (!onlyAnswer) {
-        let fn = answerIndex === 1 ? (a, index) => {
+        const fn = answerIndex === 1 ? (a, index) => {
             answer[index] = `${item[1 - answerIndex]}-${a}`;
         } : (a, index) => {
             answer[index] = `${a}-${item[1 - answerIndex]}`;

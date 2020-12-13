@@ -1,6 +1,6 @@
 
 // let version = require('../package.json').version;
-let path = require('path');
+const path = require('path');
 
 // module.exports = (env) => {
 //     let plugin = env.pluginname;
@@ -21,7 +21,7 @@ let path = require('path');
 //     };
 // };
 module.exports = (env) => {
-    let plugin = env.pluginname;
+    const plugin = env.pluginname;
     return {
         mode: 'production',
         entry: path.resolve('./', 'src/plugin/' + plugin + '/index.js'),
@@ -33,8 +33,16 @@ module.exports = (env) => {
             umdNamedDefine: true,
             globalObject: 'this'
         },
+        resolve: {
+            extensions: [ '.tsx', '.ts', '.js' ]
+        },
         module: {
             rules: [{
+                test: /(.ts)$/,
+                use: {
+                    loader: 'ts-loader'
+                }
+            }, {
                 test: /(.js)$/,
                 use: [{
                     loader: 'babel-loader',

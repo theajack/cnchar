@@ -1,10 +1,10 @@
-let cnchar = require('../../main');
-let order = require('../order');
-let trad = require('../trad');
-let poly = require('../poly');
-let draw = require('../draw');
-let idiom = require('../idiom');
-let xhy = require('../xhy');
-let radical = require('../radical');
+const cnchar = require('../../main');
+const order = require('../order');
+const trad = require('../trad');
+const poly = require('../poly');
+const draw = require('../draw');
+const idiom = require('../idiom');
+const xhy = require('../xhy');
+const radical = require('../radical');
 cnchar.use(order, trad, poly, draw, idiom, xhy, radical);
 module.exports = cnchar;

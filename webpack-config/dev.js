@@ -14,8 +14,16 @@ module.exports = {
         inline: true,
         host: 'localhost'// '0.0.0.0' //
     },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ]
+    },
     module: {
         rules: [{
+            test: /(.ts)$/,
+            use: {
+                loader: 'ts-loader'
+            }
+        }, {
             test: /(.js)$/,
             use: [{
                 loader: 'babel-loader',

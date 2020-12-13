@@ -1,5 +1,5 @@
-let spell = require('./spell-dict-jian.json');
-let stroke = require('./stroke-count-jian.json');
+const spell = require('./spell-dict-jian.json');
+const stroke = require('./stroke-count-jian.json');
 module.exports = {
     spell, stroke
 };

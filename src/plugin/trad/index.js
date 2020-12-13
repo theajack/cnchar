@@ -5,7 +5,7 @@ var orderDict = require('./stroke-order-fan.json');
 // https://blog.csdn.net/e15273/article/details/79954700
 
 var convert = require( './converter');
-let arg = {
+const arg = {
     trad: 'trad', simple: 'simple', array: 'array', order: 'order' // 开启简单模式
 };
 let _ = {};// 工具方法
@@ -16,7 +16,7 @@ function main (cnchar) {
     }
     cnchar.plugins.push('trad');
     cnchar.convert = convert;
-    let _p = String.prototype;
+    const _p = String.prototype;
     cnchar.type.spell.simple = arg.simple;
     cnchar.type.stroke.simple = arg.simple;
     cnchar.type.spell.trad = arg.trad;
@@ -49,17 +49,17 @@ function init (cnchar) {
 
 function reinitSpell (proto, cnchar) {
     let _spell = cnchar.spell;
-    let newSpell = function (...args) {
+    const newSpell = function (...args) {
         let str = args[0];
         args = args.splice(1);
         if (_.has(args, arg.simple)) {
             return _spell(str, ...args);
         }
         if (_.has(args, arg.trad)) {
-            let isArr = _.has(args, arg.array);
+            const isArr = _.has(args, arg.array);
             if (!isArr) {args.push(arg.array);}// 先使用array模式
-            let simpleStr = convert.tradToSimple(str);
-            let simples = [];
+            const simpleStr = convert.tradToSimple(str);
+            const simples = [];
             let newStr = ''; // 提取出繁体字的简体
             for (let i = 0; i < simpleStr.length; i++) {
                 if (simpleStr[i] !== str[i]) {
@@ -68,7 +68,7 @@ function reinitSpell (proto, cnchar) {
                     simples.push({index: i, str: str[i]});
                 }
             }
-            let res = _spell(newStr, ...args);
+            const res = _spell(newStr, ...args);
             for (let i = 0; i < simples.length; i++) {
                 res.splice(simples[i].index, 0, simples[i].str);
             }
@@ -94,14 +94,14 @@ function reinitSpell (proto, cnchar) {
 
 function reinitStroke (proto, cnchar) {
     let _stroke = cnchar.stroke;
-    let _new = function (...args) {
-        let str = args[0];
+    const _new = function (...args) {
+        const str = args[0];
         args = args.splice(1);
         _.checkArgs('stroke', args, true);
-        let isArr = _.has(args, arg.array);
-        let isOrder = _.has(args, arg.order);
+        const isArr = _.has(args, arg.array);
+        const isOrder = _.has(args, arg.order);
         if (!isArr) {args.push(arg.array);}// 先使用array模式
-        let res = _stroke(str, ...args); // 没有繁体的结果
+        const res = _stroke(str, ...args); // 没有繁体的结果
         if (!isOrder) { // stroke 方法
             if (_.has(args, arg.simple)) { // 启用简单模式则 直接返回
                 return (isArr) ? res : _.sumStroke(res);
@@ -137,7 +137,7 @@ function reinitStroke (proto, cnchar) {
 
             }
             // 将其中的繁体字获取 strokeOrder
-            let igList = [];
+            const igList = [];
             for (var i = 0; i < res.length; i++) {
                 if (typeof res[i] === 'undefined') {
                     res[i] = orderDict[str[i]]; // 字母版笔画表

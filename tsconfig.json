@@ -24,7 +24,7 @@
         // }
     },
     "include": [
-        "./src/main/*"
+        "./src/main/ts/*", "src/main/types/*"
     ],
     "exclude": [
         "./node_modules"

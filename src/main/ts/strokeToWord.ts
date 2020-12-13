@@ -1,20 +1,21 @@
-const dict = require('./stroke-count-jian.json');
+import dict from './stroke-count-jian.json';
+import {Json} from './types/common';
+import {CnCharInterface, CncharToolInterface, StrokeToWordArg, TypeValueObject} from './types/index';
+const arg: {
+    [prop in StrokeToWordArg]: StrokeToWordArg
+} = {simple: 'simple', trad: 'trad', array: 'array'};
+let _: CncharToolInterface;// 工具方法
 
-const arg = {simple: 'simple', trad: 'trad', array: 'array'};
-let _ = {};// 工具方法
- 
-function initStrokeToWord (cnchar) {
+export function initStrokeToWord (cnchar: CnCharInterface): void {
     cnchar.strokeToWord = strokeToWord;
-    cnchar.type.strokeToWord = arg;
+    cnchar.type.strokeToWord = arg as TypeValueObject;
     _ = cnchar._;
 }
 
-function strokeToWord (...args) {
-    const count = args[0];
-    if (typeof count !== 'number' || parseInt(count) !== count || count <= 0) {
+export function strokeToWord (count: number, ...args: Array<StrokeToWordArg>): string | Array<string> {
+    if (typeof count !== 'number' || count <= 0) {
         throw new Error('strokeToWord: 输入必须是正整数');
     }
-    args = args.splice(1);
     _.checkArgs('strokeToWord', args);
     let res = '';
     const argRes = {
@@ -36,10 +37,8 @@ function strokeToWord (...args) {
     return res;
 }
 
-function base (count, dict) {
+function base (count: number, dict: Json<string>): string {
     if (typeof dict[count] === 'undefined')
         return '';
     return dict[count];
 }
-
-module.exports = initStrokeToWord;
