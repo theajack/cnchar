@@ -1,4 +1,4 @@
-import dict from './stroke-count-jian.json';
+import dict from './dict/stroke-count-jian.json';
 import {Json} from './types/common';
 import {CnCharInterface, CncharToolInterface, StrokeToWordArg, TypeValueObject} from './types/index';
 const arg: {

@@ -1,6 +1,6 @@
 import {spellInfo} from './spellToWord';
 import {_warn, isCnChar, has} from './util';
-import defultDict from './spell-default.json';
+import defultDict from './dict/spell-default.json';
 import {AllArgs, CnCharInterface, TypeProp, ToneType, SpellArg, StrokeArg, TypeValueObject} from './types/index';
 import {Json, ITransformReturn} from './types/common';
 

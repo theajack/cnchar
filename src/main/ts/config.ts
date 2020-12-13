@@ -1,7 +1,7 @@
-import defDict from './spell-default.json';
-import spellDict from './spell-dict-jian.json';
-import originStrokeDict from './stroke-count-jian.json';
-import infoDict from './info-dict.json';
+import defDict from './dict/spell-default.json';
+import spellDict from './dict/spell-dict-jian.json';
+import originStrokeDict from './dict/stroke-count-jian.json';
+import infoDict from './dict/info-dict.json';
 import {mapJson} from './util';
 import {transformTone, spell, arg, shapeSpell, stroke} from './tool';
 import {Json, ITransformReturn} from './types/common';

@@ -1,11 +1,9 @@
-import originDict from './spell-dict-jian.json';
-import {initial as initialDict} from './info-dict.json';
+import originDict from './dict/spell-dict-jian.json';
+import {initial as initialDict} from './dict/info-dict.json';
 import {CnCharInterface, CncharToolInterface, ToneType, TypeValueObject, SpellToWordArg} from './types/index';
 import {SpellInfoInterface, Json, spellInfoReturnInterface} from './types/common';
 
 const dict = originDict as Json<string>;
-// let dict = require('./spell-dict-jian.json');
-// let initialDict = require('./info-dict.json').initial;
 
 const arg: {
     [prop in SpellToWordArg]: SpellToWordArg

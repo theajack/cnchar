@@ -1,4 +1,4 @@
-import infoDict from './info-dict.json';
+import infoDict from './dict/info-dict.json';
 import {AllArgs} from './types';
 import {Json} from './types/common';
 
