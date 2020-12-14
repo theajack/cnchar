@@ -71,7 +71,6 @@ export declare interface IDrawTestOption {
     onTestStatus?: IOnTestStatus | null;// : null, // ({index, status, data})=>{}
 }
 
-export declare type TDrawClassOption = 'style' | 'line' | 'animation' | 'test';
 export declare interface IDrawClassOption {
     el?: string | HTMLElement; // 绘制的容器，支持选择器或dom，若是不填，会在body后append一个dom作为容器
     type?: TDrawType; // 绘制模式，默认为normal
