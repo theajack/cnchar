@@ -16,6 +16,7 @@ import {
     ICloneSvg,
     IDraw
 } from './types/common';
+import {querySelector} from './dom';
 
 const document = (typeof window === 'object') ? (window.document || null) : null;
 
@@ -60,17 +61,9 @@ export class Writer implements IWriter {
             case TYPE.TEST: opts.test = test; break;
         }
         this.option = merge(type, opts);
-        if (typeof el === 'string') {
-            this.el = document.querySelector(el) || document.body;
-        } else {
-            this.el = el;
-        }
+        this.el = querySelector(el);
         if (this.el && clear) {
             this.el.innerHTML = '';
-        }
-        if (!this.el) {
-            this.el = document.createElement('div');
-            document.body.appendChild(this.el);
         }
         this.init();
     }
