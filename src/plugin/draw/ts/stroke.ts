@@ -38,7 +38,7 @@ function renderFanningStrokes ({
     radStrokes: Array<number>;
     cloneSvg: ICloneSvg,
     current: number;
-    width: number;
+    width?: number;
 }): void {
     const radicalColor = (radStrokes.length > 0 && option.radicalColor) ? option.radicalColor : null;
     const svg = cloneSvg(option);
@@ -64,7 +64,7 @@ function renderFanningStrokes ({
     }
 }
 
-function renderPath (strokePath: string, group: SVGGElement, color: string): void {
+function renderPath (strokePath: string, group: SVGGElement, color: string = ''): void {
     const path: SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttributeNS(null, 'd', strokePath);
     // style the character paths

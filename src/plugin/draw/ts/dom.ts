@@ -2,12 +2,12 @@ export function querySelector (selector: string | HTMLElement): HTMLElement {
     if (typeof selector !== 'string') {
         return selector;
     }
-    let dom: HTMLElement = document.querySelector(selector);
+    let dom = document.querySelector(selector);
     if (dom === null) {
         dom = createElement('div');
-        document.body.appendChild(this.el);
+        document.body.appendChild(dom);
     }
-    return dom;
+    return dom as HTMLElement;
 }
 
 export function createElement (tag: string): HTMLElement {

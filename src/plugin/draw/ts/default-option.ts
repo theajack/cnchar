@@ -44,7 +44,7 @@ export const DrawOption: IDrawOption = {
     delayBetweenStrokes: 1000, // 数值, 默认 1000。 动画进行中每个笔画之间的间隔时间（以毫秒为单位）。
     delayBetweenLoops: 200, // 数值, 默认 2000。 循环动画时每个动画循环之间的时间（以毫秒为单位）。
     autoAnimate: true,
-    animateComplete: () => {},
+    animateComplete ():void {},
     stepByStep: true,
     loopAnimate: false,
 
@@ -84,7 +84,7 @@ export function merge (type: TDrawType, args: IDrawClassOption): IDrawOption {
     return json;
 }
 
-function checkTypeDefault (type: IDrawOption, args: IDrawClassOption, json: IDrawOption): void {
+function checkTypeDefault (type: TDrawType, args: IDrawClassOption, json: IDrawOption): void {
     if (type === TYPE.ANIMATION) {
         if (!args.animation || isUd(args.animation.showCharacter)) {
             json.showCharacter = false;

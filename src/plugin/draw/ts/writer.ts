@@ -3,7 +3,7 @@ import {TYPE, merge, TEST_STATUS} from './default-option';
 import {pickCnChar} from './util';
 import {buildLinesStr} from './line';
 import {stroke} from './stroke';
-import {IWriter, IWriterOption} from './types/index';
+import {IComplete, IWriter, IWriterOption} from './types/index';
 import {
     TDrawType,
     IDrawOption,
@@ -14,9 +14,12 @@ import {
     IDrawStrokeOption,
     IBuildLineStr,
     ICloneSvg,
-    IDraw
+    IDraw,
+    ITestStatusData
 } from './types/common';
 import {querySelector} from './dom';
+
+// export const DEFAULT_WIDTH: number = 60;
 
 const document = (typeof window === 'object') ? (window.document || null) : null;
 
@@ -68,11 +71,16 @@ export class Writer implements IWriter {
         this.init();
     }
     init (): void {
+        if (svg === null) {
+            return;
+        }
         const {lineHTML, border} = buildLinesStr(this.option as IBuildLineStr);
         const cloneSvg: ICloneSvg = (option: IDrawOption) => {
             const node = svg.cloneNode() as HTMLElement;
-            node.setAttribute('width', this.option.width.toString());
-            node.setAttribute('height', this.option.height.toString());
+            if (this.option.width)
+                node.setAttribute('width', this.option.width.toString());
+            if (this.option.height)
+                node.setAttribute('height', this.option.height.toString());
             if (border) {
                 node.style.border = border;
             }
@@ -120,13 +128,13 @@ export class Writer implements IWriter {
                 if (typeof fn === 'function') {
                     opt = (index: number) => {
                         return {
-                            onMistake (strokeData) {
+                            onMistake (strokeData: ITestStatusData) {
                                 fn({index, status: TEST_STATUS.MISTAKE, data: strokeData});
                             },
-                            onCorrectStroke (strokeData) {
+                            onCorrectStroke (strokeData: ITestStatusData) {
                                 fn({index, status: TEST_STATUS.CORRECT, data: strokeData});
                             },
-                            onComplete (summaryData) {
+                            onComplete (summaryData: ITestStatusData) {
                                 fn({index, status: TEST_STATUS.COMPLETE, data: summaryData});
                             }
                         };
@@ -140,7 +148,7 @@ export class Writer implements IWriter {
             }
         }
     }
-    animate (complete: Function) {
+    animate (complete: IComplete = () => {}) {
         const opt = this.option;
         if (opt.stepByStep) { // 汉字之间连续绘制
             if (opt.showCharacter === false) {
@@ -164,14 +172,15 @@ export class Writer implements IWriter {
     loopAnimate () {
         const opt = this.option;
         this.animate(() => {
-            opt.animateComplete();
+            if (opt.animateComplete)
+                opt.animateComplete();
             setTimeout(() => {
                 this.loopAnimate();
             }, opt.delayBetweenStrokes);
         });
     }
     // animate单个汉字
-    _animateSingle (index: number, complete: Function): void {
+    _animateSingle (index: number, complete: IComplete): void {
         if (index >= this.writers.length) {
             complete(true);
             return;
@@ -182,8 +191,8 @@ export class Writer implements IWriter {
             }
         });
     }
-    _animateStep (index: number, complete: Function): void {
-        this._animateSingle(index, (end) => {
+    _animateStep (index: number, complete: IComplete = () => {}): void {
+        this._animateSingle(index, (end: boolean) => {
             if (!end) {
                 setTimeout(() => {
                     this._animateStep(index + 1, complete);
@@ -195,7 +204,7 @@ export class Writer implements IWriter {
     }
 }
 
-const draw: IDraw = (text: string = '', options: IDrawOption = {}): IWriter => {
+const draw: IDraw = (text: string = '', options: IDrawOption = {}): IWriter | null => {
     if (typeof window === 'undefined') {
         console.error('Draw 方法仅支持在浏览器环境下使用');
         return null;
@@ -210,6 +219,5 @@ const draw: IDraw = (text: string = '', options: IDrawOption = {}): IWriter => {
 
 draw.TYPE = TYPE;
 draw.TEST_STATUS = TEST_STATUS;
-draw.init = null;
 
 export default draw;

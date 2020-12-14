@@ -20,7 +20,7 @@ export function buildLinesStr ({
     if (lineDash) {
         attr += 'stroke-dasharray="8"';
     }
-    if (lineWidth > 1) {
+    if (lineWidth && lineWidth > 1) {
         attr += `stroke-width="${lineWidth}"`;
     }
     if (lineStraight) {

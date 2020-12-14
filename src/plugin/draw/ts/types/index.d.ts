@@ -9,6 +9,7 @@ import {
 } from './common';
 import HanziWriter from './hanzi-writer';
 
+export declare interface IComplete {(end?: boolean): void;}
 export declare interface IWriterOption {
     el?: string | HTMLElement;
     text?: string;
@@ -27,9 +28,9 @@ export declare interface IWriter {
     text: Array<string>;
     writers: Array<HanziWriter>;
     init (): void;
-    animate (complete: Function): void;
+    animate (complete: IComplete): void;
     animateStart(): void;
     loopAnimate(): void;
-    _animateSingle (index: number, complete: Function): void;
-    _animateStep (index: number, complete: Function): void;
+    _animateSingle (index: number, complete: IComplete): void;
+    _animateStep (index: number, complete: IComplete): void;
 }
