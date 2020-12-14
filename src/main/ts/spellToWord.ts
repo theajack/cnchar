@@ -1,18 +1,19 @@
 import originDict from './dict/spell-dict-jian.json';
 import {initial as initialDict} from './dict/info-dict.json';
-import {CnCharInterface, CncharToolInterface, ToneType, TypeValueObject, SpellToWordArg} from './types/index';
-import {SpellInfoInterface, Json, spellInfoReturnInterface} from './types/common';
+import {ICnChar, ToneType, TypeValueObject, SpellToWordArg} from './types/index';
+import {ICncharTool} from './types/tool';
+import {ISpellInfo, Json, ISpellInfoReturn} from './types/common';
 
 const dict = originDict as Json<string>;
 
 const arg: {
     [prop in SpellToWordArg]: SpellToWordArg
 } = {simple: 'simple', trad: 'trad', poly: 'poly', alltone: 'alltone', array: 'array'};
-let _: CncharToolInterface;// 工具方法
+let _: ICncharTool;// 工具方法
 
 
 // 获取拼音信息 spell,tone,index,initial,final
-export const spellInfo = ((spell: string): spellInfoReturnInterface => {
+export const spellInfo = ((spell: string): ISpellInfoReturn => {
     spell = spell.toLowerCase();
     const info = _.removeTone(spell, false);
     if (info.index === -1) {
@@ -37,9 +38,9 @@ export const spellInfo = ((spell: string): spellInfoReturnInterface => {
         initial,
         final,
     };
-}) as unknown as SpellInfoInterface;
+}) as unknown as ISpellInfo;
 
-export function initSpellToWord (cnchar: CnCharInterface): void {
+export function initSpellToWord (cnchar: ICnChar): void {
     _ = cnchar._;
     spellInfo.tones = _.tones.split('');
     spellInfo.initials = initialDict;

@@ -1,10 +1,10 @@
-import {CnCharInterface, ToneType} from '.';
+import {ICnChar, ToneType} from '.';
 
 export declare interface Json<T = any> {
     [prop: string]: T
 }
 
-export declare interface spellInfoReturnInterface {
+export declare interface ISpellInfoReturn {
     spell: string;
     initial: string;
     final: string;
@@ -12,8 +12,8 @@ export declare interface spellInfoReturnInterface {
     index: number;
 }
 
-export declare interface SpellInfoInterface extends Function {
-    (spell: string): spellInfoReturnInterface;
+export declare interface ISpellInfo extends Function {
+    (spell: string): ISpellInfoReturn;
     tones: Array<string>,
     initials: Array<string>
 }
@@ -26,13 +26,20 @@ export declare interface ITransformReturn {
 }
 
 export declare interface IPlugin {
-    (cnchar: CnCharInterface): void;
-    init?(cnchar: CnCharInterface): void;
+    (cnchar: ICnChar): void;
+    init?(cnchar: ICnChar): void;
 }
-
+export declare interface ConvertInterface {
+    simpleToSpark(sentence: string): string;
+    simpleToTrad(sentence: string): string;
+    sparkToSimple(sentence: string): string;
+    sparkToTrad(sentence: string): string;
+    tradToSimple(sentence: string): string;
+    tradToSpark(sentence: string): string;
+}
 declare global {
     interface Window {
-        cnchar: CnCharInterface,
-        CnChar: CnCharInterface,
+        cnchar: ICnChar,
+        CnChar: ICnChar,
     }
 }

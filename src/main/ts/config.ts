@@ -5,6 +5,7 @@ import infoDict from './dict/info-dict.json';
 import {mapJson} from './util';
 import {transformTone, spell, arg, shapeSpell, stroke} from './tool';
 import {Json, ITransformReturn} from './types/common';
+import {ISetIntoJson} from './types/tool';
 
 const strokeDict = originStrokeDict as Json<string>;
 // 设置多音字默认拼音
@@ -16,24 +17,18 @@ export function setSpellDefault (word: string | Json<string>, spell?: string): v
         isSpell: true
     });
 }
-
-export function setIntoJson ({
+export const setIntoJson: ISetIntoJson = ({
     target,
     key,
     value,
-    isSpell = false
-} : {
-    target: Json<string>,
-    key: string | Json<string>,
-    value?: string,
-    isSpell: boolean
-}): void {
+    isSpell = false,
+}): void => {
     mapJson(key, value, (k, v) => {
         if (k && v) {
             target[k] = isSpell ? shapeSpell(v) : v;
         }
     });
-}
+};
 
 function setIntoSpellBase (
     dict: Json<string>,

@@ -1,9 +1,9 @@
-import {CnCharInterface} from './types';
+import {ICnChar} from './types';
 
-let _cnchar: CnCharInterface;
+let _cnchar: ICnChar;
 const toneCodes: Array<number> = [];
  
-export function initToneCodes (__cnchar: CnCharInterface): void {
+export function initToneCodes (__cnchar: ICnChar): void {
     _cnchar = __cnchar;
     'aoeiuvn'.split('').forEach(item => {
         const code = item.charCodeAt(0);

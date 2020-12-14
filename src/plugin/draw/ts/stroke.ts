@@ -1,8 +1,10 @@
-const HanziWriter = require('./hanzi-writer');
+import HanziWriter from './hanzi-writer';
+import {Writer} from './writer';
+import {ICloneSvg, IDrawOption} from './types/common';
 
-function stroke (writer, cloneSvg) {
+export function stroke (writer: Writer, cloneSvg: ICloneSvg): void {
     writer.text.forEach((s) => {
-        const target = document.createElement('div');
+        const target: HTMLElement = document.createElement('div');
         writer.el.appendChild(target);
         HanziWriter.loadCharacterData(s).then(function (charData) {
             for (var i = 0; i < charData.strokes.length; i++) {
@@ -21,13 +23,29 @@ function stroke (writer, cloneSvg) {
 }
 
 
-function renderFanningStrokes ({option, target, strokes, radStrokes, cloneSvg, current, width}) {
+function renderFanningStrokes ({
+    option,
+    target,
+    strokes,
+    radStrokes,
+    cloneSvg,
+    current,
+    width
+}: {
+    option: IDrawOption;
+    target: HTMLElement,
+    strokes: Array<string>;
+    radStrokes: Array<number>;
+    cloneSvg: ICloneSvg,
+    current: number;
+    width: number;
+}): void {
     const radicalColor = (radStrokes.length > 0 && option.radicalColor) ? option.radicalColor : null;
-    var svg = cloneSvg(option);
+    const svg = cloneSvg(option);
     target.appendChild(svg);
-    var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    const group: SVGGElement = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   
-    var transformData = HanziWriter.getScalingTransform(width, width, option.padding);
+    const transformData = HanziWriter.getScalingTransform(width, width, option.padding);
     group.setAttributeNS(null, 'transform', transformData.transform);
     svg.appendChild(group);
     for (let i = 0; i <= current; i++) {
@@ -46,12 +64,10 @@ function renderFanningStrokes ({option, target, strokes, radStrokes, cloneSvg, c
     }
 }
 
-function renderPath (strokePath, group, color) {
-    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+function renderPath (strokePath: string, group: SVGGElement, color: string): void {
+    const path: SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttributeNS(null, 'd', strokePath);
     // style the character paths
     path.style.fill = color;
     group.appendChild(path);
 }
-
-module.exports = {stroke};

@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
+import {IBuildLineStr} from './types/common';
 
-function buildLinesStr ({
+export function buildLinesStr ({
     width,
     lineStraight,
     lineCross,
@@ -11,7 +11,10 @@ function buildLinesStr ({
     borderWidth,
     borderColor,
     borderDash,
-}) {
+}: IBuildLineStr): {
+    lineHTML: string,
+    border: string
+} {
     let str = '';
     let attr = '';
     if (lineDash) {
@@ -35,5 +38,3 @@ function buildLinesStr ({
     }
     return {lineHTML: str, border: _border};
 }
-
-module.exports = {buildLinesStr};

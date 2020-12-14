@@ -1,10 +1,9 @@
-
-function isCnChar (word) {
+export function isCnChar (word: string): boolean {
     const unicode = word.charCodeAt(0);
     return unicode >= 19968 && unicode <= 40869;
 }
 
-function pickCnChar (text) {
+export function pickCnChar (text: string): string {
     let v = '';
     for (let i = 0; i < text.length; i++) {
         if (isCnChar(text[i])) {
@@ -13,7 +12,3 @@ function pickCnChar (text) {
     }
     return v;
 }
-
-module.exports = {
-    isCnChar, pickCnChar
-};

@@ -1,8 +1,9 @@
-import cnchar from '../src/main/index';
+// import cnchar from '../src/main/index';
+import cnchar from '../src/main/ts/index';
 import '../src/plugin/order';
 import '../src/plugin/trad';
 import '../src/plugin/poly';
-import '../src/plugin/draw';
+import '../src/plugin/draw/ts';
 import '../src/plugin/idiom';
 import '../src/plugin/xhy';
 import '../src/plugin/radical';

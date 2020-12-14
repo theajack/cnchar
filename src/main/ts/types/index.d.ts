@@ -1,13 +1,4 @@
-import './extend';
-import {has, _throw, _warn, isCnChar, mapJson} from '../util';
-import {
-    arg, removeTone, tones, checkArgs, transformTone,
-    sumStroke, dealUpLowFirst
-} from '../tool';
-import {ConvertInterface} from '../../../plugin/trad/index';
-import {Json} from './common';
-import {setIntoJson} from '../config';
-
+import {ICncharTool} from './tool';
 
 export declare type SpellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad';
 export declare type StrokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
@@ -26,34 +17,12 @@ export declare type ToneType = 0 | 1 | 2 | 3 | 4;
 export declare type CompareType = 'more' | 'less' | 'even' | 'error';
 
 
-export declare interface spellInfoReturnInterface {
+export declare interface ISpellInfoReturn {
     spell: string;
     initial: string;
     final: string;
     tone: number;
     index: number;
-}
-
-export declare interface CncharToolInterface {
-    arg: typeof arg,
-    has: typeof has,
-    _throw: typeof _throw,
-    tones: typeof tones,
-    setIntoJson: typeof setIntoJson,
-    _warn: typeof _warn,
-    dealUpLowFirst: typeof dealUpLowFirst,
-    removeTone: typeof removeTone,
-    sumStroke: typeof sumStroke,
-    isCnChar: typeof isCnChar,
-    checkArgs: typeof checkArgs,
-    transformTone: typeof transformTone,
-    convert?: ConvertInterface, //
-    dict: {
-        getTradOrders?(): Json<string>;
-        getTradCount?(): Json<string>;
-    },
-    mapJson: typeof mapJson,
-    poly?: boolean,
 }
 
 export declare type TypeProp = 'spell' | 'stroke' | 'spellToWord' | 'strokeToWord' | 'orderToWord' | 'idiom' | 'xhy' | 'radical';
@@ -62,15 +31,16 @@ export declare type TypeValueObject = {
     [prop in AllArgs]?: AllArgs;
 };
 
-export declare interface CnCharInterface {
-    [x: string]: any;
-    spell(sentence: string, ...args: Array<SpellArg>): string | Array<any>;
-    stroke(sentence: string, ...args: Array<StrokeArg>): number | Array<any>;
+declare interface ISpell {(sentence: string, ...args: Array<SpellArg>): string | Array<any>;}
+declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number | Array<any>;}
+export declare interface ICnChar {
+    spell: ISpell;
+    stroke: IStroke;
     use(...plugins: Array<Function>): void;
     spellToWord(spell: string, ...args: Array<SpellToWordArg>): string | Array<string>;
     strokeToWord(stroke: number, ...args: Array<StrokeToWordArg>): string | Array<string>;
     spellInfo: {
-        (spell: string): spellInfoReturnInterface;
+        (spell: string): ISpellInfoReturn;
         tones: Array<string>;
         initials: Array<string>;
     };
@@ -101,9 +71,13 @@ export declare interface CnCharInterface {
     setStrokeCount(json: {[key: string]: number}): void;
     shapeSpell(spell: string): string;
 
-    _: CncharToolInterface;
+    _: ICncharTool;
+    _origin: {
+        spell: ISpell;
+        stroke: IStroke;
+    };
 }
 
-declare const cnchar: CnCharInterface;
+declare const cnchar: ICnChar;
 
 export default cnchar;

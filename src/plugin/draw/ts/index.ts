@@ -1,9 +1,11 @@
 // powerd by hanzi-writer v2.2.2
-require('./promise-polyfill');
-const draw = require('./writer');
+import {ICnChar} from 'cnchar/types';
+import './promise-polyfill';
+import {IDraw} from './types/common';
+import draw from './writer';
 
 
-function main (cnchar) {
+export default function main (cnchar: ICnChar & {draw?: IDraw}): void {
     if (cnchar.plugins.indexOf('draw') !== -1) {
         return;
     }
@@ -11,7 +13,7 @@ function main (cnchar) {
     cnchar.draw = draw;
 }
 
-function init (cnchar) {
+function init (cnchar?: ICnChar): void {
     if (typeof window === 'object') {
         window.CncharDraw = draw;
     }
@@ -25,5 +27,3 @@ function init (cnchar) {
 draw.init = init;
 
 init();
-
-module.exports = draw;

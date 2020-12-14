@@ -9,7 +9,7 @@ import {setSpellDefault, setIntoJson, setSpell, setStrokeCount} from './config';
 import {initSpellToWord, spellToWord, spellInfo} from './spellToWord';
 import {initStrokeToWord, strokeToWord} from './strokeToWord';
 import {compareSpell, sortSpell, compareStroke, sortStroke, initSort} from './sort';
-import {CnCharInterface, SpellArg, StrokeArg} from './types';
+import {ICnChar, SpellArg, StrokeArg} from './types';
 import {IPlugin} from './types/common';
 
 function _spell (...args: Array<string>): string | Array<string> {
@@ -28,7 +28,7 @@ function initStrProto () {
     };
 }
 
-const cnchar: CnCharInterface = {
+const cnchar: ICnChar = {
     version,
     spell: _spell,
     stroke: _stroke,

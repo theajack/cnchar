@@ -1,7 +1,7 @@
 import {initToneCodes, getCharCode} from './compareSpell';
-import {CnCharInterface, CompareType, SortSpellArg} from './types';
+import {ICnChar, CompareType, SortSpellArg, SpellArg} from './types';
 
-let _cnchar: CnCharInterface;
+let _cnchar: ICnChar;
 
 const arg:{
     [prop in SortSpellArg]: SortSpellArg
@@ -10,7 +10,7 @@ const arg:{
     'desc': 'desc',
 };
 
-export function initSort (__cnchar: CnCharInterface) {
+export function initSort (__cnchar: ICnChar) {
     _cnchar = __cnchar;
     initToneCodes(__cnchar);
 }
@@ -25,7 +25,7 @@ const TYPE:{
 };
 
 function pretreat (spell: string, tone: boolean): string {
-    const arr: Array<spellArg> = ['low'];
+    const arr: Array<SpellArg> = ['low'];
     if (tone) {arr.push('tone');}
     if (_cnchar.isCnChar(spell)) {
         return _cnchar.spell(spell, ...arr) as string;

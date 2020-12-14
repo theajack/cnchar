@@ -1,12 +1,13 @@
 import dict from './dict/stroke-count-jian.json';
 import {Json} from './types/common';
-import {CnCharInterface, CncharToolInterface, StrokeToWordArg, TypeValueObject} from './types/index';
+import {ICnChar, StrokeToWordArg, TypeValueObject} from './types/index';
+import {ICncharTool} from './types/tool';
 const arg: {
     [prop in StrokeToWordArg]: StrokeToWordArg
 } = {simple: 'simple', trad: 'trad', array: 'array'};
-let _: CncharToolInterface;// 工具方法
+let _: ICncharTool;// 工具方法
 
-export function initStrokeToWord (cnchar: CnCharInterface): void {
+export function initStrokeToWord (cnchar: ICnChar): void {
     cnchar.strokeToWord = strokeToWord;
     cnchar.type.strokeToWord = arg as TypeValueObject;
     _ = cnchar._;

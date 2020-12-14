@@ -1,17 +1,17 @@
 import {spellInfo} from './spellToWord';
 import {_warn, isCnChar, has} from './util';
 import defultDict from './dict/spell-default.json';
-import {AllArgs, CnCharInterface, TypeProp, ToneType, SpellArg, StrokeArg, TypeValueObject} from './types/index';
+import {AllArgs, ICnChar, TypeProp, ToneType, SpellArg, StrokeArg, TypeValueObject} from './types/index';
 import {Json, ITransformReturn} from './types/common';
+import {TSpellArg, IDealUpLowFirst, IRemoveTone, IFunc, ICheckArgs, ITransformTone} from './types/tool';
 
 const defDict = defultDict as Json<string>;
 
 export const tones: string = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
+
 const noTones: string = 'aoeiuün';
 
-export const arg: {
-    [prop in SpellArg]: SpellArg
-} = {
+export const arg: TSpellArg = {
     array: 'array',
     low: 'low',
     up: 'up',
@@ -22,8 +22,8 @@ export const arg: {
     trad: 'trad',
 };
 
-let _cnchar: CnCharInterface;
-export function initCnchar (cnchar: CnCharInterface): void {
+let _cnchar: ICnChar;
+export function initCnchar (cnchar: ICnChar): void {
     _cnchar = cnchar;
 }
 
@@ -95,10 +95,10 @@ export function spell (dict: Json<string>, originArgs: Array<string>): string | 
     return result;
 }
 
-export function dealUpLowFirst (
+export const dealUpLowFirst: IDealUpLowFirst = (
     res: Array<Array<string>> | Array<string>,
     args: Array<SpellArg>
-): void {
+): void => {
     if (_cnchar._.poly) {
         dealResCase(res, low);
         // 当启用了 多音词时 需要强制默认小写
@@ -112,7 +112,7 @@ export function dealUpLowFirst (
     } else if (!has(args, arg.low)) {
         dealResCase(res, upFirst);
     }
-}
+};
 
 function dealResCase (
     res: Array<Array<string>> | Array<string>,
@@ -175,9 +175,9 @@ function getSpell (
 
 // tone=false : 根据有音调的拼音获得无音调的拼音和音调
 // tone=true : 返回原拼音
-export function removeTone (spell: string, tone: boolean): {
+export const removeTone: IRemoveTone = (spell: string, tone: boolean): {
     spell: string, tone?: ToneType, index?: number
-} {
+} => {
     if (tone) {
         return {spell};
     }
@@ -192,7 +192,7 @@ export function removeTone (spell: string, tone: boolean): {
         }
     }
     return {spell, tone: 0, index: -1};
-}
+};
 
 function setTone (spell: string, index: number, tone: ToneType): string {
     if (tone === 0) { // 轻声
@@ -233,13 +233,13 @@ export function stroke (
     }
     return strokes;
 }
-export function sumStroke (strs: Array<number>): number {
+export const sumStroke: IFunc<number, Array<number>> = (strs: Array<number>): number => {
     let sum: number = 0;
     strs.forEach(function (c) {
         sum += c;
     });
     return sum;
-}
+};
 
 // spell 所有参数 ["array", "low", "up", "first", "poly", "tone", "simple"]
 //  simple 禁用繁体字
@@ -247,11 +247,11 @@ export function sumStroke (strs: Array<number>): number {
 // stroke 所有参数 ["letter", "shape", "count", "name", "detail", "array", "order", "simple"]
 //
 let _hasCheck: boolean = false;
-export function checkArgs (
+export const checkArgs: ICheckArgs = (
     type: TypeProp,
     args: Array<AllArgs>,
     jumpNext?: boolean
-): void {
+): void => {
     if (!_cnchar.check) {
         return;
     }
@@ -337,7 +337,7 @@ export function checkArgs (
     warnArgs(useless, '无效', type, args);
     warnArgs(ignore, '被忽略', type, args);
     warnArgs(redunt, '冗余', type, args);
-}
+};
 function warnArgs (
     arr: Array<AllArgs>,
     txt: string,
@@ -366,11 +366,11 @@ export function shapeSpell (spell: string): string {
 // lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
 // lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
 // needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
-export function transformTone (
+export const transformTone: ITransformTone = (
     spell: string,
     needTone: boolean = false,
     type: 'low' | 'up' = 'low'
-): ITransformReturn {
+): ITransformReturn => {
     if (spell.indexOf('v') !== -1) {
         spell = spell.replace('v', 'ü');
     }
@@ -402,4 +402,4 @@ export function transformTone (
         spell = spell.toUpperCase();
     }
     return {spell, tone, index, isTrans};
-}
+};

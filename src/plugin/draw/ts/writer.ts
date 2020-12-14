@@ -1,8 +1,21 @@
-const HanziWriter = require('./hanzi-writer');
-const {TYPE, merge, TEST_STATUS} = require('./default-option');
-const {pickCnChar} = require('./util');
-const {buildLinesStr} = require('./line');
-const {stroke} = require('./stroke');
+import HanziWriter from './hanzi-writer';
+import {TYPE, merge, TEST_STATUS} from './default-option';
+import {pickCnChar} from './util';
+import {buildLinesStr} from './line';
+import {stroke} from './stroke';
+import {IWriter, IWriterOption} from './types/index';
+import {
+    TDrawType,
+    IDrawOption,
+    IDrawStyleOption,
+    IDrawAnimationOption,
+    IDrawLineOption,
+    IDrawTestOption,
+    IDrawStrokeOption,
+    IBuildLineStr,
+    ICloneSvg,
+    IDraw
+} from './types/common';
 
 const document = (typeof window === 'object') ? (window.document || null) : null;
 
@@ -13,7 +26,13 @@ const svg = (() => {
     return document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 })();
 
-class Writer {
+export class Writer implements IWriter {
+    option: IDrawOption;
+    el: HTMLElement;
+    type: TDrawType;
+    text: Array<string>;
+    writers: Array<HanziWriter>;
+    animateStart: () => void;
     constructor ({
         el = 'cnchar-draw',
         text = '',
@@ -24,18 +43,28 @@ class Writer {
         animation = {},
         stroke = {},
         test = {},
-    }) {
+    }: IWriterOption) {
         this.type = type;
         this.writers = [];
         this.text = text.split('');
-        const opts = {style, line};
+        const opts: {
+            style: IDrawStyleOption;
+            line: IDrawLineOption;
+            animation?: IDrawAnimationOption;
+            test?: IDrawTestOption;
+            stroke?: IDrawStrokeOption;
+        } = {style, line};
         switch (type) {
             case TYPE.ANIMATION: opts.animation = animation; break;
             case TYPE.STROKE: opts.stroke = stroke; break;
             case TYPE.TEST: opts.test = test; break;
         }
         this.option = merge(type, opts);
-        this.el = typeof el === 'string' ? document.querySelector(el) : el;
+        if (typeof el === 'string') {
+            this.el = document.querySelector(el) || document.body;
+        } else {
+            this.el = el;
+        }
         if (this.el && clear) {
             this.el.innerHTML = '';
         }
@@ -45,12 +74,12 @@ class Writer {
         }
         this.init();
     }
-    init () {
-        const {lineHTML, border} = buildLinesStr(this.option);
-        const cloneSvg = (option) => {
-            const node = svg.cloneNode();
-            node.setAttribute('width', this.option.width);
-            node.setAttribute('height', this.option.height);
+    init (): void {
+        const {lineHTML, border} = buildLinesStr(this.option as IBuildLineStr);
+        const cloneSvg: ICloneSvg = (option: IDrawOption) => {
+            const node = svg.cloneNode() as HTMLElement;
+            node.setAttribute('width', this.option.width.toString());
+            node.setAttribute('height', this.option.height.toString());
             if (border) {
                 node.style.border = border;
             }
@@ -93,10 +122,10 @@ class Writer {
                     this.el.addEventListener('click', start, false);
                 }
             } else if (this.type === TYPE.TEST) {
-                let opt = () => {return {};};
+                let opt: Function;
                 const fn = this.option.onTestStatus;
                 if (typeof fn === 'function') {
-                    opt = (index) => {
+                    opt = (index: number) => {
                         return {
                             onMistake (strokeData) {
                                 fn({index, status: TEST_STATUS.MISTAKE, data: strokeData});
@@ -109,6 +138,8 @@ class Writer {
                             }
                         };
                     };
+                } else {
+                    opt = () => {return {};};
                 }
                 this.writers.forEach((writer, index) => {
                     writer.quiz(opt(index));
@@ -116,7 +147,7 @@ class Writer {
             }
         }
     }
-    animate (complete) {
+    animate (complete: Function) {
         const opt = this.option;
         if (opt.stepByStep) { // 汉字之间连续绘制
             if (opt.showCharacter === false) {
@@ -147,18 +178,18 @@ class Writer {
         });
     }
     // animate单个汉字
-    _animateSingle (i, complete) {
-        if (i >= this.writers.length) {
+    _animateSingle (index: number, complete: Function): void {
+        if (index >= this.writers.length) {
             complete(true);
             return;
         }
-        this.writers[i].animateCharacter({
+        this.writers[index].animateCharacter({
             onComplete: () => {
                 complete(false);
             }
         });
     }
-    _animateStep (index, complete) {
+    _animateStep (index: number, complete: Function): void {
         this._animateSingle(index, (end) => {
             if (!end) {
                 setTimeout(() => {
@@ -171,8 +202,7 @@ class Writer {
     }
 }
 
-// eslint-disable-next-line no-unused-vars
-function draw (text = '', options = {}) {
+const draw: IDraw = (text: string = '', options: IDrawOption = {}): IWriter => {
     if (typeof window === 'undefined') {
         console.error('Draw 方法仅支持在浏览器环境下使用');
         return null;
@@ -184,7 +214,9 @@ function draw (text = '', options = {}) {
     options.text = text;
     return new Writer(options);
 };
+
 draw.TYPE = TYPE;
 draw.TEST_STATUS = TEST_STATUS;
+draw.init = null;
 
-module.exports = draw;
+export default draw;

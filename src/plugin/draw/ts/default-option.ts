@@ -1,18 +1,20 @@
+import {IDrawOption, IDrawClassOption, TDrawType, TTestStatusType} from './types/common';
+import {Json} from 'cnchar/types/common';
 
-export const TYPE = {
+export const TYPE: Json<TDrawType> = {
     NORMAL: 'normal',
     ANIMATION: 'animation',
     STROKE: 'stroke',
     TEST: 'test'
 };
 
-export const TEST_STATUS = {
+export const TEST_STATUS: Json<TTestStatusType> = {
     MISTAKE: 'mistake',
     CORRECT: 'correct',
     COMPLETE: 'complete'
 };
 
-const DrawOption = {
+export const DrawOption: IDrawOption = {
     showOutline: true,
     showCharacter: true,
     currentColor: '#b44',
@@ -64,9 +66,8 @@ function isUd (v: any): boolean {
     return typeof v === 'undefined';
 }
 
-// 使用npm link配置本地开发目录
-export function merge (type, args) {
-    const json = {};
+export function merge (type: TDrawType, args: IDrawClassOption): IDrawOption {
+    const json: IDrawOption = {};
     for (const key in args) {
         const arg = args[key];
         for (const k in arg) {
@@ -83,7 +84,7 @@ export function merge (type, args) {
     return json;
 }
 
-function checkTypeDefault (type, args, json) {
+function checkTypeDefault (type: IDrawOption, args: IDrawClassOption, json: IDrawOption): void {
     if (type === TYPE.ANIMATION) {
         if (!args.animation || isUd(args.animation.showCharacter)) {
             json.showCharacter = false;
@@ -93,7 +94,7 @@ function checkTypeDefault (type, args, json) {
     }
 }
 
-function check (json, attrs) {
+function check (json: IDrawOption, attrs?: Array<string>): IDrawOption {
     attrs = attrs || Object.keys(DrawOption);
     attrs.forEach(attr => {
         if (isUd(json[attr])) {

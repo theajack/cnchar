@@ -67,6 +67,7 @@ function merge (type, args) {
     const json = {};
     for (const key in args) {
         const arg = args[key];
+        debugger;
         for (const k in arg) {
             if (!isUd(arg[k])) {
                 json[k] = arg[k];

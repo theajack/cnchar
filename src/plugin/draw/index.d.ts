@@ -32,15 +32,15 @@ declare interface DrawOption {
     clear?: boolean; // 绘制前是否清空容器 默认为true
     style?: { // 样式类
         backgroundColor?: string, // 默认为#fff
-        showOutline?: boolean;//: true,
-        showCharacter?: boolean;//: true,
-        currentColor?: string;//: '#b44', // 仅在stroke模式下有效
-        length?: number;//: 60,
-        padding?: number;//: 5, // 数值, 默认 20。 画布的汉字和边缘之间的填充
-        outlineColor?: string;//: '#ddd', // 十六进制字符, 默认 '#DDD'。
-        strokeColor?: string;//: '#555', // 十六进制字符, 默认 '#555'。绘制每个笔划的颜色。
-        radicalColor?: string;//: null, // 十六进制字符, 默认 null。 如果存在偏旁部首数据，则在笔划中绘制偏旁部首的颜色。 如果没有设置，激光将绘制与其他笔划相同的颜色。
-        strokeFadeDuration?: number; //400
+        showOutline?: boolean;// : true,
+        showCharacter?: boolean;// : true,
+        currentColor?: string;// : '#b44', // 仅在stroke模式下有效
+        length?: number;// : 60,
+        padding?: number;// : 5, // 数值, 默认 20。 画布的汉字和边缘之间的填充
+        outlineColor?: string;// : '#ddd', // 十六进制字符, 默认 '#DDD'。
+        strokeColor?: string;// : '#555', // 十六进制字符, 默认 '#555'。绘制每个笔划的颜色。
+        radicalColor?: string;// : null, // 十六进制字符, 默认 null。 如果存在偏旁部首数据，则在笔划中绘制偏旁部首的颜色。 如果没有设置，激光将绘制与其他笔划相同的颜色。
+        strokeFadeDuration?: number; // 400
     },
     line?: { // 背景线条类
         lineStraight?: boolean;// : true,
