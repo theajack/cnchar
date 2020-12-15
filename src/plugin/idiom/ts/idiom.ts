@@ -4,16 +4,16 @@
  * 拼音 ['shi', '']
  */
 // 小程序中json直接放一个数组会有异常，所以包一个key
-const dict = require('./idiom.json').idiom;
-// const {initToneCodes, getCharCode} = require('./tone');
+import {ICnChar, IdomArg} from 'cnchar/types/index';
+import {idiom as dict} from './dict/idiom.json';
 
-const spellDict = require('./spell.json').spell;
-const spellNoToneDict = require('./spell.notone.json').spell;
+import {spell as spellDict} from './dict/spell.json';
+import {spell as spellNoToneDict} from './dict/spell.notone.json';
+import {IIdiom, TIdiomArg, TIdiomInput} from './types/common';
 
-let _cnchar = null;
+let _cnchar: ICnChar;
 
-
-const arg = {
+export const arg: TIdiomArg = {
     char: 'char',
     stroke: 'stroke',
     spell: 'spell',
@@ -22,13 +22,11 @@ const arg = {
 
 // spell > stroke > char
 // spell 和 stroke 仅在 引入cnchar之后才可用
-function idiom (...args) {
-    if (args.length === 0) {
+export const idiom: IIdiom = (input: TIdiomInput, ...args: Array<IdomArg>): Array<string> | void => {
+    if (!input) {
         console.warn('idiom: 请输入搜索项');
         return;
     }
-    const input = args[0];
-    args = args.slice(1);
     if (args.indexOf(arg.spell) !== -1 && typeof input !== 'string') {
         console.warn('idiom spell 模式下仅支持查询首个汉字的拼音');
         return;
@@ -41,34 +39,32 @@ function idiom (...args) {
     if (!_cnchar) { // 单独使用的idiom 只支持汉字查询方式
         checkArg(args, arg.stroke);
         checkArg(args, arg.spell);
-        res = idiomWithChar(input);
+        res = idiomWithChar(input as string[]);
     } else {
         _cnchar._.checkArgs('idiom', args);
         if (_cnchar._.has(args, arg.spell)) {
-            debugger;
-            res = idiomWithSpell(input, _cnchar._.has(args, arg.tone));
+            res = idiomWithSpell(input as string, _cnchar._.has(args, arg.tone));
         } else if (_cnchar._.has(args, arg.stroke)) {
-            res = idiomWithStroke(input);
+            res = idiomWithStroke(input as number | number[]);
         } else {
-            res = idiomWithChar(input);
+            res = idiomWithChar(input as string[]);
         }
     }
     return res;
-}
+};
 
-function idiomWithChar (input) {
+function idiomWithChar (input: string[]): Array<string> {
     return dict.filter((item) => {
         return compareCommon(input, item.split(''));
     });
 }
 // needTone：是否需要匹配音调
-function idiomWithSpell (input, tone) {
+function idiomWithSpell (input: string, tone: boolean): Array<string> {
     // console.log(input, tone);
     const total = dict.length;
     const _dict = tone ? spellDict : spellNoToneDict;
 
     if (tone) {
-        debugger;
         input = _cnchar._.transformTone(input, true).spell;
     }
 
@@ -80,12 +76,12 @@ function idiomWithSpell (input, tone) {
         return [];
     }
 
-    let res = [];
+    let res: Array<string> = [];
     const n = _dict.length - 1;
     filter.forEach(item => {
         const index = _dict.indexOf(item);
-        const curDIndex = item.split(':')[1];
-        const nextDIndex = index === n ? total : _dict[index + 1].split(':')[1];
+        const curDIndex = parseInt(item.split(':')[1]);
+        const nextDIndex = index === n ? total : parseInt(_dict[index + 1].split(':')[1]);
         res = res.concat(dict.slice(curDIndex, nextDIndex));
     });
 
@@ -164,14 +160,14 @@ function idiomWithSpell (input, tone) {
 //     }
 // }
 
-function idiomWithStroke (input) {
+function idiomWithStroke (input: number | number[]): Array<string> {
     if (typeof input === 'number') { // 总笔画数为多少
         return dict.filter((item) => {
             return input === _cnchar.stroke(item);
         });
     }
     return dict.filter((item) => {
-        return compareCommon(input, _cnchar.stroke(item, 'array'));
+        return compareCommon(input as number[], _cnchar.stroke(item, 'array') as number[]);
     });
 }
 /**
@@ -182,7 +178,7 @@ function idiomWithStroke (input) {
 //
 //
 //
-function compareCommon (input, target) {
+function compareCommon (input: Array<string | number>, target: Array<string | number>): boolean {
     for (let i = 0; i < input.length; i++) {
         if (input[i] && input[i] !== target[i] ) {
             return false;
@@ -191,15 +187,13 @@ function compareCommon (input, target) {
     return true;
 }
 
-function checkArg (args, name) {
+function checkArg (args: IdomArg[], name: IdomArg): void {
     if (args.indexOf(name) !== -1) {
         console.warn(`未引入cnchar,idiom不支持${name}参数`);
     }
 }
 
-function setCnchar (cnchar) {
+export function setCnchar (cnchar: ICnChar): void {
     _cnchar = cnchar;
     // initToneCodes(cnchar);
 }
-
-module.exports = {idiom, arg, setCnchar};

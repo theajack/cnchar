@@ -4,7 +4,7 @@ import '../src/plugin/order';
 import '../src/plugin/trad';
 import '../src/plugin/poly';
 import '../src/plugin/draw/ts';
-import '../src/plugin/idiom';
+import '../src/plugin/idiom/ts';
 import '../src/plugin/xhy';
 import '../src/plugin/radical';
 
@@ -40,7 +40,10 @@ console.log(cnchar.spellToWord('lv2'));
 console.log(cnchar.spellInfo('lǘ'));
 console.log(cnchar.strokeToWord(1));
 console.log('美好的地方'.spell('tone'));
-
+// 根据汉字查询成语，末尾的空格可以省略
+console.log(cnchar.idiom(['五', '', '十', ''])); // ['五风十雨', '五光十色']
+// 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
+console.log(cnchar.idiom([4, 6, 2, 0], 'stroke')); // ["不当人子", ... ]
 
 // window.keys = Object.keys(spell);
 
@@ -65,25 +68,25 @@ console.log('美好的地方'.spell('tone'));
 //         }
 //     }
 // });
-cnchar.draw('中国', {
-    type: cnchar.draw.TYPE.TEST,
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#eee',
-        length: 100,
+// cnchar.draw('中国', {
+//     type: cnchar.draw.TYPE.TEST,
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#eee',
+//         length: 100,
                 
-    },
-});
+//     },
+// });
 
-cnchar.draw('你好', {
-    type: cnchar.draw.TYPE.ANIMATION,
-    style: {
-        radicalColor: '#44f',
-        backgroundColor: '#eee',
-        length: 120,
+// cnchar.draw('你好', {
+//     type: cnchar.draw.TYPE.ANIMATION,
+//     style: {
+//         radicalColor: '#44f',
+//         backgroundColor: '#eee',
+//         length: 120,
             
-    },
-});
+//     },
+// });
 
 window.cnchar = cnchar;
 

@@ -5,7 +5,7 @@ export declare type StrokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail'
 export declare type SpellToWordArg = 'poly' | 'alltone' | 'array' | 'simple' | 'trad';
 export declare type StrokeToWordArg = 'array' | 'simple' | 'trad';
 declare type OrderToWordArg = 'match'  | 'matchorder' | 'contain' | 'start' | 'array' | 'simple' | 'trad';
-declare type IdomArg = 'char' | 'stroke' | 'spell' | 'tone';
+export declare type IdomArg = 'char' | 'stroke' | 'spell' | 'tone';
 export declare type SortSpellArg = 'tone' | 'desc';
 
 export declare type AllArgs = SpellArg | StrokeArg
