@@ -1,19 +1,31 @@
-var orders = require('./stroke-order-jian.json');
-var strokeTable = require('./stroke-table.json');
-var initOrderToWord = require('./orderToWord.js');
+import {ICnChar, StrokeArg} from 'cnchar/types';
+import {ICncharTool} from 'cnchar/types/tool';
+import {orders, strokeTable} from './dict';
+import initOrderToWord from './orderToWord';
+import {ICnCharOrder, TOrderArg, TStrokeOrderReturn} from './types/common';
 
-let _ = {};// 工具方法
-const arg = {
-    letter: 'letter', shape: 'shape', count: 'count', name: 'name', detail: 'detail', array: 'array', order: 'order' // array 只是为了兼容 .stroke()
+
+let _: ICncharTool; // 工具方法
+
+const arg: TOrderArg = {
+    letter: 'letter',
+    shape: 'shape',
+    count: 'count',
+    name: 'name',
+    detail: 'detail',
+    array: 'array', // array 只是为了兼容 .stroke()
+    order: 'order',
+    simple: 'simple',
+    trad: 'trad'
 };
 
-function setOrder (key, value) {
+function setOrder (key: string | {[key: string]: string}, value?: string): void {
     _.mapJson(key, value, (k, v) => {
         orders[k] = v;
     });
 }
 
-function main (cnchar) {
+function main (cnchar: ICnChar & ICnCharOrder): void {
     if (cnchar.plugins.indexOf('order') !== -1) {
         return;
     }
@@ -22,15 +34,15 @@ function main (cnchar) {
     _ = cnchar._;
     
     cnchar.setOrder = setOrder;
-    const _new = function (...args) {
+    const _new = function (sentence: string, ...args: Array<StrokeArg>): number | Array<any> {
         if (_.has(args, arg.order)) { // 使用order
-            return _order(...args);
+            return _order(sentence, ...args);
         }
-        return _old(...args);
+        return _old(sentence, ...args);
     };
     cnchar.stroke = _new;
-    String.prototype.stroke = function (...args) {
-        return _new(this, ...args);
+    String.prototype.stroke = function (...args: Array<StrokeArg>): number | Array<any> {
+        return _new(this as string, ...args);
     };
     cnchar.type.stroke = arg;
     cnchar._.order = true;
@@ -42,7 +54,7 @@ function main (cnchar) {
     initOrderToWord(cnchar);
 }
 
-function init (cnchar) {
+export default function init (cnchar?: ICnChar): void {
     if (typeof window === 'object' && window.CnChar) {
         main(window.CnChar);
     } else if (typeof cnchar !== 'undefined') {
@@ -50,9 +62,8 @@ function init (cnchar) {
     }
 }
 
-function _order (...args) {
-    const strs = args[0].split(''); // 待处理的字符串数组
-    args = args.splice(1);
+function _order (str: string, ...args: Array<StrokeArg>): TStrokeOrderReturn[] {
+    const strs = str.split(''); // 待处理的字符串数组
     _.checkArgs('stroke', args);
     // 多音字参数参数将被忽略
     const res = [];
@@ -62,20 +73,29 @@ function _order (...args) {
     return orderWithLetters(res, strs, args);
 }
 // res:字母版笔画数组
-function orderWithLetters (res, strs, args, igList) {
+function orderWithLetters (
+    res: TStrokeOrderReturn[],
+    strs: string[],
+    args: Array<StrokeArg>,
+    igList: number[] = []
+): TStrokeOrderReturn[]  {
     igList = igList || [];
     if (_.has(args, arg.letter)) {
         return res;
     }
     for (var i = 0; i < res.length; i++) {
         if (igList.indexOf(i) === -1 && typeof res[i] === 'string') {
-            res[i] = getStrokeSingle(strs[i], res[i], args);
+            res[i] = getStrokeSingle(strs[i], res[i] as string, args);
         }
     }
     return res;
 }
 // bug CnChar.stroke('長城','order','count')
-function getStrokeSingle (str, order, args) {
+function getStrokeSingle (
+    str: string,
+    order: string,
+    args: Array<StrokeArg>,
+): TStrokeOrderReturn {
     if (typeof order === 'undefined') {
         return str;
     }
@@ -110,5 +130,3 @@ function getStrokeSingle (str, order, args) {
 }
 
 init();
-
-module.exports = init;

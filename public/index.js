@@ -1,7 +1,7 @@
 // import cnchar from '../src/main/index';
 import cnchar from '../src/main/ts/index';
-import '../src/plugin/order';
-import '../src/plugin/trad';
+import '../src/plugin/order/ts';
+import '../src/plugin/trad/ts';
 import '../src/plugin/poly';
 import '../src/plugin/draw/ts';
 import '../src/plugin/idiom/ts';
@@ -44,6 +44,25 @@ console.log('美好的地方'.spell('tone'));
 console.log(cnchar.idiom(['五', '', '十', ''])); // ['五风十雨', '五光十色']
 // 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
 console.log(cnchar.idiom([4, 6, 2, 0], 'stroke')); // ["不当人子", ... ]
+
+
+console.log('一个人'.convertSimpleToTrad()); // 返回 "壹個人" 等价于 cnchar.convert.simpleToTrad
+console.log(cnchar.convert.simpleToTrad('一个人'));
+
+console.log('一个人'.convertSimpleToSpark()); // 返回 "①个亾" 等价于 cnchar.convert.simpleToSpark
+console.log(cnchar.convert.simpleToSpark('一个人'));
+
+console.log('壹個人'.convertTradToSimple()); // 返回 "一个人" 等价于 cnchar.convert.tradToSimple
+console.log(cnchar.convert.tradToSimple('壹個人'));
+
+console.log('壹個人'.convertTradToSpark()); // 返回 "①个亾" 等价于 cnchar.convert.tradToSpark
+console.log(cnchar.convert.tradToSpark('壹個人'));
+
+console.log('①个亾'.convertSparkToSimple()); // 返回 "一个人" 等价于 cnchar.convert.sparkToSimple
+console.log(cnchar.convert.sparkToSimple('①个亾'));
+
+console.log('①个亾'.convertSparkToTrad()); // 返回 "壹個人" 等价于 cnchar.convert.sparkToTrad
+console.log(cnchar.convert.sparkToTrad('①个亾'));
 
 // window.keys = Object.keys(spell);
 

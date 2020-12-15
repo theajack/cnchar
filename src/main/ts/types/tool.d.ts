@@ -73,5 +73,6 @@ export declare interface ICncharTool {
     };
     mapJson: IMapJson;
     poly?: boolean;
+    [prop: string]: any;
 }
 

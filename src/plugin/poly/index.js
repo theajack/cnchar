@@ -72,9 +72,9 @@ function main (cnchar) {
     };
     // cnchar.type.spell.origin = arg.origin;
     cnchar._.poly = true;
-    if (cnchar._reinitSpellPoly) {
-        cnchar._reinitSpellPoly();
-        delete cnchar._reinitSpellPoly;
+    if (cnchar._._reinitSpellPoly) {
+        cnchar._._reinitSpellPoly();
+        delete cnchar._._reinitSpellPoly;
     }
 }
 

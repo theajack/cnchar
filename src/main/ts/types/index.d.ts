@@ -4,13 +4,14 @@ export declare type SpellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone
 export declare type StrokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
 export declare type SpellToWordArg = 'poly' | 'alltone' | 'array' | 'simple' | 'trad';
 export declare type StrokeToWordArg = 'array' | 'simple' | 'trad';
-declare type OrderToWordArg = 'match'  | 'matchorder' | 'contain' | 'start' | 'array' | 'simple' | 'trad';
+export declare type OrderToWordArg = 'match'  | 'matchorder' | 'contain' | 'start' | 'array' | 'simple' | 'trad';
 export declare type IdomArg = 'char' | 'stroke' | 'spell' | 'tone';
 export declare type SortSpellArg = 'tone' | 'desc';
+export declare type TradArg = 'trad' | 'simple' | 'spark';
 
 export declare type AllArgs = SpellArg | StrokeArg
     | SpellToWordArg | StrokeToWordArg | OrderToWordArg
-    | IdomArg | SortSpellArg;
+    | IdomArg | SortSpellArg | TradArg;
 
 export declare type PluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy' | 'radical';
 export declare type ToneType = 0 | 1 | 2 | 3 | 4;
@@ -31,7 +32,7 @@ export declare type TypeValueObject = {
     [prop in AllArgs]?: AllArgs;
 };
 
-declare interface ISpell {(sentence: string, ...args: Array<SpellArg>): string | Array<any>;}
+export declare interface ISpell {(sentence: string, ...args: Array<SpellArg>): string | Array<any>;}
 declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number | Array<any>;}
 export declare interface ICnChar {
     spell: ISpell;
