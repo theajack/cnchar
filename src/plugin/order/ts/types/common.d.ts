@@ -43,7 +43,7 @@ export declare interface ICnCharOrder {
 }
 
 declare module 'cnchar' {
-    interface CnCharStatic {
+    interface ICnChar {
         setOrder: ISetOrder;
         orderToWord: IOrderToWord;
     }

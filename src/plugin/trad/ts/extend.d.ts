@@ -7,5 +7,4 @@ interface String {
     convertTradToSpark(): string;
     convertSparkToSimple(): string;
     convertSparkToTrad(): string;
-    spell: {(...args: Array<SpellArg>): string | Array<any>;}
 }
