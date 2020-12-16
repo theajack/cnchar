@@ -12,7 +12,6 @@ export declare interface IIdiom {
     init?(cnchar?: ICnChar): void;
 }
 
-
 declare global {
     interface Window {
         CncharIdiom: IIdiom,

@@ -1,4 +1,4 @@
-import {ICnChar, TradArg} from 'cnchar/types';
+import {ICnChar, TradArg, SpellArg} from 'cnchar/types';
 
 export declare type TTradAag = {
     [prop in TradArg]: TradArg;

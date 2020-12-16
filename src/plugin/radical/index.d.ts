@@ -1,17 +1,5 @@
-declare type radicalArg = 'array';
+import {IRadical} from './types/common';
 
-export declare interface Radical {
-    (text:string | Array<string>, ...radicalArgs: Array<radicalArg>): string | Array<string>;
-    setRadical(word: string, radical: string): void;
-    setRadical(json: {[key: string]: string}): void;
-}
-
-declare const radical: Radical;
-
-declare module 'cnchar' {
-    interface CnCharStatic {
-        radical: Radical;
-    }
-}
+declare const radical: IRadical;
 
 export default radical;

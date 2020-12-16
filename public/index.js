@@ -1,12 +1,12 @@
 // import cnchar from '../src/main/index';
-import cnchar from '../src/main/ts/index';
-import '../src/plugin/order/ts';
-import '../src/plugin/trad/ts';
-import '../src/plugin/poly/ts';
-import '../src/plugin/draw/ts';
-import '../src/plugin/idiom/ts';
-import '../src/plugin/xhy/ts';
-import '../src/plugin/radical/ts';
+import cnchar from '../src/main';
+import '../src/plugin/order';
+import '../src/plugin/trad';
+import '../src/plugin/poly';
+import '../src/plugin/draw';
+import '../src/plugin/idiom';
+import '../src/plugin/xhy';
+import '../src/plugin/radical';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';

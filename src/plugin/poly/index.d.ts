@@ -1,10 +1,6 @@
-declare const poly: Function;
 
-declare module 'cnchar' {
-    interface CnCharStatic {
-        setPolyPhrase(word: string, spell: string): void;
-        setPolyPhrase(json: {[key: string]: string}): void;
-    }
-}
+import {IInitPoly} from './types/common';
+
+declare const poly: IInitPoly;
 
 export default poly;

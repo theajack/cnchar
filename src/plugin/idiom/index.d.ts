@@ -1,15 +1,5 @@
-declare type idiomArg = 'char' | 'stroke' | 'spell' | 'tone';
+import {IIdiom} from './types/common';
 
-export declare interface Idiom {
-    (text:string | number | Array<string|number>, ...idiomArgs: Array<idiomArg>):Array<string>;
-}
-
-declare const idiom: Idiom;
-
-declare module 'cnchar' {
-    interface CnCharStatic {
-        idiom: Idiom;
-    }
-}
+declare const idiom: IIdiom;
 
 export default idiom;
