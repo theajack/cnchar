@@ -22,9 +22,13 @@ const path = require('path');
 // };
 module.exports = (env) => {
     const plugin = env.pluginname;
+    let dir = `plugin/${plugin}`;
+    if (plugin === 'all') {
+        dir = 'alias/cnchar-all';
+    }
     return {
         mode: 'production',
-        entry: path.resolve('./', 'src/plugin/' + plugin + '/index.ts'),
+        entry: path.resolve('./', `src/cnchar/${dir}/index.ts`),
         output: {
             path: path.resolve('./', 'npm/' + plugin),
             filename: 'cnchar.' + plugin + '.min.js',

@@ -1,4 +1,5 @@
 // import cnchar from '../src/main/index';
+
 import cnchar from '../src/cnchar/main';
 import '../src/cnchar/plugin/order';
 import '../src/cnchar/plugin/trad';
@@ -7,7 +8,6 @@ import '../src/cnchar/plugin/draw';
 import '../src/cnchar/plugin/idiom';
 import '../src/cnchar/plugin/xhy';
 import '../src/cnchar/plugin/radical';
-// import ICnChar from '../src/cnchar-types/all';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';
@@ -44,6 +44,7 @@ console.log(cnchar.spellInfo('lǘ'));
 console.log(cnchar.strokeToWord(1));
 console.log('美好的地方'.spell('tone'));
 // 根据汉字查询成语，末尾的空格可以省略
+window.CncharIdiom('aa');
 console.log(cnchar.idiom(['五', '', '十', ''])); // ['五风十雨', '五光十色']
 // 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
 console.log(cnchar.idiom([4, 6, 2, 0], 'stroke')); // ["不当人子", ... ]
@@ -67,7 +68,6 @@ console.log(cnchar.convert.sparkToSimple('①个亾'));
 console.log('①个亾'.convertSparkToTrad()); // 返回 "壹個人" 等价于 cnchar.convert.sparkToTrad
 console.log(cnchar.convert.sparkToTrad('①个亾'));
 
-
 cnchar.xhy.addXhy('歇后语第一句', '歇后语第二句');
 console.log(cnchar.xhy('歇后语第一句'));
 console.log(cnchar.xhy('大水冲了龙王庙')); // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人']
@@ -76,10 +76,10 @@ console.log(cnchar.xhy('大水', 'fuzzy', 'answer')); // ['泥沙俱下', '后�
 console.log(cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second')); // ['醉汉过铁索桥', '扶着醉汉过破桥']
 
 
-cnchar.radical.setRadical('你', '口');
-console.log(cnchar.radical('你好呀')); // "亻女口"
-// 返回数组
-console.log(cnchar.radical('你好呀', 'array')); // ["亻", "女", "口"]
+// cnchar.radical.setRadical('你', '口');
+// console.log(cnchar.radical('你好呀')); // "亻女口"
+// // 返回数组
+// console.log(cnchar.radical('你好呀', 'array')); // ["亻", "女", "口"]
 // window.keys = Object.keys(spell);
 
 // cncharDraw('你好', {

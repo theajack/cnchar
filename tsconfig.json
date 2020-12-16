@@ -24,8 +24,8 @@
         // }
     },
     "include": [
-        "./src/main/ts/*", "src/main/types/*"
-, "src/main/index.d.ts", "src/main/extend.d.ts"    ],
+        "./src/**/*"   
+    ],
     "exclude": [
         "./node_modules"
     ]
