@@ -2,7 +2,7 @@ const version = require('../package.json').version;
 
 const path = require('path');
 const tool = require('../helper/tool');
-tool.write('./src/main/version.ts', 'module.exports = \'' + version + '\';');
+tool.write('./src/main/version.ts', 'export default \'' + version + '\';');
 
 // module.exports = {
 //     entry: path.resolve('./', 'src/main/index.js'),

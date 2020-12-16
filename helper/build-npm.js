@@ -7,12 +7,14 @@ const version = require('../package.json').version;
 
 const plugins = ['order', 'poly', 'trad', 'draw', 'idiom', 'xhy', 'radical'];
 
+const alias = ['cnchar-all', 'hanzi-util', 'hanzi-util-base'];
+
+const depFiles = alias.map(alia => `../src/alias/${alia}/package.json`);
+
 const files = [
-    ...plugins.map(plugin => `../npm/${plugin}/package.json`),
-    '../npm/cnchar/package.json',
-    '../npm/all/package.json',
-    '../npm/hanzi-util/package.json',
-    '../npm/hanzi-util-base/package.json',
+    '../src/main/package.json',
+    ...plugins.map(plugin => `../src/plugin/${plugin}/package.json`),
+    ...depFiles,
 ];
 
 function modVersion () {
@@ -24,11 +26,6 @@ function modVersion () {
         });
     });
 }
-const depFiles = [
-    '../npm/all/package.json',
-    '../npm/hanzi-util/package.json',
-    '../npm/hanzi-util-base/package.json'
-];
 
 function modDep () {
     depFiles.forEach(file => {
@@ -55,7 +52,7 @@ function task () {
 
 function buildPluginGulpFiles (plugin) {
     const path = `src/plugin/${plugin}/`;
-    return [`${path}dict/*.json`, `${path}types`, `${path}*.d.ts`];
+    return [`${path}types/*.*`, `${path}*.d.ts`];
 }
 
 function gulpPlugin (plugin) {
@@ -64,16 +61,16 @@ function gulpPlugin (plugin) {
 }
 
 function copyToNPM () {
-    const gulpReadme = gulp.src(['helper/README.md', 'LICENSE'])
+    let gulpReadme = gulp.src(['helper/README.md', 'LICENSE'])
         .pipe(toc())
         .pipe(gulp.dest('.'))
         .pipe(gulp.dest('npm/cnchar'));
 
     plugins.forEach(plugin => {
-        gulpReadme = gulpReadme.pipe(`npm/${plugin}`);
+        gulpReadme = gulpReadme.pipe(gulp.dest(`npm/${plugin}`));
     });
 
-    gulp.src(['src/main/dict/*.json', 'src/main/types', 'src/main/*.d.ts'])
+    gulp.src(['src/main/types/*.*', 'src/main/*.d.ts'])
         .pipe(gulp.dest('npm/cnchar'));
     
     plugins.forEach(plugin => {
