@@ -4,8 +4,8 @@ import {ICnChar, OrderToWordArg, StrokeArg} from 'cnchar/types/index';
 export declare type TOrderToWordArg = {
     [prop in OrderToWordArg]: OrderToWordArg;
 }
-export declare type TOrderArg = {
-    [prop in StrokeArg]: StrokeArg;
+export declare interface TOrderArg {
+    [prop: string]: StrokeArg;
 }
 
 export declare type TStrokeOrderReturn = string | number | Array<string | object>;

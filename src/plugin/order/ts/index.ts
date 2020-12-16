@@ -15,8 +15,6 @@ const arg: TOrderArg = {
     detail: 'detail',
     array: 'array', // array 只是为了兼容 .stroke()
     order: 'order',
-    simple: 'simple',
-    trad: 'trad'
 };
 
 function setOrder (key: string | {[key: string]: string}, value?: string): void {

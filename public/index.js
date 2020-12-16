@@ -2,7 +2,7 @@
 import cnchar from '../src/main/ts/index';
 import '../src/plugin/order/ts';
 import '../src/plugin/trad/ts';
-import '../src/plugin/poly';
+import '../src/plugin/poly/ts';
 import '../src/plugin/draw/ts';
 import '../src/plugin/idiom/ts';
 import '../src/plugin/xhy';
