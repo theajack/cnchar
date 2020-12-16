@@ -1,10 +1,10 @@
 {
-    "name": "hanzi-util-base",
+    "name": "cnchar-order",
     "version": "2.2.8",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
-    "main": "index.js",
-    "unpkg": "hanzi.base.min.js",
-    "jsdelivr": "hanzi.base.min.js",
+    "main": "cnchar.order.min.js",
+    "unpkg": "cnchar.order.min.js",
+    "jsdelivr": "cnchar.order.min.js",
     "typings": "index.d.ts",
     "scripts": {},
     "repository": {

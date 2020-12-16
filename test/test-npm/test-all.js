@@ -1,5 +1,5 @@
 // var cnchar = require('./all/index');
-var cnchar = require('../../npm/all/cnchar.all.min.js');
+var cnchar = require('../../npm/packages/all/cnchar.all.min.js');
 
 console.log(cnchar.stroke('一个', 'order'));
 console.log(cnchar.stroke('長城', 'count', 'order', 'name'));

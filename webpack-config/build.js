@@ -24,12 +24,13 @@ module.exports = {
     mode: 'production',
     entry: path.resolve('./', 'src/cnchar/main/index.ts'),
     output: {
-        path: path.resolve('./', 'npm/cnchar'),
+        path: path.resolve('./', 'npm/packages/cnchar'),
         filename: 'cnchar.min.js',
         library: 'cnchar',
         libraryTarget: 'umd',
-        umdNamedDefine: true,
-        globalObject: 'this'
+        // umdNamedDefine: true,
+        // globalObject: 'this',
+        libraryExport: 'default',
     },
     resolve: {
         extensions: [ '.tsx', '.ts', '.js' ]

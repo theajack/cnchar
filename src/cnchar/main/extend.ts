@@ -18,16 +18,18 @@ export function extendCnChar (): {
     convert: IConverter;
     xhy: IXHY;
     } {
-        
+
     const draw = fn('draw') as unknown as IDraw;
     const idiom = fn('idiom');
     const radical = fn('radical') as unknown as IRadical;
     const xhy = fn('xhy') as unknown as IXHY;
     
-    window.CncharIdiom = idiom;
-    window.CncharDraw = draw;
-    window.CncharRadical = radical;
-    window.CncharXHY = xhy;
+    if (typeof window === 'object') {
+        window.CncharIdiom = idiom;
+        window.CncharDraw = draw;
+        window.CncharRadical = radical;
+        window.CncharXHY = xhy;
+    }
     
     return {
         idiom,

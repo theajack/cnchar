@@ -1,12 +1,12 @@
 {
-    "name": "cnchar-poly",
+    "name": "cnchar",
     "version": "2.2.8",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
-    "main": "index.js",
-    "unpkg": "cnchar.poly.min.js",
-    "jsdelivr": "cnchar.poly.min.js",
-    "typings": "index.d.ts",
+    "main": "cnchar.min.js",
     "scripts": {},
+    "unpkg": "cnchar.min.js",
+    "jsdelivr": "cnchar.min.js",
+    "typings": "index.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/theajack/cnchar.git"
@@ -27,6 +27,6 @@
     },
     "homepage": "https://www.theajack.com/cnchar/",
     "dependencies": {
-        "cnchar-types": "2.2.8"
+        "cnchar-types": "^2.2.8"
     }
 }

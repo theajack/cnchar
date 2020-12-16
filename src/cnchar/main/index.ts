@@ -66,7 +66,7 @@ const cnchar: ICnChar = {
     ...extendCnChar(),
 };
 
-function use (...plugins: Array<IPlugin>) {
+function use (...plugins: Array<IPlugin>): void {
     plugins.forEach(f => {
         if (typeof f === 'function') {
             if (typeof f.init === 'function') {

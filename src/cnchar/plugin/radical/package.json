@@ -2,7 +2,7 @@
     "name": "cnchar-radical",
     "version": "2.2.8",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
-    "main": "index.js",
+    "main": "cnchar.radical.min.js",
     "unpkg": "cnchar.radical.min.js",
     "jsdelivr": "cnchar.radical.min.js",
     "typings": "index.d.ts",
@@ -27,6 +27,6 @@
     },
     "homepage": "https://www.theajack.com/cnchar/",
     "dependencies": {
-        "cnchar-types": "2.2.8"
+        "cnchar-types": "^2.2.8"
     }
 }

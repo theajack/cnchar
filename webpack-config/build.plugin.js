@@ -30,7 +30,7 @@ module.exports = (env) => {
         mode: 'production',
         entry: path.resolve('./', `src/cnchar/${dir}/index.ts`),
         output: {
-            path: path.resolve('./', 'npm/' + plugin),
+            path: path.resolve('./', 'npm/packages/' + plugin),
             filename: 'cnchar.' + plugin + '.min.js',
             library: 'cnchar' + plugin[0].toUpperCase() + plugin.substr(1),
             libraryTarget: 'umd',

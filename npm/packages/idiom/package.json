@@ -1,10 +1,10 @@
 {
-    "name": "cnchar-trad",
+    "name": "cnchar-idiom",
     "version": "2.2.8",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
-    "main": "index.js",
-    "unpkg": "cnchar.trad.min.js",
-    "jsdelivr": "cnchar.trad.min.js",
+    "main": "cnchar.idiom.min.js",
+    "unpkg": "cnchar.idiom.min.js",
+    "jsdelivr": "cnchar.idiom.min.js",
     "typings": "index.d.ts",
     "scripts": {},
     "repository": {
@@ -27,6 +27,6 @@
     },
     "homepage": "https://www.theajack.com/cnchar/",
     "dependencies": {
-        "cnchar-types": "2.2.8"
+        "cnchar-types": "^2.2.8"
     }
 }
