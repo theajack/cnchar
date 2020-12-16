@@ -8,10 +8,11 @@ export declare type OrderToWordArg = 'match'  | 'matchorder' | 'contain' | 'star
 export declare type IdomArg = 'char' | 'stroke' | 'spell' | 'tone';
 export declare type SortSpellArg = 'tone' | 'desc';
 export declare type TradArg = 'trad' | 'simple' | 'spark';
+export declare type XhyArg = 'fuzzy' | 'answer' | 'second';
 
 export declare type AllArgs = SpellArg | StrokeArg
     | SpellToWordArg | StrokeToWordArg | OrderToWordArg
-    | IdomArg | SortSpellArg | TradArg;
+    | IdomArg | SortSpellArg | TradArg | XhyArg;
 
 export declare type PluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy' | 'radical';
 export declare type ToneType = 0 | 1 | 2 | 3 | 4;

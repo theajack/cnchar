@@ -5,8 +5,8 @@ import '../src/plugin/trad/ts';
 import '../src/plugin/poly/ts';
 import '../src/plugin/draw/ts';
 import '../src/plugin/idiom/ts';
-import '../src/plugin/xhy';
-import '../src/plugin/radical';
+import '../src/plugin/xhy/ts';
+import '../src/plugin/radical/ts';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';
@@ -64,6 +64,19 @@ console.log(cnchar.convert.sparkToSimple('①个亾'));
 console.log('①个亾'.convertSparkToTrad()); // 返回 "壹個人" 等价于 cnchar.convert.sparkToTrad
 console.log(cnchar.convert.sparkToTrad('①个亾'));
 
+
+cnchar.xhy.addXhy('歇后语第一句', '歇后语第二句');
+console.log(cnchar.xhy('歇后语第一句'));
+console.log(cnchar.xhy('大水冲了龙王庙')); // ['大水冲了龙王庙-自家人不识自家人', '大水冲了龙王庙-一家人不认一家人']
+console.log(cnchar.xhy('大水', 'fuzzy')); // ['江河里长大水-泥沙俱下', '江河发大水-后浪推前浪', ... ]
+console.log(cnchar.xhy('大水', 'fuzzy', 'answer')); // ['泥沙俱下', '后浪推前浪', ... ]
+console.log(cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second')); // ['醉汉过铁索桥', '扶着醉汉过破桥']
+
+
+cnchar.radical.setRadical('你', '口');
+console.log(cnchar.radical('你好呀')); // "亻女口"
+// 返回数组
+console.log(cnchar.radical('你好呀', 'array')); // ["亻", "女", "口"]
 // window.keys = Object.keys(spell);
 
 // cncharDraw('你好', {

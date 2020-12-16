@@ -116,7 +116,7 @@ declare global {
 }
 
 declare module 'cnchar' {
-    interface CnCharStatic {
+    interface ICnChar {
         draw: IDraw;
     }
 }

@@ -11,7 +11,7 @@ export declare interface ISetPolyPhrase {
 }
 
 declare module 'cnchar' {
-    interface CnCharStatic {
+    interface ICnChar {
         setPolyPhrase: ISetPolyPhrase;
     }
 }
