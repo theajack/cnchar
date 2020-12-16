@@ -2,7 +2,7 @@ const version = require('../package.json').version;
 
 const path = require('path');
 const tool = require('../helper/tool');
-tool.write('./src/main/version.js', 'module.exports = \'' + version + '\';');
+tool.write('./src/main/version.ts', 'module.exports = \'' + version + '\';');
 
 // module.exports = {
 //     entry: path.resolve('./', 'src/main/index.js'),
@@ -22,7 +22,7 @@ tool.write('./src/main/version.js', 'module.exports = \'' + version + '\';');
 
 module.exports = {
     mode: 'production',
-    entry: path.resolve('./', 'src/main/index.js'),
+    entry: path.resolve('./', 'src/main/index.ts'),
     output: {
         path: path.resolve('./', 'npm/cnchar'),
         filename: 'cnchar.min.js',

@@ -3,15 +3,12 @@ const rename = require('gulp-rename');
 const fs = require('fs');
 const babel = require('gulp-babel');
 const toc = require('gulp-markdown-toc');
-let version = require('../package.json').version;
-let files = [
-    '../npm/order/package.json',
-    '../npm/poly/package.json',
-    '../npm/trad/package.json',
-    '../npm/draw/package.json',
-    '../npm/idiom/package.json',
-    '../npm/xhy/package.json',
-    '../npm/radical/package.json',
+const version = require('../package.json').version;
+
+const plugins = ['order', 'poly', 'trad', 'draw', 'idiom', 'xhy', 'radical'];
+
+const files = [
+    ...plugins.map(plugin => `../npm/${plugin}/package.json`),
     '../npm/cnchar/package.json',
     '../npm/all/package.json',
     '../npm/hanzi-util/package.json',
@@ -20,14 +17,14 @@ let files = [
 
 function modVersion () {
     files.forEach(file => {
-        let pkg = require(file);
+        const pkg = require(file);
         pkg.version = version;
         fs.writeFile(file.substr(1), JSON.stringify(pkg, null, 4), 'utf8', (err) => {
             if (err) throw err;
         });
     });
 }
-let depFiles = [
+const depFiles = [
     '../npm/all/package.json',
     '../npm/hanzi-util/package.json',
     '../npm/hanzi-util-base/package.json'
@@ -35,9 +32,9 @@ let depFiles = [
 
 function modDep () {
     depFiles.forEach(file => {
-        let pkg = require(file);
-        let dep = pkg.dependencies;
-        for (let key in dep) {
+        const pkg = require(file);
+        const dep = pkg.dependencies;
+        for (const key in dep) {
             if (key.substr(0, 6) === 'cnchar') {
                 dep[key] = '^' + version;
             }
@@ -56,50 +53,41 @@ function task () {
     transEs6ByBabel();
 }
 
+function buildPluginGulpFiles (plugin) {
+    const path = `src/plugin/${plugin}/`;
+    return [`${path}dict/*.json`, `${path}types`, `${path}*.d.ts`];
+}
+
+function gulpPlugin (plugin) {
+    gulp.src(buildPluginGulpFiles(plugin))
+        .pipe(gulp.dest(`npm/${plugin}`));
+}
+
 function copyToNPM () {
-    gulp.src('helper/README.md')
+    const gulpReadme = gulp.src(['helper/README.md', 'LICENSE'])
         .pipe(toc())
         .pipe(gulp.dest('.'))
-        .pipe(gulp.dest('npm/cnchar'))
-        .pipe(gulp.dest('npm/order'))
-        .pipe(gulp.dest('npm/poly'))
-        .pipe(gulp.dest('npm/trad'))
-        .pipe(gulp.dest('npm/draw'))
-        .pipe(gulp.dest('npm/idiom'))
-        .pipe(gulp.dest('npm/radical'))
-        .pipe(gulp.dest('npm/xhy'));
-
-    gulp.src(['src/main/*.json', 'src/main/*.d.ts', 'LICENSE'])
         .pipe(gulp.dest('npm/cnchar'));
 
-    gulp.src(['src/plugin/order/*.json', 'src/plugin/order/*.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/order'));
+    plugins.forEach(plugin => {
+        gulpReadme = gulpReadme.pipe(`npm/${plugin}`);
+    });
 
-    gulp.src(['src/plugin/poly/*.json', 'src/plugin/poly/*.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/poly'));
+    gulp.src(['src/main/dict/*.json', 'src/main/types', 'src/main/*.d.ts'])
+        .pipe(gulp.dest('npm/cnchar'));
+    
+    plugins.forEach(plugin => {
+        gulpPlugin(plugin);
+    });
 
-    gulp.src(['src/plugin/trad/*.json', 'src/plugin/trad/*.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/trad'));
-
-    gulp.src(['src/plugin/draw/*.json', 'src/plugin/draw/*.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/draw'));
-
-    gulp.src(['src/plugin/idiom/*.json', 'src/plugin/idiom/*.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/idiom'));
-
-    gulp.src(['src/plugin/radical/*.json', 'src/plugin/radical/*.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/radical'));
-        
-    gulp.src(['src/plugin/xhy/*.json', 'src/plugin/xhy/*.d.ts', 'LICENSE'])
-        .pipe(gulp.dest('npm/xhy'));
-
-    gulp.src(['src/main/*.d.ts', 'LICENSE'])
+    gulp.src(['src/main/*.d.ts', 'src/main/types'])
         .pipe(gulp.dest('npm/hanzi-util-base'));
 
-    gulp.src(['helper/all/*.d.ts', 'LICENSE'])
+    gulp.src(['helper/all/*.d.ts'])
         .pipe(gulp.dest('npm/all'))
         .pipe(gulp.dest('npm/hanzi-util'));
 }
+
 function copyLatest () {
     // gulp.src(`dist/*.${version}.min.js`)
     //     .pipe(rename(function (path) {
