@@ -7,4 +7,3 @@ src_import_version
 docs
 vuepress/config.js
 **/*.vue
-**/*.html

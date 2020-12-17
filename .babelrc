@@ -1,13 +1,15 @@
 {
-    "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "chrome": "58",
-                    "ie": "11"
-                  }
-            }
-        ]
+    "presets": [[
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "targets": {
+            "esmodules": true
+          }
+        }
+    ]],
+    "plugins": [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-object-rest-spread"
     ]
 }

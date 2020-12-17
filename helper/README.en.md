@@ -91,7 +91,7 @@ Use the script tag to use:
 16. Support **Range radicals** query function
 17. **Small size**, min version is only 46 kb, zip version is 34 kb(contains a large number of Chinese Pinyin dictionaries)
 18. **Multi-end available**, can be used in**browser, nodejs, applet / mini-game, ReactNative / Weex / Uniapp / Electron, webpack**..., supports all environments where js can run
-19. **typescript support**, support calling in typescript
+19. **typescript**, the main library and all plug-in libraries are developed using typescript
 20. Rich configuration, split into 7 libraries according to function
 21. Support **custom** pinyin strokes and other data, use more flexible
 
@@ -948,13 +948,13 @@ The arg parameter information is as follows:
 | Parameter|Function|Whether Default|Dependency Library|Remarks |
 |:---------: |:--------: |:------: |:---------: |:---: |
 | match|Match Chinese characters with all strokes in the stroke order|No |--|--|
-| match-order|Match Chinese characters containing all strokes in the stroke order in the same order|No |--|--|
+| matchorder|Match Chinese characters containing all strokes in the stroke order in the same order|No |--|--|
 | contain|Match the Chinese characters containing the stroke order|No |--|--|
 | start|matches all Chinese characters starting with this stroke order|No |--|--|
 | array|Returns an array that meets the conditions, the default is to return a string|No |--|--|
 simple|Disable Traditional Chinese|No|cnchar-trad|This parameter is only valid after the introduction of `cnchar-trad` |
 
-Regarding the matching parameters, the priority is**match> match-order> contain> start> default**
+Regarding the matching parameters, the priority is**match> matchorder> contain> start> default**
 
 When there is no matching parameter, it means using full match, that is, the number of strokes of Chinese characters is exactly the same as the orders
 

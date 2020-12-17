@@ -16,7 +16,7 @@ function main () {
 }
 
 function addMta () {
-    let mta = /* html*/`<script>
+    const mta = /* html*/`<script>
 var _mtac = {};
 (function () {
     var mta = document.createElement("script");
