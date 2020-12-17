@@ -2,7 +2,7 @@
 // const ErudaWebapckPlugin = require('eruda-webpack-plugin')
 const path = require('path');
 module.exports = {
-    entry: path.resolve('./', 'public/index.js'),
+    entry: path.resolve('./', 'public/index.ts'),
     output: {
         path: path.resolve('./', 'public'),
         filename: 'bundle.js'
@@ -14,8 +14,16 @@ module.exports = {
         inline: true,
         host: 'localhost'// '0.0.0.0' //
     },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ]
+    },
     module: {
         rules: [{
+            test: /(.ts)$/,
+            use: {
+                loader: 'ts-loader'
+            }
+        }, {
             test: /(.js)$/,
             use: [{
                 loader: 'babel-loader',

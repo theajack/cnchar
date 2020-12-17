@@ -12,7 +12,7 @@ import 'highlight.js/styles/vs2015.css';
 // import 'highlight.js/styles/atom-one-dark.css';
 
 
-import '../../npm/all/cnchar.all.min.js';
+import '../../npm/packages/cnchar-all/cnchar.all.min.js';
 import 'easy-icon';
 
 // 引入自己的组件库
