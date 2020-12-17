@@ -19,26 +19,14 @@
         "汉字工具"
     ],
     "scripts": {
-        "build": "npm run build:main && npm run build:plugin && npm run build:npm",
-        "build:main": "webpack --config webpack-config/build.js",
-        "build:poly": "webpack --config webpack-config/build.plugin.js --env.pluginname=poly",
-        "build:order": "webpack --config webpack-config/build.plugin.js --env.pluginname=order",
-        "build:trad": "webpack --config webpack-config/build.plugin.js --env.pluginname=trad",
-        "build:draw": "webpack --config webpack-config/build.plugin.js --env.pluginname=draw",
-        "build:idiom": "webpack --config webpack-config/build.plugin.js --env.pluginname=idiom",
-        "build:xhy": "webpack --config webpack-config/build.plugin.js --env.pluginname=xhy",
-        "build:radical": "webpack --config webpack-config/build.plugin.js --env.pluginname=radical",
-        "build:all": "webpack --config webpack-config/build.plugin.js --env.pluginname=all",
-        "build:plugin": "npm run build:poly && npm run build:order && npm run build:trad && npm run build:draw && npm run build:idiom && npm run build:xhy && npm run build:radical && npm run build:all",
-        "build:npm": "node ./helper/build-npm.js",
         "start": "webpack-dev-server --open --config webpack-config/dev.js",
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",
-        "publish": "npm publish src/cnchar-types && npm publish npm/packages/cnchar && npm publish npm/packages/order && npm publish npm/packages/poly && npm publish npm/packages/trad && npm publish npm/packages/draw && npm publish npm/packages/idiom && npm publish npm/packages/xhy && npm publish npm/packages/radical && npm publish npm/packages/cnchar-all && npm publish npm/packages/hanzi-util-base && npm publish npm/packages/hanzi-util",
+        "build": "node ./helper/build.js",
+        "publish": "node ./helper/publish.js",
         "lint": "eslint src --ext js",
         "test": "node test npm",
         "dev:docs": "vuepress dev vuepress",
-        "build:docs": "bash helper/build-docs.sh",
-        "build:docs-win": "vuepress build vuepress && node ./helper/build-docs.js"
+        "build:docs": "vuepress build vuepress && node ./helper/build-docs.js"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",

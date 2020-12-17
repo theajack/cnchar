@@ -80,7 +80,6 @@ export interface ICnChar {
         spell: ISpell;
         stroke: IStroke;
     };
-
 }
 
 declare global {

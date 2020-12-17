@@ -1,13 +1,13 @@
-let dict = require('../src/main/spell-dict-jian.json');
+const dict = require('../src/main/spell-dict-jian.json');
 const {isCnChar} = require('../src/main/tool');
 const tool = require('./tool');
 
-let polyArr = []; ;
-let words = [];
+const polyArr = []; ;
+const words = [];
 
-for (let k in dict) {
+for (const k in dict) {
     for (let i = 0; i < dict[k].length; i++) {
-        let word = dict[k][i];
+        const word = dict[k][i];
         if (isCnChar(word)) {
             if (words.indexOf(word) === -1) {
                 words.push(word);

@@ -21,6 +21,9 @@ export default class HanziWriter {
     static create(node: Node, text: string, option: IDrawOption): HanziWriter;
     static loadCharacterData(str: string): Promise<ICharData>;
     static getScalingTransform(width?: number, height?: number, padding?: number): {
-        transform: string
+        scale: number;
+        transform: string;
+        x: number;
+        y: number;
     };
 }
