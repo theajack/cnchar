@@ -1,8 +1,9 @@
-import {IComplete, IWriter} from './index';
+import {IComplete, IWriter, IWriterOptionWithoutText} from './index';
 import {Json} from '../../main/common';
 import {ICnChar} from '../../main';
 
 export declare type TDrawType = 'normal' | 'animation' | 'stroke' | 'test';
+export declare type TDrawTypeUpperCase = 'NORMAL' | 'ANIMATION' | 'STROKE' | 'TEST';
 export declare type TTestStatusType = 'mistake' | 'correct' | 'complete';
 
 export declare interface ITestStatusData {
@@ -103,7 +104,7 @@ export declare interface ICloneSvg{
 }
 
 export declare interface IDraw {
-    (text: string, options: IDrawOption): IWriter | null;
+    (text: string, options: IWriterOptionWithoutText): IWriter | null;
     TYPE: Json<TDrawType>;
     TEST_STATUS: Json<TTestStatusType>;
     init?(cnchar?: ICnChar): void;
@@ -115,7 +116,7 @@ declare global {
     }
 }
 
-declare module '../../main/index' {
+declare module '../../main' {
     interface ICnChar {
         draw: IDraw;
     }

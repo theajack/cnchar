@@ -25,7 +25,6 @@ const orderToWord = ((
     input: string | Array<OrderName>,
     ...args: Array<OrderToWordArg>
 ): string | Array<string> => {
-    args = args.splice(1);
     if (typeof input === 'string') {
         input = input.split(' ') as Array<OrderName>;
     }

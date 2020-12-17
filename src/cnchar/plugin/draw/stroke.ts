@@ -46,6 +46,7 @@ function renderFanningStrokes ({
     const group: SVGGElement = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   
     const transformData = HanziWriter.getScalingTransform(width, width, option.padding);
+    console.log(transformData);
     group.setAttributeNS(null, 'transform', transformData.transform);
     svg.appendChild(group);
     for (let i = 0; i <= current; i++) {

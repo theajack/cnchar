@@ -13,12 +13,14 @@ export default class HanziWriter {
         onMistake (strokeData: ITestStatusData): void;
         onCorrectStroke (strokeData: ITestStatusData): void;
         onComplete (strokeData: ITestStatusData): void;
-    });
+    }): void;
     hideCharacter(): void;
     animateCharacter(option: {
         onComplete(): void;
     }): void;
     static create(node: Node, text: string, option: IDrawOption): HanziWriter;
     static loadCharacterData(str: string): Promise<ICharData>;
-    static getScalingTransform(width?: number, height?: number, padding?: number);
+    static getScalingTransform(width?: number, height?: number, padding?: number): {
+        transform: string
+    };
 }

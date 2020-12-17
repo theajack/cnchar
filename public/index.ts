@@ -33,6 +33,9 @@ import '../src/cnchar/plugin/radical';
 
 console.log(cnchar);
 
+console.log(cnchar.orderToWord(['横', '撇', '捺'], 'array'));
+console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start'));
+console.log(cnchar.orderToWord(['横', '撇', '捺'], 'start', 'simple'));
 // import './plugin/draw'
 // console.log('1',cnchar)
 console.log(cnchar.stroke('一个', 'order'));
@@ -81,37 +84,37 @@ console.log(cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second')); // ['醉�
 // // 返回数组
 // console.log(cnchar.radical('你好呀', 'array')); // ["亻", "女", "口"]
 // window.keys = Object.keys(spell);
-
-// cncharDraw('你好', {
-//     type: cncharDraw.TYPE.NORMAL,
-//     el: '#drawArea',
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#ccc'
-//     },
-//     animation: {
-//         animateComplete () {
-//             console.log('animateComplete');
-//         },
-//         loopAnimate: true,
-//         autoAnimate: false, // false 时点击出发animate 只能触发一次
-//         // stepByStep: false
-//     },
-//     test: {
-//         onTestStatus (d) {
-//             console.log(d);
-//         }
-//     }
-// });
-// cnchar.draw('中国', {
-//     type: cnchar.draw.TYPE.TEST,
-//     style: {
-//         radicalColor: '#44f',
-//         backgroundColor: '#eee',
-//         length: 100,
+cnchar.draw('你好九', {});
+cnchar.draw('你好九', {
+    type: cnchar.draw.TYPE.STROKE,
+    el: '#drawArea',
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#ccc'
+    },
+    animation: {
+        animateComplete () {
+            console.log('animateComplete');
+        },
+        loopAnimate: true,
+        autoAnimate: false, // false 时点击出发animate 只能触发一次
+        // stepByStep: false
+    },
+    test: {
+        onTestStatus (d: any) {
+            console.log(d);
+        }
+    }
+});
+cnchar.draw('中国', {
+    type: cnchar.draw.TYPE.TEST,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#eee',
+        length: 100,
                 
-//     },
-// });
+    },
+});
 
 // cnchar.draw('你好', {
 //     type: cnchar.draw.TYPE.ANIMATION,

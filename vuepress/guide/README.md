@@ -50,7 +50,7 @@ sidebarDepth: 0  //吐槽：这里设置0无效！只能设置1或2！
 16. 提供汉字工具方法，方便开发者更便捷高效地 **操作拼音和汉字**
 17. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
 18. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
-19. **typescript支持**，支持在typescript中调用
+19. **typescript开发**，主库及所有插件库均使用typescript开发
 20. 丰富的配置，按功能拆分成7个库按需取用
 21. 支持**自定义**拼音笔画等数据，使用更灵活
 

@@ -28,8 +28,7 @@ module.exports = {
         filename: 'cnchar.min.js',
         library: 'cnchar',
         libraryTarget: 'umd',
-        // umdNamedDefine: true,
-        // globalObject: 'this',
+        globalObject: 'this',
         libraryExport: 'default',
     },
     resolve: {

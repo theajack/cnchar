@@ -204,7 +204,7 @@ export class Writer implements IWriter {
     }
 }
 
-const draw: IDraw = (text: string = '', options: IDrawOption = {}): IWriter | null => {
+const draw: IDraw = (text: string = '', options: IWriterOption = {}): IWriter | null => {
     if (typeof window === 'undefined') {
         console.error('Draw 方法仅支持在浏览器环境下使用');
         return null;

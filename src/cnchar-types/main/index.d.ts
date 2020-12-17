@@ -34,7 +34,9 @@ export declare type TypeValueObject = {
 };
 
 export declare interface ISpell {(sentence: string, ...args: Array<SpellArg>): string | Array<any>;}
+
 declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number | Array<any>;}
+
 export interface ICnChar {
     spell: ISpell;
     stroke: IStroke;
@@ -78,6 +80,7 @@ export interface ICnChar {
         spell: ISpell;
         stroke: IStroke;
     };
+
 }
 
 declare global {

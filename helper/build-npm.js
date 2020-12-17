@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const fs = require('fs');
-const util = require('./tool');
 const toc = require('gulp-markdown-toc');
 const version = require('../package.json').version;
 
@@ -125,16 +124,6 @@ function copyLatest () {
             return path;
         }))
         .pipe(gulp.dest('npm/packages/hanzi-util-base'));
-}
-
-function modMinJs () {
-    var file = 'npm/disable-devtool.min.js';
-    util.read(file, (code) => {
-        util.write(file, code.replace(/[a-z]\){/i, (str) => {
-            const n = str[0];
-            return `${str}var _f=${n};${n}=function(){return _f().default};`;
-        }));
-    });
 }
 
 task();

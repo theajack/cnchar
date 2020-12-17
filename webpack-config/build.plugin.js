@@ -23,19 +23,22 @@ const path = require('path');
 module.exports = (env) => {
     const plugin = env.pluginname;
     let dir = `plugin/${plugin}`;
+    let npmDir = plugin;
     if (plugin === 'all') {
         dir = 'alias/cnchar-all';
+        npmDir = 'cnchar-all';
     }
     return {
         mode: 'production',
         entry: path.resolve('./', `src/cnchar/${dir}/index.ts`),
         output: {
-            path: path.resolve('./', 'npm/packages/' + plugin),
+            path: path.resolve('./', 'npm/packages/' + npmDir),
             filename: 'cnchar.' + plugin + '.min.js',
             library: 'cnchar' + plugin[0].toUpperCase() + plugin.substr(1),
+            // umdNamedDefine: true,
             libraryTarget: 'umd',
-            umdNamedDefine: true,
-            globalObject: 'this'
+            globalObject: 'this',
+            libraryExport: 'default',
         },
         resolve: {
             extensions: [ '.tsx', '.ts', '.js' ]

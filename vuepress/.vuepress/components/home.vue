@@ -36,7 +36,7 @@
                 <div class='f-des'>小程序/小游戏</div>
                 <div class='f-des'>ReactNative/Weex/Uniapp/Electron</div>
                 <div class='f-des'>webpack</div>
-                <div class='f-des'>typescript支持</div>
+                <div class='f-des'>typescript开发</div>
                 <div class='f-des'>...</div>
             </div>
             <div class='f-i'>

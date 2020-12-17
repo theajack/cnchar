@@ -91,7 +91,7 @@ Use the script tag to use:
 16. Support **Range radicals** query function
 17. **Small size**, min version is only 46 kb, zip version is 34 kb(contains a large number of Chinese Pinyin dictionaries)
 18. **Multi-end available**, can be used in**browser, nodejs, applet / mini-game, ReactNative / Weex / Uniapp / Electron, webpack**..., supports all environments where js can run
-19. **typescript support**, support calling in typescript
+19. **typescript**, the main library and all plug-in libraries are developed using typescript
 20. Rich configuration, split into 7 libraries according to function
 21. Support **custom** pinyin strokes and other data, use more flexible
 
