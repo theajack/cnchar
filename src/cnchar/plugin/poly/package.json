@@ -1,6 +1,6 @@
 {
     "name": "cnchar-poly",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "功能全面、多端支持的汉字拼音笔画js库，支持多音字、繁体字、火星文",
     "main": "cnchar.poly.min.js",
     "unpkg": "cnchar.poly.min.js",
@@ -27,6 +27,6 @@
     },
     "homepage": "https://www.theajack.com/cnchar/",
     "dependencies": {
-        "cnchar-types": "^3.0.0"
+        "cnchar-types": "^3.0.1"
     }
 }

@@ -16,3 +16,21 @@ gitee-pages 分支中的 vuepress/.vuepress/config.js 文件中 base需要设置
 
 版本号分支开发完成之后 合到master分支
 dev:docs 完成之后 分别合到gh-pages和gitee-pages分支进行build:docs
+
+### build
+
+打包所有模块
+
+```
+npm run build
+```
+
+打包指定模块
+
+```
+npm run build <name>
+```
+
+name 可选值
+
+main poly order trad draw idiom xhy radical all npm types hanzi-util hanzi-util-base
