@@ -21,7 +21,7 @@ function testSingle ({
     } else {
         result = test.call(argsConfig, argsConfig);
     }
-    let res = {
+    const res = {
         result,
         expect,
         name
@@ -29,7 +29,7 @@ function testSingle ({
     if (typeof result !== typeof expect) {
         res.pass = false;
     } else {
-        if (typeof res === 'object') {
+        if (typeof result === 'object') {
             res.pass = objectEqual(result, expect);
         } else {
             res.pass = result === expect;
@@ -39,12 +39,12 @@ function testSingle ({
 };
 
 function main (config, argsConfig) {
-    let d = new Date();
+    const d = new Date();
     blue('Test start:');
     console.log();
     let success = true;
     config.forEach((item) => {
-        let result = testSingle(item, argsConfig);
+        const result = testSingle(item, argsConfig);
         if (result.pass) {
             green(`PASS: [${result.name}]; result:${JSON.stringify(result.result)}`);
         } else {
@@ -53,7 +53,7 @@ function main (config, argsConfig) {
         }
         console.log();
     });
-    let text = `****** TEST ${success ? 'successed' : 'failed'} in ${(new Date()) - d}ms! ******`;
+    const text = `****** TEST ${success ? 'successed' : 'failed'} in ${(new Date()) - d}ms! ******`;
     if (success) {
         green(text);
     } else {
@@ -69,9 +69,9 @@ function objectEqualBase (result, expect) {
     // 数组与json都是用for in遍历
     // 数组需要下标一致
     let equal = true;
-    for (let key in result) {
-        let resultItem = result[key];
-        let expectItem = expect[key];
+    for (const key in result) {
+        const resultItem = result[key];
+        const expectItem = expect[key];
         if (typeof resultItem !== typeof expectItem) {
             equal = false;
         } else if (typeof resultItem === 'object') {
