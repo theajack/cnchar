@@ -2,12 +2,14 @@ module.exports = {
   "parser": '@typescript-eslint/parser',
   "plugins": [
     '@typescript-eslint',
+    'jest'
   ],
   "env": {
     "browser": true,
     "es6": true,
     "node": true,
-    "commonjs": true
+    "commonjs": true,
+    "jest/globals": true
   },
   // 接入vue失败 暂且eslint 忽略vue文件
   // "extends": [
@@ -80,7 +82,7 @@ module.exports = {
     "prefer-const": ["error", {
       "destructuring": "any",
       "ignoreReadBeforeAssign": false
-    }]
+    }],
     // "vue/script-indent": ["warn", 4, {
     //   "baseIndent": 1,
     //   "switchCase": 1
