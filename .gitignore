@@ -4,3 +4,4 @@ src_import_version
 # package-lock.json
 vuepress/.vuepress/secret.js
 helper/local
+coverage

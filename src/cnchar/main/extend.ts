@@ -7,7 +7,6 @@ import {IRadical} from 'cnchar-types/plugin/radical';
 import {IConverter} from 'cnchar-types/plugin/trad';
 import {IXHY} from 'cnchar-types/plugin/xhy';
 
-
 export function extendCnChar (): {
     idiom: IIdiom;
     draw: IDraw;

@@ -23,5 +23,11 @@ module.exports = {
         '^cnchar$': '<rootDir>/src/cnchar/main',
         '^cnchar-types$': '<rootDir>/src/cnchar-types',
         '^@cnchar-plugin/(.*?)$': '<rootDir>/src/cnchar/plugin/$1',
+        '^testUtils$': '<rootDir>/testUtils',
     },
+    testRegex: 'src/cnchar/main/__tests__/(.*).spec.ts?$',
+    modulePathIgnorePatterns: [
+        'npm/packages/cnchar/package.json',
+        './package.json'
+    ],
 };

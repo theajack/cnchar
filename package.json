@@ -24,7 +24,7 @@
         "build": "node ./helper/build.js",
         "publish": "node ./helper/publish.js",
         "lint": "eslint src --ext js",
-        "test": "node test npm",
+        "test": "node local_test npm",
         "jest": "jest",
         "dev:docs": "vuepress dev vuepress",
         "build:docs": "vuepress build vuepress && node ./helper/build-docs.js"
