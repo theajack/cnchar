@@ -51,11 +51,14 @@
             </div>
         </div>
         <div class='copy-right'>MIT Licensed | Copyright © 2020 present <a href='https://www.github.com/theajack' target='view_window'>theajack</a></div>
+        <div id='comment'>
+
+        </div>
     </div>
 </template>
 
 <script>
-
+    import initComment from 'tc-comment';
     export default {
         data () {
             return {
@@ -104,13 +107,14 @@
             }
         },
         mounted () {
-            let timer = setInterval(() => {
-                let comment = document.getElementById('vcomments');
-                if (comment) {
-                    comment.className += ' home-comment';
-                    clearInterval(timer);
-                }
-            }, 500);
+            initComment({el: '#comment'});
+            // let timer = setInterval(() => {
+            //     let comment = document.getElementById('vcomments');
+            //     if (comment) {
+            //         comment.className += ' home-comment';
+            //         clearInterval(timer);
+            //     }
+            // }, 500);
         }
     };
 </script>

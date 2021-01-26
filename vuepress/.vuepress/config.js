@@ -159,22 +159,22 @@ module.exports = {
         //         baseURL: 'https://gitee.com', // 平台的 base URL
         //     },
         // ], // 平台的 base URL
-        [
-            'vuepress-plugin-comment',
-            {
-                choosen: 'valine',
-                // options选项中的所有参数，会传给Valine的配置
-                options: {
-                    el: '#vcomments',
-                    appId: 'azSK2mRA57Pa2Y0NEWxXjrdJ-gzGzoHsz',
-                    appKey: 'Ky1y1SbwcyYkHMEbdVeq6mnf',
-                    notify: false,
-                    verify: false,
-                    avatar: 'mp',
-                    placeholder: '留下点什么吧...'
-                }
-            }
-        ]
+        // [
+        //     'vuepress-plugin-comment',
+        //     {
+        //         choosen: 'valine',
+        //         // options选项中的所有参数，会传给Valine的配置
+        //         options: {
+        //             el: '#vcomments',
+        //             appId: 'azSK2mRA57Pa2Y0NEWxXjrdJ-gzGzoHsz',
+        //             appKey: 'Ky1y1SbwcyYkHMEbdVeq6mnf',
+        //             notify: false,
+        //             verify: false,
+        //             avatar: 'mp',
+        //             placeholder: '留下点什么吧...'
+        //         }
+        //     }
+        // ]
     ],
 
     // vuepress里修改webpack配置，使用的是chainWebpack进行链式调用

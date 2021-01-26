@@ -53,6 +53,7 @@
         "husky": "^3.1.0",
         "less": "^3.9.0",
         "less-loader": "^5.0.0",
+        "tc-comment": "0.0.3",
         "ts-loader": "^6.2.1",
         "typescript": "^3.7.4",
         "vue": "^2.5.2",

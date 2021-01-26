@@ -12,7 +12,15 @@ module.exports = {
         contentBase: path.resolve('./', 'public'),
         historyApiFallback: true,
         inline: true,
-        host: 'localhost'// '0.0.0.0' //
+        host: 'localhost', // '0.0.0.0' //
+        proxy: {
+            '/api': {
+                target: 'https://shiyix.cn/',
+                // pathRewrite: {'^/remote': ''},
+                changeOrigin: true,
+                secure: false
+            }
+        }
     },
     resolve: {
         extensions: [ '.tsx', '.ts', '.js' ]
