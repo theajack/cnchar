@@ -58,7 +58,7 @@
         "vue": "^2.5.2",
         "vue-highlight.js": "^2.2.0",
         "vuepress": "^1.0.2",
-        "vuepress-plugin-tc-comment": "0.0.4",
+        "vuepress-plugin-tc-comment": "0.0.5",
         "webpack": "^4.39.1",
         "webpack-cli": "^3.3.6",
         "webpack-dev-server": "^3.7.2"
