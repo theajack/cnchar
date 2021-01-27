@@ -1,11 +1,3 @@
-#vcomments{
-    width: 90%;
-    max-width: 78%;
-    margin: 0 auto;
-}
-#vcomments.home-comment{
-    max-width: 1000px;
-}
 html,body{
     font-size: 16px!important;
 }

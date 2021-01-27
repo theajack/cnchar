@@ -94,6 +94,7 @@ Use the script tag to use:
 19. **typescript**, the main library and all plug-in libraries are developed using typescript
 20. Rich configuration, split into 7 libraries according to function
 21. Support **custom** pinyin strokes and other data, use more flexible
+22. Support **IE9** and above
 
 ### 2. Overview
 

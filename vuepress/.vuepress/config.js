@@ -1,3 +1,4 @@
+
 module.exports = {
     title: 'cnchar', // 标题
     description: '功能全面、多端支持的汉字拼音笔画js库', // 描述
@@ -11,6 +12,16 @@ module.exports = {
     // dest: './dist', //打包位置
     port: 6868, // 端口号
     // 主题配置
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'https://shiyix.cn/',
+                // pathRewrite: {'^/remote': ''},
+                changeOrigin: true,
+                secure: false
+            }
+        }
+    },
     themeConfig: {
         // 顶部导航栏配置
         nav: [
@@ -138,49 +149,45 @@ module.exports = {
 
         // 官方图片放大组件 目前是所有img都可以点击放大。具体配置见https://v1.vuepress.vuejs.org/zh/plugin/official/plugin-medium-zoom.html
         ['@vuepress/medium-zoom', {selector: 'img'}],
-
-        // // vssue 一个借助issue的评论插件 具体配置见https://vssue.js.org/zh/
+        'vuepress-plugin-tc-comment'
         // [
-        //     '@vssue/vuepress-plugin-vssue',
+        //     'vuepress-plugin-comment',
         //     {
-        //         // 设置 `platform` 而不是 `api` 我这里是在github平台
-        //         platform: 'gitee',
-
-        //         // owner与repo配置 https://github.com/${owner}/${repo}
-        //         owner: 'theajack',
-        //         repo: 'cnchar',
-
-        //         // 填写自己的OAuth App 信息。详见https://vssue.js.org/zh/options/#repo
-        //         clientId:
-        //             'xx',
-        //         clientSecret:
-        //             'xx',
-        //         locale: 'zh', // 使用的语言  这里是简体中文
-        //         baseURL: 'https://gitee.com', // 平台的 base URL
-        //     },
-        // ], // 平台的 base URL
-        [
-            'vuepress-plugin-comment',
-            {
-                choosen: 'valine',
-                // options选项中的所有参数，会传给Valine的配置
-                options: {
-                    el: '#vcomments',
-                    appId: 'azSK2mRA57Pa2Y0NEWxXjrdJ-gzGzoHsz',
-                    appKey: 'Ky1y1SbwcyYkHMEbdVeq6mnf',
-                    notify: false,
-                    verify: false,
-                    avatar: 'mp',
-                    placeholder: '留下点什么吧...'
-                }
-            }
-        ]
+        //         // choosen: pluginConf,
+        //         // options: {
+        //         // }
+        //         choosen: pluginValine,
+        //         options: {
+        //             el: '#vcomments',
+        //             appId: 'azSK2mRA57Pa2Y0NEWxXjrdJ-gzGzoHsz',
+        //             appKey: 'Ky1y1SbwcyYkHMEbdVeq6mnf',
+        //             notify: false,
+        //             verify: false,
+        //             avatar: 'mp',
+        //             placeholder: '留下点什么吧...'
+        //         }
+        //     }
+        // ]
+        
+        // [
+        //     'vuepress-plugin-comment',
+        //     {
+        //         choosen: 'valine',
+        //         // options选项中的所有参数，会传给Valine的配置
+        //         options: {
+        //             el: '#vcomments',
+        //             appId: 'azSK2mRA57Pa2Y0NEWxXjrdJ-gzGzoHsz',
+        //             appKey: 'Ky1y1SbwcyYkHMEbdVeq6mnf',
+        //             notify: false,
+        //             verify: false,
+        //             avatar: 'mp',
+        //             placeholder: '留下点什么吧...'
+        //         }
+        //     }
+        // ]
     ],
 
     // vuepress里修改webpack配置，使用的是chainWebpack进行链式调用
-    // 具体使用可以参考我这个例子和 https://github.com/neutrinojs/webpack-chain/tree/v5
     // chainWebpack: (config, isServer) => {
-    //   config.resolve.alias
-    //     .set('@',resolve('src'))
     // }
 };

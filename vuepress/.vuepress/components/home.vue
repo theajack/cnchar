@@ -42,20 +42,22 @@
             <div class='f-i'>
                 <div class='f-t'><i class='ei-cubes'></i>按需取用</div>
                 <div class='f-des'>支持自定义数据</div>
+                <div class='f-des'>支持IE9+</div>
                 <div class='f-des'>功能分包</div>
                 <div class='f-des'>体积小巧</div>
                 <div class='f-des'>简单易用</div>
-                <div class='f-des'>npm</div>
-                <div class='f-des'>cdn</div>
+                <div class='f-des'>npm+cdn</div>
                 <div class='f-des'>...</div>
             </div>
         </div>
         <div class='copy-right'>MIT Licensed | Copyright © 2020 present <a href='https://www.github.com/theajack' target='view_window'>theajack</a></div>
+        <div id='comment'>
+
+        </div>
     </div>
 </template>
 
 <script>
-
     export default {
         data () {
             return {
@@ -103,15 +105,6 @@
                 window.open('https://theajack.gitee.io/jsbox/?theme=dark&lang=html&lib=cnchar-all&code=DwZwLgngNgpgfAWAFAAI0oMQGMB2WAWAhgE4C0JMhA3sunSlAJY4yn4yMDm+YAXCgGYADAAcAHgG5a6AL7JgAenDR48gCaMAbikZqAvAHI1xQgHdyxSgbiKNmxEmB2d+g7gIkLVmwrsPQWMSMImAOdJokKMZmAIKWhCh6UQD2WACuALYwOGAAdJwwYACisFk5AEIQAJJqABRGJuYUhAYAlFKo6NGmcZS5zCzEABIAKgCyADKJKAYGHeGRySGMyTjTNJ30KFiwJPwAZoRQIDAANNJbMFD83b2E55v0yrD8G1tbJhpYRwDCyVDJYj8AwYAAsoP2Bge73oACNCFgANacYjJNI4NR-AFAmYYGD4qEXGEMbKcMD4fgANiERLocke9LoSzAKxwuUgIhg03cRGIuW6uRGAE0AApFXIAOQA8gAlMYxCbzdA8kj8xr1QAG8oBfTShKGZrPayCJ+tW7IgnO5eF5arMgtF4oAyiMZVKANJFJVoFV87r1QCSNoB1bV1JpwhqQxuWpo5XKS3ptpjtYtyMQlVXlIyqUolnu2VtVvoMgAj9QDuicHI6GOkSIsQUJYQNMANq05V5vmaGDEECs6HvOPgVGImCanWnGaAtQd3UGEBETltHtbPtgAdDgyAf1TAHPqU-Hk9HBhwhCy8+bXtbuR3xBGyQA6uPag2DIAqKyngHCTKeAL2MDABdVoL+hxrBVnbYg8i7DIRFgK8Rk+epAFo5QBftU3Y9HjoACgI7PJl0INQrwdRhwNgepACJ7INfxPGZADj-LVABC3QAGdUATtMDFyEBOSgKB6jAVYYGQmF10Ack1ADC5JiWKudiyJQ9B+KE5jWPYgwRH+CAeN7M9+2SQcr1vYg6gAJgAVj3MCIO48SYTjXQVgye8DEAFLkpynQBBZXsn8-1Qs8xHwCB6j4wAWG0AJsUBMATPzAGjnQBMvWUxcz0+Rhvjk7VAAEVCL-1UwEwAdWTrMAAn1AEg5KdMr4qEDEAOXNAG21QrgrslzyL7VKHWXdShwfDUpxHGZEqqiTTw8PlGBAH4cB+Xl6hiJK6AAKQdLNmOXZhOEYfYvL7WSqhwfZknqIYAAOcDaUz0C-Ik1FSTJsjyApilKU7KhqepvS8FpWn6HBBhGGAxDAaY61yAArZJmHqAAdHbWiJQCcBAf4YFyAFOFqOsQccJRAmCUIgA');
             }
         },
-        mounted () {
-            let timer = setInterval(() => {
-                let comment = document.getElementById('vcomments');
-                if (comment) {
-                    comment.className += ' home-comment';
-                    clearInterval(timer);
-                }
-            }, 500);
-        }
     };
 </script>
 

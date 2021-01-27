@@ -29,7 +29,10 @@ import '../src/cnchar/plugin/radical';
 // import '../npm/idiom/cnchar.idiom.min.js';
 // import '../npm/xhy/cnchar.xhy.min.js';
 // import '../npm/radical/cnchar.radical.min.js';
-
+import initComment from 'tc-comment';
+initComment({
+    el: '#app'
+});
 
 console.log(cnchar);
 
