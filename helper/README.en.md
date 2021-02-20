@@ -770,7 +770,7 @@ cnchar.setPolyPhrase(json: {[key: string]: string}): void;
 
 Set the stroke order of Chinese characters, rely on the `cnchar-order` library
 
-The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/dict/stroke-table.json)
 
 ```ts
 cnchar.setOrder(word: string, order: string): void;
