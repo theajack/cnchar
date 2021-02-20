@@ -865,7 +865,7 @@ cnchar.setPolyPhrase(json: {[key: string]: string}): void;
 
 设置汉字笔顺， 依赖 `cnchar-order` 库
 
-添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/dict/stroke-table.json)
 
 ```ts
 cnchar.setOrder(word: string, order: string): void;
