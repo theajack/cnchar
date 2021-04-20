@@ -449,9 +449,9 @@ cnchar.orderToWord('横 撇 捺');
 cnchar.orderToWord(['横', '撇', '捺'], 'array');
 // 返回 ["丈","大"]
 cnchar.orderToWord(['横', '撇', '捺'], 'start');
-// 返回 "丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
+// 返回 "丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
 cnchar.orderToWord(['横', '撇', '捺'], 'start', 'simple');
-// 返回 "丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
+// 返回 "丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
 ```
 
 如果输入的笔画不在 `cnchar.orderToWord.orders` 内，则该方法会打印一个错误提示哪些笔画有误，并返回一个空数组。
@@ -1175,9 +1175,9 @@ cnchar.orderToWord(['横', '撇', '捺']);
 cnchar.orderToWord(['横', '撇', '捺'], 'array');
 // 返回 ["丈","大"]
 cnchar.orderToWord(['横', '撇', '捺'], 'start');
-// 返回 "丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
+// 返回 "丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
 cnchar.orderToWord(['横', '撇', '捺'], 'start', 'simple');
-// 返回 "丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
+// 返回 "丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
 cnchar.orderToWord(['横', '撇', '捺'], 'match');
 // 返回 "丈大仄兮友天太夫夭尺攵文木犬长丛仗仝叭..." // 省略后面的
 cnchar.orderToWord(['横', '撇', '捺'], 'matchorder');
