@@ -444,9 +444,9 @@ cnchar.orderToWord('横 撇 捺');
 cnchar.orderToWord(['横','撇','捺'],'array');
 // returns ["丈","大"]
 cnchar.orderToWord(['横','撇','捺'],'start');
-// returns "丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
+// returns "丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
 cnchar.orderToWord(['横','撇','捺'],'start','simple');
-// returns "丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
+// returns "丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
 ```
 
 If the entered stroke is not in `cnchar.orderToWord.orders`, the method will print an error indicating which stroke is wrong, and return an empty array.
@@ -1173,9 +1173,9 @@ cnchar.orderToWord(['横','撇','捺']);
 cnchar.orderToWord(['横','撇','捺'],'array');
 // returns ["丈","大"]
 cnchar.orderToWord(['横','撇','捺'],'start');
-// Back to"丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
+// Back to"丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩奪奮遼"
 cnchar.orderToWord(['横','撇','捺'],'start','simple');
-// back to"丈大太犬夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
+// back to"丈大太*夯夸夺夼奁奄奈奋奔态奎耷套奢瓠鹩"
 cnchar.orderToWord(['横','撇','捺'],'match');
 // Back to"丈大仄兮友天太夫夭尺攵文木犬长丛仗仝叭..."// Omit the following
 cnchar.orderToWord(['横','撇','捺'],'matchorder');
