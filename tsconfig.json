@@ -17,13 +17,20 @@
         "removeComments": false,
         "jsx": "preserve",
         "lib": ["esnext", "dom"],
-        // "types": ["jest", "puppeteer", "node"],
+        // "types": ["jest", "node"],
         "rootDir": ".",
         // "paths": {
         //   "@vue/*": ["packages/*/src"]
-        // }
+        // },
+        "paths": {
+            "cnchar": ["src/cnchar/main"],
+            "cnchar-types": ["src/cnchar-types"],
+            "@cnchar-plugin/*": ["src/cnchar/plugin/*"],
+            "testUtils":["testUtils"]
+        }
     },
     "include": [
+        "testUtils",
         "./src/**/*"   
     ],
     "exclude": [
