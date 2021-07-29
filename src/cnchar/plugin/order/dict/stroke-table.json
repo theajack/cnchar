@@ -20,8 +20,8 @@
 	"d": {
 		"shape": "㇀",
 		"type": "平笔",
-		"foldCount": "1",
-		"name": "撇点"
+		"foldCount": "0",
+		"name": "点2"
 	},
 	"o": {
 		"shape": "⺄",
@@ -55,8 +55,8 @@
 	},
 	"g": {
 		"shape": "亅",
-		"type": "平笔",
-		"foldCount": "0",
+		"type": "折笔",
+		"foldCount": "1",
 		"name": "竖钩"
 	},
 	"k": {
