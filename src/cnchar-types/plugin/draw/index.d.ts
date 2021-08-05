@@ -30,9 +30,8 @@ export declare interface IWriter {
     text: Array<string>;
     writers: Array<HanziWriter>;
     init (): void;
-    animate (complete: IComplete): void;
-    animateStart(): void;
-    loopAnimate(): void;
-    _animateSingle (index: number, complete: IComplete): void;
-    _animateStep (index: number, complete: IComplete): void;
+    startAnimation(): boolean;
+    drawNextStroke(onComplete?: ()=>void): boolean;
+    pauseAnimation(): void;
+    resumeAnimation(): void;
 }
