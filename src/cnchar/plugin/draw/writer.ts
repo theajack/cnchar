@@ -71,7 +71,7 @@ export class Writer implements IWriter {
         }
         this.init();
     }
-    init (): void {
+    private init (): void {
         if (svg === null) {
             return;
         }

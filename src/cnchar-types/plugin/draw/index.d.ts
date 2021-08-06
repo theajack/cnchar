@@ -29,7 +29,6 @@ export declare interface IWriter {
     type: TDrawType;
     text: Array<string>;
     writers: Array<HanziWriter>;
-    init (): void;
     startAnimation(): boolean;
     drawNextStroke(onComplete?: ()=>void): boolean;
     pauseAnimation(): void;

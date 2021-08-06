@@ -355,7 +355,78 @@ declare interface DrawOption {
 
 ```
 
-##### 5.2.3 微信小程序中使用
+##### 5.2.3 绘制控制api
+
+cnchar.draw 方法会返回一个 writer 对象
+
+```ts
+declare interface IWriter {
+    option: IDrawOption;
+    el: HTMLElement;
+    type: TDrawType;
+    text: Array<string>;
+    writers: Array<HanziWriter>;
+    startAnimation(): boolean;
+    pauseAnimation(): void;
+    resumeAnimation(): void;
+    drawNextStroke(onComplete?: ()=>void): boolean;
+}
+```
+
+当 `drawType = animation` 时，以下几个api可以用户控制动画
+
+绘制模式分为`连续绘制` 和 `单笔画绘制`，默认为连续绘制模式
+
+单笔划绘制模式需要 `option.animation.autoAnimate = false` 且调用 `drawNextStroke` 方法
+
+###### 5.2.3.1 startAnimation
+
+当 `option.animation.autoAnimate = false` 时，调用该api可以开始绘制，且开启`动连续绘制模式`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.startAnimation();
+```
+
+###### 5.2.3.2 pauseAnimation & resumeAnimation
+
+当处于 `连续绘制模式` 时，调用这两个api可以暂停绘制和恢复绘制
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION
+});
+
+writer.pauseAnimation();
+writer.resumeAnimation();
+```
+
+###### 5.2.3.3 drawNextStroke
+
+该 api 用于开启 **单笔绘制模式**
+
+首先需要使用参数 `option.animation.autoAnimate = false`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.drawNextStroke(()=>{
+    // 当前笔画绘制完成的回调
+});
+```
+
+##### 5.2.4 微信小程序中使用
 
 该库由 HanziWriter 驱动，目前仅支持在web环境下使用，如需微信小程序使用请参考 [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
 

@@ -350,7 +350,78 @@ declare interface DrawOption {
 };
 ```
 
-##### 5.2.3 Use in WeChat Mini Program
+##### 5.2.3 Drawing control api
+
+The cnchar.draw method returns a writer object
+
+```ts
+declare interface IWriter {
+    option: IDrawOption;
+    el: HTMLElement;
+    type: TDrawType;
+    text: Array<string>;
+    writers: Array<HanziWriter>;
+    startAnimation(): boolean;
+    pauseAnimation(): void;
+    resumeAnimation(): void;
+    drawNextStroke(onComplete?: ()=>void): boolean;
+}
+```
+
+When `drawType = animation`, the following APIs can be used by the user to control the animation
+
+The drawing mode is divided into `continuous drawing` and `single-stroke drawing`, the default is continuous drawing mode
+
+Single stroke drawing mode requires `option.animation.autoAnimate = false` and call the `drawNextStroke` method
+
+###### 5.2.3.1 startAnimation
+
+When `option.animation.autoAnimate = false`, call this api to start drawing, and enable `motion continuous drawing mode`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.startAnimation();
+```
+
+###### 5.2.3.2 pauseAnimation & resumeAnimation
+
+When in `continuous drawing mode`, call these two apis to pause drawing and resume drawing
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION
+});
+
+writer.pauseAnimation();
+writer.resumeAnimation();
+```
+
+###### 5.2.3.3 drawNextStroke
+
+This api is used to enable **single-stroke drawing mode**
+
+First, you need to use the parameter `option.animation.autoAnimate = false`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.drawNextStroke(()=>{
+    // Callback when the current stroke is drawn
+});
+```
+
+##### 5.2.4 Use in WeChat Mini Program
 
 The library is driven by HanziWriter, and currently only supports use in the web environment. If you need to use WeChat Mini Programs, please refer to [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
 
