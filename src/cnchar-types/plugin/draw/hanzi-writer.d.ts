@@ -26,4 +26,8 @@ export default class HanziWriter {
         x: number;
         y: number;
     };
+    pauseAnimation(): void;
+    resumeAnimation(): void;
+    animateStroke(strokeNum: number, options: {onComplete(): void}): void;
+    V: any;
 }

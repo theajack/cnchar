@@ -141,3 +141,7 @@
 5. 修改一些笔画foldCount和type错误
 6. 增加单元测试 
 7. 代码仓库移除npm文件夹
+
+## 3.0.3
+1. 增加繁体字 裡迴讚
+2. 增加 draw 插件绘制控制api startAnimation pauseAnimation resumeAnimation drawNextStroke

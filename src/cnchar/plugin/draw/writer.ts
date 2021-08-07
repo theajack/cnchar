@@ -3,7 +3,7 @@ import {TYPE, merge, TEST_STATUS} from './default-option';
 import {pickCnChar} from './util';
 import {buildLinesStr} from './line';
 import {stroke} from './stroke';
-import {IComplete, IWriter, IWriterOption} from 'cnchar-types/plugin/draw/index';
+import {IWriter, IWriterOption} from 'cnchar-types/plugin/draw/index';
 import {
     TDrawType,
     IDrawOption,
@@ -18,6 +18,7 @@ import {
     ITestStatusData
 } from 'cnchar-types/plugin/draw/common';
 import {querySelector} from './dom';
+import {AnimationWriter} from './animation-stroke';
 
 // export const DEFAULT_WIDTH: number = 60;
 
@@ -36,7 +37,7 @@ export class Writer implements IWriter {
     type: TDrawType;
     text: Array<string>;
     writers: Array<HanziWriter>;
-    animateStart: () => void;
+    animation: AnimationWriter;
     constructor ({
         el = 'cnchar-draw',
         text = '',
@@ -70,7 +71,7 @@ export class Writer implements IWriter {
         }
         this.init();
     }
-    init (): void {
+    private init (): void {
         if (svg === null) {
             return;
         }
@@ -101,23 +102,12 @@ export class Writer implements IWriter {
                 this.el.appendChild(node);
             });
             if (this.type === TYPE.ANIMATION) {
-                let isStart = false;
-                this.animateStart = () => {
-                    if (isStart) {
-                        return;
-                    }
-                    isStart = true;
-                    if (this.option.loopAnimate) {
-                        this.loopAnimate();
-                    } else {
-                        this.animate(this.option.animateComplete);
-                    }
-                };
+                this.animation = new AnimationWriter(this);
                 if (this.option.autoAnimate) {
-                    this.animateStart();
+                    this.startAnimation();
                 } else {
                     const start = () => {
-                        this.animateStart();
+                        this.startAnimation();
                         this.el.removeEventListener('click', start, false);
                     };
                     this.el.addEventListener('click', start, false);
@@ -148,59 +138,17 @@ export class Writer implements IWriter {
             }
         }
     }
-    animate (complete: IComplete = () => {}) {
-        const opt = this.option;
-        if (opt.stepByStep) { // 汉字之间连续绘制
-            if (opt.showCharacter === false) {
-                this.writers.forEach(writer => {
-                    writer.hideCharacter();
-                });
-            }
-            this._animateStep(0, complete);
-        } else { // 汉字一起绘制，笔画最多的绘制完成才算全部绘制完成
-            let index = 0;
-            for (let i = 0; i < this.writers.length; i++) {
-                this._animateSingle(i, () => {
-                    index++;
-                    if (index === this.writers.length) {
-                        complete();
-                    }
-                });
-            }
-        }
+    startAnimation () {
+        return this.animation.start();
     }
-    loopAnimate () {
-        const opt = this.option;
-        this.animate(() => {
-            if (opt.animateComplete)
-                opt.animateComplete();
-            setTimeout(() => {
-                this.loopAnimate();
-            }, opt.delayBetweenStrokes);
-        });
+    drawNextStroke (onComplete: ()=>void = () => {}) {
+        return this.animation.drawNextStroke(onComplete);
     }
-    // animate单个汉字
-    _animateSingle (index: number, complete: IComplete): void {
-        if (index >= this.writers.length) {
-            complete(true);
-            return;
-        }
-        this.writers[index].animateCharacter({
-            onComplete: () => {
-                complete(false);
-            }
-        });
+    pauseAnimation () {
+        this.animation.pause();
     }
-    _animateStep (index: number, complete: IComplete = () => {}): void {
-        this._animateSingle(index, (end: boolean) => {
-            if (!end) {
-                setTimeout(() => {
-                    this._animateStep(index + 1, complete);
-                }, this.option.delayBetweenStrokes);
-            } else {
-                complete();
-            }
-        });
+    resumeAnimation () {
+        this.animation.resume();
     }
 }
 

@@ -34,7 +34,7 @@
 
 <h3>🚀 Full-featured, multi-end support for hanyu pinyin strokes js library</h3>
 
-**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://cnchar.js.org) | [Update log](https://theajack.gitee.io/cnchar/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar)**
+**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://cnchar.js.org) | [Update log](https://theajack.gitee.io/cnchar/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438**
 
 ---
 
@@ -350,7 +350,78 @@ declare interface DrawOption {
 };
 ```
 
-##### 5.2.3 Use in WeChat Mini Program
+##### 5.2.3 Drawing control api
+
+The cnchar.draw method returns a writer object
+
+```ts
+declare interface IWriter {
+    option: IDrawOption;
+    el: HTMLElement;
+    type: TDrawType;
+    text: Array<string>;
+    writers: Array<HanziWriter>;
+    startAnimation(): boolean;
+    pauseAnimation(): void;
+    resumeAnimation(): void;
+    drawNextStroke(onComplete?: ()=>void): boolean;
+}
+```
+
+When `drawType = animation`, the following APIs can be used by the user to control the animation
+
+The drawing mode is divided into `continuous drawing` and `single-stroke drawing`, the default is continuous drawing mode
+
+Single stroke drawing mode requires `option.animation.autoAnimate = false` and call the `drawNextStroke` method
+
+###### 5.2.3.1 startAnimation
+
+When `option.animation.autoAnimate = false`, call this api to start drawing, and enable `motion continuous drawing mode`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.startAnimation();
+```
+
+###### 5.2.3.2 pauseAnimation & resumeAnimation
+
+When in `continuous drawing mode`, call these two apis to pause drawing and resume drawing
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION
+});
+
+writer.pauseAnimation();
+writer.resumeAnimation();
+```
+
+###### 5.2.3.3 drawNextStroke
+
+This api is used to enable **single-stroke drawing mode**
+
+First, you need to use the parameter `option.animation.autoAnimate = false`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.drawNextStroke(()=>{
+    // Callback when the current stroke is drawn
+});
+```
+
+##### 5.2.4 Use in WeChat Mini Program
 
 The library is driven by HanziWriter, and currently only supports use in the web environment. If you need to use WeChat Mini Programs, please refer to [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
 
@@ -402,34 +473,69 @@ The stroke details are as follows, orderNames only need to pass in the stroke na
     弯钩: {shape: "㇁", letter: "t"}
     捺: {shape: "㇏", letter: "l"}
     提: {shape: "㇀", letter: "i"}
-    撇: {shape: "㇓", letter: "s"}
-    撇折: {shape: "㇜", letter: "n"}
-    撇点: {shape: "㇛", letter: "m"}
+    撇: {shape: "丿", letter: "s"}
+    撇折: {shape: "𠃋", letter: "n"}
+    撇点: {shape: "𡿨", letter: "m"}
     斜钩: {shape: "㇂", letter: "y", sameLetterTo: "卧钩"}
-    横: {shape: "㇐", letter: "j"}
-    横折: {shape: "㇕", letter: "c"}
+    横: {shape: "一", letter: "j"}
+    横折: {shape: "𠃍", letter: "c"}
     横折弯: {shape: "㇍", letter: "v", sameLetterTo: "横折折"}
     横折折: {shape: "㇅", letter: "v", sameLetterTo: "横折弯"}
     横折折折: {shape: "㇎", letter: "q"}
-    横折折折钩: {shape: "㇡", letter: "w", sameLetterTo: "横撇弯钩"}
+    横折折折钩: {shape: "𠄎", letter: "w", sameLetterTo: "横撇弯钩"}
     横折折撇: {shape: "㇋", letter: "a"}
     横折提: {shape: "㇊", letter: "p"}
-    横折钩: {shape: "㇆", letter: "r"}
+    横折钩: {shape: "𠃌", letter: "r"}
     横撇: {shape: "㇇", letter: "e", sameLetterTo: "横钩"}
     横撇弯钩: {shape: "㇌", letter: "w", sameLetterTo: "横折折折钩"}
     横斜钩: {shape: "⺄", letter: "o"}
-    横钩: {shape: "㇖", letter: "e", sameLetterTo: "横撇"}
-    点: {shape: "㇔", letter: "k"}
-    竖: {shape: "㇑", letter: "f"}
+    横钩: {shape: "乛", letter: "e", sameLetterTo: "横撇"}
+    点: {shape: "丶", letter: "k"}
+    点2: {shape: "㇀", letter: "d"}
+    竖: {shape: "丨", letter: "f"}
     竖弯: {shape: "㇄", letter: "b"}
-    竖弯钩: {shape: "㇟", letter: "u"}
-    竖折折: {shape: "㇞", letter: "x", sameLetterTo: "竖折撇"}
+    竖弯钩: {shape: "乚", letter: "u"}
+    竖折折: {shape: "𠃑", letter: "x", sameLetterTo: "竖折撇"}
     竖折折钩: {shape: "㇉", letter: "z"}
     竖折撇: {shape: "ㄣ", letter: "x", sameLetterTo: "竖折折"}
-    竖提: {shape: "㇙", letter: "h"}
-    竖钩: {shape: "㇚", letter: "g"}
+    竖提: {shape: "𠄌", letter: "h"}
+    竖钩: {shape: "亅", letter: "g"}
 }
 ```
+
+<details>
+    <summary>Stroke Details</summary>
+
+| name | letter | shape |
+|---|---|---|
+| 横折折撇 | `a` | ㇋ |
+| 竖弯 | `b` | ㇄ |
+| 横折 | `c` | 𠃍 |
+| 点2 | `d` | ㇀ |
+| 横斜钩 | `o` | ⺄ |
+| 横 | `j` | 一 |
+| 捺 | `l` | ㇏ |
+| 横折钩 | `r` | 𠃌 |
+| 竖 | `f` | 丨 |
+| 竖钩 | `g` | 亅 |
+| 点 | `k` | 丶 |
+| 撇 | `s` | 丿 |
+| 撇折 | `n` | 𠃋 |
+| 竖折撇/竖折折 | `x` | ㄣ|𠃑 |
+| 横折折折钩/横撇弯钩 | `w` | 𠄎|㇌ |
+| 竖折折钩 | `z` | ㇉ |
+| 提 | `i` | ㇀ |
+| 弯钩 | `t` | ㇁ |
+| 斜钩/卧钩 | `y` | ㇂|㇃ |
+| 横折折/横折弯 | `v` | ㇅|㇍ |
+| 横撇/横钩 | `e` | ㇇|乛 |
+| 横折提 | `p` | ㇊ |
+| 横折折折 | `q` | ㇎ |
+| 竖提 | `h` | 𠄌 |
+| 撇点 | `m` | 𡿨 |
+| 竖弯钩 | `u` | 乚 |
+
+</details>
 
 Note: The following five pairs of strokes are not distinguished, and the same letters are used:
 **卧钩 = 斜钩**、**横折弯 = 横折折**、**横折折折钩 = 横撇弯钩**、**横撇 = 横钩**、**竖折折 = 竖折撇**
@@ -785,7 +891,7 @@ cnchar.setPolyPhrase(json: {[key: string]: string}): void;
 
 Set the stroke order of Chinese characters, rely on the `cnchar-order` library
 
-The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/dict/stroke-table.json)
 
 ```ts
 cnchar.setOrder(word: string, order: string): void;

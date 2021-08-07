@@ -29,10 +29,10 @@ import '../src/cnchar/plugin/radical';
 // import '../npm/idiom/cnchar.idiom.min.js';
 // import '../npm/xhy/cnchar.xhy.min.js';
 // import '../npm/radical/cnchar.radical.min.js';
-import initComment from 'tc-comment';
-initComment({
-    el: '#app'
-});
+// import initComment from 'tc-comment';
+// initComment({
+//     el: '#comment'
+// });
 
 console.log(cnchar);
 
@@ -117,6 +117,33 @@ cnchar.draw('中国', {
         length: 100,
                 
     },
+});
+
+declare global {
+    interface Window {
+        aaa: any;
+    }
+}
+
+window.aaa = cnchar.draw('你好九', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    style: {
+        radicalColor: '#44f',
+        backgroundColor: '#ccc'
+    },
+    animation: {
+        animateComplete () {
+            console.log('animateComplete');
+        },
+        loopAnimate: true,
+        autoAnimate: false, // false 时点击出发animate 只能触发一次
+        // stepByStep: false
+    },
+    test: {
+        onTestStatus (d: any) {
+            console.log(d);
+        }
+    }
 });
 
 // cnchar.draw('你好', {

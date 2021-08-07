@@ -355,7 +355,78 @@ declare interface DrawOption {
 
 ```
 
-##### 5.2.3 微信小程序中使用
+##### 5.2.3 绘制控制api
+
+cnchar.draw 方法会返回一个 writer 对象
+
+```ts
+declare interface IWriter {
+    option: IDrawOption;
+    el: HTMLElement;
+    type: TDrawType;
+    text: Array<string>;
+    writers: Array<HanziWriter>;
+    startAnimation(): boolean;
+    pauseAnimation(): void;
+    resumeAnimation(): void;
+    drawNextStroke(onComplete?: ()=>void): boolean;
+}
+```
+
+当 `drawType = animation` 时，以下几个api可以用户控制动画
+
+绘制模式分为`连续绘制` 和 `单笔画绘制`，默认为连续绘制模式
+
+单笔划绘制模式需要 `option.animation.autoAnimate = false` 且调用 `drawNextStroke` 方法
+
+###### 5.2.3.1 startAnimation
+
+当 `option.animation.autoAnimate = false` 时，调用该api可以开始绘制，且开启`动连续绘制模式`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.startAnimation();
+```
+
+###### 5.2.3.2 pauseAnimation & resumeAnimation
+
+当处于 `连续绘制模式` 时，调用这两个api可以暂停绘制和恢复绘制
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION
+});
+
+writer.pauseAnimation();
+writer.resumeAnimation();
+```
+
+###### 5.2.3.3 drawNextStroke
+
+该 api 用于开启 **单笔绘制模式**
+
+首先需要使用参数 `option.animation.autoAnimate = false`
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        autoAnimate: false,
+    }
+});
+
+writer.drawNextStroke(()=>{
+    // 当前笔画绘制完成的回调
+});
+```
+
+##### 5.2.4 微信小程序中使用
 
 该库由 HanziWriter 驱动，目前仅支持在web环境下使用，如需微信小程序使用请参考 [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
 
@@ -407,34 +478,69 @@ var dict = cnchar.orderToWord.orders; // dict 是一个包含所有笔画数的�
     弯钩: {shape: "㇁", letter: "t"}
     捺: {shape: "㇏", letter: "l"}
     提: {shape: "㇀", letter: "i"}
-    撇: {shape: "㇓", letter: "s"}
-    撇折: {shape: "㇜", letter: "n"}
-    撇点: {shape: "㇛", letter: "m"}
+    撇: {shape: "丿", letter: "s"}
+    撇折: {shape: "𠃋", letter: "n"}
+    撇点: {shape: "𡿨", letter: "m"}
     斜钩: {shape: "㇂", letter: "y", sameLetterTo: "卧钩"}
-    横: {shape: "㇐", letter: "j"}
-    横折: {shape: "㇕", letter: "c"}
+    横: {shape: "一", letter: "j"}
+    横折: {shape: "𠃍", letter: "c"}
     横折弯: {shape: "㇍", letter: "v", sameLetterTo: "横折折"}
     横折折: {shape: "㇅", letter: "v", sameLetterTo: "横折弯"}
     横折折折: {shape: "㇎", letter: "q"}
-    横折折折钩: {shape: "㇡", letter: "w", sameLetterTo: "横撇弯钩"}
+    横折折折钩: {shape: "𠄎", letter: "w", sameLetterTo: "横撇弯钩"}
     横折折撇: {shape: "㇋", letter: "a"}
     横折提: {shape: "㇊", letter: "p"}
-    横折钩: {shape: "㇆", letter: "r"}
+    横折钩: {shape: "𠃌", letter: "r"}
     横撇: {shape: "㇇", letter: "e", sameLetterTo: "横钩"}
     横撇弯钩: {shape: "㇌", letter: "w", sameLetterTo: "横折折折钩"}
     横斜钩: {shape: "⺄", letter: "o"}
-    横钩: {shape: "㇖", letter: "e", sameLetterTo: "横撇"}
-    点: {shape: "㇔", letter: "k"}
-    竖: {shape: "㇑", letter: "f"}
+    横钩: {shape: "乛", letter: "e", sameLetterTo: "横撇"}
+    点: {shape: "丶", letter: "k"}
+    点2: {shape: "㇀", letter: "d"}
+    竖: {shape: "丨", letter: "f"}
     竖弯: {shape: "㇄", letter: "b"}
-    竖弯钩: {shape: "㇟", letter: "u"}
-    竖折折: {shape: "㇞", letter: "x", sameLetterTo: "竖折撇"}
+    竖弯钩: {shape: "乚", letter: "u"}
+    竖折折: {shape: "𠃑", letter: "x", sameLetterTo: "竖折撇"}
     竖折折钩: {shape: "㇉", letter: "z"}
     竖折撇: {shape: "ㄣ", letter: "x", sameLetterTo: "竖折折"}
-    竖提: {shape: "㇙", letter: "h"}
-    竖钩: {shape: "㇚", letter: "g"}
+    竖提: {shape: "𠄌", letter: "h"}
+    竖钩: {shape: "亅", letter: "g"}
 }
 ```
+
+<details>
+    <summary>展开笔画详情</summary>
+
+| 名称 | 定义 | 形状 |
+|---|---|---|
+| 横折折撇 | `a` | ㇋ |
+| 竖弯 | `b` | ㇄ |
+| 横折 | `c` | 𠃍 |
+| 点2 | `d` | ㇀ |
+| 横斜钩 | `o` | ⺄ |
+| 横 | `j` | 一 |
+| 捺 | `l` | ㇏ |
+| 横折钩 | `r` | 𠃌 |
+| 竖 | `f` | 丨 |
+| 竖钩 | `g` | 亅 |
+| 点 | `k` | 丶 |
+| 撇 | `s` | 丿 |
+| 撇折 | `n` | 𠃋 |
+| 竖折撇/竖折折 | `x` | ㄣ|𠃑 |
+| 横折折折钩/横撇弯钩 | `w` | 𠄎|㇌ |
+| 竖折折钩 | `z` | ㇉ |
+| 提 | `i` | ㇀ |
+| 弯钩 | `t` | ㇁ |
+| 斜钩/卧钩 | `y` | ㇂|㇃ |
+| 横折折/横折弯 | `v` | ㇅|㇍ |
+| 横撇/横钩 | `e` | ㇇|乛 |
+| 横折提 | `p` | ㇊ |
+| 横折折折 | `q` | ㇎ |
+| 竖提 | `h` | 𠄌 |
+| 撇点 | `m` | 𡿨 |
+| 竖弯钩 | `u` | 乚 |
+
+</details>
 
 注：其中以下五对笔画没有进行区分，使用的是同样的字母表示：
 **卧钩 = 斜钩**、**横折弯 = 横折折**、**横折折折钩 = 横撇弯钩**、**横撇 = 横钩**、**竖折折 = 竖折撇**
