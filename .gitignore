@@ -1,7 +1,7 @@
 node_modules
 nodejs
 src_import_version
-# package-lock.json
+package-lock.json
 vuepress/.vuepress/secret.js
 helper/local
 coverage
