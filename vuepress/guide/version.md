@@ -145,3 +145,8 @@
 ## 3.0.3
 1. 增加繁体字 裡迴讚
 2. 增加 draw 插件绘制控制api startAnimation pauseAnimation resumeAnimation drawNextStroke
+
+## 3.0.4
+1. 增加 将否 两个字的默认读音
+2. 修正 银行 词组的读音
+3. 修正了多个多音字和词组
