@@ -66,13 +66,15 @@ module.exports = [
             ];
         },
         expect: [
+
+            
             ['j', 'slf'],
             [
-                [{shape: '一', type: '平笔', foldCount: '0', name: '横'}],
+                [{'shape': '一', 'type': '平笔', 'foldCount': '0', 'name': '横', 'letter': 'j'}],
                 [
-                    {shape: '丿', type: '平笔', foldCount: '0', name: '撇'},
-                    {shape: '㇏', type: '平笔', foldCount: '0', name: '捺'},
-                    {shape: '丨', type: '平笔', foldCount: '0', name: '竖'}
+                    {'shape': '丿', 'type': '平笔', 'foldCount': '0', 'name': '撇', 'letter': 's'},
+                    {'shape': '㇏', 'type': '平笔', 'foldCount': '0', 'name': '捺', 'letter': 'l'},
+                    {'shape': '丨', 'type': '平笔', 'foldCount': '0', 'name': '竖', 'letter': 'f'}
                 ]
             ],
             [['一'], ['丿', '㇏', '丨']],
