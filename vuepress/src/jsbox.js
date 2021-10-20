@@ -4,7 +4,7 @@ let jsbox = null;
 
 function getUrl () {
     let url = '';
-    let host = window.location.host;
+    const host = window.location.host;
     if (host.indexOf('localhost') !== -1 || host === 'theajack.gitee.io') {
         url = 'https://theajack.gitee.io';
     } else {
@@ -19,9 +19,9 @@ function main () {
     }
     hackConsole();
     initStyle();
-    let mask = initDom();
-    let iframe = mask.querySelector('.jsbox-iframe');
-    let closeIcon = mask.querySelector('.jsbox-close');
+    const mask = initDom();
+    const iframe = mask.querySelector('.jsbox-iframe');
+    const closeIcon = mask.querySelector('.jsbox-close');
     function open () {
         mask.style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -67,7 +67,7 @@ function main () {
 }
 
 function hackConsole () {
-    let log = console.log;
+    const log = console.log;
     console.log = (...arg) => {
         event.emit('onlog', arg);
         log(...arg);
@@ -75,7 +75,7 @@ function hackConsole () {
 }
 
 function initDom () {
-    let mask = document.createElement('div');
+    const mask = document.createElement('div');
     mask.className = 'jsbox-mask';
     mask.innerHTML = /* html*/`
     <div class='jsbox-header'>
@@ -89,7 +89,7 @@ function initDom () {
 }
 
 function initStyle () {
-    let style = document.createElement('style');
+    const style = document.createElement('style');
     style.innerText = /* css*/`
     .jsbox-mask{
         position: fixed;

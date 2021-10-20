@@ -1,6 +1,6 @@
 export function extractScript (html) {
-    let reg = /<script(.|\n)*?>(.|\n)*?<\/script>/g;
-    let arr = html.match(reg);
+    const reg = /<script(.|\n)*?>(.|\n)*?<\/script>/g;
+    const arr = html.match(reg);
     if (!arr) {
         return {html, js: ''};
     }
@@ -98,8 +98,8 @@ export function parseUrlParam (search, name, defVal) {
     }
     if (typeof name !== 'undefined') {
         if (search !== '') {
-            let reg = new RegExp('(^|&)' + name + '=([^&]*?)(&|$)', 'i');
-            let r = search.substr(1).match(reg);
+            const reg = new RegExp('(^|&)' + name + '=([^&]*?)(&|$)', 'i');
+            const r = search.substr(1).match(reg);
             if (r != null) {
                 return unescape(r[2]);
             }
@@ -107,10 +107,10 @@ export function parseUrlParam (search, name, defVal) {
         return (typeof defVal !== 'undefined') ? defVal : null;
     }
     if (search === '') { return {}; }
-    let arr = search.substr(1).split('&');
-    let param = {};
+    const arr = search.substr(1).split('&');
+    const param = {};
     arr.forEach(item => {
-        let pArr = item.split('=');
+        const pArr = item.split('=');
         param[pArr[0]] = pArr[1];
     });
     return param;

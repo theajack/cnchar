@@ -2,11 +2,11 @@
 /**
  * Event BUS
  */
-let events = {};
-let EVENT = {};
+const events = {};
+const EVENT = {};
 
-let isUndf = (v) => {return typeof v === 'undefined';};
-let isObject = (v) => {return typeof v === 'object';};
+const isUndf = (v) => {return typeof v === 'undefined';};
+const isObject = (v) => {return typeof v === 'object';};
 
 export function checkEvent (name) {
     if (events[name]) {
@@ -25,7 +25,7 @@ function init (name) {
 
 function regist (name, listener) {
     if (isObject(name)) {
-        for (let key in name) {
+        for (const key in name) {
             regist(key, name[key]);
         }
         return;
@@ -45,7 +45,7 @@ function remove (name, listener) {
         console.error('请传入要移除的listener');
         return false;
     } else {// 移除单个监听
-        let index = events[name].listeners.indexOf(listener);
+        const index = events[name].listeners.indexOf(listener);
         if (index === -1) {
             console.warn('removeEvent:未找到监听函数 ' + name);
             return false;
