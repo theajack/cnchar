@@ -1643,7 +1643,7 @@ cnchar.xhy.addXhy([ // 多条
 
 ### 7.应用例子
 
-[汉字打字游戏](https://www.theajack.com/type/)
+[汉字打字游戏](https://theajack.gitee.io/type/) | [打字弹钢琴](https://theajack.gitee.io/piano/)
 
 **致谢**
 

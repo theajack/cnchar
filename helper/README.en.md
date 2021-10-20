@@ -1548,7 +1548,7 @@ cnchar.xhy.addXhy([ // Multiple
 
 ### 7 Application examples
 
-[Chinese Character Typing Game](https://www.theajack.com/type/)
+[Chinese Character Typing Game](https://www.theajack.com/type/) | [Piano](https://theajack.gitee.io/piano/)
 
 **Acknowledgements**
 

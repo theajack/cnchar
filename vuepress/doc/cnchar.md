@@ -220,3 +220,7 @@ cnchar.check = false; // 关闭参数校验
   <codebox id='plugins'></codebox>
 </div>
 
+## 7. 应用例子
+
+1. [汉字打字游戏](https://theajack.gitee.io/type/)
+2. [打字弹钢琴](https://theajack.gitee.io/piano/)
