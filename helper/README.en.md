@@ -34,7 +34,7 @@
 
 <h3>🚀 Full-featured, multi-end support for hanyu pinyin strokes js library</h3>
 
-**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://cnchar.js.org) | [Update log](https://theajack.gitee.io/cnchar/guide/version.html) | [Application: Typing game](https://theajack.gitee.io/type/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438**
+**[中文](https://github.com/theajack/cnchar#cnchar--) | [Online trial / documentation](https://theajack.gitee.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/guide/version.html) | Application: [Typing game](https://theajack.gitee.io/type/)、[piano](https://theajack.gitee.io/piano/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438**
 
 ---
 
