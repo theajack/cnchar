@@ -45,13 +45,14 @@ async function exec (cmd) {
     return new Promise(resolve => {
         childProcess.exec(cmd, function (error, stdout, stderr) {
             if (error) {
-                throw new Error('publish error');
+                resolve({success: false, stdout, stderr});
+            } else {
+                resolve({
+                    success: true,
+                    stdout,
+                    stderr
+                });
             }
-            resolve({
-                success: true,
-                stdout,
-                stderr
-            });
         });
     });
 }

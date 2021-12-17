@@ -87,6 +87,8 @@ function copyToNPM () {
     gulp.src(['src/cnchar/main/package.json'])
         .pipe(gulp.dest('npm/packages/cnchar'));
     
+    copyCncharTypes(gulpReadme);
+    
     alias.forEach(alia => {
         gulp.src(`src/cnchar/alias/${alia}/package.json`)
             .pipe(gulp.dest(`npm/packages/${alia}`));
@@ -95,6 +97,13 @@ function copyToNPM () {
     plugins.forEach(plugin => {
         gulpPlugin(plugin);
     });
+}
+
+function copyCncharTypes (gulpReadme) {
+    gulp.src(['src/cnchar-types/**/*.ts', 'src/cnchar-types/package.json'])
+        .pipe(gulp.dest('npm/packages/cnchar-types'));
+
+    gulpReadme.pipe(gulp.dest(`npm/packages/cnchar-types`));
 }
 
 function copyLatest () {
@@ -125,5 +134,6 @@ function copyLatest () {
         }))
         .pipe(gulp.dest('npm/packages/hanzi-util-base'));
 }
+
 
 task();

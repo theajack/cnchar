@@ -1,6 +1,6 @@
-
+const {version} = require('../../package.json');
 module.exports = {
-    title: 'cnchar', // 标题
+    title: `cnchar (v${version})`, // 标题
     description: '功能全面、多端支持的汉字拼音笔画js库', // 描述
     dest: './docs/', // 基本url
     // base: '/cnchar/',

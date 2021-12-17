@@ -10,7 +10,7 @@ async function main () {
     const publish = 'npm publish ';
     const publishPackage = `${publish}npm/packages/`;
     const publishAll = `${publishPackage}cnchar-all`;
-    const publishTypes = `${publish}src/cnchar-types`;
+    const publishTypes = `${publishPackage}cnchar-types`;
     const publishMain = `${publishPackage}cnchar`;
     let cmds = [];
     let cmdConsole = [];
@@ -49,11 +49,24 @@ async function main () {
         ];
     }
     console.log(`Start Publish... [0/${cmds.length}]`);
+    const errorList = [];
     for (let i = 0; i < cmds.length; i++) {
-        await exec(cmds[i]);
-        console.log(`${cmdConsole[i]} publish success. [${i + 1}/${cmds.length}]`);
+        const {success, stderr} = await exec(cmds[i]); {
+            if (success) {
+                console.log(`${cmdConsole[i]} publish success. [${i + 1}/${cmds.length}]`);
+            } else {
+                console.log(stderr);
+                console.log(`${cmdConsole[i]} publish fail!. [${i + 1}/${cmds.length}]`);
+                errorList.push(cmdConsole[i]);
+            }
+        }
     }
     console.log('Finished!');
+
+    if (errorList.length > 0) {
+        console.log(`Fail Items: ${cmdConsole.toString()}`);
+    }
 }
 
 main();
+

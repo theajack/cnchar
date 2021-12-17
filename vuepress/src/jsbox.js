@@ -8,7 +8,7 @@ function getUrl () {
     if (host.indexOf('localhost') !== -1 || host === 'theajack.gitee.io') {
         url = 'https://theajack.gitee.io';
     } else {
-        url = `${window.location.protocol}//www.theajack.com/jsbox`;
+        url = `${window.location.protocol}//www.theajack.com`;
     }
     return url + '/jsbox?theme=dark&remind=false&mes=false';
 }
