@@ -102,7 +102,7 @@
                 window.location.href = '/cnchar/guide/';
             },
             run () {
-                window.open('https://theajack.gitee.io/jsbox/?github=theajack.cnchar');
+                window.open('https://theajack.gitee.io/jsbox/?github=theajack.cnchar@master');
             }
         },
     };
