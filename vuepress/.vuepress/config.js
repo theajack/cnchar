@@ -1,6 +1,33 @@
 const {version} = require('../../package.json');
+const path = require('path');
 module.exports = {
     title: `cnchar (v${version})`, // 标题
+    configureWebpack: () => {
+        const NODE_ENV = process.env.NODE_ENV;
+        // 判断是否是生产环境
+        if (NODE_ENV === 'production') {
+            return {
+                output: {
+                    publicPath: 'https://cdn.jsdelivr.net/gh/theajack/cnchar/docs'
+                },
+                resolve: {
+                    // 配置路径别名
+                    alias: {
+                        'public': path.resolve(__dirname, './public')
+                    }
+                }
+            };
+        } else {
+            return {
+                resolve: {
+                    // 配置路径别名
+                    alias: {
+                        'public': path.resolve(__dirname, './public')
+                    }
+                }
+            };
+        }
+    },
     description: '功能全面、多端支持的汉字拼音笔画js库', // 描述
     dest: './docs/', // 基本url
     // base: '/cnchar/',
