@@ -8,7 +8,7 @@ module.exports = {
         if (NODE_ENV === 'production') {
             return {
                 output: {
-                    publicPath: 'https://cdn.jsdelivr.net/gh/theajack/cnchar@master/docs'
+                    publicPath: 'https://cdn.jsdelivr.net/gh/theajack/cnchar@master/docs/'
                 },
                 resolve: {
                     // 配置路径别名
