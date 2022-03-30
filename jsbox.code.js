@@ -48,7 +48,7 @@ window.jsboxCode = {
         cnchar.isCnChar('A'),
         JSON.stringify(cnchar.spellInfo('Hàn')),
     ]
-    document.getElementById('cnchar-area').innerText = res.join('\n')
+    document.getElementById('cnchar-area').innerText = res.join('\\n')
     console.log(res)
 </script>`
 };
