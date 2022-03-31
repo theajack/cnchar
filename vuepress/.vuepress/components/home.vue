@@ -91,9 +91,11 @@
                     this.order =  JSON.stringify(this.text.stroke('order', 'shape')).replace(/"/g, '').replace(/null/g, '无');
                     let str = this.pickCnChar(this.text);
                     let el = document.getElementById('draw-area');
-                    el.innerHTML = '';
-                    if (str !== '') {
-                        window.cnchar.draw(str, {el});
+                    if(el) {
+                        el.innerHTML = '';
+                        if (str !== '') {
+                            window.cnchar.draw(str, {el});
+                        }
                     }
                 }
             },
