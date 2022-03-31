@@ -69,8 +69,20 @@
                 order: '',
             };
         },
+        mounted(){
+            if(location.hash){
+                this.text = decodeURIComponent(location.hash).substring(1);
+                this.applyText();
+            }
+        },
         methods: {
             input () {
+                if (this.text) {
+                    location.hash = this.text;
+                    this.applyText();
+                }
+            },
+            applyText(){
                 if (this.text) {
                     this.spell = this.text.spell('array', 'tone').join(' ');
                     this.stroke =  this.text.stroke();
