@@ -80,7 +80,9 @@ function copyToNPM () {
 
     gulp.src(['src/cnchar/main/index.d.ts'])
         .pipe(gulp.dest('npm/packages/cnchar'))
-        .pipe(gulp.dest('npm/packages/hanzi-util-base'))
+        .pipe(gulp.dest('npm/packages/hanzi-util-base'));
+    
+    gulp.src(['src/cnchar/alias/cnchar-all/index.d.ts'])
         .pipe(gulp.dest('npm/packages/cnchar-all'))
         .pipe(gulp.dest('npm/packages/hanzi-util'));
 
