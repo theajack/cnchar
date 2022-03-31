@@ -238,7 +238,7 @@ The native browser environment requires the use of script tags to import js file
 
 ### 5. API
 
-Type declaration: [cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts) | [cnchar-order.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/order/index.d.ts) | [cnchar-trad.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/trad/index.d.ts)
+Type declaration: [cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts) | [cnchar-order.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/index.d.ts) | [cnchar-trad.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/trad/index.d.ts)
 
 Note: This chapter only introduces API usage, please refer to Chapter 6 for more usage examples
 
@@ -264,7 +264,7 @@ The key lies in the configuration of optional parameters, which will be introduc
 
 #### 5.2 Draw Chinese characters visually: draw
 
-Type declaration: [cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/draw/index.d.ts)
+Type declaration: [cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/draw/index.d.ts)
 
 The `cnchar-draw` library is used to support the visual drawing of Chinese characters in a browser environment, so this library is only available in a browser environment. There are four drawing modes: normal, animation, stroke, and test.
 
@@ -1495,7 +1495,7 @@ cnchar.setStrokeCount({ // Multiple Chinese characters
 
 Depend on `cnchar-order`
 
-The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/stroke-table.json)
 
 ```js
 // Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar

@@ -241,7 +241,7 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 
 ### 5.API
 
-类型声明：[cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts) | [cnchar-order.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/order/index.d.ts) | [cnchar-trad.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/trad/index.d.ts)
+类型声明：[cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts) | [cnchar-order.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/index.d.ts) | [cnchar-trad.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/trad/index.d.ts)
 
 注：该章节仅介绍API用法，更多使用实例请参考第六章
 
@@ -267,7 +267,7 @@ string.stroke([...args])
 
 #### 5.2 可视化绘制汉字: draw
 
-类型声明：[cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/plugin/draw/index.d.ts)
+类型声明：[cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/draw/index.d.ts)
 
 `cnchar-draw` 库用于支持在浏览器环境下可视化绘制汉字，所以该库仅在浏览器环境下可用。绘制模式有 normal,animation,stroke,test 四种模式可选。
 
@@ -896,7 +896,7 @@ cnchar.setPolyPhrase(json: {[key: string]: string}): void;
 
 设置汉字笔顺， 依赖 `cnchar-order` 库
 
-添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/stroke-table.json)
 
 ```ts
 cnchar.setOrder(word: string, order: string): void;
@@ -1496,7 +1496,7 @@ cnchar.setStrokeCount({ // 多个
 
 依赖 `cnchar-order`
 
-添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/plugin/order/stroke-table.json)
+添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/stroke-table.json)
 
 ```js
 // 用于添加cnchar中不包含的汉字 或修改 cnchar中有误的汉字
