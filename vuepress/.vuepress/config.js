@@ -176,7 +176,7 @@ module.exports = {
 
         // 官方图片放大组件 目前是所有img都可以点击放大。具体配置见https://v1.vuepress.vuejs.org/zh/plugin/official/plugin-medium-zoom.html
         ['@vuepress/medium-zoom', {selector: 'img'}],
-        'vuepress-plugin-tc-comment'
+        // 'vuepress-plugin-tc-comment' // todo 会导致bug
         // [
         //     'vuepress-plugin-comment',
         //     {
