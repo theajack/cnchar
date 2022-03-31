@@ -19,7 +19,7 @@ window.jsboxCode = {
             backgroundColor: '#eee',
             length: 60
         }
-    }
+    };
     option.type = cnchar.draw.TYPE.NORMAL;
     cnchar.draw('你好', option);
 
@@ -48,7 +48,7 @@ window.jsboxCode = {
         cnchar.isCnChar('A'),
         JSON.stringify(cnchar.spellInfo('Hàn')),
     ]
-    document.getElementById('cnchar-area').innerText = res.join('\\n')
-    console.log(res)
+    document.getElementById('cnchar-area').innerText = res.join('\\n');
+    console.log(res);
 </script>`
 };
