@@ -27,7 +27,8 @@
         "test": "node local_test npm",
         "jest": "jest",
         "dev:docs": "vuepress dev vuepress",
-        "build:docs": "vuepress build vuepress && node ./helper/build-docs.js"
+        "build:docs": "vuepress build vuepress && node ./helper/build-docs.js",
+        "purge": "node ./helper/purge-cdn.js"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",
