@@ -6,3 +6,4 @@ vuepress/.vuepress/secret.js
 helper/local
 coverage
 npm
+cnchar
