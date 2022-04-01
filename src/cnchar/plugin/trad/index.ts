@@ -78,7 +78,7 @@ function reinitSpell (proto: String, cnchar: ICnChar): void {
         str = converter.tradToSimple(str);
         return _spell(str, ...args);
     };
-    proto.spell = function (...args) {
+    proto.spell = function (...args: SpellArg[]) {
         return newSpell(this as string, ...args);
     };
     cnchar.spell = function (...args) {return newSpell(...args);};
