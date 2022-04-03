@@ -45,6 +45,12 @@ export declare interface ICheckArgs {
     ): void;
 }
 
+/**
+    将拼音转换成json数据
+    lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
+    lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
+    needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
+ */
 export declare interface ITransformTone {
     (
         spell: string,

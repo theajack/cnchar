@@ -194,6 +194,10 @@ export const removeTone: IRemoveTone = (spell: string, tone: boolean): {
     return {spell, tone: 0, index: -1};
 };
 
+/**
+ * 给拼音添加音调
+ * setTone('ni', 1, 3) = nǐ
+ */
 function setTone (spell: string, index: number, tone: ToneType): string {
     if (tone === 0) { // 轻声
         return spell;
@@ -206,7 +210,7 @@ function setTone (spell: string, index: number, tone: ToneType): string {
     return spell;
 }
 
-// 笔画数
+// 计算笔画基础方法
 export function stroke (
     dict: Json<string>,
     originArgs: Array<string>
@@ -241,11 +245,11 @@ export const sumStroke: IFunc<number, Array<number>> = (strs: Array<number>): nu
     return sum;
 };
 
-// spell 所有参数 ["array", "low", "up", "first", "poly", "tone", "simple"]
-//  simple 禁用繁体字
-
-// stroke 所有参数 ["letter", "shape", "count", "name", "detail", "array", "order", "simple"]
-//
+/*
+    检查cnchar中某方法 传入的参数是否合法
+    spell 所有参数 ["array", "low", "up", "first", "poly", "tone", "simple"] // simple 禁用繁体字
+    stroke 所有参数 ["letter", "shape", "count", "name", "detail", "array", "order", "simple"]
+*/
 let _hasCheck: boolean = false;
 export const checkArgs: ICheckArgs = (
     type: TypeProp,
@@ -354,7 +358,11 @@ function warnArgs (
         _warn(mes);
     }
 }
-// lv2 => lǘ
+
+/*
+    将拼音转换成含有音调的拼音
+    lv2 => lǘ
+ */
 export function shapeSpell (spell: string): string {
     const tones: string = '01234';
     if (tones.indexOf(spell[spell.length - 1]) === -1) {
@@ -363,9 +371,12 @@ export function shapeSpell (spell: string): string {
     return transformTone(spell, true, 'low').spell;
 }
 
-// lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
-// lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
-// needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
+/*
+    将拼音转换成json数据
+    lv2 => {spell:'lü', tone: 2, index: 2, isTrans: true}
+    lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
+    needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
+ */
 export const transformTone: ITransformTone = (
     spell: string,
     needTone: boolean = false,

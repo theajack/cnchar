@@ -11,8 +11,17 @@ const arg: {
 } = {simple: 'simple', trad: 'trad', poly: 'poly', alltone: 'alltone', array: 'array'};
 let _: ICncharTool;// 工具方法
 
-
-// 获取拼音信息 spell,tone,index,initial,final
+/**
+ * 获取拼音信息
+ *
+ * spellInfo('Shàng') => {
+        spell: 'shang', // 无音调拼音
+        initial: 'sh', // 声母
+        final: 'ang', // 韵母
+        tone: 4, // 音调
+        index: 3 // 音调位置
+    }
+ */
 export const spellInfo = ((spell: string): ISpellInfoReturn => {
     spell = spell.toLowerCase();
     const info = _.removeTone(spell, false);
@@ -48,6 +57,7 @@ export function initSpellToWord (cnchar: ICnChar): void {
     cnchar.type.spellToWord = arg as TypeValueObject;
 }
 
+// spellToWord('shàng') => "上尚绱"
 export function spellToWord (...originArgs: Array<string>): string | Array<string> {
     const spell = originArgs[0].toLowerCase();
     if (typeof spell !== 'string') {
