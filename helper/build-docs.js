@@ -16,17 +16,7 @@ function main () {
 }
 
 function addMta () {
-    const mta = /* html*/`<script>
-var _mtac = {};
-(function () {
-    var mta = document.createElement("script");
-    mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
-    mta.setAttribute("name", "MTAH5");
-    mta.setAttribute("sid", "500700068");
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(mta, s);
-})();
-</script>`;
+    const mta = /* html*/`<script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1281058979&web_id=1281058979"></script>`;
     var html = fs.readFileSync('./docs/index.html', 'utf8');
     html = html.replace('</body>', mta + '</body>');
     fs.writeFileSync('./docs/index.html', html, 'utf8');
