@@ -1,9 +1,8 @@
 node_modules
 nodejs
-src_import_version
 # package-lock.json
 vuepress/.vuepress/secret.js
 helper/local
 coverage
-# npm
-# cnchar
+npm
+docs

@@ -16,7 +16,7 @@ function main () {
 }
 
 function addMta () {
-    const mta = /* html*/`<script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1281058979&web_id=1281058979"></script>`;
+    const mta = /* html*/`<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/theajack/cdn/js/stat.js"></script>`;
     var html = fs.readFileSync('./docs/index.html', 'utf8');
     html = html.replace('</body>', mta + '</body>');
     fs.writeFileSync('./docs/index.html', html, 'utf8');
