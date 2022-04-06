@@ -39,9 +39,6 @@ jobs:
 
       - name: Build # build npm
         run: node ./helper/build.js ${{ steps.version.outputs.version }}
-      
-      - name: Build # build npm
-        run: node ./helper/build.js ${{ steps.version.outputs.version }}
 
       - name: Test # test
         run: node ./helper/test/index.js
