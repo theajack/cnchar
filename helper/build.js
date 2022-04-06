@@ -2,6 +2,8 @@
 const {exec, Packages} = require('./tool');
 const {plugins, allPackage, mainPackage, npmPackage} = Packages;
 
+const count = require('count-code-line');
+
 // plugins 'main' 'npm' 可选
 // npm run build: 默认build 全部
 // npm run build main poly npm: build三个
@@ -48,8 +50,7 @@ async function main () {
     }
     console.log('Finished!');
 
-    const cnchar = require('../npm/packages/cnchar/cnchar.min');
-    console.log('cnchar.version = ', cnchar.version);
+    count();
 
 }
 

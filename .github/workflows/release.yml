@@ -19,6 +19,14 @@ jobs:
           node-version: '16'
           registry-url: https://registry.npmjs.org
 
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
       - name: Npm Install
         run: npm install
 
@@ -29,6 +37,9 @@ jobs:
           version=${tag#v}
           echo "::set-output name=version::${version}"
 
+      - name: Build # build npm
+        run: node ./helper/build.js ${{ steps.version.outputs.version }}
+      
       - name: Build # build npm
         run: node ./helper/build.js ${{ steps.version.outputs.version }}
 

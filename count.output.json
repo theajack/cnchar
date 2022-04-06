@@ -1,0 +1,3303 @@
+{
+    "name": "ROOT",
+    "type": "dir",
+    "fullPath": "",
+    "fileNumber": 311,
+    "lines": 60762,
+    "characters": 8382309,
+    "childrens": [
+        {
+            "name": ".github",
+            "type": "dir",
+            "fullPath": "/.github",
+            "fileNumber": 2,
+            "lines": 112,
+            "characters": 2653,
+            "childrens": [
+                {
+                    "name": "workflows",
+                    "type": "dir",
+                    "fullPath": "/.github/workflows",
+                    "fileNumber": 1,
+                    "lines": 69,
+                    "characters": 1695,
+                    "childrens": [
+                        {
+                            "name": "release.yml",
+                            "type": "file",
+                            "fullPath": "/.github/workflows/release.yml",
+                            "lines": 69,
+                            "characters": 1695
+                        }
+                    ]
+                },
+                {
+                    "name": "release-drafter.yml",
+                    "type": "file",
+                    "fullPath": "/.github/release-drafter.yml",
+                    "lines": 43,
+                    "characters": 958
+                }
+            ]
+        },
+        {
+            "name": "docs",
+            "type": "dir",
+            "fullPath": "/docs",
+            "fileNumber": 43,
+            "lines": 2920,
+            "characters": 3473186,
+            "childrens": [
+                {
+                    "name": "assets",
+                    "type": "dir",
+                    "fullPath": "/docs/assets",
+                    "fileNumber": 36,
+                    "lines": 2093,
+                    "characters": 3355598,
+                    "childrens": [
+                        {
+                            "name": "css",
+                            "type": "dir",
+                            "fullPath": "/docs/assets/css",
+                            "fileNumber": 1,
+                            "lines": 1,
+                            "characters": 253756,
+                            "childrens": [
+                                {
+                                    "name": "0.styles.31c165b4.css",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/css/0.styles.31c165b4.css",
+                                    "lines": 1,
+                                    "characters": 253756
+                                }
+                            ]
+                        },
+                        {
+                            "name": "fonts",
+                            "type": "dir",
+                            "fullPath": "/docs/assets/fonts",
+                            "fileNumber": 1,
+                            "lines": 98,
+                            "characters": 26750,
+                            "childrens": [
+                                {
+                                    "name": "element-icons.535877f5.woff",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/fonts/element-icons.535877f5.woff",
+                                    "lines": 98,
+                                    "characters": 26750
+                                }
+                            ]
+                        },
+                        {
+                            "name": "img",
+                            "type": "dir",
+                            "fullPath": "/docs/assets/img",
+                            "fileNumber": 1,
+                            "lines": 2,
+                            "characters": 216,
+                            "childrens": [
+                                {
+                                    "name": "search.83621669.svg",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/img/search.83621669.svg",
+                                    "lines": 2,
+                                    "characters": 216
+                                }
+                            ]
+                        },
+                        {
+                            "name": "js",
+                            "type": "dir",
+                            "fullPath": "/docs/assets/js",
+                            "fileNumber": 23,
+                            "lines": 51,
+                            "characters": 2866602,
+                            "childrens": [
+                                {
+                                    "name": "10.d43aefbd.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/10.d43aefbd.js",
+                                    "lines": 1,
+                                    "characters": 335
+                                },
+                                {
+                                    "name": "11.244ce623.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/11.244ce623.js",
+                                    "lines": 1,
+                                    "characters": 18363
+                                },
+                                {
+                                    "name": "12.19a8d683.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/12.19a8d683.js",
+                                    "lines": 1,
+                                    "characters": 32268
+                                },
+                                {
+                                    "name": "13.37f37711.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/13.37f37711.js",
+                                    "lines": 1,
+                                    "characters": 19258
+                                },
+                                {
+                                    "name": "14.61f6cbb2.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/14.61f6cbb2.js",
+                                    "lines": 1,
+                                    "characters": 3778
+                                },
+                                {
+                                    "name": "15.064f3b1f.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/15.064f3b1f.js",
+                                    "lines": 1,
+                                    "characters": 10606
+                                },
+                                {
+                                    "name": "16.05e3db14.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/16.05e3db14.js",
+                                    "lines": 1,
+                                    "characters": 1631
+                                },
+                                {
+                                    "name": "17.bb7b137c.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/17.bb7b137c.js",
+                                    "lines": 1,
+                                    "characters": 2589
+                                },
+                                {
+                                    "name": "18.b09034a3.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/18.b09034a3.js",
+                                    "lines": 1,
+                                    "characters": 45909
+                                },
+                                {
+                                    "name": "19.6d60557b.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/19.6d60557b.js",
+                                    "lines": 1,
+                                    "characters": 2404
+                                },
+                                {
+                                    "name": "2.20457b17.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/2.20457b17.js",
+                                    "lines": 1,
+                                    "characters": 29559
+                                },
+                                {
+                                    "name": "20.16bad3bb.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/20.16bad3bb.js",
+                                    "lines": 1,
+                                    "characters": 3303
+                                },
+                                {
+                                    "name": "21.c76df2b7.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/21.c76df2b7.js",
+                                    "lines": 1,
+                                    "characters": 8253
+                                },
+                                {
+                                    "name": "22.e635b479.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/22.e635b479.js",
+                                    "lines": 1,
+                                    "characters": 4630
+                                },
+                                {
+                                    "name": "23.83a2c253.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/23.83a2c253.js",
+                                    "lines": 1,
+                                    "characters": 9630
+                                },
+                                {
+                                    "name": "3.fedc919f.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/3.fedc919f.js",
+                                    "lines": 1,
+                                    "characters": 9533
+                                },
+                                {
+                                    "name": "4.d928a7f9.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/4.d928a7f9.js",
+                                    "lines": 1,
+                                    "characters": 4730
+                                },
+                                {
+                                    "name": "5.60969faa.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/5.60969faa.js",
+                                    "lines": 1,
+                                    "characters": 509
+                                },
+                                {
+                                    "name": "6.876b7d38.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/6.876b7d38.js",
+                                    "lines": 1,
+                                    "characters": 599
+                                },
+                                {
+                                    "name": "7.114dd292.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/7.114dd292.js",
+                                    "lines": 1,
+                                    "characters": 1829
+                                },
+                                {
+                                    "name": "8.e2314a38.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/8.e2314a38.js",
+                                    "lines": 1,
+                                    "characters": 655
+                                },
+                                {
+                                    "name": "9.57db39d4.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/9.57db39d4.js",
+                                    "lines": 1,
+                                    "characters": 702
+                                },
+                                {
+                                    "name": "app.34ce7396.js",
+                                    "type": "file",
+                                    "fullPath": "/docs/assets/js/app.34ce7396.js",
+                                    "lines": 29,
+                                    "characters": 2655529
+                                }
+                            ]
+                        },
+                        {
+                            "name": "readme",
+                            "type": "dir",
+                            "fullPath": "/docs/assets/readme",
+                            "fileNumber": 0,
+                            "lines": 0,
+                            "characters": 0,
+                            "childrens": []
+                        },
+                        {
+                            "name": "v1",
+                            "type": "dir",
+                            "fullPath": "/docs/assets/v1",
+                            "fileNumber": 9,
+                            "lines": 1941,
+                            "characters": 208274,
+                            "childrens": [
+                                {
+                                    "name": "css",
+                                    "type": "dir",
+                                    "fullPath": "/docs/assets/v1/css",
+                                    "fileNumber": 2,
+                                    "lines": 1417,
+                                    "characters": 19135,
+                                    "childrens": [
+                                        {
+                                            "name": "index.css",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/css/index.css",
+                                            "lines": 1370,
+                                            "characters": 18349
+                                        },
+                                        {
+                                            "name": "use-part.css",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/css/use-part.css",
+                                            "lines": 47,
+                                            "characters": 786
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "fonts",
+                                    "type": "dir",
+                                    "fullPath": "/docs/assets/v1/fonts",
+                                    "fileNumber": 3,
+                                    "lines": 436,
+                                    "characters": 104479,
+                                    "childrens": [
+                                        {
+                                            "name": "glyphicons-halflings-regular.eot",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/fonts/glyphicons-halflings-regular.eot",
+                                            "lines": 109,
+                                            "characters": 19391
+                                        },
+                                        {
+                                            "name": "glyphicons-halflings-regular.svg",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/fonts/glyphicons-halflings-regular.svg",
+                                            "lines": 229,
+                                            "characters": 62926
+                                        },
+                                        {
+                                            "name": "glyphicons-halflings-regular.woff",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/fonts/glyphicons-halflings-regular.woff",
+                                            "lines": 98,
+                                            "characters": 22162
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "images",
+                                    "type": "dir",
+                                    "fullPath": "/docs/assets/v1/images",
+                                    "fileNumber": 1,
+                                    "lines": 6,
+                                    "characters": 4285,
+                                    "childrens": [
+                                        {
+                                            "name": "i.ico",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/images/i.ico",
+                                            "lines": 6,
+                                            "characters": 4285
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "js",
+                                    "type": "dir",
+                                    "fullPath": "/docs/assets/v1/js",
+                                    "fileNumber": 3,
+                                    "lines": 82,
+                                    "characters": 80375,
+                                    "childrens": [
+                                        {
+                                            "name": "index.js",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/js/index.js",
+                                            "lines": 68,
+                                            "characters": 2094
+                                        },
+                                        {
+                                            "name": "run.js",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/js/run.js",
+                                            "lines": 11,
+                                            "characters": 242
+                                        },
+                                        {
+                                            "name": "showmark.min.js",
+                                            "type": "file",
+                                            "fullPath": "/docs/assets/v1/js/showmark.min.js",
+                                            "lines": 3,
+                                            "characters": 78039
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "guide",
+                    "type": "dir",
+                    "fullPath": "/docs/guide",
+                    "fileNumber": 3,
+                    "lines": 298,
+                    "characters": 72759,
+                    "childrens": [
+                        {
+                            "name": "index.html",
+                            "type": "file",
+                            "fullPath": "/docs/guide/index.html",
+                            "lines": 87,
+                            "characters": 23770
+                        },
+                        {
+                            "name": "start.html",
+                            "type": "file",
+                            "fullPath": "/docs/guide/start.html",
+                            "lines": 124,
+                            "characters": 24712
+                        },
+                        {
+                            "name": "version.html",
+                            "type": "file",
+                            "fullPath": "/docs/guide/version.html",
+                            "lines": 87,
+                            "characters": 24277
+                        }
+                    ]
+                },
+                {
+                    "name": "404.html",
+                    "type": "file",
+                    "fullPath": "/docs/404.html",
+                    "lines": 21,
+                    "characters": 3876
+                },
+                {
+                    "name": "config.js",
+                    "type": "file",
+                    "fullPath": "/docs/config.js",
+                    "lines": 193,
+                    "characters": 12726
+                },
+                {
+                    "name": "index.html",
+                    "type": "file",
+                    "fullPath": "/docs/index.html",
+                    "lines": 85,
+                    "characters": 17049
+                },
+                {
+                    "name": "v1.html",
+                    "type": "file",
+                    "fullPath": "/docs/v1.html",
+                    "lines": 230,
+                    "characters": 11178
+                }
+            ]
+        },
+        {
+            "name": "helper",
+            "type": "dir",
+            "fullPath": "/helper",
+            "fileNumber": 16,
+            "lines": 4434,
+            "characters": 132055,
+            "childrens": [
+                {
+                    "name": "test",
+                    "type": "dir",
+                    "fullPath": "/helper/test",
+                    "fileNumber": 4,
+                    "lines": 615,
+                    "characters": 17101,
+                    "childrens": [
+                        {
+                            "name": "index.js",
+                            "type": "file",
+                            "fullPath": "/helper/test/index.js",
+                            "lines": 21,
+                            "characters": 693
+                        },
+                        {
+                            "name": "test.config.js",
+                            "type": "file",
+                            "fullPath": "/helper/test/test.config.js",
+                            "lines": 482,
+                            "characters": 13463
+                        },
+                        {
+                            "name": "test.draw.html",
+                            "type": "file",
+                            "fullPath": "/helper/test/test.draw.html",
+                            "lines": 15,
+                            "characters": 350
+                        },
+                        {
+                            "name": "test.js",
+                            "type": "file",
+                            "fullPath": "/helper/test/test.js",
+                            "lines": 97,
+                            "characters": 2595
+                        }
+                    ]
+                },
+                {
+                    "name": "README.en.md",
+                    "type": "file",
+                    "fullPath": "/helper/README.en.md",
+                    "lines": 1556,
+                    "characters": 57149
+                },
+                {
+                    "name": "README.md",
+                    "type": "file",
+                    "fullPath": "/helper/README.md",
+                    "lines": 1557,
+                    "characters": 39333
+                },
+                {
+                    "name": "build-docs.js",
+                    "type": "file",
+                    "fullPath": "/helper/build-docs.js",
+                    "lines": 24,
+                    "characters": 823
+                },
+                {
+                    "name": "build-npm.js",
+                    "type": "file",
+                    "fullPath": "/helper/build-npm.js",
+                    "lines": 141,
+                    "characters": 4372
+                },
+                {
+                    "name": "build.js",
+                    "type": "file",
+                    "fullPath": "/helper/build.js",
+                    "lines": 56,
+                    "characters": 1790
+                },
+                {
+                    "name": "dev.md",
+                    "type": "file",
+                    "fullPath": "/helper/dev.md",
+                    "lines": 36,
+                    "characters": 643
+                },
+                {
+                    "name": "publish.js",
+                    "type": "file",
+                    "fullPath": "/helper/publish.js",
+                    "lines": 75,
+                    "characters": 2462
+                },
+                {
+                    "name": "publish.sh",
+                    "type": "file",
+                    "fullPath": "/helper/publish.sh",
+                    "lines": 33,
+                    "characters": 561
+                },
+                {
+                    "name": "purge-cdn.js",
+                    "type": "file",
+                    "fullPath": "/helper/purge-cdn.js",
+                    "lines": 37,
+                    "characters": 893
+                },
+                {
+                    "name": "test.html",
+                    "type": "file",
+                    "fullPath": "/helper/test.html",
+                    "lines": 68,
+                    "characters": 2322
+                },
+                {
+                    "name": "tool.js",
+                    "type": "file",
+                    "fullPath": "/helper/tool.js",
+                    "lines": 72,
+                    "characters": 1456
+                },
+                {
+                    "name": "version.md",
+                    "type": "file",
+                    "fullPath": "/helper/version.md",
+                    "lines": 164,
+                    "characters": 3150
+                }
+            ]
+        },
+        {
+            "name": "npm",
+            "type": "dir",
+            "fullPath": "/npm",
+            "fileNumber": 87,
+            "lines": 21870,
+            "characters": 3343488,
+            "childrens": [
+                {
+                    "name": "packages",
+                    "type": "dir",
+                    "fullPath": "/npm/packages",
+                    "fileNumber": 87,
+                    "lines": 21870,
+                    "characters": 3343488,
+                    "childrens": [
+                        {
+                            "name": "cnchar",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/cnchar",
+                            "fileNumber": 5,
+                            "lines": 1712,
+                            "characters": 89509,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar/cnchar.min.js",
+                                    "lines": 1,
+                                    "characters": 42166
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar/index.d.ts",
+                                    "lines": 5,
+                                    "characters": 104
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar/package.json",
+                                    "lines": 32,
+                                    "characters": 736
+                                }
+                            ]
+                        },
+                        {
+                            "name": "cnchar-all",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/cnchar-all",
+                            "fileNumber": 21,
+                            "lines": 2406,
+                            "characters": 962637,
+                            "childrens": [
+                                {
+                                    "name": "node_modules",
+                                    "type": "dir",
+                                    "fullPath": "/npm/packages/cnchar-all/node_modules",
+                                    "fileNumber": 16,
+                                    "lines": 685,
+                                    "characters": 19172,
+                                    "childrens": [
+                                        {
+                                            "name": "cnchar-types",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types",
+                                            "fileNumber": 15,
+                                            "lines": 670,
+                                            "characters": 18906,
+                                            "childrens": [
+                                                {
+                                                    "name": "main",
+                                                    "type": "dir",
+                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main",
+                                                    "fileNumber": 3,
+                                                    "lines": 222,
+                                                    "characters": 6635,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "common.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main/common.d.ts",
+                                                            "lines": 46,
+                                                            "characters": 1034
+                                                        },
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main/index.d.ts",
+                                                            "lines": 91,
+                                                            "characters": 3548
+                                                        },
+                                                        {
+                                                            "name": "tool.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main/tool.d.ts",
+                                                            "lines": 85,
+                                                            "characters": 2053
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "plugin",
+                                                    "type": "dir",
+                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin",
+                                                    "fileNumber": 9,
+                                                    "lines": 412,
+                                                    "characters": 11522,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "draw",
+                                                            "type": "dir",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw",
+                                                            "fileNumber": 3,
+                                                            "lines": 192,
+                                                            "characters": 6421,
+                                                            "childrens": [
+                                                                {
+                                                                    "name": "common.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw/common.d.ts",
+                                                                    "lines": 123,
+                                                                    "characters": 4379
+                                                                },
+                                                                {
+                                                                    "name": "hanzi-writer.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw/hanzi-writer.d.ts",
+                                                                    "lines": 33,
+                                                                    "characters": 1086
+                                                                },
+                                                                {
+                                                                    "name": "index.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw/index.d.ts",
+                                                                    "lines": 36,
+                                                                    "characters": 956
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "idiom",
+                                                            "type": "dir",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/idiom",
+                                                            "fileNumber": 1,
+                                                            "lines": 25,
+                                                            "characters": 497,
+                                                            "childrens": [
+                                                                {
+                                                                    "name": "index.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/idiom/index.d.ts",
+                                                                    "lines": 25,
+                                                                    "characters": 497
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "order",
+                                                            "type": "dir",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/order",
+                                                            "fileNumber": 1,
+                                                            "lines": 56,
+                                                            "characters": 1502,
+                                                            "childrens": [
+                                                                {
+                                                                    "name": "index.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/order/index.d.ts",
+                                                                    "lines": 56,
+                                                                    "characters": 1502
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "poly",
+                                                            "type": "dir",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/poly",
+                                                            "fileNumber": 1,
+                                                            "lines": 17,
+                                                            "characters": 371,
+                                                            "childrens": [
+                                                                {
+                                                                    "name": "index.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/poly/index.d.ts",
+                                                                    "lines": 17,
+                                                                    "characters": 371
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "radical",
+                                                            "type": "dir",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/radical",
+                                                            "fileNumber": 1,
+                                                            "lines": 35,
+                                                            "characters": 733,
+                                                            "childrens": [
+                                                                {
+                                                                    "name": "index.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/radical/index.d.ts",
+                                                                    "lines": 35,
+                                                                    "characters": 733
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "trad",
+                                                            "type": "dir",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/trad",
+                                                            "fileNumber": 1,
+                                                            "lines": 57,
+                                                            "characters": 1393,
+                                                            "childrens": [
+                                                                {
+                                                                    "name": "index.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/trad/index.d.ts",
+                                                                    "lines": 57,
+                                                                    "characters": 1393
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "xhy",
+                                                            "type": "dir",
+                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/xhy",
+                                                            "fileNumber": 1,
+                                                            "lines": 30,
+                                                            "characters": 605,
+                                                            "childrens": [
+                                                                {
+                                                                    "name": "index.d.ts",
+                                                                    "type": "file",
+                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/xhy/index.d.ts",
+                                                                    "lines": 30,
+                                                                    "characters": 605
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/index.d.ts",
+                                                    "lines": 3,
+                                                    "characters": 56
+                                                },
+                                                {
+                                                    "name": "package-lock.json",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/package-lock.json",
+                                                    "lines": 6,
+                                                    "characters": 81
+                                                },
+                                                {
+                                                    "name": "package.json",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/package.json",
+                                                    "lines": 27,
+                                                    "characters": 612
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": ".package-lock.json",
+                                            "type": "file",
+                                            "fullPath": "/npm/packages/cnchar-all/node_modules/.package-lock.json",
+                                            "lines": 15,
+                                            "characters": 266
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-all/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-all/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.all.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-all/cnchar.all.min.js",
+                                    "lines": 3,
+                                    "characters": 895857
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-all/index.d.ts",
+                                    "lines": 12,
+                                    "characters": 353
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-all/package.json",
+                                    "lines": 32,
+                                    "characters": 752
+                                }
+                            ]
+                        },
+                        {
+                            "name": "cnchar-types",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/cnchar-types",
+                            "fileNumber": 16,
+                            "lines": 2332,
+                            "characters": 65112,
+                            "childrens": [
+                                {
+                                    "name": "main",
+                                    "type": "dir",
+                                    "fullPath": "/npm/packages/cnchar-types/main",
+                                    "fileNumber": 3,
+                                    "lines": 216,
+                                    "characters": 6419,
+                                    "childrens": [
+                                        {
+                                            "name": "common.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/npm/packages/cnchar-types/main/common.d.ts",
+                                            "lines": 46,
+                                            "characters": 1034
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/npm/packages/cnchar-types/main/index.d.ts",
+                                            "lines": 91,
+                                            "characters": 3548
+                                        },
+                                        {
+                                            "name": "tool.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/npm/packages/cnchar-types/main/tool.d.ts",
+                                            "lines": 79,
+                                            "characters": 1837
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "plugin",
+                                    "type": "dir",
+                                    "fullPath": "/npm/packages/cnchar-types/plugin",
+                                    "fileNumber": 9,
+                                    "lines": 412,
+                                    "characters": 11522,
+                                    "childrens": [
+                                        {
+                                            "name": "draw",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-types/plugin/draw",
+                                            "fileNumber": 3,
+                                            "lines": 192,
+                                            "characters": 6421,
+                                            "childrens": [
+                                                {
+                                                    "name": "common.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/draw/common.d.ts",
+                                                    "lines": 123,
+                                                    "characters": 4379
+                                                },
+                                                {
+                                                    "name": "hanzi-writer.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/draw/hanzi-writer.d.ts",
+                                                    "lines": 33,
+                                                    "characters": 1086
+                                                },
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/draw/index.d.ts",
+                                                    "lines": 36,
+                                                    "characters": 956
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "idiom",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-types/plugin/idiom",
+                                            "fileNumber": 1,
+                                            "lines": 25,
+                                            "characters": 497,
+                                            "childrens": [
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/idiom/index.d.ts",
+                                                    "lines": 25,
+                                                    "characters": 497
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "order",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-types/plugin/order",
+                                            "fileNumber": 1,
+                                            "lines": 56,
+                                            "characters": 1502,
+                                            "childrens": [
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/order/index.d.ts",
+                                                    "lines": 56,
+                                                    "characters": 1502
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "poly",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-types/plugin/poly",
+                                            "fileNumber": 1,
+                                            "lines": 17,
+                                            "characters": 371,
+                                            "childrens": [
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/poly/index.d.ts",
+                                                    "lines": 17,
+                                                    "characters": 371
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "radical",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-types/plugin/radical",
+                                            "fileNumber": 1,
+                                            "lines": 35,
+                                            "characters": 733,
+                                            "childrens": [
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/radical/index.d.ts",
+                                                    "lines": 35,
+                                                    "characters": 733
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "trad",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-types/plugin/trad",
+                                            "fileNumber": 1,
+                                            "lines": 57,
+                                            "characters": 1393,
+                                            "childrens": [
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/trad/index.d.ts",
+                                                    "lines": 57,
+                                                    "characters": 1393
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "xhy",
+                                            "type": "dir",
+                                            "fullPath": "/npm/packages/cnchar-types/plugin/xhy",
+                                            "fileNumber": 1,
+                                            "lines": 30,
+                                            "characters": 605,
+                                            "childrens": [
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/npm/packages/cnchar-types/plugin/xhy/index.d.ts",
+                                                    "lines": 30,
+                                                    "characters": 605
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-types/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-types/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-types/index.d.ts",
+                                    "lines": 3,
+                                    "characters": 56
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/cnchar-types/package.json",
+                                    "lines": 27,
+                                    "characters": 612
+                                }
+                            ]
+                        },
+                        {
+                            "name": "draw",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/draw",
+                            "fileNumber": 5,
+                            "lines": 1714,
+                            "characters": 102923,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/draw/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/draw/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.draw.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/draw/cnchar.draw.min.js",
+                                    "lines": 3,
+                                    "characters": 55560
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/draw/index.d.ts",
+                                    "lines": 5,
+                                    "characters": 104
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/draw/package.json",
+                                    "lines": 32,
+                                    "characters": 756
+                                }
+                            ]
+                        },
+                        {
+                            "name": "hanzi-util",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/hanzi-util",
+                            "fileNumber": 5,
+                            "lines": 1721,
+                            "characters": 943465,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "hanzi.util.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util/hanzi.util.min.js",
+                                    "lines": 3,
+                                    "characters": 895857
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util/index.d.ts",
+                                    "lines": 12,
+                                    "characters": 353
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util/package.json",
+                                    "lines": 32,
+                                    "characters": 752
+                                }
+                            ]
+                        },
+                        {
+                            "name": "hanzi-util-base",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/hanzi-util-base",
+                            "fileNumber": 5,
+                            "lines": 1712,
+                            "characters": 89530,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util-base/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util-base/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "hanzi.base.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util-base/hanzi.base.min.js",
+                                    "lines": 1,
+                                    "characters": 42166
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util-base/index.d.ts",
+                                    "lines": 5,
+                                    "characters": 104
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/hanzi-util-base/package.json",
+                                    "lines": 32,
+                                    "characters": 757
+                                }
+                            ]
+                        },
+                        {
+                            "name": "idiom",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/idiom",
+                            "fileNumber": 5,
+                            "lines": 1711,
+                            "characters": 291837,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/idiom/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/idiom/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.idiom.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/idiom/cnchar.idiom.min.js",
+                                    "lines": 1,
+                                    "characters": 244473
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/idiom/index.d.ts",
+                                    "lines": 4,
+                                    "characters": 101
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/idiom/package.json",
+                                    "lines": 32,
+                                    "characters": 760
+                                }
+                            ]
+                        },
+                        {
+                            "name": "order",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/order",
+                            "fileNumber": 5,
+                            "lines": 1712,
+                            "characters": 176203,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/order/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/order/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.order.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/order/cnchar.order.min.js",
+                                    "lines": 1,
+                                    "characters": 128830
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/order/index.d.ts",
+                                    "lines": 5,
+                                    "characters": 110
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/order/package.json",
+                                    "lines": 32,
+                                    "characters": 760
+                                }
+                            ]
+                        },
+                        {
+                            "name": "poly",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/poly",
+                            "fileNumber": 5,
+                            "lines": 1713,
+                            "characters": 115069,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/poly/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/poly/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.poly.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/poly/cnchar.poly.min.js",
+                                    "lines": 1,
+                                    "characters": 67704
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/poly/index.d.ts",
+                                    "lines": 6,
+                                    "characters": 106
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/poly/package.json",
+                                    "lines": 32,
+                                    "characters": 756
+                                }
+                            ]
+                        },
+                        {
+                            "name": "radical",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/radical",
+                            "fileNumber": 5,
+                            "lines": 1713,
+                            "characters": 106032,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/radical/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/radical/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.radical.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/radical/cnchar.radical.min.js",
+                                    "lines": 1,
+                                    "characters": 58648
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/radical/index.d.ts",
+                                    "lines": 6,
+                                    "characters": 113
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/radical/package.json",
+                                    "lines": 32,
+                                    "characters": 768
+                                }
+                            ]
+                        },
+                        {
+                            "name": "trad",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/trad",
+                            "fileNumber": 5,
+                            "lines": 1712,
+                            "characters": 91835,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/trad/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/trad/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.trad.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/trad/cnchar.trad.min.js",
+                                    "lines": 1,
+                                    "characters": 44471
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/trad/index.d.ts",
+                                    "lines": 5,
+                                    "characters": 105
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/trad/package.json",
+                                    "lines": 32,
+                                    "characters": 756
+                                }
+                            ]
+                        },
+                        {
+                            "name": "xhy",
+                            "type": "dir",
+                            "fullPath": "/npm/packages/xhy",
+                            "fileNumber": 5,
+                            "lines": 1712,
+                            "characters": 309336,
+                            "childrens": [
+                                {
+                                    "name": "LICENSE",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/xhy/LICENSE",
+                                    "lines": 24,
+                                    "characters": 1130
+                                },
+                                {
+                                    "name": "README.md",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/xhy/README.md",
+                                    "lines": 1650,
+                                    "characters": 45373
+                                },
+                                {
+                                    "name": "cnchar.xhy.min.js",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/xhy/cnchar.xhy.min.js",
+                                    "lines": 1,
+                                    "characters": 261989
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/xhy/index.d.ts",
+                                    "lines": 5,
+                                    "characters": 92
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/npm/packages/xhy/package.json",
+                                    "lines": 32,
+                                    "characters": 752
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "public",
+            "type": "dir",
+            "fullPath": "/public",
+            "fileNumber": 6,
+            "lines": 659,
+            "characters": 20648,
+            "childrens": [
+                {
+                    "name": "bundle.js",
+                    "type": "file",
+                    "fullPath": "/public/bundle.js",
+                    "lines": 0,
+                    "characters": 0
+                },
+                {
+                    "name": "config.js",
+                    "type": "file",
+                    "fullPath": "/public/config.js",
+                    "lines": 291,
+                    "characters": 9635
+                },
+                {
+                    "name": "index.html",
+                    "type": "file",
+                    "fullPath": "/public/index.html",
+                    "lines": 23,
+                    "characters": 583
+                },
+                {
+                    "name": "index.js",
+                    "type": "file",
+                    "fullPath": "/public/index.js",
+                    "lines": 141,
+                    "characters": 4508
+                },
+                {
+                    "name": "index.ts",
+                    "type": "file",
+                    "fullPath": "/public/index.ts",
+                    "lines": 174,
+                    "characters": 5248
+                },
+                {
+                    "name": "package.json",
+                    "type": "file",
+                    "fullPath": "/public/package.json",
+                    "lines": 30,
+                    "characters": 674
+                }
+            ]
+        },
+        {
+            "name": "src",
+            "type": "dir",
+            "fullPath": "/src",
+            "fileNumber": 109,
+            "lines": 24191,
+            "characters": 1066717,
+            "childrens": [
+                {
+                    "name": "cnchar",
+                    "type": "dir",
+                    "fullPath": "/src/cnchar",
+                    "fileNumber": 94,
+                    "lines": 23521,
+                    "characters": 1047811,
+                    "childrens": [
+                        {
+                            "name": "alias",
+                            "type": "dir",
+                            "fullPath": "/src/cnchar/alias",
+                            "fileNumber": 5,
+                            "lines": 118,
+                            "characters": 3001,
+                            "childrens": [
+                                {
+                                    "name": "cnchar-all",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/alias/cnchar-all",
+                                    "fileNumber": 3,
+                                    "lines": 54,
+                                    "characters": 1492,
+                                    "childrens": [
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/alias/cnchar-all/index.d.ts",
+                                            "lines": 12,
+                                            "characters": 353
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/alias/cnchar-all/index.ts",
+                                            "lines": 10,
+                                            "characters": 387
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/alias/cnchar-all/package.json",
+                                            "lines": 32,
+                                            "characters": 752
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "hanzi-util",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/alias/hanzi-util",
+                                    "fileNumber": 1,
+                                    "lines": 32,
+                                    "characters": 752,
+                                    "childrens": [
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/alias/hanzi-util/package.json",
+                                            "lines": 32,
+                                            "characters": 752
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "hanzi-util-base",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/alias/hanzi-util-base",
+                                    "fileNumber": 1,
+                                    "lines": 32,
+                                    "characters": 757,
+                                    "childrens": [
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/alias/hanzi-util-base/package.json",
+                                            "lines": 32,
+                                            "characters": 757
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "main",
+                            "type": "dir",
+                            "fullPath": "/src/cnchar/main",
+                            "fileNumber": 20,
+                            "lines": 1988,
+                            "characters": 72636,
+                            "childrens": [
+                                {
+                                    "name": "__tests__",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/main/__tests__",
+                                    "fileNumber": 3,
+                                    "lines": 271,
+                                    "characters": 7704,
+                                    "childrens": [
+                                        {
+                                            "name": "spell.spec.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/main/__tests__/spell.spec.ts",
+                                            "lines": 93,
+                                            "characters": 2712
+                                        },
+                                        {
+                                            "name": "stroke.spec.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/main/__tests__/stroke.spec.ts",
+                                            "lines": 53,
+                                            "characters": 1355
+                                        },
+                                        {
+                                            "name": "tool.spec.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/main/__tests__/tool.spec.ts",
+                                            "lines": 125,
+                                            "characters": 3637
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "dict",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/main/dict",
+                                    "fileNumber": 4,
+                                    "lines": 578,
+                                    "characters": 32250,
+                                    "childrens": [
+                                        {
+                                            "name": "info-dict.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/main/dict/info-dict.json",
+                                            "lines": 4,
+                                            "characters": 1082
+                                        },
+                                        {
+                                            "name": "spell-default.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/main/dict/spell-default.json",
+                                            "lines": 126,
+                                            "characters": 1987
+                                        },
+                                        {
+                                            "name": "spell-dict-jian.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/main/dict/spell-dict-jian.json",
+                                            "lines": 409,
+                                            "characters": 21844
+                                        },
+                                        {
+                                            "name": "stroke-count-jian.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/main/dict/stroke-count-jian.json",
+                                            "lines": 39,
+                                            "characters": 7337
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "compareSpell.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/compareSpell.ts",
+                                    "lines": 33,
+                                    "characters": 804
+                                },
+                                {
+                                    "name": "config.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/config.ts",
+                                    "lines": 153,
+                                    "characters": 4404
+                                },
+                                {
+                                    "name": "dict.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/dict.ts",
+                                    "lines": 6,
+                                    "characters": 139
+                                },
+                                {
+                                    "name": "extend.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/extend.ts",
+                                    "lines": 57,
+                                    "characters": 1772
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/index.d.ts",
+                                    "lines": 5,
+                                    "characters": 104
+                                },
+                                {
+                                    "name": "index.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/index.ts",
+                                    "lines": 95,
+                                    "characters": 2558
+                                },
+                                {
+                                    "name": "package.json",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/package.json",
+                                    "lines": 32,
+                                    "characters": 736
+                                },
+                                {
+                                    "name": "sort.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/sort.ts",
+                                    "lines": 135,
+                                    "characters": 3485
+                                },
+                                {
+                                    "name": "spellToWord.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/spellToWord.ts",
+                                    "lines": 110,
+                                    "characters": 3396
+                                },
+                                {
+                                    "name": "strokeToWord.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/strokeToWord.ts",
+                                    "lines": 45,
+                                    "characters": 1433
+                                },
+                                {
+                                    "name": "tool.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/tool.ts",
+                                    "lines": 416,
+                                    "characters": 12560
+                                },
+                                {
+                                    "name": "util.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/util.ts",
+                                    "lines": 51,
+                                    "characters": 1268
+                                },
+                                {
+                                    "name": "version.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/main/version.ts",
+                                    "lines": 1,
+                                    "characters": 23
+                                }
+                            ]
+                        },
+                        {
+                            "name": "node_modules",
+                            "type": "dir",
+                            "fullPath": "/src/cnchar/node_modules",
+                            "fileNumber": 16,
+                            "lines": 685,
+                            "characters": 19152,
+                            "childrens": [
+                                {
+                                    "name": "cnchar-types",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/node_modules/cnchar-types",
+                                    "fileNumber": 15,
+                                    "lines": 670,
+                                    "characters": 18906,
+                                    "childrens": [
+                                        {
+                                            "name": "main",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/main",
+                                            "fileNumber": 3,
+                                            "lines": 222,
+                                            "characters": 6635,
+                                            "childrens": [
+                                                {
+                                                    "name": "common.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/main/common.d.ts",
+                                                    "lines": 46,
+                                                    "characters": 1034
+                                                },
+                                                {
+                                                    "name": "index.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/main/index.d.ts",
+                                                    "lines": 91,
+                                                    "characters": 3548
+                                                },
+                                                {
+                                                    "name": "tool.d.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/main/tool.d.ts",
+                                                    "lines": 85,
+                                                    "characters": 2053
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "plugin",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin",
+                                            "fileNumber": 9,
+                                            "lines": 412,
+                                            "characters": 11522,
+                                            "childrens": [
+                                                {
+                                                    "name": "draw",
+                                                    "type": "dir",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/draw",
+                                                    "fileNumber": 3,
+                                                    "lines": 192,
+                                                    "characters": 6421,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "common.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/draw/common.d.ts",
+                                                            "lines": 123,
+                                                            "characters": 4379
+                                                        },
+                                                        {
+                                                            "name": "hanzi-writer.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/draw/hanzi-writer.d.ts",
+                                                            "lines": 33,
+                                                            "characters": 1086
+                                                        },
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/draw/index.d.ts",
+                                                            "lines": 36,
+                                                            "characters": 956
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "idiom",
+                                                    "type": "dir",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/idiom",
+                                                    "fileNumber": 1,
+                                                    "lines": 25,
+                                                    "characters": 497,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/idiom/index.d.ts",
+                                                            "lines": 25,
+                                                            "characters": 497
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "order",
+                                                    "type": "dir",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/order",
+                                                    "fileNumber": 1,
+                                                    "lines": 56,
+                                                    "characters": 1502,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/order/index.d.ts",
+                                                            "lines": 56,
+                                                            "characters": 1502
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "poly",
+                                                    "type": "dir",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/poly",
+                                                    "fileNumber": 1,
+                                                    "lines": 17,
+                                                    "characters": 371,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/poly/index.d.ts",
+                                                            "lines": 17,
+                                                            "characters": 371
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "radical",
+                                                    "type": "dir",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/radical",
+                                                    "fileNumber": 1,
+                                                    "lines": 35,
+                                                    "characters": 733,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/radical/index.d.ts",
+                                                            "lines": 35,
+                                                            "characters": 733
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "trad",
+                                                    "type": "dir",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/trad",
+                                                    "fileNumber": 1,
+                                                    "lines": 57,
+                                                    "characters": 1393,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/trad/index.d.ts",
+                                                            "lines": 57,
+                                                            "characters": 1393
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "xhy",
+                                                    "type": "dir",
+                                                    "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/xhy",
+                                                    "fileNumber": 1,
+                                                    "lines": 30,
+                                                    "characters": 605,
+                                                    "childrens": [
+                                                        {
+                                                            "name": "index.d.ts",
+                                                            "type": "file",
+                                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/plugin/xhy/index.d.ts",
+                                                            "lines": 30,
+                                                            "characters": 605
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/index.d.ts",
+                                            "lines": 3,
+                                            "characters": 56
+                                        },
+                                        {
+                                            "name": "package-lock.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/package-lock.json",
+                                            "lines": 6,
+                                            "characters": 81
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/node_modules/cnchar-types/package.json",
+                                            "lines": 27,
+                                            "characters": 612
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": ".package-lock.json",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar/node_modules/.package-lock.json",
+                                    "lines": 15,
+                                    "characters": 246
+                                }
+                            ]
+                        },
+                        {
+                            "name": "plugin",
+                            "type": "dir",
+                            "fullPath": "/src/cnchar/plugin",
+                            "fileNumber": 52,
+                            "lines": 20702,
+                            "characters": 952411,
+                            "childrens": [
+                                {
+                                    "name": "draw",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/plugin/draw",
+                                    "fileNumber": 13,
+                                    "lines": 666,
+                                    "characters": 62698,
+                                    "childrens": [
+                                        {
+                                            "name": "animation-stroke.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/animation-stroke.ts",
+                                            "lines": 171,
+                                            "characters": 5025
+                                        },
+                                        {
+                                            "name": "default-option.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/default-option.ts",
+                                            "lines": 105,
+                                            "characters": 3488
+                                        },
+                                        {
+                                            "name": "dom.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/dom.ts",
+                                            "lines": 15,
+                                            "characters": 437
+                                        },
+                                        {
+                                            "name": "hanzi-writer.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/hanzi-writer.d.ts",
+                                            "lines": 3,
+                                            "characters": 93
+                                        },
+                                        {
+                                            "name": "hanzi-writer.js",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/hanzi-writer.js",
+                                            "lines": 3,
+                                            "characters": 38648
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/index.d.ts",
+                                            "lines": 5,
+                                            "characters": 104
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/index.ts",
+                                            "lines": 29,
+                                            "characters": 702
+                                        },
+                                        {
+                                            "name": "line.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/line.ts",
+                                            "lines": 40,
+                                            "characters": 1162
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/package.json",
+                                            "lines": 32,
+                                            "characters": 756
+                                        },
+                                        {
+                                            "name": "promise-polyfill.js",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/promise-polyfill.js",
+                                            "lines": 5,
+                                            "characters": 3806
+                                        },
+                                        {
+                                            "name": "stroke.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/stroke.ts",
+                                            "lines": 73,
+                                            "characters": 2502
+                                        },
+                                        {
+                                            "name": "util.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/util.ts",
+                                            "lines": 14,
+                                            "characters": 345
+                                        },
+                                        {
+                                            "name": "writer.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/draw/writer.ts",
+                                            "lines": 171,
+                                            "characters": 5630
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "idiom",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/plugin/idiom",
+                                    "fileNumber": 7,
+                                    "lines": 269,
+                                    "characters": 249396,
+                                    "childrens": [
+                                        {
+                                            "name": "dict",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/plugin/idiom/dict",
+                                            "fileNumber": 3,
+                                            "lines": 3,
+                                            "characters": 241543,
+                                            "childrens": [
+                                                {
+                                                    "name": "idiom.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/idiom/dict/idiom.json",
+                                                    "lines": 1,
+                                                    "characters": 219192
+                                                },
+                                                {
+                                                    "name": "spell.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/idiom/dict/spell.json",
+                                                    "lines": 1,
+                                                    "characters": 15309
+                                                },
+                                                {
+                                                    "name": "spell.notone.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/idiom/dict/spell.notone.json",
+                                                    "lines": 1,
+                                                    "characters": 7042
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "idiom.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/idiom/idiom.ts",
+                                            "lines": 199,
+                                            "characters": 6222
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/idiom/index.d.ts",
+                                            "lines": 4,
+                                            "characters": 101
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/idiom/index.ts",
+                                            "lines": 31,
+                                            "characters": 770
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/idiom/package.json",
+                                            "lines": 32,
+                                            "characters": 760
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "order",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/plugin/order",
+                                    "fileNumber": 7,
+                                    "lines": 7434,
+                                    "characters": 155213,
+                                    "childrens": [
+                                        {
+                                            "name": "dict",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/plugin/order/dict",
+                                            "fileNumber": 2,
+                                            "lines": 7097,
+                                            "characters": 145574,
+                                            "childrens": [
+                                                {
+                                                    "name": "stroke-order-jian.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/order/dict/stroke-order-jian.json",
+                                                    "lines": 6939,
+                                                    "characters": 143473
+                                                },
+                                                {
+                                                    "name": "stroke-table.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/order/dict/stroke-table.json",
+                                                    "lines": 158,
+                                                    "characters": 2101
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "dict.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/order/dict.ts",
+                                            "lines": 11,
+                                            "characters": 323
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/order/index.d.ts",
+                                            "lines": 5,
+                                            "characters": 110
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/order/index.ts",
+                                            "lines": 130,
+                                            "characters": 3595
+                                        },
+                                        {
+                                            "name": "orderToWord.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/order/orderToWord.ts",
+                                            "lines": 159,
+                                            "characters": 4851
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/order/package.json",
+                                            "lines": 32,
+                                            "characters": 760
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "poly",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/plugin/poly",
+                                    "fileNumber": 4,
+                                    "lines": 3271,
+                                    "characters": 78281,
+                                    "childrens": [
+                                        {
+                                            "name": "dict",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/plugin/poly/dict",
+                                            "fileNumber": 1,
+                                            "lines": 3136,
+                                            "characters": 74460,
+                                            "childrens": [
+                                                {
+                                                    "name": "polyphone-phrase-simple.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/poly/dict/polyphone-phrase-simple.json",
+                                                    "lines": 3136,
+                                                    "characters": 74460
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/poly/index.d.ts",
+                                            "lines": 6,
+                                            "characters": 106
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/poly/index.ts",
+                                            "lines": 97,
+                                            "characters": 2959
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/poly/package.json",
+                                            "lines": 32,
+                                            "characters": 756
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "radical",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/plugin/radical",
+                                    "fileNumber": 5,
+                                    "lines": 7214,
+                                    "characters": 88040,
+                                    "childrens": [
+                                        {
+                                            "name": "dict",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/plugin/radical/dict",
+                                            "fileNumber": 1,
+                                            "lines": 7096,
+                                            "characters": 85119,
+                                            "childrens": [
+                                                {
+                                                    "name": "radicals.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/radical/dict/radicals.json",
+                                                    "lines": 7096,
+                                                    "characters": 85119
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/radical/index.d.ts",
+                                            "lines": 6,
+                                            "characters": 113
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/radical/index.ts",
+                                            "lines": 33,
+                                            "characters": 885
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/radical/package.json",
+                                            "lines": 32,
+                                            "characters": 768
+                                        },
+                                        {
+                                            "name": "radical.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/radical/radical.ts",
+                                            "lines": 47,
+                                            "characters": 1155
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "trad",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/plugin/trad",
+                                    "fileNumber": 11,
+                                    "lines": 1677,
+                                    "characters": 54540,
+                                    "childrens": [
+                                        {
+                                            "name": "__tests__",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/plugin/trad/__tests__",
+                                            "fileNumber": 2,
+                                            "lines": 56,
+                                            "characters": 1471,
+                                            "childrens": [
+                                                {
+                                                    "name": "spell.trad.spec.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/trad/__tests__/spell.trad.spec.ts",
+                                                    "lines": 30,
+                                                    "characters": 771
+                                                },
+                                                {
+                                                    "name": "stroke.trad.spec.ts",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/trad/__tests__/stroke.trad.spec.ts",
+                                                    "lines": 26,
+                                                    "characters": 700
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "dict",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/plugin/trad/dict",
+                                            "fileNumber": 4,
+                                            "lines": 1351,
+                                            "characters": 43049,
+                                            "childrens": [
+                                                {
+                                                    "name": "spark-simple.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/trad/dict/spark-simple.json",
+                                                    "lines": 4,
+                                                    "characters": 4213
+                                                },
+                                                {
+                                                    "name": "stroke-count-fan.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/trad/dict/stroke-count-fan.json",
+                                                    "lines": 36,
+                                                    "characters": 1659
+                                                },
+                                                {
+                                                    "name": "stroke-order-fan.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/trad/dict/stroke-order-fan.json",
+                                                    "lines": 1306,
+                                                    "characters": 32452
+                                                },
+                                                {
+                                                    "name": "trad-simple.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/trad/dict/trad-simple.json",
+                                                    "lines": 5,
+                                                    "characters": 4725
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "converter.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/trad/converter.ts",
+                                            "lines": 58,
+                                            "characters": 2269
+                                        },
+                                        {
+                                            "name": "dict.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/trad/dict.ts",
+                                            "lines": 10,
+                                            "characters": 508
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/trad/index.d.ts",
+                                            "lines": 5,
+                                            "characters": 105
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/trad/index.ts",
+                                            "lines": 165,
+                                            "characters": 6382
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/trad/package.json",
+                                            "lines": 32,
+                                            "characters": 756
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "xhy",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar/plugin/xhy",
+                                    "fileNumber": 5,
+                                    "lines": 171,
+                                    "characters": 264243,
+                                    "childrens": [
+                                        {
+                                            "name": "dict",
+                                            "type": "dir",
+                                            "fullPath": "/src/cnchar/plugin/xhy/dict",
+                                            "fileNumber": 1,
+                                            "lines": 1,
+                                            "characters": 259655,
+                                            "childrens": [
+                                                {
+                                                    "name": "xhy.json",
+                                                    "type": "file",
+                                                    "fullPath": "/src/cnchar/plugin/xhy/dict/xhy.json",
+                                                    "lines": 1,
+                                                    "characters": 259655
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/xhy/index.d.ts",
+                                            "lines": 5,
+                                            "characters": 92
+                                        },
+                                        {
+                                            "name": "index.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/xhy/index.ts",
+                                            "lines": 33,
+                                            "characters": 766
+                                        },
+                                        {
+                                            "name": "package.json",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/xhy/package.json",
+                                            "lines": 32,
+                                            "characters": 752
+                                        },
+                                        {
+                                            "name": "xhy.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar/plugin/xhy/xhy.ts",
+                                            "lines": 100,
+                                            "characters": 2978
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "package.json",
+                            "type": "file",
+                            "fullPath": "/src/cnchar/package.json",
+                            "lines": 28,
+                            "characters": 611
+                        }
+                    ]
+                },
+                {
+                    "name": "cnchar-types",
+                    "type": "dir",
+                    "fullPath": "/src/cnchar-types",
+                    "fileNumber": 15,
+                    "lines": 670,
+                    "characters": 18906,
+                    "childrens": [
+                        {
+                            "name": "main",
+                            "type": "dir",
+                            "fullPath": "/src/cnchar-types/main",
+                            "fileNumber": 3,
+                            "lines": 222,
+                            "characters": 6635,
+                            "childrens": [
+                                {
+                                    "name": "common.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar-types/main/common.d.ts",
+                                    "lines": 46,
+                                    "characters": 1034
+                                },
+                                {
+                                    "name": "index.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar-types/main/index.d.ts",
+                                    "lines": 91,
+                                    "characters": 3548
+                                },
+                                {
+                                    "name": "tool.d.ts",
+                                    "type": "file",
+                                    "fullPath": "/src/cnchar-types/main/tool.d.ts",
+                                    "lines": 85,
+                                    "characters": 2053
+                                }
+                            ]
+                        },
+                        {
+                            "name": "plugin",
+                            "type": "dir",
+                            "fullPath": "/src/cnchar-types/plugin",
+                            "fileNumber": 9,
+                            "lines": 412,
+                            "characters": 11522,
+                            "childrens": [
+                                {
+                                    "name": "draw",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar-types/plugin/draw",
+                                    "fileNumber": 3,
+                                    "lines": 192,
+                                    "characters": 6421,
+                                    "childrens": [
+                                        {
+                                            "name": "common.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/draw/common.d.ts",
+                                            "lines": 123,
+                                            "characters": 4379
+                                        },
+                                        {
+                                            "name": "hanzi-writer.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/draw/hanzi-writer.d.ts",
+                                            "lines": 33,
+                                            "characters": 1086
+                                        },
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/draw/index.d.ts",
+                                            "lines": 36,
+                                            "characters": 956
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "idiom",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar-types/plugin/idiom",
+                                    "fileNumber": 1,
+                                    "lines": 25,
+                                    "characters": 497,
+                                    "childrens": [
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/idiom/index.d.ts",
+                                            "lines": 25,
+                                            "characters": 497
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "order",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar-types/plugin/order",
+                                    "fileNumber": 1,
+                                    "lines": 56,
+                                    "characters": 1502,
+                                    "childrens": [
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/order/index.d.ts",
+                                            "lines": 56,
+                                            "characters": 1502
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "poly",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar-types/plugin/poly",
+                                    "fileNumber": 1,
+                                    "lines": 17,
+                                    "characters": 371,
+                                    "childrens": [
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/poly/index.d.ts",
+                                            "lines": 17,
+                                            "characters": 371
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "radical",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar-types/plugin/radical",
+                                    "fileNumber": 1,
+                                    "lines": 35,
+                                    "characters": 733,
+                                    "childrens": [
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/radical/index.d.ts",
+                                            "lines": 35,
+                                            "characters": 733
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "trad",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar-types/plugin/trad",
+                                    "fileNumber": 1,
+                                    "lines": 57,
+                                    "characters": 1393,
+                                    "childrens": [
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/trad/index.d.ts",
+                                            "lines": 57,
+                                            "characters": 1393
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "xhy",
+                                    "type": "dir",
+                                    "fullPath": "/src/cnchar-types/plugin/xhy",
+                                    "fileNumber": 1,
+                                    "lines": 30,
+                                    "characters": 605,
+                                    "childrens": [
+                                        {
+                                            "name": "index.d.ts",
+                                            "type": "file",
+                                            "fullPath": "/src/cnchar-types/plugin/xhy/index.d.ts",
+                                            "lines": 30,
+                                            "characters": 605
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "index.d.ts",
+                            "type": "file",
+                            "fullPath": "/src/cnchar-types/index.d.ts",
+                            "lines": 3,
+                            "characters": 56
+                        },
+                        {
+                            "name": "package-lock.json",
+                            "type": "file",
+                            "fullPath": "/src/cnchar-types/package-lock.json",
+                            "lines": 6,
+                            "characters": 81
+                        },
+                        {
+                            "name": "package.json",
+                            "type": "file",
+                            "fullPath": "/src/cnchar-types/package.json",
+                            "lines": 27,
+                            "characters": 612
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "testUtils",
+            "type": "dir",
+            "fullPath": "/testUtils",
+            "fileNumber": 2,
+            "lines": 28,
+            "characters": 614,
+            "childrens": [
+                {
+                    "name": "index.ts",
+                    "type": "file",
+                    "fullPath": "/testUtils/index.ts",
+                    "lines": 21,
+                    "characters": 470
+                },
+                {
+                    "name": "types.d.ts",
+                    "type": "file",
+                    "fullPath": "/testUtils/types.d.ts",
+                    "lines": 7,
+                    "characters": 144
+                }
+            ]
+        },
+        {
+            "name": "vuepress",
+            "type": "dir",
+            "fullPath": "/vuepress",
+            "fileNumber": 31,
+            "lines": 4434,
+            "characters": 286784,
+            "childrens": [
+                {
+                    "name": ".vuepress",
+                    "type": "dir",
+                    "fullPath": "/vuepress/.vuepress",
+                    "fileNumber": 7,
+                    "lines": 1247,
+                    "characters": 33353,
+                    "childrens": [
+                        {
+                            "name": "components",
+                            "type": "dir",
+                            "fullPath": "/vuepress/.vuepress/components",
+                            "fileNumber": 3,
+                            "lines": 954,
+                            "characters": 23908,
+                            "childrens": [
+                                {
+                                    "name": "codebox.vue",
+                                    "type": "file",
+                                    "fullPath": "/vuepress/.vuepress/components/codebox.vue",
+                                    "lines": 218,
+                                    "characters": 6542
+                                },
+                                {
+                                    "name": "home.vue",
+                                    "type": "file",
+                                    "fullPath": "/vuepress/.vuepress/components/home.vue",
+                                    "lines": 200,
+                                    "characters": 6606
+                                },
+                                {
+                                    "name": "star.vue",
+                                    "type": "file",
+                                    "fullPath": "/vuepress/.vuepress/components/star.vue",
+                                    "lines": 536,
+                                    "characters": 10760
+                                }
+                            ]
+                        },
+                        {
+                            "name": "styles",
+                            "type": "dir",
+                            "fullPath": "/vuepress/.vuepress/styles",
+                            "fileNumber": 2,
+                            "lines": 19,
+                            "characters": 402,
+                            "childrens": [
+                                {
+                                    "name": "index.styl",
+                                    "type": "file",
+                                    "fullPath": "/vuepress/.vuepress/styles/index.styl",
+                                    "lines": 8,
+                                    "characters": 172
+                                },
+                                {
+                                    "name": "palette.styl",
+                                    "type": "file",
+                                    "fullPath": "/vuepress/.vuepress/styles/palette.styl",
+                                    "lines": 11,
+                                    "characters": 230
+                                }
+                            ]
+                        },
+                        {
+                            "name": "config.js",
+                            "type": "file",
+                            "fullPath": "/vuepress/.vuepress/config.js",
+                            "lines": 229,
+                            "characters": 7935
+                        },
+                        {
+                            "name": "enhanceApp.js",
+                            "type": "file",
+                            "fullPath": "/vuepress/.vuepress/enhanceApp.js",
+                            "lines": 45,
+                            "characters": 1108
+                        }
+                    ]
+                },
+                {
+                    "name": "assets",
+                    "type": "dir",
+                    "fullPath": "/vuepress/assets",
+                    "fileNumber": 10,
+                    "lines": 1941,
+                    "characters": 208274,
+                    "childrens": [
+                        {
+                            "name": "readme",
+                            "type": "dir",
+                            "fullPath": "/vuepress/assets/readme",
+                            "fileNumber": 0,
+                            "lines": 0,
+                            "characters": 0,
+                            "childrens": []
+                        },
+                        {
+                            "name": "v1",
+                            "type": "dir",
+                            "fullPath": "/vuepress/assets/v1",
+                            "fileNumber": 9,
+                            "lines": 1941,
+                            "characters": 208274,
+                            "childrens": [
+                                {
+                                    "name": "css",
+                                    "type": "dir",
+                                    "fullPath": "/vuepress/assets/v1/css",
+                                    "fileNumber": 2,
+                                    "lines": 1417,
+                                    "characters": 19135,
+                                    "childrens": [
+                                        {
+                                            "name": "index.css",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/css/index.css",
+                                            "lines": 1370,
+                                            "characters": 18349
+                                        },
+                                        {
+                                            "name": "use-part.css",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/css/use-part.css",
+                                            "lines": 47,
+                                            "characters": 786
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "fonts",
+                                    "type": "dir",
+                                    "fullPath": "/vuepress/assets/v1/fonts",
+                                    "fileNumber": 3,
+                                    "lines": 436,
+                                    "characters": 104479,
+                                    "childrens": [
+                                        {
+                                            "name": "glyphicons-halflings-regular.eot",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/fonts/glyphicons-halflings-regular.eot",
+                                            "lines": 109,
+                                            "characters": 19391
+                                        },
+                                        {
+                                            "name": "glyphicons-halflings-regular.svg",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/fonts/glyphicons-halflings-regular.svg",
+                                            "lines": 229,
+                                            "characters": 62926
+                                        },
+                                        {
+                                            "name": "glyphicons-halflings-regular.woff",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/fonts/glyphicons-halflings-regular.woff",
+                                            "lines": 98,
+                                            "characters": 22162
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "images",
+                                    "type": "dir",
+                                    "fullPath": "/vuepress/assets/v1/images",
+                                    "fileNumber": 1,
+                                    "lines": 6,
+                                    "characters": 4285,
+                                    "childrens": [
+                                        {
+                                            "name": "i.ico",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/images/i.ico",
+                                            "lines": 6,
+                                            "characters": 4285
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "js",
+                                    "type": "dir",
+                                    "fullPath": "/vuepress/assets/v1/js",
+                                    "fileNumber": 3,
+                                    "lines": 82,
+                                    "characters": 80375,
+                                    "childrens": [
+                                        {
+                                            "name": "index.js",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/js/index.js",
+                                            "lines": 68,
+                                            "characters": 2094
+                                        },
+                                        {
+                                            "name": "run.js",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/js/run.js",
+                                            "lines": 11,
+                                            "characters": 242
+                                        },
+                                        {
+                                            "name": "showmark.min.js",
+                                            "type": "file",
+                                            "fullPath": "/vuepress/assets/v1/js/showmark.min.js",
+                                            "lines": 3,
+                                            "characters": 78039
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "guide",
+                    "type": "dir",
+                    "fullPath": "/vuepress/guide",
+                    "fileNumber": 3,
+                    "lines": 361,
+                    "characters": 9600,
+                    "childrens": [
+                        {
+                            "name": "README.md",
+                            "type": "file",
+                            "fullPath": "/vuepress/guide/README.md",
+                            "lines": 79,
+                            "characters": 3332
+                        },
+                        {
+                            "name": "start.md",
+                            "type": "file",
+                            "fullPath": "/vuepress/guide/start.md",
+                            "lines": 129,
+                            "characters": 3244
+                        },
+                        {
+                            "name": "version.md",
+                            "type": "file",
+                            "fullPath": "/vuepress/guide/version.md",
+                            "lines": 153,
+                            "characters": 3024
+                        }
+                    ]
+                },
+                {
+                    "name": "images",
+                    "type": "dir",
+                    "fullPath": "/vuepress/images",
+                    "fileNumber": 0,
+                    "lines": 0,
+                    "characters": 0,
+                    "childrens": []
+                },
+                {
+                    "name": "src",
+                    "type": "dir",
+                    "fullPath": "/vuepress/src",
+                    "fileNumber": 6,
+                    "lines": 423,
+                    "characters": 10687,
+                    "childrens": [
+                        {
+                            "name": "style",
+                            "type": "dir",
+                            "fullPath": "/vuepress/src/style",
+                            "fileNumber": 2,
+                            "lines": 47,
+                            "characters": 943,
+                            "childrens": [
+                                {
+                                    "name": "element.css",
+                                    "type": "file",
+                                    "fullPath": "/vuepress/src/style/element.css",
+                                    "lines": 8,
+                                    "characters": 189
+                                },
+                                {
+                                    "name": "main.css",
+                                    "type": "file",
+                                    "fullPath": "/vuepress/src/style/main.css",
+                                    "lines": 39,
+                                    "characters": 754
+                                }
+                            ]
+                        },
+                        {
+                            "name": "event.js",
+                            "type": "file",
+                            "fullPath": "/vuepress/src/event.js",
+                            "lines": 88,
+                            "characters": 1798
+                        },
+                        {
+                            "name": "jsbox.js",
+                            "type": "file",
+                            "fullPath": "/vuepress/src/jsbox.js",
+                            "lines": 143,
+                            "characters": 3875
+                        },
+                        {
+                            "name": "object-assign.polyfill.js",
+                            "type": "file",
+                            "fullPath": "/vuepress/src/object-assign.polyfill.js",
+                            "lines": 28,
+                            "characters": 836
+                        },
+                        {
+                            "name": "util.js",
+                            "type": "file",
+                            "fullPath": "/vuepress/src/util.js",
+                            "lines": 117,
+                            "characters": 3235
+                        }
+                    ]
+                },
+                {
+                    "name": "README.md",
+                    "type": "file",
+                    "fullPath": "/vuepress/README.md",
+                    "lines": 23,
+                    "characters": 408
+                },
+                {
+                    "name": "config.js",
+                    "type": "file",
+                    "fullPath": "/vuepress/config.js",
+                    "lines": 193,
+                    "characters": 12768
+                },
+                {
+                    "name": "index.html",
+                    "type": "file",
+                    "fullPath": "/vuepress/index.html",
+                    "lines": 16,
+                    "characters": 512
+                },
+                {
+                    "name": "v1.html",
+                    "type": "file",
+                    "fullPath": "/vuepress/v1.html",
+                    "lines": 230,
+                    "characters": 11182
+                }
+            ]
+        },
+        {
+            "name": "webpack-config",
+            "type": "dir",
+            "fullPath": "/webpack-config",
+            "fileNumber": 3,
+            "lines": 162,
+            "characters": 4318,
+            "childrens": [
+                {
+                    "name": "build.js",
+                    "type": "file",
+                    "fullPath": "/webpack-config/build.js",
+                    "lines": 53,
+                    "characters": 1308
+                },
+                {
+                    "name": "build.plugin.js",
+                    "type": "file",
+                    "fullPath": "/webpack-config/build.plugin.js",
+                    "lines": 60,
+                    "characters": 1719
+                },
+                {
+                    "name": "dev.js",
+                    "type": "file",
+                    "fullPath": "/webpack-config/dev.js",
+                    "lines": 49,
+                    "characters": 1291
+                }
+            ]
+        },
+        {
+            "name": ".babelrc",
+            "type": "file",
+            "fullPath": "/.babelrc",
+            "lines": 15,
+            "characters": 299
+        },
+        {
+            "name": ".eslintignore",
+            "type": "file",
+            "fullPath": "/.eslintignore",
+            "lines": 10,
+            "characters": 108
+        },
+        {
+            "name": ".eslintrc.js",
+            "type": "file",
+            "fullPath": "/.eslintrc.js",
+            "lines": 101,
+            "characters": 2565
+        },
+        {
+            "name": ".gitattributes",
+            "type": "file",
+            "fullPath": "/.gitattributes",
+            "lines": 4,
+            "characters": 107
+        },
+        {
+            "name": ".gitignore",
+            "type": "file",
+            "fullPath": "/.gitignore",
+            "lines": 9,
+            "characters": 120
+        },
+        {
+            "name": "CNAME",
+            "type": "file",
+            "fullPath": "/CNAME",
+            "lines": 1,
+            "characters": 13
+        },
+        {
+            "name": "LICENSE",
+            "type": "file",
+            "fullPath": "/LICENSE",
+            "lines": 24,
+            "characters": 1130
+        },
+        {
+            "name": "README.md",
+            "type": "file",
+            "fullPath": "/README.md",
+            "lines": 1650,
+            "characters": 43269
+        },
+        {
+            "name": "commitlint.config.js",
+            "type": "file",
+            "fullPath": "/commitlint.config.js",
+            "lines": 11,
+            "characters": 334
+        },
+        {
+            "name": "jest.config.js",
+            "type": "file",
+            "fullPath": "/jest.config.js",
+            "lines": 33,
+            "characters": 1317
+        },
+        {
+            "name": "jsbox.code.js",
+            "type": "file",
+            "fullPath": "/jsbox.code.js",
+            "lines": 55,
+            "characters": 1551
+        },
+        {
+            "name": "tsconfig.json",
+            "type": "file",
+            "fullPath": "/tsconfig.json",
+            "lines": 39,
+            "characters": 1033
+        }
+    ]
+}
