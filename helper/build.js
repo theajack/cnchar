@@ -47,6 +47,10 @@ async function main () {
         console.log(`${cmdConsole[i]} build success. [${i + 1}/${cmds.length}]`);
     }
     console.log('Finished!');
+
+    const cnchar = require('../npm/packages/cnchar/cnchar.min');
+    console.log('cnchar.version = ', cnchar.version);
+
 }
 
 main();
