@@ -2,32 +2,32 @@
     "name": "ROOT",
     "type": "dir",
     "fullPath": "",
-    "fileNumber": 311,
-    "lines": 60762,
-    "characters": 8382309,
+    "fileNumber": 295,
+    "lines": 60087,
+    "characters": 8366754,
     "childrens": [
         {
             "name": ".github",
             "type": "dir",
             "fullPath": "/.github",
             "fileNumber": 2,
-            "lines": 112,
-            "characters": 2653,
+            "lines": 115,
+            "characters": 2765,
             "childrens": [
                 {
                     "name": "workflows",
                     "type": "dir",
                     "fullPath": "/.github/workflows",
                     "fileNumber": 1,
-                    "lines": 69,
-                    "characters": 1695,
+                    "lines": 72,
+                    "characters": 1807,
                     "childrens": [
                         {
                             "name": "release.yml",
                             "type": "file",
                             "fullPath": "/.github/workflows/release.yml",
-                            "lines": 69,
-                            "characters": 1695
+                            "lines": 72,
+                            "characters": 1807
                         }
                     ]
                 },
@@ -468,8 +468,8 @@
             "type": "dir",
             "fullPath": "/helper",
             "fileNumber": 16,
-            "lines": 4434,
-            "characters": 132055,
+            "lines": 4435,
+            "characters": 131992,
             "childrens": [
                 {
                     "name": "test",
@@ -541,8 +541,8 @@
                     "name": "build.js",
                     "type": "file",
                     "fullPath": "/helper/build.js",
-                    "lines": 56,
-                    "characters": 1790
+                    "lines": 57,
+                    "characters": 1727
                 },
                 {
                     "name": "dev.md",
@@ -599,17 +599,17 @@
             "name": "npm",
             "type": "dir",
             "fullPath": "/npm",
-            "fileNumber": 87,
-            "lines": 21870,
-            "characters": 3343488,
+            "fileNumber": 71,
+            "lines": 21191,
+            "characters": 3325684,
             "childrens": [
                 {
                     "name": "packages",
                     "type": "dir",
                     "fullPath": "/npm/packages",
-                    "fileNumber": 87,
-                    "lines": 21870,
-                    "characters": 3343488,
+                    "fileNumber": 71,
+                    "lines": 21191,
+                    "characters": 3325684,
                     "childrens": [
                         {
                             "name": "cnchar",
@@ -617,7 +617,7 @@
                             "fullPath": "/npm/packages/cnchar",
                             "fileNumber": 5,
                             "lines": 1712,
-                            "characters": 89509,
+                            "characters": 89605,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -631,7 +631,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/cnchar/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.min.js",
@@ -660,232 +660,10 @@
                             "name": "cnchar-all",
                             "type": "dir",
                             "fullPath": "/npm/packages/cnchar-all",
-                            "fileNumber": 21,
-                            "lines": 2406,
-                            "characters": 962637,
+                            "fileNumber": 5,
+                            "lines": 1721,
+                            "characters": 943561,
                             "childrens": [
-                                {
-                                    "name": "node_modules",
-                                    "type": "dir",
-                                    "fullPath": "/npm/packages/cnchar-all/node_modules",
-                                    "fileNumber": 16,
-                                    "lines": 685,
-                                    "characters": 19172,
-                                    "childrens": [
-                                        {
-                                            "name": "cnchar-types",
-                                            "type": "dir",
-                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types",
-                                            "fileNumber": 15,
-                                            "lines": 670,
-                                            "characters": 18906,
-                                            "childrens": [
-                                                {
-                                                    "name": "main",
-                                                    "type": "dir",
-                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main",
-                                                    "fileNumber": 3,
-                                                    "lines": 222,
-                                                    "characters": 6635,
-                                                    "childrens": [
-                                                        {
-                                                            "name": "common.d.ts",
-                                                            "type": "file",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main/common.d.ts",
-                                                            "lines": 46,
-                                                            "characters": 1034
-                                                        },
-                                                        {
-                                                            "name": "index.d.ts",
-                                                            "type": "file",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main/index.d.ts",
-                                                            "lines": 91,
-                                                            "characters": 3548
-                                                        },
-                                                        {
-                                                            "name": "tool.d.ts",
-                                                            "type": "file",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/main/tool.d.ts",
-                                                            "lines": 85,
-                                                            "characters": 2053
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "name": "plugin",
-                                                    "type": "dir",
-                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin",
-                                                    "fileNumber": 9,
-                                                    "lines": 412,
-                                                    "characters": 11522,
-                                                    "childrens": [
-                                                        {
-                                                            "name": "draw",
-                                                            "type": "dir",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw",
-                                                            "fileNumber": 3,
-                                                            "lines": 192,
-                                                            "characters": 6421,
-                                                            "childrens": [
-                                                                {
-                                                                    "name": "common.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw/common.d.ts",
-                                                                    "lines": 123,
-                                                                    "characters": 4379
-                                                                },
-                                                                {
-                                                                    "name": "hanzi-writer.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw/hanzi-writer.d.ts",
-                                                                    "lines": 33,
-                                                                    "characters": 1086
-                                                                },
-                                                                {
-                                                                    "name": "index.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/draw/index.d.ts",
-                                                                    "lines": 36,
-                                                                    "characters": 956
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "name": "idiom",
-                                                            "type": "dir",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/idiom",
-                                                            "fileNumber": 1,
-                                                            "lines": 25,
-                                                            "characters": 497,
-                                                            "childrens": [
-                                                                {
-                                                                    "name": "index.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/idiom/index.d.ts",
-                                                                    "lines": 25,
-                                                                    "characters": 497
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "name": "order",
-                                                            "type": "dir",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/order",
-                                                            "fileNumber": 1,
-                                                            "lines": 56,
-                                                            "characters": 1502,
-                                                            "childrens": [
-                                                                {
-                                                                    "name": "index.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/order/index.d.ts",
-                                                                    "lines": 56,
-                                                                    "characters": 1502
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "name": "poly",
-                                                            "type": "dir",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/poly",
-                                                            "fileNumber": 1,
-                                                            "lines": 17,
-                                                            "characters": 371,
-                                                            "childrens": [
-                                                                {
-                                                                    "name": "index.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/poly/index.d.ts",
-                                                                    "lines": 17,
-                                                                    "characters": 371
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "name": "radical",
-                                                            "type": "dir",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/radical",
-                                                            "fileNumber": 1,
-                                                            "lines": 35,
-                                                            "characters": 733,
-                                                            "childrens": [
-                                                                {
-                                                                    "name": "index.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/radical/index.d.ts",
-                                                                    "lines": 35,
-                                                                    "characters": 733
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "name": "trad",
-                                                            "type": "dir",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/trad",
-                                                            "fileNumber": 1,
-                                                            "lines": 57,
-                                                            "characters": 1393,
-                                                            "childrens": [
-                                                                {
-                                                                    "name": "index.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/trad/index.d.ts",
-                                                                    "lines": 57,
-                                                                    "characters": 1393
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "name": "xhy",
-                                                            "type": "dir",
-                                                            "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/xhy",
-                                                            "fileNumber": 1,
-                                                            "lines": 30,
-                                                            "characters": 605,
-                                                            "childrens": [
-                                                                {
-                                                                    "name": "index.d.ts",
-                                                                    "type": "file",
-                                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/plugin/xhy/index.d.ts",
-                                                                    "lines": 30,
-                                                                    "characters": 605
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "name": "index.d.ts",
-                                                    "type": "file",
-                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/index.d.ts",
-                                                    "lines": 3,
-                                                    "characters": 56
-                                                },
-                                                {
-                                                    "name": "package-lock.json",
-                                                    "type": "file",
-                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/package-lock.json",
-                                                    "lines": 6,
-                                                    "characters": 81
-                                                },
-                                                {
-                                                    "name": "package.json",
-                                                    "type": "file",
-                                                    "fullPath": "/npm/packages/cnchar-all/node_modules/cnchar-types/package.json",
-                                                    "lines": 27,
-                                                    "characters": 612
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": ".package-lock.json",
-                                            "type": "file",
-                                            "fullPath": "/npm/packages/cnchar-all/node_modules/.package-lock.json",
-                                            "lines": 15,
-                                            "characters": 266
-                                        }
-                                    ]
-                                },
                                 {
                                     "name": "LICENSE",
                                     "type": "file",
@@ -898,7 +676,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/cnchar-all/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.all.min.js",
@@ -928,16 +706,16 @@
                             "type": "dir",
                             "fullPath": "/npm/packages/cnchar-types",
                             "fileNumber": 16,
-                            "lines": 2332,
-                            "characters": 65112,
+                            "lines": 2338,
+                            "characters": 65424,
                             "childrens": [
                                 {
                                     "name": "main",
                                     "type": "dir",
                                     "fullPath": "/npm/packages/cnchar-types/main",
                                     "fileNumber": 3,
-                                    "lines": 216,
-                                    "characters": 6419,
+                                    "lines": 222,
+                                    "characters": 6635,
                                     "childrens": [
                                         {
                                             "name": "common.d.ts",
@@ -957,8 +735,8 @@
                                             "name": "tool.d.ts",
                                             "type": "file",
                                             "fullPath": "/npm/packages/cnchar-types/main/tool.d.ts",
-                                            "lines": 79,
-                                            "characters": 1837
+                                            "lines": 85,
+                                            "characters": 2053
                                         }
                                     ]
                                 },
@@ -1117,7 +895,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/cnchar-types/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "index.d.ts",
@@ -1141,7 +919,7 @@
                             "fullPath": "/npm/packages/draw",
                             "fileNumber": 5,
                             "lines": 1714,
-                            "characters": 102923,
+                            "characters": 103019,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1155,7 +933,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/draw/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.draw.min.js",
@@ -1186,7 +964,7 @@
                             "fullPath": "/npm/packages/hanzi-util",
                             "fileNumber": 5,
                             "lines": 1721,
-                            "characters": 943465,
+                            "characters": 943561,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1200,7 +978,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/hanzi-util/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "hanzi.util.min.js",
@@ -1231,7 +1009,7 @@
                             "fullPath": "/npm/packages/hanzi-util-base",
                             "fileNumber": 5,
                             "lines": 1712,
-                            "characters": 89530,
+                            "characters": 89626,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1245,7 +1023,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/hanzi-util-base/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "hanzi.base.min.js",
@@ -1276,7 +1054,7 @@
                             "fullPath": "/npm/packages/idiom",
                             "fileNumber": 5,
                             "lines": 1711,
-                            "characters": 291837,
+                            "characters": 291933,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1290,7 +1068,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/idiom/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.idiom.min.js",
@@ -1321,7 +1099,7 @@
                             "fullPath": "/npm/packages/order",
                             "fileNumber": 5,
                             "lines": 1712,
-                            "characters": 176203,
+                            "characters": 176299,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1335,7 +1113,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/order/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.order.min.js",
@@ -1366,7 +1144,7 @@
                             "fullPath": "/npm/packages/poly",
                             "fileNumber": 5,
                             "lines": 1713,
-                            "characters": 115069,
+                            "characters": 115165,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1380,7 +1158,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/poly/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.poly.min.js",
@@ -1411,7 +1189,7 @@
                             "fullPath": "/npm/packages/radical",
                             "fileNumber": 5,
                             "lines": 1713,
-                            "characters": 106032,
+                            "characters": 106128,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1425,7 +1203,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/radical/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.radical.min.js",
@@ -1456,7 +1234,7 @@
                             "fullPath": "/npm/packages/trad",
                             "fileNumber": 5,
                             "lines": 1712,
-                            "characters": 91835,
+                            "characters": 91931,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1470,7 +1248,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/trad/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.trad.min.js",
@@ -1501,7 +1279,7 @@
                             "fullPath": "/npm/packages/xhy",
                             "fileNumber": 5,
                             "lines": 1712,
-                            "characters": 309336,
+                            "characters": 309432,
                             "childrens": [
                                 {
                                     "name": "LICENSE",
@@ -1515,7 +1293,7 @@
                                     "type": "file",
                                     "fullPath": "/npm/packages/xhy/README.md",
                                     "lines": 1650,
-                                    "characters": 45373
+                                    "characters": 45469
                                 },
                                 {
                                     "name": "cnchar.xhy.min.js",
@@ -3269,7 +3047,7 @@
             "type": "file",
             "fullPath": "/README.md",
             "lines": 1650,
-            "characters": 43269
+            "characters": 45469
         },
         {
             "name": "commitlint.config.js",
