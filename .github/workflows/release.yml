@@ -37,8 +37,13 @@ jobs:
           version=${tag#v}
           echo "::set-output name=version::${version}"
 
-      - name: Build Webpack # build npm
-        run: npm run build:webpack
+      - name: Npm Link # build npm
+        run: |
+          cd ./src/cnchar-types
+          npm link
+          cd ../cnchar
+          npm link cnchar-types
+          cd ../..
 
       - name: Build # build npm
         run: node ./helper/build.js ${{ steps.version.outputs.version }}

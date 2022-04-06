@@ -1,4 +1,13 @@
+const pkg = require('../../package.json');
+
 module.exports = [
+    {
+        name: '测试version',
+        test (cnchar) {
+            return cnchar.version;
+        },
+        expect: pkg.version
+    },
     {
         name: '测试spell',
         test (cnchar) {
