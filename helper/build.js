@@ -1,13 +1,13 @@
 const gulp = require('gulp');
 const count = require('count-code-line');
-const {exec} = require('./tool');
+// const {exec} = require('./tool');
 
 console.log(process.argv);
 
 async function task () {
     count();
     console.log('webpack build');
-    await exec('node ./node_modules/webpack/bin/webpack.js --config ./webpack-config/build.js');
+    // await exec('node ./node_modules/webpack/bin/webpack.js --config ./webpack-config/build.js');
     gulp.src(['jsbox.code.js'])
         .pipe(gulp.dest('npm'));
     gulp.src(['jsbox.code.js'])
