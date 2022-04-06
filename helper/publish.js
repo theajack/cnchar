@@ -7,8 +7,8 @@ const {plugins, allPackage, mainPackage, types, utils} = Packages;
 // npm run publish main poly npm: build三个
 
 async function main () {
-    console.log('fake publish');
-    return;
+    // console.log('fake publish');
+    // return;
     const publish = 'npm publish ';
     const publishPackage = `${publish}npm/packages/`;
     const publishAll = `${publishPackage}cnchar-all`;

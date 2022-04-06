@@ -51,11 +51,6 @@ jobs:
       - name: Test # test
         run: node ./helper/test/index.js
 
-      - name: Publish # npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
-        run: node ./helper/publish.js
-
       - name: Build Docs # build docs
         run: npm run build:docs
 
@@ -72,6 +67,11 @@ jobs:
           publish: true
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Publish # npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+        run: node ./helper/publish.js
       
       - name: Purge # purge cdn
         run: |
