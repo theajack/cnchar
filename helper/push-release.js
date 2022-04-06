@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-06 09:14:55
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-06 11:09:25
+ * @LastEditTime: 2022-04-06 11:24:30
  * @FilePath: /cnchar/helper/push-release.js
  * @Description: Coding something
  */
@@ -23,8 +23,8 @@ async function delTag (tagName) {
 
 async function main () {
     const argv = process.argv.slice(2);
-    const tagName = argv[2];
-    if (argv[3] === 'del') {
+    const tagName = argv[0];
+    if (argv[1] === 'del') {
         console.log(`Start delete tag ${tagName}...`);
         await delTag(tagName);
     }
