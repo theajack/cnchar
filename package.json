@@ -30,7 +30,8 @@
         "build:docs": "vuepress build vuepress && node ./helper/build-docs.js",
         "purge": "node ./helper/purge-cdn.js",
         "count": "count-code-line",
-        "build:webpack": "webpack --config webpack-config/build.js"
+        "build:webpack": "webpack --config webpack-config/build.js",
+        "release": "node ./helper/push-release.js"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",
