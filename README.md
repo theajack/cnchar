@@ -374,7 +374,7 @@ cnchar.draw('你好', options); // options 为可选参数， 在5.2.2 种会详
 
 运行结果如下：
 
-![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/assets/readme/draw.jpg)
+![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/readme/draw.jpg)
 
 该库支持脱离cnchar 独立使用
 

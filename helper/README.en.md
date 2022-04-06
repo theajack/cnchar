@@ -278,7 +278,7 @@ cnchar.draw('你好', options); // options are optional parameters, detailed in 
 
 The results are as follows:
 
-![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/assets/readme/draw.jpg)
+![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/readme/draw.jpg)
 
 The library supports independent use without cnchar
 

@@ -42,7 +42,7 @@ function main () {
         }
         if (jsbox._id !== _id || iframeId !== _id) {
             jsbox._id = _id;
-            const config = (location.host.indexOf('localhost') !== -1) ? 'http://localhost:8080/config.js' : 'https://cdn.jsdelivr.net/gh/theajack/cnchar/docs/config.js';
+            const config = (location.host.indexOf('localhost') !== -1) ? 'http://localhost:8080/config.js' : 'https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/config.js';
             jsbox.url = `${getUrl()}&config=${encodeURIComponent(config)}&id=${_id}`;
             iframe.src = jsbox.url;
         }
