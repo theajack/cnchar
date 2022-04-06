@@ -1,30 +1,7 @@
-// const gulp = require('gulp');
-// const count = require('count-code-line');
-// // const {exec} = require('./tool');
-
-// console.log(process.argv);
-
-// async function task () {
-//     count();
-//     console.log('webpack build');
-//     // await exec('node ./node_modules/webpack/bin/webpack.js --config ./webpack-config/build.js');
-//     gulp.src(['jsbox.code.js'])
-//         .pipe(gulp.dest('npm'));
-//     gulp.src(['jsbox.code.js'])
-//         .pipe(gulp.dest('npm/packages/cnchar'))
-//         .on('end', () => {
-//             count();
-//         });
-// }
-
-// task();
-
-
 const {exec, Packages, writeJsonFile} = require('./tool');
 const {plugins, allPackage, mainPackage, npmPackage} = Packages;
 const pkg = require('../package.json');
 
-const count = require('count-code-line');
 
 // plugins 'main' 'npm' 可选
 // npm run build: 默认build 全部
@@ -73,9 +50,6 @@ async function main () {
         console.log(`${cmdConsole[i]} build success. [${i + 1}/${cmds.length}]`);
     }
     console.log('Finished!');
-
-    count();
-
 }
 
 function modVersion () {

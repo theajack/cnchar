@@ -44,7 +44,6 @@
         "@vuepress/plugin-medium-zoom": "^1.0.0-rc.1",
         "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
-        "count-code-line": "^0.0.4",
         "easy-icon": "^1.0.2",
         "element-ui": "^2.10.1",
         "eslint": "^6.7.2",
