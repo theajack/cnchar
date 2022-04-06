@@ -10,7 +10,7 @@ function main () {
         .pipe(gulp.dest('docs/assets/readme'));
     gulp.src('vuepress/assets/v1/**')
         .pipe(gulp.dest('docs/assets/v1'));
-    gulp.src('vuepress/v1.html')
+    gulp.src(['vuepress/v1.html', '.gitigonre'])
         .pipe(gulp.dest('docs'));
     addMta();
 }
