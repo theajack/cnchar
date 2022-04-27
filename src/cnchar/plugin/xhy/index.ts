@@ -1,33 +1,21 @@
 import {ICnChar} from 'cnchar-types/main';
-import {IXHY, IInitXHY} from 'cnchar-types/plugin/xhy';
+import {IXHY} from 'cnchar-types/plugin/xhy';
+import {IPlugin} from 'cnchar-types/main/common';
 import {xhy, arg, addXhy, setCnchar} from './xhy';
 
-
-function main (cnchar: ICnChar & {xhy?: IXHY}): void {
-    if (cnchar.plugins.indexOf('xhy') !== -1) {
-        return;
-    }
-    setCnchar(cnchar);
-    cnchar.plugins.push('xhy');
-    cnchar.xhy = xhy;
-    cnchar.type.xhy = arg;
-}
-
-const init: IInitXHY = (cnchar?: ICnChar): void => {
-    if (typeof window === 'object' && !window.CncharXHY) {
-        window.CncharXHY = xhy;
-    }
-    if (typeof window === 'object' && window.CnChar) {
-        main(window.CnChar);
-    } else if (typeof cnchar !== 'undefined') {
-        main(cnchar);
-    }
+const plugin: IPlugin = {
+    pluginName: 'xhy',
+    install (cnchar: ICnChar) {
+        setCnchar(cnchar);
+        xhy.addXhy = addXhy;
+        return {xhy};
+    },
+    args: arg
 };
 
-xhy.init = init;
+if (typeof window === 'object') {
+    window.CncharXHY = xhy;
+    if (window.CnChar) window.CnChar.use(plugin);
+}
 
-xhy.addXhy = addXhy;
-
-init();
-
-export default xhy;
+export default Object.assign(xhy, plugin) as IXHY & IPlugin;

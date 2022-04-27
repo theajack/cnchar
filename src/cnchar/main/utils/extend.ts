@@ -1,11 +1,14 @@
 import {IIdiom} from 'cnchar-types/plugin/idiom';
 import {IDraw} from 'cnchar-types/plugin/draw/common';
-import {_warn} from './util';
+import {_warn} from '@common/util';
 import {IOrderToWord, ISetOrder} from 'cnchar-types/plugin/order';
 import {ISetPolyPhrase} from 'cnchar-types/plugin/poly';
 import {IRadical} from 'cnchar-types/plugin/radical';
 import {IConverter} from 'cnchar-types/plugin/trad';
 import {IXHY} from 'cnchar-types/plugin/xhy';
+import {IWords} from 'cnchar-types/plugin/words';
+import {IExplain} from 'cnchar-types/plugin/explain';
+import {IVoice} from 'cnchar-types/plugin/voice';
 
 export function extendCnChar (): {
     idiom: IIdiom;
@@ -16,6 +19,9 @@ export function extendCnChar (): {
     radical: IRadical;
     convert: IConverter;
     xhy: IXHY;
+    words: IWords;
+    explain: IExplain;
+    voice: IVoice;
     } {
 
     const draw = fn('draw') as unknown as IDraw;
@@ -46,12 +52,17 @@ export function extendCnChar (): {
             tradToSimple () {fn('radical'); return '';},
             tradToSpark () {fn('radical'); return '';},
         },
-        xhy
+        xhy,
+        words: fn('words') as IWords,
+        explain: fn('explain') as IExplain,
+        voice: fn('voice') as IVoice,
     };
 }
 
 const fn = (name: string) => {
-    return () => {
+    const result = (() => {
         _warn(`请先调用 cnchar-${name}`);
-    };
+    }) as any;
+    result.__default = true;
+    return result;
 };

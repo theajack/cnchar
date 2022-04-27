@@ -1,4 +1,4 @@
-import dict from './dict/stroke-count-jian.json';
+import dict from '../dict/stroke-count-jian.json';
 import {Json} from 'cnchar-types/main/common';
 import {ICnChar, StrokeToWordArg, TypeValueObject} from 'cnchar-types/main/index';
 import {ICncharTool} from 'cnchar-types/main/tool';

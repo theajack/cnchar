@@ -71,6 +71,7 @@ export declare interface ICncharTool {
     sumStroke: IFunc<number, Array<number>>;
     isCnChar: IFunc<boolean>;
     checkArgs: ICheckArgs;
+    checkTrad(input: string | string[], args: string[]): string | string[];
     transformTone: ITransformTone;
     convert?: ConvertInterface;
     dict: {
@@ -78,6 +79,7 @@ export declare interface ICncharTool {
         getTradCount?(): Json<string>;
     };
     mapJson: IMapJson;
+    getResourceBase(): string;
     poly?: boolean;
     [prop: string]: any;
 }

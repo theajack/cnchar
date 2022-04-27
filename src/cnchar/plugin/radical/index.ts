@@ -1,33 +1,21 @@
 import {ICnChar} from 'cnchar-types/main';
-import {IRadical, IInitRadical} from 'cnchar-types/plugin/radical';
-
+import {IRadical} from 'cnchar-types/plugin/radical';
+import {IPlugin} from 'cnchar-types/main/common';
 import {radical, arg, setCnchar, setRadical} from './radical';
 
-function main (cnchar: ICnChar & {radical?: IRadical}) {
-    if (cnchar.plugins.indexOf('radical') !== -1) {
-        return;
-    }
-    cnchar.plugins.push('radical');
-    cnchar.radical = radical;
-    cnchar.type.radical = arg;
-}
-
-const init: IInitRadical = (cnchar?: ICnChar): void => {
-    if (typeof window === 'object' && !window.CncharRadical) {
-        window.CncharRadical = radical;
-    }
-    if (typeof window === 'object' && window.CnChar) {
-        main(window.CnChar);
-        setCnchar(window.CnChar);
-    } else if (typeof cnchar !== 'undefined') {
-        main(cnchar);
+const plugin: IPlugin = {
+    pluginName: 'radical',
+    install (cnchar: ICnChar) {
         setCnchar(cnchar);
-    }
+        radical.setRadical = setRadical;
+        return {radical};
+    },
+    args: arg
 };
 
-radical.init = init;
-radical.setRadical = setRadical;
+if (typeof window === 'object') {
+    window.CncharRadical = radical;
+    if (window.CnChar) window.CnChar.use(plugin);
+}
 
-init();
-
-export default radical;
+export default Object.assign(radical, plugin) as IRadical & IPlugin;

@@ -18,7 +18,7 @@ declare global {
     }
 }
 
-declare module '../../main' {
+declare module '../../main/index' {
     interface ICnChar {
         idiom: IIdiom;
     }

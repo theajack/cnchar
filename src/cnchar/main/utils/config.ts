@@ -1,11 +1,11 @@
-import defDict from './dict/spell-default.json';
-import spellDict from './dict/spell-dict-jian.json';
-import originStrokeDict from './dict/stroke-count-jian.json';
-import infoDict from './dict/info-dict.json';
-import {mapJson} from './util';
+import defDict from '../dict/spell-default.json';
+import spellDict from '../dict/spell-dict-jian.json';
+import originStrokeDict from '../dict/stroke-count-jian.json';
+import infoDict from '../dict/info-dict.json';
 import {transformTone, spell, arg, shapeSpell, stroke} from './tool';
 import {Json, ITransformReturn} from 'cnchar-types/main/common';
 import {ISetIntoJson} from 'cnchar-types/main/tool';
+import {mapJson} from '@common/util';
 
 const strokeDict = originStrokeDict as Json<string>;
 // 设置多音字默认拼音
@@ -151,3 +151,4 @@ function addPolyWord (word: string): void {
         infoDict.polyWord += word;
     }
 }
+

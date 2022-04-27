@@ -423,7 +423,7 @@ writer.drawNextStroke(()=>{
 
 ##### 5.2.4 Use in WeChat Mini Program
 
-The library is driven by HanziWriter, and currently only supports use in the web environment. If you need to use WeChat Mini Programs, please refer to [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
+The library is driven by HanziWriter, and currently only supports use in the web environment. If you need to use WeChat Mini Programs, please refer to [hanzi-writer-miniprogram](https://github.com/chanind/hanzi-writer-miniprogram)
 
 #### 5.3 Traditional, Simplified and Martian conversion: convert
 

@@ -1,29 +1,21 @@
 // powerd by hanzi-writer v2.2.2
-import {ICnChar} from 'cnchar-types/main';
 import './promise-polyfill';
 import {IDraw} from 'cnchar-types/plugin/draw/common';
 import draw from './writer';
+import {IPlugin} from 'cnchar-types/main/common';
+import {initResourceFromCnchar} from './resource';
 
-
-export default function main (cnchar: ICnChar & {draw?: IDraw}): void {
-    if (cnchar.plugins.indexOf('draw') !== -1) {
-        return;
+const plugin: IPlugin = {
+    pluginName: 'draw',
+    install (cnchar) {
+        initResourceFromCnchar(cnchar);
+        return {draw};
     }
-    cnchar.plugins.push('draw');
-    cnchar.draw = draw;
+};
+
+if (typeof window === 'object') {
+    window.CncharDraw = draw;
+    if (window.CnChar) window.CnChar.use(plugin);
 }
 
-function init (cnchar?: ICnChar): void {
-    if (typeof window === 'object') {
-        window.CncharDraw = draw;
-    }
-    if (typeof window === 'object' && window.CnChar) {
-        main(window.CnChar);
-    } else if (typeof cnchar !== 'undefined') {
-        main(cnchar);
-    }
-}
-
-draw.init = init;
-
-init();
+export default Object.assign(draw, plugin) as IDraw & IPlugin;

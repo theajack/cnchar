@@ -7,9 +7,9 @@
  * @FilePath: \cnchar\src\cnchar\plugin\draw\animation-stroke.ts
  */
 
-import {IComplete, IWriter} from 'src/cnchar-types/plugin/draw';
-import {IDrawOption} from 'src/cnchar-types/plugin/draw/common';
-import HanziWriter from 'src/cnchar-types/plugin/draw/hanzi-writer';
+import {IComplete, IWriter} from 'cnchar-types/plugin/draw';
+import {IDrawOption} from 'cnchar-types/plugin/draw/common';
+import HanziWriter from 'cnchar-types/plugin/draw/hanzi-writer';
 
 const DRAW_MODE = {
     INITIAL: 0,

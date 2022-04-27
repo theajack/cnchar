@@ -8,7 +8,8 @@ const radicals = dict as Json<string>;
 export const arg: {
     [prop in RadicalArg]: RadicalArg
 } = {
-    array: 'array'
+    array: 'array',
+    trad: 'trad',
 };
 
 let _cnchar: ICnChar;
@@ -20,6 +21,8 @@ export const radical = ((
     if (_cnchar) {
         _cnchar._.checkArgs('radical', args);
     }
+
+    input = _cnchar._.checkTrad(input, args);
 
     let res = '';
     for (let i = 0; i < input.length; i++) {

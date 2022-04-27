@@ -1,4 +1,5 @@
 import cnchar from 'cnchar';
+import {IPlugin} from '../../src/cnchar-types/main/common';
 import {IStrictTestCase} from './types';
 
 export function testStrictEqualCase ({
@@ -6,7 +7,7 @@ export function testStrictEqualCase ({
     plugins
 }: {
     testCases: IStrictTestCase[],
-    plugins?: Function[]
+    plugins?: IPlugin[]
 }) {
     if (plugins) {
         cnchar.use(...plugins);

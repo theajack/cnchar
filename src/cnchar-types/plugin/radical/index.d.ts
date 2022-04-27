@@ -1,7 +1,7 @@
 import {ICnChar} from '../../main';
 import {Json} from '../../main/common';
 
-export declare type RadicalArg = 'array';
+export declare type RadicalArg = 'array' | 'trad';
 
 export declare interface IRadicalFn {
     (text:string | Array<string>, ...radicalArgs: Array<RadicalArg>): string | Array<string>;

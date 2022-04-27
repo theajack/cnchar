@@ -5,9 +5,12 @@ import '../src/cnchar/plugin/order';
 import '../src/cnchar/plugin/trad';
 import '../src/cnchar/plugin/poly';
 import '../src/cnchar/plugin/draw';
-import '../src/cnchar/plugin/idiom';
 import '../src/cnchar/plugin/xhy';
 import '../src/cnchar/plugin/radical';
+import '../src/cnchar/plugin/words';
+import '../src/cnchar/plugin/idiom';
+import '../src/cnchar/plugin/voice';
+import '../src/cnchar/plugin/explain';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';
@@ -50,7 +53,6 @@ console.log(cnchar.spellInfo('lǘ'));
 console.log(cnchar.strokeToWord(1));
 console.log('美好的地方'.spell('tone'));
 // 根据汉字查询成语，末尾的空格可以省略
-window.CncharIdiom('aa');
 console.log(cnchar.idiom(['五', '', '十', ''])); // ['五风十雨', '五光十色']
 // 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
 console.log(cnchar.idiom([4, 6, 2, 0], 'stroke')); // ["不当人子", ... ]
@@ -119,13 +121,11 @@ cnchar.draw('中国', {
     },
 });
 
-declare global {
-    interface Window {
-        aaa: any;
-    }
-}
+cnchar.draw.onWordNotFound((word) => {
+    console.log('word not found', word);
+});
 
-window.aaa = cnchar.draw('你好九', {
+(window as any).aaa = cnchar.draw('你好九庳䭹', {
     type: cnchar.draw.TYPE.ANIMATION,
     style: {
         radicalColor: '#44f',
@@ -157,7 +157,18 @@ window.aaa = cnchar.draw('你好九', {
 // });
 
 window.cnchar = cnchar;
+cnchar.idiom;
+cnchar.words;
+// cnchar;
+// const player = cnchar.voice('你好小朋友', {
+//     loop: true,
+//     autoStart: false,
+//     onSingleComplete (d) {console.log('onSingleComplete', d);},
+//     onComplete (d) {console.log('onComplete', d);},
+//     onAudioLoaded (d) {console.log('onAudioLoaded', d);},
+// });
 
+    
 export default cnchar;
 
 // var cnchar = require('./main/index')
