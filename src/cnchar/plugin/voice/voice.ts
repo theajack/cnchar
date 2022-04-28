@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-14 22:38:32
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-27 16:37:01
+ * @LastEditTime: 2022-04-28 10:58:14
  * @FilePath: /cnchar/src/cnchar/plugin/voice/voice.ts
  * @Description: Coding something
  */
@@ -199,12 +199,12 @@ export const voice = ((word: string, options: IVoiceOptions) => {
     }
     const args = mergeVoiceOption(options);
     
-    const urlList = getvoiceAudios(word);
+    const urlList = getVoiceAudios(word);
 
     return createVoicePlayer(urlList, args);
 }) as IVoice;
 
-function getvoiceAudios (word: string) {
+function getVoiceAudios (word: string) {
     if (TempDict[word]) {
         return [TempDict[word]];
     } else {
@@ -220,6 +220,6 @@ voice.addVoice = (words:string | Json<string>, voice?: string) => {
     });
 };
 
-voice.getVoiceList = getvoiceAudios;
+voice.getVoiceList = getVoiceAudios;
 
 

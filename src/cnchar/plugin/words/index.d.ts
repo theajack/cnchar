@@ -1,5 +1,5 @@
 import {IWords} from 'cnchar-types/plugin/words';
-
-declare const words: IWords;
+import {IPlugin} from 'cnchar-types/main/common';
+declare const words: IWords & IPlugin;
 
 export default words;

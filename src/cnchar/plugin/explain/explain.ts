@@ -1,4 +1,4 @@
-import {requesttJson} from '@common/request-json';
+import {requestJson} from '@common/request-json';
 import {mapJson} from '@common/util';
 import ICnChar from 'cnchar-types';
 import {Json} from 'cnchar-types/main/common';
@@ -7,7 +7,7 @@ import {IExplain} from 'cnchar-types/plugin/explain';
 
 const TempDict: Json<string> = {};
 
-export const arg: Json = {
+export const args: Json = {
     trad: 'trad',
 };
 
@@ -22,7 +22,7 @@ export const explain = (async (word: string, ...args: string[]) => {
     }
     if (TempDict[word]) return TempDict[word];
     const head = word[0];
-    const json = await requesttJson(`${getResourceBase()}${head}.json`);
+    const json = await requestJson(`${getResourceBase()}${head}.json`);
     if (!json || !json[word]) return '';
     return json[word];
 }) as IExplain;

@@ -5,11 +5,13 @@ const poly = require('../../npm/packages/poly/cnchar.poly.min');
 const idiom = require('../../npm/packages/idiom/cnchar.idiom.min');
 const xhy = require('../../npm/packages/xhy/cnchar.xhy.min');
 const radical = require('../../npm/packages/radical/cnchar.radical.min');
+const words = require('../../npm/packages/words/cnchar.words.min');
+const explain = require('../../npm/packages/explain/cnchar.explain.min');
 
 console.log('****TEST NPM****');
 console.log();
 
-cnchar.use(order, trad, poly, idiom, xhy, radical);
+cnchar.use(order, trad, poly, idiom, xhy, radical, words, explain);
 
 const config = require('./test.config');
 

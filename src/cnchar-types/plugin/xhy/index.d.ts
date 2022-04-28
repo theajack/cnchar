@@ -7,14 +7,9 @@ export declare interface IAddXhy {
     (xhyHead: string, xhyTail: string): void;
 }
 
-export declare interface IInitXHY {
-    (cnchar?: ICnChar): void;
-}
-
 export declare interface IXHY {
     (text:string, ...xhyArgs: Array<XhyArg>): Array<string>;
     addXhy: IAddXhy;
-    init: IInitXHY;
 }
 
 declare global {

@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 19:03:08
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-27 08:45:05
+ * @LastEditTime: 2022-04-28 12:36:21
  * @FilePath: /cnchar/src/cnchar/common/request-json.ts
  * @Description: Coding something
  */
@@ -13,7 +13,7 @@ import {parseJSON, _warn} from './util';
 
 let nodeHttps: any = null;
 
-export const requesttJson = (() => {
+export const requestJson = (() => {
     if (Env === 'miniapp') return wxGetJson;
     if (Env === 'web') return webGetJson;
     return nodeGetJson;
@@ -27,8 +27,7 @@ function webGetJson (url: string): Promise<Json | null> {
         xhr.onreadystatechange = () => {
             if (xhr.status === 200) {
                 if (xhr.readyState === 4) {
-                    console.log(xhr.responseText);
-                    resolve(xhr.responseText as any);
+                    resolve(parseJSON(xhr.responseText) as any);
                 }
             } else {
                 resolve(null);
@@ -48,7 +47,7 @@ function wxGetJson (url: string): Promise<Json | null> {
             method: 'get',
             success (res: any) {
                 if (res.statusCode === 200) {
-                    resolve(res.data);
+                    resolve(parseJSON(res.data));
                 } else {
                     resolve(null);
                 }

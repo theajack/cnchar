@@ -19,6 +19,7 @@ module.exports = {
         globalObject: 'this',
         libraryExport: 'default',
     },
+    externals: other.externals,
     resolve: {
         extensions: other.extensions,
         alias,

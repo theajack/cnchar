@@ -24,10 +24,6 @@ export declare interface IOrderToWord {
     _base: IBase;
 }
 
-export declare interface IInitOrder {
-    (cnchar?: ICnChar): void;
-}
-
 export declare interface IBase {
     (
         res: string[],

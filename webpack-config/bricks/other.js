@@ -8,5 +8,8 @@
  */
 
 module.exports = {
-    extensions: [ '.tsx', '.ts', '.js' ]
+    extensions: [ '.tsx', '.ts', '.js' ],
+    externals: {
+        'https': 'commonjs https',
+    },
 };

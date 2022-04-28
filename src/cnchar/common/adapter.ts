@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-14 23:05:19
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-15 10:06:04
+ * @LastEditTime: 2022-04-28 12:26:30
  * @FilePath: /cnchar/src/cnchar/common/adapter.ts
  * @Description: Coding something
  */

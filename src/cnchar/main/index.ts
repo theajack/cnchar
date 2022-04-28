@@ -16,6 +16,7 @@ import {extendCnChar} from './utils/extend';
 import {getPlugins, installPlugin} from './utils/plugins';
 import {getResourceBase, setResourceBase} from './utils/resource';
 import {_throw, _warn} from '@common/util';
+import {Env} from '@common/adapter';
 
 function _spell (...args: Array<string>): string | Array<string> {
     return spell(dict.spell, args);
@@ -33,8 +34,8 @@ function initStrProto () {
     };
 }
 
-
 const cnchar: ICnChar = {
+    env: Env,
     version,
     spell: _spell,
     stroke: _stroke,

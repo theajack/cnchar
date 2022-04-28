@@ -81,6 +81,7 @@ export interface ICnChar {
         stroke: IStroke;
     };
     setResourceBase(url: string): void;
+    env: 'node' | 'web' | 'miniapp';
 }
 
 declare global {

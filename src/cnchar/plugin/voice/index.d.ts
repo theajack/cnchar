@@ -1,4 +1,5 @@
 import {IVoice} from 'cnchar-types/plugin/voice';
-declare const voice: IVoice;
+import {IPlugin} from 'cnchar-types/main/common';
+declare const voice: IVoice & IPlugin;
 
 export default voice;

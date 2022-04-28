@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-15 11:37:04
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-27 08:19:31
+ * @LastEditTime: 2022-04-28 09:59:50
  * @FilePath: /cnchar/src/cnchar/plugin/voice/speech-api.ts
  * @Description: Coding something
  */
@@ -14,7 +14,7 @@ export const recognize: IRecognize = (() => {
     const SpeechRecognition = win.SpeechRecognition || win.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-        const recognize = ((options: IRecognizeOptions) => {
+        const recognize = ((options: IRecognizeOptions = {}) => {
             console.warn('当前浏览器暂不支持', options);
             return {};
         }) as IRecognize;
@@ -64,7 +64,7 @@ export const recognize: IRecognize = (() => {
         onspeechend,
         onaudioend,
         onend
-    }: IRecognizeOptions) => {
+    }: IRecognizeOptions = {}) => {
         if (!recognition) {
             init();
         }
@@ -86,15 +86,15 @@ export const recognize: IRecognize = (() => {
     }) as IRecognize;
     recognize.stop = () => {recognition.stop();};
     recognize.supported = true;
-    return recognition;
+    return recognize;
 })();
 
 export const speak: ISpeak = (() => {
     const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance;
 
     if (!SpeechSynthesisUtterance || !window.speechSynthesis) {
-        const speak = ((options: ISpeakOptions) => {
-            console.warn('当前浏览器暂不支持', options);
+        const speak = ((text: string) => {
+            console.warn('当前浏览器暂不支持', text);
             return {} as SpeechSynthesisUtterance;
         }) as ISpeak;
         speak.cancel =
@@ -104,8 +104,7 @@ export const speak: ISpeak = (() => {
         return speak;
     }
 
-    const speak = (({
-        text,
+    const speak = ((text: string, {
         lang = 'zh-CN',
         volume = 1,
         rate = 1,
@@ -115,7 +114,7 @@ export const speak: ISpeak = (() => {
         onresume,
         onend,
         onerror,
-    }: ISpeakOptions) => {
+    }: ISpeakOptions = {}) => {
         const ssu = new SpeechSynthesisUtterance();
         ssu.lang = lang;
         ssu.volume = volume; // 音量0-1

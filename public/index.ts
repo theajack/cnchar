@@ -36,6 +36,7 @@ import '../src/cnchar/plugin/explain';
 // initComment({
 //     el: '#comment'
 // });
+const win = window as any;
 
 console.log(cnchar);
 
@@ -156,18 +157,49 @@ cnchar.draw.onWordNotFound((word) => {
 //     },
 // });
 
-window.cnchar = cnchar;
-cnchar.idiom;
-cnchar.words;
-// cnchar;
-// const player = cnchar.voice('你好小朋友', {
-//     loop: true,
-//     autoStart: false,
-//     onSingleComplete (d) {console.log('onSingleComplete', d);},
-//     onComplete (d) {console.log('onComplete', d);},
-//     onAudioLoaded (d) {console.log('onAudioLoaded', d);},
-// });
+win.cnchar = cnchar;
 
+(() => {
+    const div = document.createElement('div');
+    const input = document.createElement('input');
+
+    const speak = document.createElement('button');
+    speak.innerText = 'speak';
+    speak.addEventListener('click', () => {
+        cnchar.voice.speak(input.value);
+    });
+
+    const regognize = document.createElement('button');
+    regognize.innerText = 'regognize';
+    regognize.addEventListener('click', () => {
+        cnchar.voice.recognize({
+            onend (s) {
+                input.value = s;
+            }
+        });
+    });
+
+    document.body.appendChild(div);
+
+    div.appendChild(input);
+    div.appendChild(speak);
+    div.appendChild(regognize);
+})();
+
+// cnchar;
+win.player = cnchar.voice('你好小朋友', {
+    loop: true,
+    autoStart: false,
+    onSingleComplete (d) {console.log('onSingleComplete', d);},
+    onComplete (d) {console.log('onComplete', d);},
+    onAudioLoaded (d) {console.log('onAudioLoaded', d);},
+});
+
+console.log(cnchar.words('香蕉'));
+
+cnchar.explain('你好').then(data => {
+    console.log(data);
+});
     
 export default cnchar;
 

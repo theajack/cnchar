@@ -25,6 +25,7 @@ module.exports = {
             }
         }
     },
+    externals: other.externals,
     resolve: {
         extensions: other.extensions,
         alias: alias
