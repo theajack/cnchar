@@ -40,6 +40,7 @@ arg 参数信息如下：
 |  poly  |      使用候选多音字      |    否    |     --      |      --      |
 |  tone  |         启用音调         |    否    |     --      |      --      |
 | simple | 是否禁用繁体字的拼音功能 |    否    | cnchar-trad | 使用 cnchar-trad 之后，默认对繁体字拼音进行转换，该参数用于禁用繁体字拼音 |
+| flat | 是否扁平化拼音 |    否    | -- | 将拼音返回值扁平化处理，lǘ => lv2 |
 
 ## 3. stroke 方法
 
@@ -211,10 +212,20 @@ cnchar.check = false; // 关闭参数校验
   <codebox id='version'></codebox>
 </div>
 
+### 6.5 .env
 
-### 6.5 .plugins
+获取当前运行的环境：
 
-当前使用的功能库列表，最多的情况为 `["order", "trad", "poly", "draw"]`
+<div>
+  <highlight-code lang='javascript'>
+  console.log(cnchar.env);
+  </highlight-code>
+</div>
+
+
+### 6.6 .plugins
+
+获取当前使用的插件库列表
 
 <div>
   <codebox id='plugins'></codebox>
@@ -222,5 +233,5 @@ cnchar.check = false; // 关闭参数校验
 
 ## 7. 应用例子
 
-1. [汉字打字游戏](https://theajack.gitee.io/type/)
-2. [打字弹钢琴](https://theajack.gitee.io/piano/)
+1. [汉字打字游戏](https://theajack.github.io/type/)
+2. [打字弹钢琴](https://theajack.github.io/piano/)

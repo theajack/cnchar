@@ -1053,8 +1053,8 @@ cnchar.explain.addExplain(words: string, explain: string): void;
 添加发音， 依赖 `cnchar-voice` 库
 
 ```ts
-cnchar.explain.voice(json: Json<string>): void;
-cnchar.explain.voice(words: string, url: string): void;
+cnchar.voice.addVoice(json: Json<string>): void;
+cnchar.voice.addVoice(words: string, url: string): void;
 ```
 
 #### 5.15 其他 api
@@ -1164,7 +1164,7 @@ cnchar 在 3.1.0 版本新增了 [cnchar-data](https://github.com/cn-char/cnchar
 
 另外 voice, draw, explain 三个仓库也支持独立 setResourceBase
 
-具体请参考 cnchar-types
+具体请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 
 ### 6.参数介绍
 

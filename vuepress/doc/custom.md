@@ -142,3 +142,51 @@ cnchar.xhy.addXhy([ // 多条
     ['歇后语第一句2', '歇后语第二句2'],
 ]);
 ```
+
+## 9. 添加组词 addWords
+
+添加词组， 依赖 `cnchar-words` 库
+
+```ts
+cnchar.words.addWords(words: string | string[]): void;
+```
+
+```js
+cnchar.words('香蕉');
+cnchar.words.addWords('香蕉牛奶');
+cnchar.words.addWords(['香蕉牛奶', '香蕉奶昔']);
+cnchar.words('香蕉');
+```
+
+## 10. 添加释义 addExplain
+
+添加词组， 依赖 `cnchar-explain` 库
+
+```ts
+cnchar.explain.addExplain(json: Json<string>): void;
+cnchar.explain.addExplain(words: string, explain: string): void;
+```
+
+```js
+cnchar.explain('你好');
+cnchar.explain.addExplain('你好', '打招呼');
+cnchar.explain.addExplain({
+    '你好': '打招呼'
+});
+cnchar.explain('你好');
+```
+
+## 11. 添加发音 addVoice
+
+添加发音， 依赖 `cnchar-voice` 库
+
+```ts
+cnchar.voice.addVoice(json: Json<string>): void;
+cnchar.voice.addVoice(words: string, url: string): void;
+```
+
+```js
+cnchar.voice.addVoice({
+    '自定义内容': 'https://音频地址'
+});
+```

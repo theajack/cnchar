@@ -1047,8 +1047,8 @@ cnchar.explain.addExplain(words: string, explain: string): void;
 Add pronunciation, depends on `cnchar-voice` library
 
 ```ts
-cnchar.explain.voice(json: Json<string>): void;
-cnchar.explain.voice(words: string, url: string): void;
+cnchar.voice.addVoice(json: Json<string>): void;
+cnchar.voice.addVoice(words: string, url: string): void;
 ````
 
 #### 5.15 Other APIs
@@ -1158,7 +1158,7 @@ For specific usage, please refer to [cnchar-data](https://github.com/cn-char/cnc
 
 In addition, the three repositories of voice, draw, and explain also support independent setResourceBase
 
-For details, please refer to cnchar-types
+For details, please refer to [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 
 ### 6 spell stroke parameters
 
