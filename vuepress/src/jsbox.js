@@ -5,8 +5,8 @@ let jsbox = null;
 function getUrl () {
     let url = '';
     const host = window.location.host;
-    if (host.indexOf('localhost') !== -1 || host === 'theajack.gitee.io') {
-        url = 'https://theajack.gitee.io';
+    if (host.indexOf('localhost') !== -1 || host === 'theajack.github.io') {
+        url = 'https://theajack.github.io';
     } else {
         url = `${window.location.protocol}//www.theajack.com`;
     }

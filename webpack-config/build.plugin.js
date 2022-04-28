@@ -1,6 +1,9 @@
 
 // let version = require('../package.json').version;
 const path = require('path');
+const alias = require('./bricks/alias');
+const other = require('./bricks/other');
+const rules = require('./bricks/rules');
 
 // module.exports = (env) => {
 //     let plugin = env.pluginname;
@@ -40,21 +43,16 @@ module.exports = (env) => {
             globalObject: 'this',
             libraryExport: 'default',
         },
+        externals: other.externals,
         resolve: {
-            extensions: [ '.tsx', '.ts', '.js' ]
+            extensions: other.extensions,
+            alias
         },
         module: {
-            rules: [{
-                test: /(.ts)$/,
-                use: {
-                    loader: 'ts-loader'
-                }
-            }, {
-                test: /(.js)$/,
-                use: [{
-                    loader: 'babel-loader',
-                }]
-            }]
+            rules: [
+                rules.ts,
+                rules.js
+            ]
         }
     };
 };

@@ -10,6 +10,9 @@ const plugins = [
     'idiom',
     'xhy',
     'radical',
+    'words',
+    'explain',
+    'voice'
 ];
 
 const allPackage = 'all';
@@ -17,6 +20,7 @@ const mainPackage = 'main';
 const npmPackage = 'npm';
 const types = 'types';
 const utils = ['hanzi-util', 'hanzi-util-base'];
+const alias = ['cnchar-all', ...utils];
 
 function read (file, cb) {
     fs.readFile(file, 'utf8', (err, code) => {
@@ -131,5 +135,6 @@ module.exports = {
         allPackage,
         types,
         utils,
+        alias,
     }
 };

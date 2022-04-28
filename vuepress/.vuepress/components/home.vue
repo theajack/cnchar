@@ -7,6 +7,10 @@
         <div class='desc'>功能全面、多端支持的汉字拼音笔画js库</div>
         <div class='test'>
             <el-input v-model='text' class='test-input' type='text' placeholder='输入一些汉字试试' @input='input'></el-input>
+            <div class='btn-w'>
+                <el-button type='default' @click='regonize'>语音识别 <i class="ei-music"></i></el-button>
+                <el-button type='default' @click="speak">语音合成 <i class="ei-volume-up"></i></el-button>
+            </div>
             <div class='show-area' v-show='text!==""'>
                 <div>{{spell}} <span class='split'>|</span> 共{{stroke}}笔</div>
                 <div>繁体: {{trad}} <span class='split'>|</span> 火星文: {{spark}}</div>
@@ -14,6 +18,7 @@
                 <div id='draw-area'></div>
             </div>
         </div>
+        
         <div class='start-w'>
             <el-button type='primary' @click='start'>开始 <i class='ei-location-arrow'></i></el-button>
             <el-button type='primary' @click='run'>运行 <i class='ei-play'></i></el-button>
@@ -21,11 +26,11 @@
         <div class='feature-w'>
             <div class='f-i'>
                 <div class='f-t'><i class='ei-rocket'></i>功能全面</div>
-                <div class='f-des'>拼音/笔画数</div>
-                <div class='f-des'>多音字词</div>
+                <div class='f-des'>拼音/笔画数/多音字词</div>
+                <div class='f-des'>多种模式绘制汉字</div>
+                <div class='f-des'>语音识别/语音合成</div>
                 <div class='f-des'>繁体字/火星文</div>
                 <div class='f-des'>汉字笔顺/偏旁部首</div>
-                <div class='f-des'>多种模式绘制汉字</div>
                 <div class='f-des'>汉字推算/拼音排序</div>
                 <div class='f-des'>...</div>
             </div>
@@ -43,9 +48,9 @@
                 <div class='f-t'><i class='ei-cubes'></i>按需取用</div>
                 <div class='f-des'>支持自定义数据</div>
                 <div class='f-des'>支持IE9+</div>
-                <div class='f-des'>功能分包</div>
+                <div class='f-des'>功能分包/简单易用</div>
                 <div class='f-des'>体积小巧</div>
-                <div class='f-des'>简单易用</div>
+                <div class='f-des'>离线使用/自定义部署</div>
                 <div class='f-des'>npm+cdn</div>
                 <div class='f-des'>...</div>
             </div>
@@ -116,7 +121,25 @@
                 window.location.href = '/cnchar/guide/';
             },
             run () {
-                window.open('https://theajack.gitee.io/jsbox/?github=theajack.cnchar@master');
+                window.open('https://theajack.github.io/jsbox/?github=theajack.cnchar@master');
+            },
+            regonize () {
+                window.cnchar.voice.recognize({
+                    onstart: () => {
+                        this.$toast('录音中，请说一些中文');
+                    },
+                    onend: (s)=> {
+                        this.text = s;
+                        this.applyText();
+                    }
+                });
+            },
+            speak () {
+                if(!this.text){
+                    this.$toast('请先输入一些中文');
+                }else{
+                    window.cnchar.voice.speak(this.text);
+                }
             }
         },
     };
@@ -185,6 +208,10 @@
             color: #aaa;
             font-size: 0.9rem;
         }
+        .btn-w{
+            max-width: 1000px;
+            padding: 0.5rem 0;
+        }
         .start-w{
             max-width: 1000px;
             padding: 1.5rem 0;
@@ -192,8 +219,8 @@
             margin: 0 auto;
         }
         .el-button{
-            font-size: 1rem;
-            padding: 0.8rem 1.2rem;
+            // font-size: 1rem;
+            // padding: 0.8rem 1.2rem;
         }
     }
 </style>

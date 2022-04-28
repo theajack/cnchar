@@ -3,10 +3,9 @@ const rename = require('gulp-rename');
 const fs = require('fs');
 const toc = require('gulp-markdown-toc');
 const version = require('../package.json').version;
+const {Packages} = require('./tool');
 
-const plugins = ['order', 'poly', 'trad', 'draw', 'idiom', 'xhy', 'radical'];
-
-const alias = ['cnchar-all', 'hanzi-util', 'hanzi-util-base'];
+const {alias, plugins} = Packages;
 
 const depFiles = alias.map(alia => `../src/cnchar/alias/${alia}/package.json`);
 

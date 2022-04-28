@@ -107,7 +107,8 @@ export declare interface IDraw {
     (text: string, options: IWriterOptionWithoutText): IWriter | null;
     TYPE: Json<TDrawType>;
     TEST_STATUS: Json<TTestStatusType>;
-    init?(cnchar?: ICnChar): void;
+    setResourceBase(url: string): void;
+    onWordNotFound(callback: (word: string)=>void): void;
 }
 
 declare global {

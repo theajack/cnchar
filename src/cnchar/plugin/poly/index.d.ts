@@ -1,6 +1,7 @@
 
-import {IInitPoly} from 'cnchar-types/plugin/poly';
+import {IPlugin} from 'cnchar-types/main/common';
+import 'cnchar-types/plugin/poly';
 
-declare const poly: IInitPoly;
+declare const poly: IPlugin;
 
 export default poly;

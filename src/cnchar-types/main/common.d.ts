@@ -26,8 +26,9 @@ export declare interface ITransformReturn {
 }
 
 export declare interface IPlugin {
-    (cnchar: ICnChar): void;
-    init?(cnchar: ICnChar): void;
+    pluginName: string;
+    install(cnchar: ICnChar): void;
+    args?: Json;
 }
 export declare interface ConvertInterface {
     simpleToSpark(sentence: string): string;

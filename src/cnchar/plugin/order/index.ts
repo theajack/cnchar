@@ -3,7 +3,7 @@ import {ICncharTool} from 'cnchar-types/main/tool';
 import {orders, strokeTable} from './dict';
 import initOrderToWord from './orderToWord';
 import {ICnCharOrder, TOrderArg, TStrokeOrderReturn} from 'cnchar-types/plugin/order';
-
+import {IPlugin} from 'cnchar-types/main/common';
 
 let _: ICncharTool; // 工具方法
 
@@ -21,43 +21,6 @@ function setOrder (key: string | {[key: string]: string}, value?: string): void 
     _.mapJson(key, value, (k, v) => {
         orders[k] = v;
     });
-}
-
-function main (cnchar: ICnChar & ICnCharOrder): void {
-    if (cnchar.plugins.indexOf('order') !== -1) {
-        return;
-    }
-    cnchar.plugins.push('order');
-    const _old = cnchar._origin.stroke;
-    _ = cnchar._;
-    
-    cnchar.setOrder = setOrder;
-    const _new = function (sentence: string, ...args: Array<StrokeArg>): number | Array<any> {
-        if (_.has(args, arg.order)) { // 使用order
-            return _order(sentence, ...args);
-        }
-        return _old(sentence, ...args);
-    };
-    cnchar.stroke = _new;
-    String.prototype.stroke = function (...args: Array<StrokeArg>): number | Array<any> {
-        return _new(this as string, ...args);
-    };
-    cnchar.type.stroke = arg;
-    cnchar._.order = true;
-    cnchar._.orderWithLetters = orderWithLetters;
-    if (cnchar._._reinitStrokeOrder) {
-        cnchar._._reinitStrokeOrder();
-        delete cnchar._._reinitStrokeOrder;
-    }
-    initOrderToWord(cnchar);
-}
-
-export default function init (cnchar?: ICnChar): void {
-    if (typeof window === 'object' && window.CnChar) {
-        main(window.CnChar);
-    } else if (typeof cnchar !== 'undefined') {
-        main(cnchar);
-    }
 }
 
 function _order (str: string, ...args: Array<StrokeArg>): TStrokeOrderReturn[] {
@@ -127,4 +90,38 @@ function getStrokeSingle (
     return arr;
 }
 
-init();
+function install (cnchar: ICnChar & ICnCharOrder): void {
+    const _old = cnchar._origin.stroke;
+    _ = cnchar._;
+    
+    cnchar.setOrder = setOrder;
+    const _new = function (sentence: string, ...args: Array<StrokeArg>): number | Array<any> {
+        if (_.has(args, arg.order)) { // 使用order
+            return _order(sentence, ...args);
+        }
+        return _old(sentence, ...args);
+    };
+    cnchar.stroke = _new;
+    String.prototype.stroke = function (...args: Array<StrokeArg>): number | Array<any> {
+        return _new(this as string, ...args);
+    };
+    cnchar._.order = true;
+    cnchar.type.stroke = arg;
+    cnchar._.orderWithLetters = orderWithLetters;
+    if (cnchar._._reinitStrokeOrder) {
+        cnchar._._reinitStrokeOrder();
+        delete cnchar._._reinitStrokeOrder;
+    }
+    initOrderToWord(cnchar);
+}
+
+const plugin: IPlugin = {
+    pluginName: 'order',
+    install: install,
+};
+
+if (typeof window === 'object' && window.CnChar) {
+    window.CnChar.use(plugin);
+}
+
+export default plugin;

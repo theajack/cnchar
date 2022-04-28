@@ -1,7 +1,9 @@
 
 ## 1. npm安装
 
-cnchar包含了一个基本库和六个功能库，用于实现不同的功能，您可以按需安装其中的功能库，但是 `cnchar` 这个基础库是必须安装的（draw、idiom、xhy、radical四个库可以独立使用）
+cnchar包含了一个基本库和多个插件库，用于实现不同的功能，您可以按需安装其中的功能库，但是 `cnchar` 这个基础库是必须安装的
+
+（注：draw、idiom、xhy、radical、words、explain、voice可以独立使用）
 
 安装[主库](https://npmjs.com/package/cnchar)：
 
@@ -15,7 +17,7 @@ npm i cnchar
 
 <div>
   <highlight-code>
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice
   </highlight-code>
 </div>
 
@@ -32,10 +34,13 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy c
     import 'cnchar-idiom';
     import 'cnchar-xhy';
     import 'cnchar-radical';
+    import 'cnchar-words';
+    import 'cnchar-explain';
+    import 'cnchar-voice';
   </highlight-code>
 </div>
 
-非浏览器环境中功能库需要使用use方法加载，且不支持 `cnchar-draw` 库：
+非浏览器环境中功能库需要使用use方法加载，且不支持 `cnchar-draw`、`cnchar-voice` 库：
 
 <div>
   <highlight-code lang='javascript'>
@@ -47,7 +52,9 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy c
     import idiom from 'cnchar-idiom';
     import xhy from 'cnchar-xhy';
     import radical from 'cnchar-radical';
-    cnchar.use(poly, order, trad, idiom, xhy, radical);
+    import words from 'cnchar-words';
+    import explain from 'cnchar-explain';
+    cnchar.use(poly, order, trad, idiom, xhy, radical, words, explain);
   </highlight-code>
 </div>
 
@@ -63,7 +70,9 @@ commonjs 模块
     var idiom = require('cnchar-idiom');
     var xhy = require('cnchar-xhy');
     var radical = require('cnchar-radical');
-    cnchar.use(poly, order, trad, idiom, xhy, radical);
+    var words = require('cnchar-words');
+    var explain = require('cnchar-explain');
+    cnchar.use(poly, order, trad, idiom, xhy, radical, words, explain);
   </highlight-code>
 </div>
 
@@ -82,12 +91,15 @@ commonjs 模块
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"> &lt;/script>
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"> &lt;/script>
       &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"> &lt;/script>
+      &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"> &lt;/script>
+      &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"> &lt;/script>
+      &lt;script src="https://cdn.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"> &lt;/script>
   </highlight-code>
 </div>
 
 ## 3. cnchar-all
 
-如果您需要使用cnchar及其插件的所有功能，可以通过安装`cnchar-all`来使用完整功能，这个库引用了上面的七个库
+如果您需要使用cnchar及其插件的所有功能，可以通过安装`cnchar-all`来使用完整功能，这个库引用了上面的所有库
 
 <div>
   <highlight-code>
@@ -122,7 +134,6 @@ cnchar 具有两个最核心的方法`spell` 和 `stroke`，分别用于获取�
 这只是一个最简单的使用，这两个方法具有很多参数可选，具体请参阅 [cnchar](/cnchar/doc/cnchar) 部分
 
 <!-- <codebox title='spell' id='spell' desc='拼写测试测试2'></codebox> -->
-
 
 <!-- <baseComponent-star></baseComponent-star> -->
 

@@ -34,7 +34,7 @@
 
 <h3>🚀 Full-featured, multi-end support for hanyu pinyin strokes js library</h3>
 
-**[中文](https://github.com/theajack/cnchar) | [Online trial / documentation](https://theajack.github.io/cnchar) | [Update log](https://theajack.gitee.io/cnchar/guide/version.html) | Application: [Typing game](https://theajack.gitee.io/type/)、[piano](https://theajack.gitee.io/piano/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [Message Board](https://theajack.gitee.io/message-board/?app=cnchar)**
+**[中文](https://github.com/theajack/cnchar) | [Online trial / documentation](https://theajack.github.io/cnchar) | [Update log](https://theajack.github.io/cnchar/guide/version.html) | Application: [Typing game](https://theajack.github.io/type/)、[piano](https://theajack.github.io/piano/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [Message Board](https://theajack.github.io/message-board/?app=cnchar)**
 
 ---
 
@@ -84,47 +84,54 @@ Use the script tag to use:
 </script>
 ```
 
-<a href="#66-usage-examples"> More detailed usage examples </a> | <a href="#6-spell-stroke-parameters"> Detailed introduction of parameters </a>
+<a href="#610-usage-examples"> More detailed usage examples </a> | <a href="#6-spell-stroke-parameters"> Detailed introduction of parameters </a>
 
 ### 1. Features
 
-1. Obtain**Chinese Pinyin**, support the first letter, uppercase and lowercase, array split, alternative**multi-syllable characters**and other functions
-2. Support**Polyphones**
-3. Support**Pinyin tone**
-4. Get Chinese characters**stroke number**, support array split
-5. Obtain Chinese characters**stroke order**, detailed stroke name
-6. Support visualization**Drawing Chinese character strokes**, multiple drawing modes are optional
-7. Support**Simplified Chinese characters**,**Traditional Chinese characters**,**Martian script**
-8. Support**Find**all**Chinese characters**of a certain pinyin, traditional characters, and polyphonic characters
-9. Support**Find**all the specified number of strokes**Chinese characters**, traditional characters
-10. Support**Query by stroke order**Chinese characters
-11. Support**Query pinyin information**, including initials, finals, tones, tone positions, etc.
-12. Support**Traditional Chinese Characters**Pinyin, Stroke Count and all above functions to achieve the same functions as Simplified Chinese Characters
-13. Support **Idiom** query function, you can query idioms according to Chinese characters, pinyin (tone), stroke number
-14. Support **Xiehouyu** query function, support fuzzy query
-15. Provide Chinese character tool method, which is convenient for developers to **operate pinyin and Chinese characters**
-16. Support **Range radicals** query function
-17. **Small size**, min version is only 46 kb, zip version is 34 kb(contains a large number of Chinese Pinyin dictionaries)
-18. **Multi-end available**, can be used in**browser, nodejs, applet / mini-game, ReactNative / Weex / Uniapp / Electron, webpack**..., supports all environments where js can run
-19. **typescript**, the main library and all plug-in libraries are developed using typescript
-20. Rich configuration, split into 7 libraries according to function
-21. Support **custom** pinyin strokes and other data, use more flexible
-22. Support **IE9** and above
+1. Get **Chinese Pinyin**, support initial letter, capitalization, array division, optional **polyphonic word** and other functions
+2. Support **polyphony**
+3. Support **Pinyin tone**
+4. Get Chinese characters **stroke number** , support array segmentation
+5. Obtain Chinese characters **stroke order** and detailed stroke names
+6. Support visualization **drawing Chinese strokes**, a variety of drawing modes are optional
+7. Support **speech synthesis** and **speech recognition**
+8. Support **Chinese character grouping** and **Chinese character interpretation**
+9. Support **Simplified characters** , **Traditional characters** , **Mars script** mutual conversion
+10. Support **find** all **Chinese characters** of a certain pinyin, traditional characters, polyphonic characters
+11. Support **find** all **Chinese characters** with the specified number of strokes, traditional Chinese characters
+12. Support **Search by stroke order** Chinese characters
+13. Support **search pinyin information**, including initials, finals, pitch, pitch position, etc.
+14. Support **traditional characters** pinyin, number of strokes and all the above functions to achieve the same functions as simplified characters
+15. Support **idiom** query function, you can query idioms according to Chinese characters, pinyin (tone), and the number of strokes
+16. Support **Xiehouyu** query function, support fuzzy query
+17. Support **Radicals** query function
+18. Support **custom** pinyin strokes and other data, more flexible use
+19.
+20. Provide Chinese character tools to facilitate developers to operate Pinyin and Chinese characters more conveniently and efficiently.
+21. **Small size**, min version is only 46 kb, zip version is 34 kb (contains a large number of Chinese pinyin dictionaries)
+22. **Multi-terminal available**, can be used for **browser, nodejs, applet/minigame, ReactNative/Weex/Uniapp/Electron, webpack**..., supports all environments where js can run
+23. **typescript**, the main library and all plug-in libraries are developed using typescript
+24. Rich configuration, divided into plug-ins according to functions, available on demand
+25. Support **IE9** and above
 
 ### 2. Overview
 
-Taking into account different needs, the functions of cnchar have been split into the following seven libraries to facilitate developers to access them as needed:
+Taking into account different needs, the functions of cnchar have been split into the following 12 libraries to facilitate developers to access them as needed:
 
-| Name|Description|Function | Supported version |
-|:----------: |:------------------------------------------: |:-------------------: |:-------------------: |
-cnchar|The main js library, the other three libraries depend on this library|Contains simplified Chinese pinyin, polyphonic characters, tone, stroke number and other functions | -- |
-| cnchar-poly|Polysyllabic dictionary|Contains the function of identifying polysyllabic words | -- |
-| cnchar-order|Stroke order library|Contains functions for identifying stroke order, stroke name, stroke shape, etc. | -- |
-| cnchar-trad|Traditional Chinese Character Library|Support Traditional Chinese, Mars, Simplified Chinese, Simplified Chinese Pinyin Stroke and Multi-phone Characters | -- |
-| cnchar-draw|Drawing stroke library|Point out the visual drawing of Chinese characters, there are four modes of normal, animation, stroke, test optional, the library is only available in the browser environment | 2.1+ |
-| cnchar-idiom | idiom library | support idiom query and other functions | 2.2+ |
-| cnchar-xhy | Xiehou language library | Support Xiehouyu query and other functions | 2.2+ |
-| cnchar-radical  |    Radical radical library    | Support querying radicals of Chinese characters | 2.2.5+ |
+| Name | Description | Features | Supported Versions | Node Support | Mini Programs |
+| :------------: | :--------------------------------------------: | :--------------------: | :--------------------------------: | :--------------------: | :--------------------------------: |
+| cnchar | The main js library, the other three libraries depend on this library | Contains functions such as simplified Chinese pinyin, polyphonic characters, pitch, number of strokes, etc. | -- | Yes | Yes |
+| cnchar-poly | Polysyllabic Thesaurus | Contains the function of identifying polysyllabic words | -- | Yes | Yes |
+| cnchar-order | Stroke Order Library | Contains functions to identify stroke order, stroke name, stroke shape, etc. | -- | Yes | Yes |
+| cnchar-trad | Traditional font library | Support traditional, Mars, Simplified conversion, support traditional Pinyin strokes and polyphonic characters full function | -- | Yes | Yes |
+| cnchar-draw | Drawing stroke library | Supports visual drawing of Chinese characters, this library can be used without cnchar, this library is only available in browser environment | 2.1+ | No | Partial |
+| cnchar-idiom | Idiom library | Support idiom query and other functions | 2.2+ | Yes | Yes |
+| cnchar-xhy | Xie Houyu Library | Support Xie Houyu query and other functions | 2.2+ | Yes | Yes |
+| cnchar-radical | Radical Library | Supports querying Chinese radicals | 2.2.5+ | Yes | Yes |
+| cnchar-words | Chinese character group thesaurus | Supports querying phrases based on single or multiple Chinese characters | 3.1.0+ | Yes | Yes |
+| cnchar-explain | Chinese character interpretation library | Support to query the meaning of Chinese characters | 3.1.0+ | Yes | Yes |
+| cnchar-voice | Speech Recognition and Speech Synthesis | Supports Chinese Pronunciation and Synthesis | 3.1.0+ | No | Partial |
+| cnchar-data | Offline dictionary library | To support offline use and custom deployment of some plug-in libraries | 3.1.0+ | Yes | Yes |
 
 ### 3. Installation
 
@@ -139,7 +146,7 @@ npm i cnchar
 Install additional function library:
 
 ```
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice
 ```
 
 Of course, you can also install a few of them on demand, but the basic library `cnchar` must be installed (draw, idiom, xhy, radical four libraries can be used independently)
@@ -161,9 +168,12 @@ npm i cnchar-all
 <script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
 ```
 
-Or use the following cdn, which contains the above seven libraries
+Or use the following cdn, which contains the above eleven libraries
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
@@ -186,6 +196,9 @@ import 'cnchar-draw';
 import 'cnchar-idiom';
 import 'cnchar-xhy';
 import 'cnchar-radical';
+import 'cnchar-words';
+import 'cnchar-explain';
+import 'cnchar-voice';
 // Please use the plug-in as needed
 
 console.log('汉字'.spell()); // Called by prototype
@@ -207,9 +220,11 @@ var trad = require('cnchar-trad');
 var idiom = require('cnchar-idiom');
 var xhy = require('cnchar-xhy');
 var radical = require('cnchar-radical');
+var words = require('cnchar-words');
+var explain = require('cnchar-explain');
 // Please use the plug-in as needed
-// cnchar-draw cannot be used in a non-browser environment
-cnchar.use(poly, order, trad, idiom, xhy, radical);
+// cnchar-draw, cnchar-voice cannot be used in a non-browser environment
+cnchar.use(poly, order, trad, idiom, xhy, radical, words, explain);
 
 console.log('汉字'.spell()); // Called by prototype
 console.log(cnchar.spell('汉字')); // cnchar api call
@@ -230,6 +245,9 @@ The native browser environment requires the use of script tags to import js file
 <script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
 <script>
     console.log('汉字'.spell()); // Called by prototype
     console.log(cnchar.spell('汉字')); // cnchar api call
@@ -238,7 +256,7 @@ The native browser environment requires the use of script tags to import js file
 
 ### 5. API
 
-Type declaration: [cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts) | [cnchar-order.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/index.d.ts) | [cnchar-trad.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/trad/index.d.ts)
+Type declaration: [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 
 Note: This chapter only introduces API usage, please refer to Chapter 6 for more usage examples
 
@@ -298,7 +316,7 @@ There are many parameters of draw, the first thing to understand is that draw is
 3. stroke: draw in a single step according to Chinese characters
 4. test: Test mode, the user can draw Chinese characters in the container, cnchar-draw will detect whether it is drawn correctly
 
-The following are all optional parameters and descriptions of options, please refer to [online documentation](https://cnchar.js.org) for usage details:
+The following are all optional parameters and descriptions of options, please refer to [online documentation](https://theajack.github.io/cnchar) for usage details:
 
 ```ts
 declare interface DrawOption {
@@ -423,7 +441,17 @@ writer.drawNextStroke(()=>{
 
 ##### 5.2.4 Use in WeChat Mini Program
 
-The library is driven by HanziWriter, and currently only supports use in the web environment. If you need to use WeChat Mini Programs, please refer to [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)
+The library is driven by HanziWriter, and currently only supports use in the web environment. If you need to use WeChat Mini Programs, please refer to [hanzi-writer-miniprogram](https://github.com/chanind/hanzi-writer-miniprogram)
+
+##### 5.2.5 其他api
+
+1. 绘制汉字绘制库中不存在的回调
+
+```js
+cnchar.draw.onWordNotFound(word=>{
+    console.log(word);
+});
+```
 
 #### 5.3 Traditional, Simplified and Martian conversion: convert
 
@@ -672,11 +700,90 @@ cnchar.radical(["你", "好", "呀"]); // ["亻", "女", "口"]
 
 When using cdn references, the `CncharRadical` object will be exposed upwards in the window
 
-#### 5.10 Chinese Characters and Pinyin Tools
+#### 5.10 Word group function
+
+cnchar added word grouping function in 3.1.0, you need to install `cnchar-words`, the specific usage is as follows
+
+args passed in trad can query traditional characters, but it depends on the installation of cnchar-trad
+
+```ts
+cnchar.words(words: string, ...args: string[]): string[];
+````
+
+see a specific example
+
+````js
+cnchar.words('you');
+cnchar.words.addWords('Hello'); // Add a phrase
+````
+
+For specific parameters, please refer to [words.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/words/index.d.ts)
+
+#### 5.11 Query interpretation function
+
+cnchar added the query explanation function in 3.1.0, you need to install `cnchar-explain`, the specific usage is as follows
+
+args passed in trad can query traditional characters, but it depends on the installation of cnchar-trad
+
+```ts
+cnchar.explain(words: string, ...args: string[]): string[];
+````
+
+see a specific example
+
+````js
+cnchar.explain('Hello');
+cnchar.explain.addExplain('Hello', 'Hello'); // Add explanation
+cnchar.explain.addExplain({
+    'hello': 'hello'
+});
+````
+
+For specific parameters, please refer to [explain.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/explain/index.d.ts)
+
+#### 5.12 Pronunciation, Speech Synthesis and Speech Recognition
+
+cnchar has added pronunciation, speech synthesis and speech recognition functions in 3.1.0, you need to install `cnchar-voice`,
+
+##### 5.12.1 voice api
+
+The voice api is used to pronounce single and multiple Chinese characters. It is not good for the continuous pronunciation of sentences, but it has good compatibility and supports the use of small programs.
+
+```ts
+cnchar.voice(words: string, options: IVoiceOptions): IVoicePlayer;
+````
+
+For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+
+##### 5.12.2 speak api
+
+voice.speak is used for Chinese character speech synthesis. It relies on the browser's speechSynthesis api. [Incompatibility](https://caniuse.com/?search=speechSynthesis) But the experience is better
+
+The api needs to be called after the user clicks and other events to take effect, and only works in https or localhost
+
+```ts
+cnchar.voice.speak(text: string, options?: ISpeakOptions): SpeechSynthesisUtterance;
+````
+
+For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+
+##### 5.12.2 regonize api
+
+voice.regonize is used for Chinese character speech recognition, it is based on the browser's SpeechRecognition api, [poor compatibility](https://caniuse.com/?search=SpeechRecognition) but the experience is better
+
+The api needs to be called after the user clicks and other events to take effect, and only works in https or localhost
+
+```ts
+cnchar.voice.regonize(options?: IRecognizeOptions): any;
+````
+
+For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+
+#### 5.13 Chinese Characters and Pinyin Tools
 
 cnchar organizes and exposes some methods of operating pinyin and Chinese characters used inside the library, which is convenient for developers to operate pinyin and Chinese characters conveniently and efficiently
 
-##### 5.10.1 Query pinyin details: spellInfo
+##### 5.13.1 Query pinyin details: spellInfo
 
 The `spellInfo` method is used to query the detailed information of Pinyin, the usage is as follows:
 
@@ -710,7 +817,7 @@ cnchar.spellInfo.tones;
 // Use * instead of n
 ```
 
-##### 5.10.2 Pinyin tone operation: transformTone
+##### 5.13.2 Pinyin tone operation: transformTone
 
 The `transformTone` method is used to convert toned pinyin to toneless pinyin, and the tone position and tone
 
@@ -734,7 +841,7 @@ type is an optional parameter, indicating that the return value spell sets the c
 
 The transformTone spell parameter supports the use of v instead of ü, and the use of numbers at the end to represent the tone, for example, `lv is equivalent to lü`shang4 is equivalent to shàng`
 
-##### 5.10.3 Is it Chinese characters: isCnChar
+##### 5.13.3 Is it Chinese characters: isCnChar
 
 The `isCnChar` method is used to determine whether a character is a Chinese character
 
@@ -742,7 +849,7 @@ The `isCnChar` method is used to determine whether a character is a Chinese char
 cnchar.isCnChar(word: string): boolean;
 ```
 
-##### 5.10.4 Is it a polyphonic word: isPolyWord
+##### 5.13.4 Is it a polyphonic word: isPolyWord
 
 The `isPolyWord` method is used to determine whether a character is a Chinese character
 
@@ -750,7 +857,7 @@ The `isPolyWord` method is used to determine whether a character is a Chinese ch
 cnchar.isPolyWord(word: string): boolean;
 ```
 
-##### 5.10.5 Compare Pinyin (Chinese character) size: compareSpell
+##### 5.13.5 Compare Pinyin (Chinese character) size: compareSpell
 
 `CompareSpell` method is used to compare the size of Pinyin or Chinese characters according to Pinyin
 
@@ -771,7 +878,7 @@ cnchar.compareSpell('ao', 'ai') // Returns 'more' because o comes after i
 cnchar.compareSpell('奥', 'ai') // Returns 'more'
 ```
 
-##### 5.10.6 Compare the number of strokes of Chinese characters: compareStroke
+##### 5.13.6 Compare the number of strokes of Chinese characters: compareStroke
 
 The `compareStroke` method is used to compare the size of Chinese characters according to the number of strokes. It can be used to sort the first Chinese character strokes according to the name. For sorting, please refer to the `sortStroke` method
 
@@ -791,7 +898,7 @@ cnchar.compareStroke(20, '好') // Returns 'more'
 cnchar.compareStroke('一个', '好') // Returns 'less'
 ```
 
-##### 5.10.7 Sort by pinyin: sortSpell
+##### 5.13.7 Sort by pinyin: sortSpell
 
 The `sortSpell` method is used to sort Chinese characters or Pinyin according to Pinyin, supports input arrays or strings, supports sorting by tone, and supports reverse order
 
@@ -813,7 +920,7 @@ cnchar.sortSpell('你好吗') // '好吗你'
 cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
 ```
 
-##### 5.10.8 Sort by number of strokes: sortStroke
+##### 5.13.8 Sort by number of strokes: sortStroke
 
 The `sortStroke` method is used to sort Chinese characters according to the number of strokes
 
@@ -835,23 +942,25 @@ cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三'],
 cnchar.sortStroke('一三二', 'desc') // '三二一'
 ```
 
-##### 5.10.9 Convert digital tones to pinyin tones: shapeSpell
+##### 5.13.9 Convert digital tones to pinyin tones: shapeSpell
 
 `shapeSpell` converts tones represented by numbers to pinyin tones
 
 For example, `lv2` will be converted to `lǘ`, and `ta1` will be converted to `tā` for user input
 
+The reverse parameter indicates that the reverse conversion is enabled `lǘ` => `lv2`
+
 ```ts
-cnchar.shapeSpell(spell: string): string;
+cnchar.shapeSpell(spell: string, reverse?: boolean): string;
 ```
 
-#### 5.11 Custom data
+#### 5.14 Custom data
 
 Since the cnchar data comes from the Internet, although it has undergone a lot of modifications, it is still inevitable that there will be errors and omissions
 
 So cnchar provides an api to modify the default data to facilitate developers to modify and add data
 
-##### 5.11.1 setSpell
+##### 5.14.1 setSpell
 
 Set Pinyin data
 
@@ -860,7 +969,7 @@ cnchar.setSpell(word: string, spell: string): void;
 cnchar.setSpell(json: {[key: string]: string}): void;
 ```
 
-##### 5.11.2 setSpellDefault
+##### 5.14.2 setSpellDefault
 
 Set the default pronunciation of polyphones
 
@@ -869,7 +978,7 @@ cnchar.setSpellDefault(word: string, spell: string): void;
 cnchar.setSpellDefault(json: {[key: string]: string}): void;
 ```
 
-##### 5.11.3 setStrokeCount
+##### 5.14.3 setStrokeCount
 
 Set the number of strokes of Chinese characters
 
@@ -878,7 +987,7 @@ cnchar.setStrokeCount(word: string, count: number): void;
 cnchar.setStrokeCount(json: {[key: string]: number}): void;
 ```
 
-##### 5.11.4 setPolyPhrase
+##### 5.14.4 setPolyPhrase
 
 Set the pronunciation of polysyllabic words, rely on `cnchar-poly` library
 
@@ -887,7 +996,7 @@ cnchar.setPolyPhrase(word: string, spell: string): void;
 cnchar.setPolyPhrase(json: {[key: string]: string}): void;
 ```
 
-##### 5.11.5 setOrder
+##### 5.14.5 setOrder
 
 Set the stroke order of Chinese characters, rely on the `cnchar-order` library
 
@@ -898,7 +1007,7 @@ cnchar.setOrder(word: string, order: string): void;
 cnchar.setOrder(json: {[key: string]: string}): void;
 ```
 
-##### 5.11.6 setRadical
+##### 5.14.6 setRadical
 
 Set the radicals of Chinese characters, rely on the `cnchar-radical` library
 
@@ -907,7 +1016,7 @@ cnchar.radical.setRadical(word: string, radical: string): void;
 cnchar.radical.setRadical(json: {[key: string]: string}): void;
 ```
 
-##### 5.11.7 addXhy
+##### 5.14.7 addXhy
 
 Add allegorical words, rely on `cnchar-xhy` library
 
@@ -916,29 +1025,49 @@ cnchar.xhy.addXhy(args: Array<Array<string> | string>): void;
 cnchar.xhy.addXhy(xhyHead: string, xhyTail: string): void;
 ```
 
-#### 5.12 Other api
+##### 5.14.8 addWords
 
-##### 5.12.1 .use()
+Add phrases, depends on the `cnchar-words` library
 
-#### 5.12 Other APIs
+```ts
+cnchar.words.addWords(words: string | string[]): void;
+````
 
-##### 5.12.1 .use()
+##### 5.14.9 addExplain
+
+Add explanation, depends on `cnchar-explain` library
+
+```ts
+cnchar.explain.addExplain(json: Json<string>): void;
+cnchar.explain.addExplain(words: string, explain: string): void;
+````
+
+##### 5.14.10 addVoice
+
+Add pronunciation, depends on `cnchar-voice` library
+
+```ts
+cnchar.voice.addVoice(json: Json<string>): void;
+cnchar.voice.addVoice(words: string, url: string): void;
+````
+
+#### 5.15 Other APIs
+
+##### 5.15.1 .use()
 
 The function of this API is to explicitly enable the three function libraries `poly`,`order`, and `trad`
 
 ```js
-cnchar.use(... libs);
+cnchar.use(...libs);
 ```
 
 This enablement is necessary in non-browser environments(such as nodejs, etc.), and is used as follows:
 
 ```js
-// Please ensure that the cnchar basic library is introduced first, the order of several other libraries does not matter
+// Please ensure that the cnchar base library is introduced first, and the order of other plug-in libraries does not matter
 var cnchar = require('cnchar');
-var poly = require('cnchar-poly');
-var order = require('cnchar-order');
-var trad = require('cnchar-trad');
-cnchar.use(poly, order, trad); // parameter order is irrelevant, the three parameters can be arbitrarily selected
+var xxx = require('cnchar-xxx');
+cnchar.use(xxx);
 ```
 
 In the browser environment, there is no need to call:
@@ -946,14 +1075,12 @@ In the browser environment, there is no need to call:
 ```js
 // Please ensure that the cnchar basic library is introduced first, the order of several other libraries does not matter
 import cnchar from 'cnchar';
-import 'cnchar-poly';
-import 'cnchar-order';
-import 'cnchar-trad';
+import 'cnchar-xxx';
 ```
 
-##### 5.12.2 .type
+##### 5.15.2 .type
 
-The type object user gets the currently available `spell`,` stroke`, `orderToWord`,` spellToWord`, `strokeToWord`, `idiom`, `xhy`, `radical` parameter types:
+The type object user gets the currently available `spell`,` stroke`, `orderToWord`,` spellToWord`, `strokeToWord`, `idiom`, `xhy`, `radical`, `words`, `explain` parameter types:
 
 ```js
 var spellArg = cnchar.type.spell;
@@ -964,9 +1091,11 @@ var strokeToWordArg = cnchar.type.strokeToWord;
 var idiomArg = cnchar.type.idiom;
 var xhyArg = cnchar.type.xhy;
 var radicalArg = cnchar.type.radical;
+var wordsArg = cnchar.type.words;
+var explainArg = cnchar.type.explain;
 ```
 
-spellArg Maximum available values: `['array','low','up','first','poly','tone','simple']`
+spellArg Maximum available values: `['array','low','up','first','poly','tone','simple', 'flat']`
 
 strokeArg Maximum available values: `['letter','shape','count','name','detail','array','order','simple']`
 
@@ -980,13 +1109,17 @@ idiomArg Maximum available values: `['char','stroke','spell','tone']`
 
 xhyArg Maximum available values: `['fuzzy','answer','second']`
 
-radicalArg Maximum available values: `['array']`
+radicalArg Maximum available values: `['array', 'trad']`
+
+wordsArg Maximum available values: `['trad']`
+
+explainArg Maximum available values: `['trad']`
 
 The above values are all json
 
 Specific usage <a href="#user-content-6-spell-stroke-parameters"> Chapter 6 </a>
 
-##### 5.12.3 .check
+##### 5.15.3 .check
 
 This value is a Boolean type, used to control whether to enable parameter verification, the default value is true
 
@@ -996,21 +1129,36 @@ Parameter verification can check the incoming parameters of `spell` and` stroke`
 cnchar.check = false; // Turn off parameter check
 ```
 
-##### 5.12.4 .version
+##### 5.15.4 .version & env
 
 Get the current version:
 
 ```js
-var version = cnchar.version; // string type
+var version = cnchar.version;
+var env = cnchar.env;
 ```
 
-##### 5.12.5 .plugins
+##### 5.15.5 .plugins
 
-List of currently used function libraries, the most common case is `["order","trad","poly"]`
+List of currently used function libraries
 
 ```js
 var plugins = cnchar.plugins; // array type
 ```
+
+#### 5.16 Offline use
+
+cnchar-voice, cnchar-draw, cnchar-explain due to the use of a large number of online dictionaries and resources
+
+So instead of downloading it locally with the npm package, it is dynamically loaded using cdn
+
+cnchar has added [cnchar-data](https://github.com/cn-char/cnchar-data) in version 3.1.0 to help download the data warehouse separately to support offline use and custom deployment.
+
+For specific usage, please refer to [cnchar-data](https://github.com/cn-char/cnchar-data/blob/master/README.md)
+
+In addition, the three repositories of voice, draw, and explain also support independent setResourceBase
+
+For details, please refer to [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 
 ### 6 spell stroke parameters
 
@@ -1034,6 +1182,7 @@ first|Back to the first letter of Pinyin|No |--|--|
 | poly|Use candidate polyphonic characters|No |--|--|
 | tone|Enable tone|No |--|--|
 simple|Whether to disable pinyin of traditional characters|No|cnchar-trad|After using cnchar-trad, the traditional pinyin is converted by default. This parameter is used to disable traditional pinyin |
+| flat | Whether to flatten Pinyin | No | -- | Flatten the return value of Pinyin, lǘ => lv2 |
 
 #### 6.2 stroke parameters
 
@@ -1103,7 +1252,7 @@ The arg parameter information is as follows:
 | alltone|Chinese characters that match all the tones of the pinyin|No |--| Pinyin without tones means soft |
 | array|Returns an array that meets the conditions, the default is to return a string|No |--|--|
 
-Note: If both `simple` and` trad` parameters do not exist, then when"cnchar-trad"is introduced, it will match both Simplified and Simplified Chinese; when"cnchar-trad"is not introduced, it will only match Simplified
+Note: If both `simple` and `trad` parameters do not exist, then when"cnchar-trad"is introduced, it will match both Simplified and Simplified Chinese; when"cnchar-trad"is not introduced, it will only match Simplified
 
 
 #### 6.5 strokeToWord parameters
@@ -1120,7 +1269,7 @@ cnchar.strokeToWord(count, arg1, arg2, ...);
 | trad|Only match traditional characters|No|cnchar-trad|This parameter is only valid after the introduction of `cnchar-trad` |
 | array|Returns an array that meets the conditions, the default is to return a string|No |--|--|
 
-Note: If both `simple` and` trad` parameters do not exist, then when"cnchar-trad"is introduced, it will match both Simplified and Simplified Chinese; when"cnchar-trad"is not introduced, it will only match Simplified
+Note: If both `simple` and`trad` parameters do not exist, then when"cnchar-trad"is introduced, it will match both Simplified and Simplified Chinese; when"cnchar-trad"is not introduced, it will only match Simplified
 
 #### 6.6 idiom parameters
 
@@ -1164,10 +1313,22 @@ cnchar.radical(value,arg1,arg2,...);
 | Parameter | Function | Whether Default | Dependency Library | Remarks |
 | :-----: | :----: | :------: | :---: | :---: |
 |  array   | Whether to return an array |    No    | -- |  When passed in as an array, the array is returned by default  |
+| trad | Enable Traditional Chinese Character Recognition | No | cnchar-trad | Enable Traditional Chinese Character Recognition |
 
-#### 6.9 Usage Examples:
+#### 6.9 words with explain parameter
 
-##### 6.9.0 Installation and use
+````js
+cnchar.words(value,arg1,arg2,...);
+cnchar.explain(value,arg1,arg2,...);
+````
+
+| Parameter | Function | Is it default | Dependent library | Remarks |
+| :-----: | :----: | :------: | :---: | :---: |
+| trad | Enable Traditional Chinese Character Recognition | No | cnchar-trad | Enable Traditional Chinese Character Recognition |
+
+#### 6.10 Usage Examples:
+
+##### 6.10.0 Installation and use
 
 npm way
 
@@ -1189,7 +1350,7 @@ script tag reference
 </script>
 ```
 
-##### 6.9.1 cnchar basic library function
+##### 6.10.1 cnchar basic library function
 
 ```js
 // spell function
@@ -1224,7 +1385,7 @@ Remarks:
 4. Stroke method Non-Chinese characters will count as 0
 5. Stroke method order mode Non-Chinese characters will return undefined
 
-##### 6.9.2 cnchar-poly library function
+##### 6.10.2 cnchar-poly library function
 
 This library is used to accurately identify polyphonic words and also supports other parameter functions in 6.3.1
 
@@ -1234,7 +1395,7 @@ This library is used to accurately identify polyphonic words and also supports o
 '长大了'.spell('poly'); // returns'(Zhang|Chang)(Da|Dai)(Le|Liao)'
 ```
 
-##### 6.9.3 cnchar-order library function
+##### 6.10.3 cnchar-order library function
 
 This library is used to query the stroke order and stroke name of Chinese characters. The return value is an array.
 
@@ -1290,11 +1451,11 @@ cnchar.orderToWord(['横','撇','捺'],'contain');
 // Back to"丈大天太夫夭尺攵文犬仗叭史央夯失疋矢乔..."// Omit the following
 ```
 
-##### 6.9.4 cnchar-trad library function
+##### 6.10.4 cnchar-trad library function
 
 This library is used to support the conversion of traditional Chinese characters to Mars and provide traditional Chinese characters for basic functions such as pinyin
 
-###### 6.9.4.1 convert font conversion
+###### 6.10.4.1 convert font conversion
 
 ```js
 '一个人'.convertSimpleToTrad(); // returns"壹個人"is equivalent to cnchar.convert.simpleToTrad
@@ -1316,7 +1477,7 @@ cnchar.convert.sparkToSimple('①个亾');
 cnchar.convert.sparkToTrad('①个亾');
 ```
 
-###### 6.9.4.2 spell and stroke methods
+###### 6.10.4.2 spell and stroke methods
 
 The library adds pinyin stroke function extension for traditional characters, and other basic usages are consistent with the basic library:
 
@@ -1332,7 +1493,7 @@ The library adds pinyin stroke function extension for traditional characters, an
 '長大'.stroke('order','shape','simple'); // returns [undefined, ["㇐","㇓","㇏"]]
 ```
 
-##### 6.9.5 cnchar-idiom library function
+##### 6.10.5 cnchar-idiom library function
 
 This library extends the idiom function for cnchar
 
@@ -1343,7 +1504,7 @@ cnchar.idiom('shang', 'spell') // ['伤风败化', '伤风败俗', ... ]
 cnchar.idiom('shang4', 'spell', 'tone') // ['伤风败化', '伤风败俗', ... ]
 ```
 
-##### 6.9.6 cnchar-xhy library function
+##### 6.10.6 cnchar-xhy library function
 
 This library extends the function of Xiehouyu for cnchar
 
@@ -1354,7 +1515,7 @@ cnchar.xhy('大水', 'fuzzy', 'answer') // ['泥沙俱下', '后浪推前浪', .
 cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second') // ['醉汉过铁索桥', '扶着醉汉过破桥']
 ```
 
-##### 6.9.7 cnchar-radical library function
+##### 6.10.7 cnchar-radical library function
 
 The library extends the radical function for cnchar
 
@@ -1365,18 +1526,44 @@ cnchar.radical('你好呀', 'array'); // ["亻", "女", "口"]
 cnchar.radical(["你", "好", "呀"]); // ["亻", "女", "口"]
 ```
 
-##### 6.9.8 Tools and methods
+##### 6.10.8 cnchar-words
+
+````js
+cnchar.words('香蕉');
+cnchar.words.addWords('香蕉牛奶');
+cnchar.words('香蕉');
+````
+
+##### 6.10.8 cnchar-explain
+
+````js
+cnchar.explain('你好');
+cnchar.explain.addExplain('你好', '打招呼');
+cnchar.explain('你好');
+````
+
+##### 6.10.10 cnchar-voice
+
+````js
+cnchar.voice('你好');
+window.addEventListener('click', ()=>{
+    cnchar.voice.speak('你好');
+    cnchar.voice.regonize();
+});
+````
+
+##### 6.10.11 Tools and methods
 
 cnchar provides some Chinese character tool methods to facilitate developers to operate pinyin and Chinese characters more conveniently and efficiently
 
-###### 6.9.8.1 spellInfo
+###### 6.10.11.1 spellInfo
 
 ```js
 cnchar.spellInfo('shàng');
 // Returns {spell: "shang", tone: 4, index: 3, initial: "sh", final: "ang"}
 ```
 
-###### 6.9.8.2 isCnChar
+###### 6.10.11.2 isCnChar
 
 ```js
 cnchar.isCnChar('a') // false
@@ -1386,7 +1573,7 @@ cnchar.isCnChar('国') // true
 cnchar.isCnChar('國') // true
 ```
 
-###### 6.9.8.3 transformTone
+###### 6.10.11.3 transformTone
 
 ```js
 cnchar.transformTone('lv2') // {spell: 'lü', tone: 2, index: 2, isTrans: true}
@@ -1395,7 +1582,7 @@ cnchar.transformTone('lv2', true, 'up') // {spell: 'LǗ', tone: 2, index: 2, isT
 cnchar.transformTone('lǘ') // {spell: 'lü', tone: 2, index: 2, isTrans: false}
 ```
 
-###### 6.9.8.4 compareSpell
+###### 6.10.11.4 compareSpell
 
 ```js
 cnchar.compareSpell('ao', 'ai') // 'more'
@@ -1407,7 +1594,7 @@ cnchar.compareSpell('品', '频', true) // 'more'
 cnchar.compareSpell('贫', '频', true) // 'even'
 ```
 
-###### 6.9.8.5 compareStroke
+###### 6.10.11.5 compareStroke
 
 ```js
 cnchar.compareStroke('你', '好') // 'more'
@@ -1417,7 +1604,7 @@ cnchar.compareStroke('一个', '好') // 'less'
 cnchar.compareStroke('你', 14) // 'less'
 ```
 
-###### 6.9.8.6 sortSpell
+###### 6.10.11.6 sortSpell
 
 Pinyin supports tonal digital mode (lv2=>lǘ)
 
@@ -1430,7 +1617,7 @@ cnchar.sortSpell(['拼', '品', '频', '爱'], 'tone', 'desc') // ['品', '频',
 cnchar.sortSpell('拼品频爱', 'tone', 'desc') // '品频拼爱'
 ```
 
-###### 6.9.8.7 sortStroke
+###### 6.10.11.7 sortStroke
 
 ```js
 cnchar.sortStroke(['一', '三', '二']) // ['一', '二', '三']
@@ -1439,21 +1626,22 @@ cnchar.sortStroke(['一', '三', 2]) // ['一', 2, '三']
 cnchar.sortStroke(['一', '三', '二'], 'desc') // ['三', '二', '一']
 ```
 
-###### 6.9.8.8 isPolyWord
+###### 6.10.11.8 isPolyWord
 
 ```js
 cnchar.isPolyWord('中') // true
 cnchar.isPolyWord('国') // false
 ```
 
-###### 6.9.8.9 shapeSpell
+###### 6.10.11.9 shapeSpell
 
 ```js
 cnchar.shapeSpell('lv2') // lǘ
 cnchar.shapeSpell('shang4') // shàng
+cnchar.shapeSpell('lǘ', true) // 
 ```
 
-###### 6.9.8.10 setSpell
+###### 6.10.11.10 setSpell
 
 Pinyin supports tonal digital mode (lv2=>lǘ)
 
@@ -1467,7 +1655,7 @@ cnchar.setSpell({ // Multiple Chinese characters
 });
 ```
 
-###### 6.9.8.11 setSpellDefault
+###### 6.10.11.11 setSpellDefault
 
 Pinyin supports tonal digital mode (lv2=>lǘ)
 
@@ -1480,7 +1668,7 @@ cnchar.setSpellDefault({ // Multiple Chinese characters
 });
 ```
 
-###### 6.9.8.12 setStrokeCount
+###### 6.10.11.12 setStrokeCount
 
 ```js
 // Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar
@@ -1491,7 +1679,7 @@ cnchar.setStrokeCount({ // Multiple Chinese characters
 });
 ```
 
-###### 6.9.8.13 setOrder
+###### 6.10.11.13 setOrder
 
 Depend on `cnchar-order`
 
@@ -1506,7 +1694,7 @@ cnchar.setOrder({ // Multiple Chinese characters
 });
 ```
 
-###### 6.9.8.14 setPolyPhrase
+###### 6.10.11.14 setPolyPhrase
 
 Pinyin supports tonal digital mode (lv2=>lǘ)
 
@@ -1521,7 +1709,7 @@ cnchar.setPolyPhrase({ // Multiple Chinese characters
 });
 ```
 
-###### 6.9.8.14 setRadical
+###### 6.10.11.14 setRadical
 
 Depend on `cnchar-radical`
 
@@ -1534,7 +1722,7 @@ cnchar.radical.setRadical({ // Multiple Chinese characters
 });
 ```
 
-###### 6.9.8.15 addXhy
+###### 6.10.11.15 addXhy
 
 Depend on `cnchar-xhy`
 
@@ -1548,8 +1736,8 @@ cnchar.xhy.addXhy([ // Multiple
 
 ### 7 Application examples
 
-[Chinese Character Typing Game](https://www.theajack.com/type/) | [Piano](https://theajack.gitee.io/piano/)
+[Chinese Character Typing Game](https://www.theajack.com/type/) | [Piano](https://theajack.github.io/piano/)
 
 **Acknowledgements**
 
-The `cnchar-draw` library function is based on [hanzi-writer](https://github.com/chanind/hanzi-writer), thank you very much!
+The `cnchar-draw` library function is based on [hanzi-writer](https://github.com/chanind/hanzi-writer), thanks very much!

@@ -60,7 +60,7 @@ cnchar.draw('你好', options); // options 为可选参数
   </highlight-code>
 </div>
 
-以下是 options 的所有可选参数及描述，具体使用可以在 [JSBox](https://theajack.gitee.io/jsbox?theme=dark&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Ftheajack%2Fcnchar%2Fdocs%2Fconfig.js&id=normal-draw) 上自行在线尝试
+以下是 options 的所有可选参数及描述，具体使用可以在 [JSBox](https://theajack.github.io/jsbox?theme=dark&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Ftheajack%2Fcnchar%2Fdocs%2Fconfig.js&id=normal-draw) 上自行在线尝试
 
 <div>
   <highlight-code lang='typescript'>
@@ -217,7 +217,16 @@ writer.drawNextStroke(()=>{
 });
 ```
 
+## 8 汉字404回调
 
-## 8. 微信小程序中使用
+绘制汉字绘制库中不存在的回调
+
+```js
+cnchar.draw.onWordNotFound(word=>{
+    console.log(word);
+});
+```
+
+## 9. 微信小程序中使用
 
 该库由 HanziWriter 驱动，目前仅支持在web环境下使用，如需微信小程序使用请参考 [HanziWriter API](https://hanziwriter.org/docs.html#wechat-miniprograms)

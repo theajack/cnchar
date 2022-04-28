@@ -1,6 +1,7 @@
+import {IPlugin} from './common';
 import {ICncharTool} from './tool';
 
-export declare type SpellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad';
+export declare type SpellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad' | 'flat';
 export declare type StrokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
 export declare type SpellToWordArg = 'poly' | 'alltone' | 'array' | 'simple' | 'trad';
 export declare type StrokeToWordArg = 'array' | 'simple' | 'trad';
@@ -14,10 +15,9 @@ export declare type AllArgs = SpellArg | StrokeArg
     | SpellToWordArg | StrokeToWordArg | OrderToWordArg
     | IdomArg | SortSpellArg | TradArg | XhyArg;
 
-export declare type PluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy' | 'radical';
+export declare type PluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy' | 'radical' | string;
 export declare type ToneType = 0 | 1 | 2 | 3 | 4;
 export declare type CompareType = 'more' | 'less' | 'even' | 'error';
-
 
 export declare interface ISpellInfoReturn {
     spell: string;
@@ -40,7 +40,7 @@ declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number
 export interface ICnChar {
     spell: ISpell;
     stroke: IStroke;
-    use(...plugins: Array<Function>): void;
+    use(...plugins: IPlugin[]): void;
     spellToWord(spell: string, ...args: Array<SpellToWordArg>): string | Array<string>;
     strokeToWord(stroke: number, ...args: Array<StrokeToWordArg>): string | Array<string>;
     spellInfo: {
@@ -73,13 +73,15 @@ export interface ICnChar {
     setSpell(json: {[key: string]: string | Array<string>}): void;
     setStrokeCount(word: string, count: number): void;
     setStrokeCount(json: {[key: string]: number}): void;
-    shapeSpell(spell: string): string;
+    shapeSpell(spell: string, reverse?: boolean): string;
 
     _: ICncharTool;
     _origin: {
         spell: ISpell;
         stroke: IStroke;
     };
+    setResourceBase(url: string): void;
+    env: 'node' | 'web' | 'miniapp';
 }
 
 declare global {

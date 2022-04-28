@@ -6,7 +6,7 @@ export function stroke (writer: Writer, cloneSvg: ICloneSvg): void {
     writer.text.forEach((s) => {
         const target: HTMLElement = document.createElement('div');
         writer.el.appendChild(target);
-        HanziWriter.loadCharacterData(s).then(function (charData) {
+        HanziWriter.loadCharacterData(s).then((charData) => {
             for (var i = 0; i < charData.strokes.length; i++) {
                 renderFanningStrokes({
                     option: writer.option,
@@ -18,6 +18,8 @@ export function stroke (writer: Writer, cloneSvg: ICloneSvg): void {
                     width: writer.option.width
                 });
             }
+        }).catch(e => {
+            console.warn(e);
         });
     });
 }

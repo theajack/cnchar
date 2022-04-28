@@ -42,4 +42,26 @@ export default ({
     // ...做一些其他的应用级别的优化
     Vue.use(VueHighlightJS);
     Vue.use(ElementUI);
+
+    let toastTimer = null;
+    Vue.prototype.$toast = window.$toast = (text, time = 2000) => {
+        if (!text) return;
+        const id = '_vuepress_toast';
+        let el = document.getElementById(id);
+
+        if (!el) {
+            el = document.createElement('div');
+            el.setAttribute('id', id);
+            el.setAttribute('style', 'position: fixed;z-index: 10000;left: 50%;top: 50%;padding: 8px 10px;background-color: rgba(0,0,0,.7);color: #fff;border-radius: 3px;transform: translate(-50%, -50%);');
+            document.body.appendChild(el);
+        }
+
+        el.innerText = text;
+        clearTimeout(toastTimer);
+        el.style.display = 'block';
+        
+        toastTimer = setTimeout(() => {
+            el.style.display = 'none';
+        }, time);
+    };
 };

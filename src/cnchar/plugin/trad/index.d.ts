@@ -1,5 +1,6 @@
-import {IInitTrad} from 'cnchar-types/plugin/trad';
+import {IPlugin} from 'cnchar-types/main/common';
+import 'cnchar-types/plugin/trad';
 
-declare const trad: IInitTrad;
+declare const trad: IPlugin;
 
 export default trad;

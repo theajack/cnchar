@@ -2,23 +2,11 @@ const version = require('../package.json').version;
 
 const path = require('path');
 const tool = require('../helper/tool');
-tool.write('./src/cnchar/main/version.ts', 'export default \'' + version + '\';');
+const alias = require('./bricks/alias');
+const other = require('./bricks/other');
+const rules = require('./bricks/rules');
 
-// module.exports = {
-//     entry: path.resolve('./', 'src/main/index.js'),
-//     output: {
-//         path: path.resolve('./', 'dist'),
-//         filename: 'cnchar.' + version + '.min.js'
-//     },
-//     module: {
-//         rules: [{
-//             test: /(.js)$/,
-//             use: [{
-//                 loader: 'babel-loader',
-//             }]
-//         }]
-//     }
-// };
+tool.write('./src/cnchar/main/version.ts', 'export default \'' + version + '\';');
 
 module.exports = {
     mode: 'production',
@@ -31,23 +19,15 @@ module.exports = {
         globalObject: 'this',
         libraryExport: 'default',
     },
+    externals: other.externals,
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ]
-    },
-    externals: {
-        cnchar: 'cnchar'
+        extensions: other.extensions,
+        alias,
     },
     module: {
-        rules: [{
-            test: /(.ts)$/,
-            use: {
-                loader: 'ts-loader'
-            }
-        }, {
-            test: /(.js)$/,
-            use: [{
-                loader: 'babel-loader',
-            }]
-        }]
+        rules: [
+            rules.ts,
+            rules.js
+        ]
     }
 };

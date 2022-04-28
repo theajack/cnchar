@@ -4,6 +4,7 @@ import {IConverter, ITradModArg, ITradString} from 'cnchar-types/plugin/trad';
 import {ICnChar, SpellArg, StrokeArg} from 'cnchar-types/main';
 import {ICncharTool} from 'cnchar-types/main/tool';
 import {ISpell} from 'cnchar-types/main/index';
+import {IPlugin} from 'cnchar-types/main/common';
 
 // 简-繁 一对多
 // https://blog.csdn.net/e15273/article/details/79954700
@@ -12,43 +13,6 @@ const arg: ITradModArg = {
     trad: 'trad', simple: 'simple', array: 'array', order: 'order' // 开启简单模式
 };
 let _: ICncharTool;// 工具方法
-
-function main (cnchar: ICnChar & {convert?: IConverter}): void {
-    if (cnchar.plugins.indexOf('trad') !== -1) {
-        return;
-    }
-    cnchar.plugins.push('trad');
-    cnchar.convert = converter;
-    const _p: String & ITradString = String.prototype;
-    if (typeof cnchar.type.spell === 'object') {
-        cnchar.type.spell.simple = arg.simple;
-        cnchar.type.spell.trad = arg.trad;
-    }
-    if (typeof cnchar.type.stroke === 'object') {
-        cnchar.type.stroke.simple = arg.simple;
-        cnchar.type.stroke.trad = arg.trad;
-    }
-    reinitSpell(_p, cnchar);
-    reinitStroke(_p, cnchar);
-    _p.convertSimpleToTrad = function (): string {return converter.simpleToTrad(this as string);};
-    _p.convertSimpleToSpark = function (): string {return converter.simpleToSpark(this as string);};
-    _p.convertTradToSimple = function (): string {return converter.tradToSimple(this as string);};
-    _p.convertTradToSpark = function (): string {return converter.tradToSpark(this as string);};
-    _p.convertSparkToSimple = function (): string {return converter.sparkToSimple(this as string);};
-    _p.convertSparkToTrad = function (): string {return converter.sparkToTrad(this as string);};
-    _ = cnchar._;
-    _.convert = converter;
-    _.dict.getTradOrders = function () {return orderDict;};
-    _.dict.getTradCount = function () {return countDict;};
-}
-
-export default function init (cnchar?: ICnChar): void {
-    if (typeof window === 'object' && window.CnChar) {
-        main(window.CnChar);
-    } else if (typeof cnchar !== 'undefined') {
-        main(cnchar);
-    }
-}
 
 function reinitSpell (proto: String, cnchar: ICnChar): void {
     let _spell = cnchar.spell;
@@ -162,4 +126,40 @@ function reinitStroke (proto: String, cnchar: ICnChar) {
     }
 }
 
-init();
+
+function install (cnchar: ICnChar & {convert?: IConverter}): void {
+    cnchar.convert = converter;
+    const _p: String & ITradString = String.prototype;
+    if (typeof cnchar.type.spell === 'object') {
+        cnchar.type.spell.simple = arg.simple;
+        cnchar.type.spell.trad = arg.trad;
+    }
+    if (typeof cnchar.type.stroke === 'object') {
+        cnchar.type.stroke.simple = arg.simple;
+        cnchar.type.stroke.trad = arg.trad;
+    }
+    reinitSpell(_p, cnchar);
+    reinitStroke(_p, cnchar);
+    _p.convertSimpleToTrad = function (): string {return converter.simpleToTrad(this as string);};
+    _p.convertSimpleToSpark = function (): string {return converter.simpleToSpark(this as string);};
+    _p.convertTradToSimple = function (): string {return converter.tradToSimple(this as string);};
+    _p.convertTradToSpark = function (): string {return converter.tradToSpark(this as string);};
+    _p.convertSparkToSimple = function (): string {return converter.sparkToSimple(this as string);};
+    _p.convertSparkToTrad = function (): string {return converter.sparkToTrad(this as string);};
+    _ = cnchar._;
+    _.convert = converter;
+    _.dict.getTradOrders = function () {return orderDict;};
+    _.dict.getTradCount = function () {return countDict;};
+}
+
+
+const plugin: IPlugin = {
+    pluginName: 'trad',
+    install: install,
+};
+
+if (typeof window === 'object' && window.CnChar) {
+    window.CnChar.use(plugin);
+}
+
+export default plugin;

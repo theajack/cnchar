@@ -28,6 +28,13 @@
     "typescript.validate.enable": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
+    },
+    "path-intellisense.mappings": {
+      "cnchar": "${workspaceRoot}/src/cnchar/main/*",
+      "cnchar-types": "${workspaceRoot}/src/cnchar-types/*",
+      "@cnchar-plugin": "${workspaceRoot}/src/cnchar/plugin/*",
+      "@common": "${workspaceRoot}/src/cnchar/common/*",
+      "testUtils": "${workspaceRoot}/helper/testUtils/*",
     }
   }
   

@@ -1,8 +1,8 @@
 import originPolyPhrases from './dict/polyphone-phrase-simple.json';
 import {ICnChar, ISpell, SpellArg} from 'cnchar-types/main/index';
 import {ICncharTool} from 'cnchar-types/main/tool';
-import {IInitPoly, ISetPolyPhrase} from 'cnchar-types/plugin/poly';
-import {Json} from 'cnchar-types/main/common';
+import {ISetPolyPhrase} from 'cnchar-types/plugin/poly';
+import {IPlugin, Json} from 'cnchar-types/main/common';
 
 const polyPhrases = originPolyPhrases as Json<string>;
 
@@ -19,15 +19,16 @@ let _spell: ISpell;
 
 function _poly (str: string, ...args: Array<SpellArg>): string | Array<any> {
     _.checkArgs('spell', args, true);
-    if (_.has(args, _.arg.poly))
+    if (_.has(args, _.arg.poly)) { // 多拼音模式直接使用原始spell方法
         return _spell(str, ...args);
+    }
     const newArgs = [_.arg.array]; // 先用数组
+    // firt up low 参数等获取到多音拼音之后在处理
+    args.forEach(arg => {
+        if (arg !== 'first' && arg !== 'up' && arg !== 'low') newArgs.push(arg);
+    });
     const tone = _.has(args, _.arg.tone);
-    // // 多音字参数参数将被忽略
-    // if(_.has(args,_.arg.poly))
-    //     _._warn('多音字参数 poly 被忽略')
-    if (tone) {newArgs.push(_.arg.tone);} // 音调参数
-    // 其他几个参数等获取到多音拼音之后在处理
+    
     const res = _spell(str, ...newArgs) as Array<string>; // 获取
     for (const k in polyPhrases) {
         const index = str.indexOf(k);
@@ -57,12 +58,8 @@ const setPolyPhrase: ISetPolyPhrase = (word: string | Json<string>, spell?: stri
     }).join(' ');
 };
 
-function main (cnchar: ICnChar & {setPolyPhrase?: ISetPolyPhrase}): void {
-    if (cnchar.plugins.indexOf('poly') !== -1) {
-        return;
-    }
+function install (cnchar: ICnChar & {setPolyPhrase?: ISetPolyPhrase}): void {
     cnchar.setPolyPhrase = setPolyPhrase;
-    cnchar.plugins.push('poly');
     _spell = cnchar._origin.spell;
     _ = cnchar._;
     _cnchar = cnchar;
@@ -84,14 +81,13 @@ function main (cnchar: ICnChar & {setPolyPhrase?: ISetPolyPhrase}): void {
     }
 }
 
-const init: IInitPoly = (cnchar?: ICnChar): void => {
-    if (typeof window === 'object' && window.CnChar) {
-        main(window.CnChar);
-    } else if (typeof cnchar !== 'undefined') {
-        main(cnchar);
-    }
+const plugin: IPlugin = {
+    pluginName: 'poly',
+    install: install,
 };
 
-init();
+if (typeof window === 'object' && window.CnChar) {
+    window.CnChar.use(plugin);
+}
 
-export default init;
+export default plugin;

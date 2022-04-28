@@ -1,31 +1,21 @@
 import {ICnChar} from 'cnchar-types/main';
 import {idiom, arg, setCnchar} from './idiom';
 import {IIdiom} from 'cnchar-types/plugin/idiom';
+import {IPlugin} from 'cnchar-types/main/common';
 
-function main (cnchar: ICnChar & {idiom?: IIdiom}) {
-    if (cnchar.plugins.indexOf('idiom') !== -1) {
-        return;
-    }
-    cnchar.plugins.push('idiom');
-    cnchar.idiom = idiom;
-    cnchar.type.idiom = arg;
-}
-
-function init (cnchar?: ICnChar) {
-    if (typeof window === 'object' && !window.CncharIdiom) {
-        window.CncharIdiom = idiom;
-    }
-    if (typeof window === 'object' && window.CnChar) {
-        main(window.CnChar);
-        setCnchar(window.CnChar);
-    } else if (typeof cnchar !== 'undefined') {
-        main(cnchar);
+const plugin: IPlugin = {
+    pluginName: 'idiom',
+    install (cnchar: ICnChar) {
         setCnchar(cnchar);
-    }
+        return {idiom};
+    },
+    args: arg
+};
+
+if (typeof window === 'object') {
+    window.CncharIdiom = idiom;
+    if (window.CnChar) window.CnChar.use(plugin);
 }
 
-idiom.init = init;
+export default Object.assign(idiom, plugin) as IIdiom & IPlugin;
 
-init();
-
-export default idiom;

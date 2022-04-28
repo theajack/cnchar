@@ -1,4 +1,4 @@
-import HanziWriter from './hanzi-writer';
+import HanziWriter, {addWordNotFoundCallback, triggerWordNotFound} from './hanzi-writer';
 import {TYPE, merge, TEST_STATUS} from './default-option';
 import {pickCnChar} from './util';
 import {buildLinesStr} from './line';
@@ -19,6 +19,7 @@ import {
 } from 'cnchar-types/plugin/draw/common';
 import {querySelector} from './dom';
 import {AnimationWriter} from './animation-stroke';
+import {setResourceBase} from './resource';
 
 // export const DEFAULT_WIDTH: number = 60;
 
@@ -157,7 +158,9 @@ const draw: IDraw = (text: string = '', options: IWriterOption = {}): IWriter | 
         console.error('Draw 方法仅支持在浏览器环境下使用');
         return null;
     }
-    text = pickCnChar(text);
+    text = pickCnChar(text, (word) => {
+        triggerWordNotFound(word);
+    });
     if (!text) {
         throw new Error('Draw 方法text必须含有中文');
     }
@@ -165,7 +168,11 @@ const draw: IDraw = (text: string = '', options: IWriterOption = {}): IWriter | 
     return new Writer(options);
 };
 
+draw.setResourceBase = setResourceBase;
 draw.TYPE = TYPE;
 draw.TEST_STATUS = TEST_STATUS;
+draw.onWordNotFound = (callback) => {
+    addWordNotFoundCallback(callback);
+};
 
 export default draw;

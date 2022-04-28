@@ -1,5 +1,5 @@
-import originDict from './dict/spell-dict-jian.json';
-import {initial as initialDict} from './dict/info-dict.json';
+import originDict from '../dict/spell-dict-jian.json';
+import {initial as initialDict} from '../dict/info-dict.json';
 import {ICnChar, ToneType, TypeValueObject, SpellToWordArg} from 'cnchar-types/main/index';
 import {ICncharTool} from 'cnchar-types/main/tool';
 import {ISpellInfo, Json, ISpellInfoReturn} from 'cnchar-types/main/common';

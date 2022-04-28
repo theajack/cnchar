@@ -1,6 +1,9 @@
 // const MyPlugin = require('./plugin/plugin1')
 // const ErudaWebapckPlugin = require('eruda-webpack-plugin')
 const path = require('path');
+const alias = require('./bricks/alias');
+const other = require('./bricks/other');
+const rules = require('./bricks/rules');
 module.exports = {
     entry: path.resolve('./', 'public/index.ts'),
     output: {
@@ -22,28 +25,16 @@ module.exports = {
             }
         }
     },
+    externals: other.externals,
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ]
+        extensions: other.extensions,
+        alias: alias
     },
     module: {
-        rules: [{
-            test: /(.ts)$/,
-            use: {
-                loader: 'ts-loader'
-            }
-        }, {
-            test: /(.js)$/,
-            use: [{
-                loader: 'babel-loader',
-            }]
-        }, {
-            test: /(.js)$/,
-            loader: 'eslint-loader',
-            enforce: 'pre',
-            exclude: /node_modules/,
-            options: {
-                configFile: './.eslintrc.js'
-            }
-        }]
+        rules: [
+            rules.ts,
+            rules.js,
+            rules.eslint,
+        ]
     }
 };

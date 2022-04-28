@@ -4,9 +4,9 @@ module.exports = [
     {
         name: '测试version',
         test (cnchar) {
-            return cnchar.version;
+            return [cnchar.version, cnchar.env];
         },
-        expect: pkg.version
+        expect: [pkg.version, 'node']
     },
     {
         name: '测试spell',
@@ -345,13 +345,15 @@ module.exports = [
             return [
                 cnchar.shapeSpell('lv2'),
                 cnchar.shapeSpell('shang4'),
-                cnchar.shapeSpell('men2')
+                cnchar.shapeSpell('men2'),
+                cnchar.shapeSpell('lǘ', true)
             ];
         },
         expect: [
             'lǘ',
             'shàng',
-            'mén'
+            'mén',
+            'lv2'
         ]
     },
     {
@@ -466,7 +468,7 @@ module.exports = [
             ];
         },
         expect: ['口', '亻', '口']
-    },,
+    },
     {
         name: '测试 addXhy',
         test (cnchar) {
@@ -487,5 +489,22 @@ module.exports = [
             ['歇后语第一句3-歇后语第二句3']
         ]
     },
-    
+    {
+        name: '测试 words',
+        test (cnchar) {
+            const n = cnchar.words('香蕉').length;
+            cnchar.words.addWords('香蕉牛奶');
+            return [n, cnchar.words('香蕉').length];
+        },
+        expect: [3, 4]
+    },
+    // {
+    //     name: '测试 explain',
+    //     test (cnchar) {
+    //         const n = await cnchar.explain('你好').length;
+    //         cnchar.explain.addExplain('你好', '打招呼');
+    //         return [n, await cnchar.explain('你好').length];
+    //     },
+    //     expect: [31, 3]
+    // }
 ];

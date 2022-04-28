@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input"/>
+    <button id="btn">开始</button>
+    <div id="text"></div>
+    <button id="btn2">开始录音</button>
+    <script>
+        var recognition = new window.webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+        // recognition.lang = 'en-US';
+        recognition.lang = 'zh-CN';
+
+        var text = '';
+        var btn = document.getElementById('btn2');
+
+        recognition.onresult = function (rst) {
+            console.log(rst);
+            console.log(rst.results[0][0]);
+
+            if (rst.results && rst.results[0][0]) {
+                if (rst.results[0].isFinal) {
+                    recognition.stop();
+                } else {
+                    btn.innerHTML = '听ing';
+                }
+
+                document.getElementById('text').innerHTML = rst.results[0][0].transcript;
+            }
+        };
+
+        recognition.onspeechend = function () {
+            console.log('stop');
+            btn.innerHTML = '开始';
+        };
+
+        btn.addEventListener(
+            'click',
+            function () {
+                if (btn.innerHTML == '停止') {
+                    recognition.stop();
+
+                    btn.innerHTML = '开始';
+                } else {
+                    recognition.start();
+
+                    btn.innerHTML = '停止';
+                }
+            },
+            false
+        );
+
+        document.getElementById('btn').addEventListener(
+            'click',
+            function () {
+                var ssu = new window.SpeechSynthesisUtterance();
+
+                ssu.text = input.value;
+
+                ssu.lang = 'zh-CN';
+
+                ssu.volume = 1;// 音量0-1
+
+                ssu.rate = 1;// 语速0.1-10
+
+                ssu.pitch = 1;// 音高0-2
+
+                // ssu.voiceURI = '';// 指定希望使用的声音
+                // debugger;
+
+                ssu.onstart = (e) => {console.log('开始。。。'); console.log(e);};
+
+                ssu.onpause = (e) => {console.log('暂停。。。'); console.log(e);};
+
+                ssu.onresume = (e) => {console.log('重新开始。。。'); console.log(e);};
+
+                ssu.onend = (e) => {console.log('结束。。。'); console.log(e);};
+                window.ssu = ssu;
+                window.speechSynthesis.speak(ssu);
+
+                // window.speechSynthesis.pause();// 暂停
+
+                // window.speechSynthesis.resume();// 重新开始
+
+                // window.speechSynthesis.stop();// 停止
+
+                // window.speechSynthesis.getVoices();// 返回支持的语音包数据
+            },
+            false
+        );
+    </script>
+</body>
+
+</html>

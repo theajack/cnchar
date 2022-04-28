@@ -1,9 +1,10 @@
 import {spellInfo} from './spellToWord';
-import {_warn, isCnChar, has} from './util';
-import defultDict from './dict/spell-default.json';
+import {isCnChar, has} from './util';
+import defultDict from '../dict/spell-default.json';
 import {AllArgs, ICnChar, TypeProp, ToneType, SpellArg, StrokeArg, TypeValueObject} from 'cnchar-types/main/index';
 import {Json, ITransformReturn} from 'cnchar-types/main/common';
 import {TSpellArg, IDealUpLowFirst, IRemoveTone, IFunc, ICheckArgs, ITransformTone} from 'cnchar-types/main/tool';
+import {_warn} from '@common/util';
 
 const defDict = defultDict as Json<string>;
 
@@ -20,11 +21,15 @@ export const arg: TSpellArg = {
     tone: 'tone',
     simple: 'simple',
     trad: 'trad',
+    flat: 'flat',
 };
 
 let _cnchar: ICnChar;
 export function initCnchar (cnchar: ICnChar): void {
     _cnchar = cnchar;
+}
+export function getCnChar () {
+    return _cnchar;
 }
 
 const NOT_CNCHAR: string = 'NOT_CNCHAR';
@@ -32,6 +37,7 @@ const NOT_CNCHAR: string = 'NOT_CNCHAR';
 export function spell (dict: Json<string>, originArgs: Array<string>): string | Array<string> {
     const strs = originArgs[0].split('');
     const args = (originArgs.splice(1)) as Array<SpellArg>;
+    
     checkArgs('spell', args);
     const poly = has(args, arg.poly);
     const tone = has(args, arg.tone);
@@ -87,6 +93,9 @@ export function spell (dict: Json<string>, originArgs: Array<string>): string | 
             }
         } else {
             result[i] = item[0];
+        }
+        if (has(args, arg.flat)) {
+            result[i] = shapeSpell(result[i], true);
         }
     }
     if (!has(args, arg.array)) {
@@ -362,13 +371,25 @@ function warnArgs (
 /*
     将拼音转换成含有音调的拼音
     lv2 => lǘ
+
+    reverse=true: lǘ => lv2
  */
-export function shapeSpell (spell: string): string {
+export function shapeSpell (spell: string, reverse: boolean = false): string {
     const tones: string = '01234';
-    if (tones.indexOf(spell[spell.length - 1]) === -1) {
+
+    const hasNumTone = tones.indexOf(spell[spell.length - 1]) !== -1;
+
+    if (!reverse) {
+        return hasNumTone ? transformTone(spell, true, 'low').spell : spell;
+    }
+    if (hasNumTone) {
         return spell;
     }
-    return transformTone(spell, true, 'low').spell;
+    const info = transformTone(spell, false, 'low');
+    if (info.spell.indexOf('ü') !== -1) {
+        info.spell = info.spell.replace('ü', 'v');
+    }
+    return hasNumTone ? spell : info.spell + info.tone;
 }
 
 /*
@@ -414,3 +435,21 @@ export const transformTone: ITransformTone = (
     }
     return {spell, tone, index, isTrans};
 };
+
+export function checkTrad (input: string|string[], args: string[]) {
+    if (args.indexOf('trad') === -1 || _cnchar.plugins.indexOf('trad') === -1) {
+        return input;
+    }
+
+    let isArr = false;
+
+    if (input instanceof Array) {
+        isArr = true;
+        input = input.join('');
+    }
+
+    input = _cnchar.convert.tradToSimple(input);
+
+    if (isArr) return input.split('');
+    return input;
+}

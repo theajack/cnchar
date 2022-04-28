@@ -2,16 +2,21 @@ import version from './version';
 import {spell, tones, stroke, arg,
     dealUpLowFirst, removeTone, sumStroke,
     checkArgs, initCnchar, transformTone,
-    shapeSpell} from './tool';
-import {has, _throw, _warn, isCnChar, isPolyWord, mapJson} from './util';
+    shapeSpell,
+    checkTrad} from './utils/tool';
+import {has, isCnChar, isPolyWord} from './utils/util';
+import {mapJson} from '@common/util';
 import dict from './dict';
-import {setSpellDefault, setIntoJson, setSpell, setStrokeCount} from './config';
-import {initSpellToWord, spellToWord, spellInfo} from './spellToWord';
-import {initStrokeToWord, strokeToWord} from './strokeToWord';
-import {compareSpell, sortSpell, compareStroke, sortStroke, initSort} from './sort';
+import {setSpellDefault, setIntoJson, setSpell, setStrokeCount} from './utils/config';
+import {initSpellToWord, spellToWord, spellInfo} from './utils/spellToWord';
+import {initStrokeToWord, strokeToWord} from './utils/strokeToWord';
+import {compareSpell, sortSpell, compareStroke, sortStroke, initSort} from './utils/sort';
 import {ICnChar, SpellArg, StrokeArg} from 'cnchar-types/main';
-import {IPlugin} from 'cnchar-types/main/common';
-import {extendCnChar} from './extend';
+import {extendCnChar} from './utils/extend';
+import {getPlugins, installPlugin} from './utils/plugins';
+import {getResourceBase, setResourceBase} from './utils/resource';
+import {_throw, _warn} from '@common/util';
+import {Env} from '@common/adapter';
 
 function _spell (...args: Array<string>): string | Array<string> {
     return spell(dict.spell, args);
@@ -30,6 +35,7 @@ function initStrProto () {
 }
 
 const cnchar: ICnChar = {
+    env: Env,
     version,
     spell: _spell,
     stroke: _stroke,
@@ -38,10 +44,13 @@ const cnchar: ICnChar = {
         spell: _spell,
         stroke: _stroke,
     },
-    plugins: [],
-    use,
-    _: {arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,
-        sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson},
+    plugins: getPlugins(),
+    use: installPlugin,
+    _: {
+        arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,
+        sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson, checkTrad,
+        getResourceBase
+    },
     type: {
         spell: arg,
         stroke: {
@@ -63,20 +72,9 @@ const cnchar: ICnChar = {
     spellToWord,
     strokeToWord,
     spellInfo,
+    setResourceBase,
     ...extendCnChar(),
 };
-
-function use (...plugins: Array<IPlugin>): void {
-    plugins.forEach(f => {
-        if (typeof f === 'function') {
-            if (typeof f.init === 'function') {
-                f.init(cnchar);
-            } else {
-                f(cnchar);
-            }
-        }
-    });
-}
 
 function init (): void {
     initStrProto();
@@ -90,6 +88,5 @@ function init (): void {
 }
 
 init();
-
 
 export default cnchar;

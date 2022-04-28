@@ -26,6 +26,7 @@
             "cnchar": ["src/cnchar/main"],
             "cnchar-types": ["src/cnchar-types"],
             "@cnchar-plugin/*": ["src/cnchar/plugin/*"],
+            "@common/*": ["src/cnchar/common/*"],
             "testUtils":["helper/testUtils"]
         }
     },
