@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-14 23:03:31
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-27 16:09:24
+ * @LastEditTime: 2022-04-28 16:18:33
  * @FilePath: /cnchar/src/cnchar/plugin/voice/play-mp3.ts
  * @Description: Coding something
  */
@@ -21,18 +21,16 @@ const audioContext: AudioContext | null = (() => {
         return wx.createWebAudioContext();
     }
     if (Env === 'web') {
-        const AudioContext = (window.AudioContext || (window as any).webkitAudioContext || (window as any).mozAudioContext);
+        const win = (window as any);
+        const AudioContext = (win.AudioContext || win.webkitAudioContext || win.mozAudioContext);
         if (!AudioContext) {
             console.log('当前环境不支持web audio');
             return null;
         };
         return new AudioContext();
     }
-    console.log('当前环境不支持web audio');
     return null;
 })();
-
-(window as any).getAudioContext = () => audioContext;
 
 export const loadAudos = (() => {
     return (urls: string[]) => {
@@ -99,7 +97,6 @@ const loadAudio = ((() => {
         return Promise.resolve(null);
     };
 })()) as ((url: string)=>Promise<AudioBuffer|null>);
-(window as any).loadAudio = loadAudio;
 
 export async function playMp3Url ({url, rate = 1, volume = 1, offset = 0, oninit}: IVoicePlaySingleFromUrl) {
     const result = await loadAudio(url);

@@ -126,7 +126,7 @@ cnchar.draw.onWordNotFound((word) => {
     console.log('word not found', word);
 });
 
-(window as any).aaa = cnchar.draw('你好九庳䭹', {
+win.draw = cnchar.draw('你好九庳䭹', {
     type: cnchar.draw.TYPE.ANIMATION,
     style: {
         radicalColor: '#44f',

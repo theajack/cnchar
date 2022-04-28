@@ -2,25 +2,32 @@
  * @Author: tackchen
  * @Date: 2022-04-15 11:37:04
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-28 09:59:50
+ * @LastEditTime: 2022-04-28 16:34:24
  * @FilePath: /cnchar/src/cnchar/plugin/voice/speech-api.ts
  * @Description: Coding something
  */
 
+import {Env} from '@common/adapter';
 import {IRecognize, IRecognizeOptions, ISpeak, ISpeakOptions} from 'cnchar-types/plugin/voice';
 
+function buildFakeRecognize () {
+    const recognize = ((options: IRecognizeOptions = {}) => {
+        console.warn('当前浏览器暂不支持', options);
+        return {};
+    }) as IRecognize;
+    recognize.stop = () => {console.warn('当前浏览器暂不支持');};
+    recognize.supported = false;
+    return recognize;
+}
+
 export const recognize: IRecognize = (() => {
+    if (Env !== 'web') {
+        return buildFakeRecognize();
+    }
     const win = window as any;
     const SpeechRecognition = win.SpeechRecognition || win.webkitSpeechRecognition;
-
     if (!SpeechRecognition) {
-        const recognize = ((options: IRecognizeOptions = {}) => {
-            console.warn('当前浏览器暂不支持', options);
-            return {};
-        }) as IRecognize;
-        recognize.stop = () => {console.warn('当前浏览器暂不支持');};
-        recognize.supported = false;
-        return recognize;
+        return buildFakeRecognize();
     }
 
     let recognition: any = null;
@@ -89,21 +96,26 @@ export const recognize: IRecognize = (() => {
     return recognize;
 })();
 
+function buildFakeSpeak () {
+    const speak = ((text: string) => {
+        console.warn('当前浏览器暂不支持', text);
+        return {} as SpeechSynthesisUtterance;
+    }) as ISpeak;
+    speak.cancel =
+    speak.pause =
+    speak.resume = () => { console.warn('当前浏览器暂不支持');};
+    speak.supported = false;
+    return speak;
+}
+
 export const speak: ISpeak = (() => {
-    const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance;
-
-    if (!SpeechSynthesisUtterance || !window.speechSynthesis) {
-        const speak = ((text: string) => {
-            console.warn('当前浏览器暂不支持', text);
-            return {} as SpeechSynthesisUtterance;
-        }) as ISpeak;
-        speak.cancel =
-        speak.pause =
-        speak.resume = () => { console.warn('当前浏览器暂不支持');};
-        speak.supported = false;
-        return speak;
+    if (Env !== 'web') {
+        return buildFakeSpeak();
     }
-
+    const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance;
+    if (!SpeechSynthesisUtterance || !window.speechSynthesis) {
+        return buildFakeSpeak();
+    }
     const speak = ((text: string, {
         lang = 'zh-CN',
         volume = 1,

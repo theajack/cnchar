@@ -44,7 +44,7 @@ export default ({
     Vue.use(ElementUI);
 
     let toastTimer = null;
-    Vue.prototype.$toast = window.$toast = (text, time = 2000) => {
+    Vue.prototype.$toast = (text, time = 2000) => {
         if (!text) return;
         const id = '_vuepress_toast';
         let el = document.getElementById(id);

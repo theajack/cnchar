@@ -7,7 +7,7 @@
         <div class='desc'>功能全面、多端支持的汉字拼音笔画js库</div>
         <div class='test'>
             <el-input v-model='text' class='test-input' type='text' placeholder='输入一些汉字试试' @input='input'></el-input>
-            <div class='btn-w'>
+            <div class='btn-w' v-show="supportVoice">
                 <el-button type='default' @click='regonize'>语音识别 <i class="ei-music"></i></el-button>
                 <el-button type='default' @click="speak">语音合成 <i class="ei-volume-up"></i></el-button>
             </div>
@@ -72,6 +72,7 @@
                 trad: '',
                 spark: '',
                 order: '',
+                supportVoice: false,
             };
         },
         mounted(){
@@ -79,6 +80,7 @@
                 this.text = decodeURIComponent(location.hash).substring(1);
                 this.applyText();
             }
+            this.supportVoice = window.cnchar.voice.speak.supported && window.cnchar.voice.recognize.supported;
         },
         methods: {
             input () {
@@ -211,6 +213,7 @@
         .btn-w{
             max-width: 1000px;
             padding: 0.5rem 0;
+            margin: 0 auto;
         }
         .start-w{
             max-width: 1000px;
