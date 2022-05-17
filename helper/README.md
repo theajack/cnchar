@@ -81,6 +81,8 @@ import cnchar from 'cnchar';
 
 使用 script 标签使用：
 
+**如果 jsdelivr 挂了可以使用 unpkg (https://unpkg.com/cnchar/cnchar.min.js)**
+
 ```html
 <script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
 <script>
@@ -163,6 +165,8 @@ npm i cnchar-all
 ```
 
 #### 3.2 cdn 引入
+
+**如果 jsdelivr 挂了可以使用 unpkg (https://unpkg.com/cnchar/cnchar.min.js)**
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
