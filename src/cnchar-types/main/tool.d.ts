@@ -17,6 +17,7 @@ export declare type TSpellArg = {
 export declare interface IHas {(args: Array<AllArgs>, name: AllArgs): boolean;}
 
 export declare interface IFunc<T = void, A = string> {(arg: A): T;}
+export declare interface IOptionFunc<T = void, A = string> {(arg?: A): T;}
 
 export declare interface IDealUpLowFirst {
     (
@@ -80,6 +81,9 @@ export declare interface ICncharTool {
     };
     mapJson: IMapJson;
     getResourceBase(): string;
+    pickRamdonEle<T = string> (arr: T[], n?: number): T[];
+    shuffle<T=string> (array: T[]): T[];
+    randomNum(a: number, b: number): number;
     poly?: boolean;
     [prop: string]: any;
 }

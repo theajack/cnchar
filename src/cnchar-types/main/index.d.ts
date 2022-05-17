@@ -1,5 +1,5 @@
 import {IPlugin} from './common';
-import {ICncharTool} from './tool';
+import {ICncharTool, IFunc} from './tool';
 
 export declare type SpellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad' | 'flat';
 export declare type StrokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
@@ -36,6 +36,18 @@ export declare type TypeValueObject = {
 export declare interface ISpell {(sentence: string, ...args: Array<SpellArg>): string | Array<any>;}
 
 declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number | Array<any>;}
+
+export interface IRandomSpellOptions {
+    number?: number,
+    tone?: boolean,
+    flat?: boolean,
+}
+
+export interface IRandomWordOptions {
+    number?: number,
+    stroke?: number,
+    trad?: boolean,
+}
 
 export interface ICnChar {
     spell: ISpell;
@@ -82,11 +94,14 @@ export interface ICnChar {
     };
     setResourceBase(url: string): void;
     env: 'node' | 'web' | 'miniapp';
+
+    randomSpell: IFunc<string[], IRandomSpellOptions>;
+    randomWord: IFunc<string, IRandomWordOptions>;
 }
 
 declare global {
     interface String {
-        spell(...args: Array<SpellArg>): string | Array<any>;
-        stroke(...args: Array<StrokeArg>): number | Array<any>;
+        spell(...args: Array<SpellArg>): string | string[];
+        stroke(...args: Array<StrokeArg>): number | number[];
     }
 }
