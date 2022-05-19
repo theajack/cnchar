@@ -9,7 +9,7 @@
 
 import ICnChar from 'cnchar-types';
 
-export const BASE_DIR = 'https://cdn.jsdelivr.net/npm/cnchar-data@latest/';
+export const BASE_DIR = 'https://fastly.jsdelivr.net/npm/cnchar-data@latest/';
 
 export function buildResourceBank (dir: string) {
 

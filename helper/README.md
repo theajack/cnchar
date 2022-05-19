@@ -1,5 +1,5 @@
 <p align="center">
-    <img src='https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
+    <img src='https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
 </p> 
 
 <p align="center">
@@ -26,7 +26,7 @@
     <a href="https://www.github.com/theajack/cnchar/blob/master/LICENSE" target="_black">
         <img src="https://img.shields.io/github/license/theajack/cnchar?color=%232DCE89&logo=github" alt="license" />
     </a>
-    <a href="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/cnchar.svg" alt="Size"></a>
+    <a href="https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/cnchar.svg" alt="Size"></a>
     <a href="https://github.com/theajack/cnchar/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/cnchar.svg" alt="TopLang"></a>
     <a href="https://github.com/theajack/cnchar/issues"><img src="https://img.shields.io/github/issues-closed/theajack/cnchar.svg" alt="issue"></a>
     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a>
@@ -84,7 +84,7 @@ import cnchar from 'cnchar';
 **如果 jsdelivr 挂了可以使用 unpkg (https://unpkg.com/cnchar/cnchar.min.js)**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
 <script>
     '汉字'.spell();
     '汉字'.stroke();
@@ -169,23 +169,23 @@ npm i cnchar-all
 **如果 jsdelivr 挂了可以使用 unpkg (https://unpkg.com/cnchar/cnchar.min.js)**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
 ```
 
 或使用以下cdn，包含了以上十一个库
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
 ```
 
 ### 4.使用
@@ -245,17 +245,17 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 原生浏览器环境就需要使用 script 标签引入 js 文件：
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
 <script>
     console.log('汉字'.spell()); // prototype 方式调用
     console.log(cnchar.spell('汉字')); // cnchar api 调用
@@ -304,7 +304,7 @@ cnchar.draw('你好', options); // options 为可选参数， 在5.2.2 种会详
 
 运行结果如下：
 
-![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/readme/draw.jpg)
+![draw.jpg](https://fastly.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/readme/draw.jpg)
 
 该库支持脱离cnchar 独立使用
 
@@ -1355,7 +1355,7 @@ import cnchar from 'cnchar';
 script 标签引用 方式
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"></script>
 <script>
     // do something
 </script>

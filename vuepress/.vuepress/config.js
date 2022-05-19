@@ -9,7 +9,7 @@ module.exports = {
         if (NODE_ENV === 'production') {
             return {
                 output: {
-                    publicPath: 'https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/'
+                    publicPath: 'https://fastly.jsdelivr.net/gh/theajack/cnchar@gh-pages/'
                     // publicPath: '/docs/' // debug
                 },
                 resolve: {
@@ -36,7 +36,7 @@ module.exports = {
     base: '/cnchar/', // gh-pages分支这里需要改成 / 因为 cnchar.js.org的配置
     // 注入到当前页面的 HTML <head> 中的标签
     head: [
-        ['link', {rel: 'icon', href: 'https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/v1/images/i.ico'}], // 增加一个自定义的 favicon
+        ['link', {rel: 'icon', href: 'https://fastly.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/v1/images/i.ico'}], // 增加一个自定义的 favicon
     ],
     // dest: './dist', //打包位置
     port: 6868, // 端口号

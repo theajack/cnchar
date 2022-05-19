@@ -6,7 +6,7 @@
  * @FilePath: /cnchar/src/cnchar/main/utils/resource.ts
  * @Description: Coding something
  */
-let resourceBase = 'https://cdn.jsdelivr.net/npm/cnchar-data@latest/';
+let resourceBase = 'https://fastly.jsdelivr.net/npm/cnchar-data@latest/';
 
 export function setResourceBase (url: string): void {
     resourceBase = url;

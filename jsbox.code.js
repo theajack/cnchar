@@ -1,5 +1,5 @@
 window.jsboxCode = {
-    lib: 'https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js',
+    lib: 'https://fastly.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js',
     lang: 'html',
     code: /* html */`<style>
     #cnchar-area{

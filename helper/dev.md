@@ -13,3 +13,9 @@ npm run release -- vx.x.x
 ```
 npm run release -- vx.x.x del
 ```
+
+单独发布文档
+
+```
+npm run release -- dx.x.x del
+```
