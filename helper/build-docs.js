@@ -17,7 +17,7 @@ function main () {
 
 function addMta () {
     const mta = /* html*/`<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/theajack/cdn/js/stat.js"></script>`;
-    var html = fs.readFileSync('./docs/index.html', 'utf8');
+    let html = fs.readFileSync('./docs/index.html', 'utf8');
     html = html.replace('</body>', mta + '</body>');
     fs.writeFileSync('./docs/index.html', html, 'utf8');
 }

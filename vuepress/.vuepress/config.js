@@ -55,8 +55,15 @@ module.exports = {
         // 顶部导航栏配置
         nav: [
             {text: '主页', link: '/'}, // 内部链接 以docs为根目录
-            {text: '使用说明', link: '/guide/'},
             {text: 'GitHub', link: 'https://www.github.com/theajack/cnchar'},
+            {
+                text: '使用说明',
+                items: [
+                    {text: '简介', link: '/guide/intro'},
+                    {text: '快速上手', link: '/guide/start'},
+                    {text: '更新日志', link: '/guide/version'},
+                ]
+            },
             {
                 text: '文档',
                 // 这里是下拉列表展现形式。
@@ -166,15 +173,11 @@ module.exports = {
                     children: [
                         {
                             title: '简介',
-                            path: './',
+                            path: 'intro',
                         },
                         {
                             title: '快速上手',
                             path: 'start',
-                        },
-                        {
-                            title: '文档',
-                            path: '/doc/cnchar',
                         },
                         {
                             title: '更新日志',
