@@ -1,5 +1,6 @@
 // let version = '@2.1.3';
 
+// eslint-disable-next-line no-var
 var jsbox_config = {
     libs: {
         // jsbox public/lib/lib.js

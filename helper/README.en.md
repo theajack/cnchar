@@ -1,5 +1,5 @@
 <p align="center">
-    <img src='https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
+    <img src='https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
 </p> 
 
 <p align="center">
@@ -26,7 +26,7 @@
     <a href="https://www.github.com/theajack/cnchar/blob/master/LICENSE" target="_black">
         <img src="https://img.shields.io/github/license/theajack/cnchar?color=%232DCE89&logo=github" alt="license" />
     </a>
-    <a href="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/cnchar.svg" alt="Size"></a>
+    <a href="https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"><img src="https://img.shields.io/bundlephobia/minzip/cnchar.svg" alt="Size"></a>
     <a href="https://github.com/theajack/cnchar/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/cnchar.svg" alt="TopLang"></a>
     <a href="https://github.com/theajack/cnchar/issues"><img src="https://img.shields.io/github/issues-closed/theajack/cnchar.svg" alt="issue"></a>
     <a href="https://www.github.com/theajack/cnchar"><img src="https://img.shields.io/librariesio/dependent-repos/npm/cnchar.svg" alt="Dependent"></a>
@@ -77,7 +77,7 @@ import cnchar from 'cnchar';
 Use the script tag to use:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
 <script>
     '汉字'.spell();
     '汉字'.stroke();
@@ -160,23 +160,23 @@ npm i cnchar-all
 #### 3.2 Introduce using cdn
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
 ```
 
 Or use the following cdn, which contains the above eleven libraries
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
 ```
 
 
@@ -237,17 +237,17 @@ Other usage methods are consistent with the browser environment
 The native browser environment requires the use of script tags to import js files:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
 <script>
     console.log('汉字'.spell()); // Called by prototype
     console.log(cnchar.spell('汉字')); // cnchar api call
@@ -296,7 +296,7 @@ cnchar.draw('你好', options); // options are optional parameters, detailed in 
 
 The results are as follows:
 
-![draw.jpg](https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/readme/draw.jpg)
+![draw.jpg](https://fastly.jsdelivr.net/gh/theajack/cnchar@gh-pages/assets/readme/draw.jpg)
 
 The library supports independent use without cnchar
 
@@ -1344,7 +1344,7 @@ import cnchar from 'cnchar';
 script tag reference
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/cnchar.latest.min.js"></script>
 <script>
     // do something
 </script>

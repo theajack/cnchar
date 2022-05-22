@@ -1,5 +1,5 @@
 module.exports = {
-  "parser": '@typescript-eslint/parser',
+  // "parser": '@typescript-eslint/parser', // 启用会导致vue文件eslint错误
   "plugins": [
     '@typescript-eslint',
     'jest'
@@ -12,12 +12,13 @@ module.exports = {
     "jest/globals": true
   },
   // 接入vue失败 暂且eslint 忽略vue文件
-  // "extends": [
-  //   // "standard",
-  //   "plugin:vue/essential"
-  // ],
+  "extends": [
+    // "standard",
+    "plugin:vue/essential"
+  ],
   "parserOptions": {
-    "parser": "babel-eslint",
+    // "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "ecmaVersion": 2018,
     "ecmaFeatures": {
       "arrowFunctions": true,
@@ -48,6 +49,8 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "error", // 使用 ts 未使用变量的规则 比如枚举类型在es中会报错
     "no-extend-native": 0,
     "no-new": 0,
+    "no-var": 2,
+    "prefer-const": 2,
     "no-useless-escape": 0,
     "no-useless-constructor": 0,
     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
@@ -83,19 +86,19 @@ module.exports = {
       "destructuring": "any",
       "ignoreReadBeforeAssign": false
     }],
-    // "vue/script-indent": ["warn", 4, {
-    //   "baseIndent": 1,
-    //   "switchCase": 1
-    // }],
-    // "vue/html-indent": ["error", 4],
-    // "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
+    "vue/script-indent": ["warn", 4, {
+      "baseIndent": 1,
+      "switchCase": 1
+    }],
+    "vue/html-indent": ["error", 4],
+    "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
   },
-  // "overrides": [
-  //   {
-  //      "files": ["*.vue"],
-  //      "rules": {
-  //        "indent": "off"
-  //      }
-  //    }
-  //  ]
+  "overrides": [
+    {
+       "files": ["*.vue"],
+       "rules": {
+         "indent": "off"
+       }
+     }
+   ]
 }

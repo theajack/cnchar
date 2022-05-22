@@ -6,10 +6,14 @@
         <div class='title'>cnchar</div>
         <div class='desc'>功能全面、多端支持的汉字拼音笔画js库</div>
         <div class='test'>
-            <el-input v-model='text' class='test-input' type='text' placeholder='输入一些汉字试试' @input='input'></el-input>
-            <div class='btn-w' v-show="supportVoice">
-                <el-button type='default' @click='regonize'>语音识别 <i class="ei-music"></i></el-button>
-                <el-button type='default' @click="speak">语音合成 <i class="ei-volume-up"></i></el-button>
+            <el-input v-if='loaded' v-model='text' class='test-input' type='text' placeholder='输入一些汉字试试' @input='input'></el-input>
+            <div v-else>
+                <i style='vertical-align: middle;' class='ei-spinner-snake ei-spin'></i>
+                <span style='vertical-align: middle;'>cnchar 正在加载中</span>
+            </div>
+            <div class='btn-w' v-show='supportVoice'>
+                <el-button type='default' @click='regonize'>语音识别 <i class='ei-music'></i></el-button>
+                <el-button type='default' @click='speak'>语音合成 <i class='ei-volume-up'></i></el-button>
             </div>
             <div class='show-area' v-show='text!==""'>
                 <div>{{spell}} <span class='split'>|</span> 共{{stroke}}笔</div>
@@ -21,7 +25,7 @@
         
         <div class='start-w'>
             <el-button type='primary' @click='start'>开始 <i class='ei-location-arrow'></i></el-button>
-            <el-button type='primary' @click='run'>运行 <i class='ei-play'></i></el-button>
+            <el-button type='primary' @click='run'>运行 <i class='ei-cube-alt'></i></el-button>
         </div>
         <div class='feature-w'>
             <div class='f-i'>
@@ -73,32 +77,43 @@
                 spark: '',
                 order: '',
                 supportVoice: false,
+                loaded: false,
             };
         },
-        mounted(){
-            if(location.hash){
-                this.text = decodeURIComponent(location.hash).substring(1);
-                this.applyText();
+        mounted () {
+            if (window.cnchar) {
+                this.init();
+            } else {
+                window.addEventListener('load', () => {
+                    this.init();
+                });
             }
-            this.supportVoice = window.cnchar.voice.speak.supported && window.cnchar.voice.recognize.supported;
         },
         methods: {
+            init () {
+                this.loaded = true;
+                this.supportVoice = window.cnchar.voice && window.cnchar.voice.speak.supported && window.cnchar.voice.recognize.supported;
+                if (location.hash) {
+                    this.text = decodeURIComponent(location.hash).substring(1);
+                    this.applyText();
+                }
+            },
             input () {
                 if (this.text) {
                     location.hash = this.text;
                     this.applyText();
                 }
             },
-            applyText(){
+            applyText () {
                 if (this.text) {
                     this.spell = this.text.spell('array', 'tone').join(' ');
                     this.stroke =  this.text.stroke();
                     this.trad =  this.text.convertSimpleToTrad('trad');
                     this.spark =  this.text.convertSimpleToSpark('spark');
                     this.order =  JSON.stringify(this.text.stroke('order', 'shape')).replace(/"/g, '').replace(/null/g, '无');
-                    let str = this.pickCnChar(this.text);
-                    let el = document.getElementById('draw-area');
-                    if(el) {
+                    const str = this.pickCnChar(this.text);
+                    const el = document.getElementById('draw-area');
+                    if (el) {
                         el.innerHTML = '';
                         if (str !== '') {
                             window.cnchar.draw(str, {el});
@@ -107,7 +122,7 @@
                 }
             },
             isCnChar (word) {
-                let unicode = word.charCodeAt(0);
+                const unicode = word.charCodeAt(0);
                 return unicode >= 19968 && unicode <= 40869;
             },
             pickCnChar (text) {
@@ -120,7 +135,7 @@
                 return v;
             },
             start () {
-                window.location.href = '/cnchar/guide/';
+                window.location.href = '/cnchar/guide/intro';
             },
             run () {
                 window.open('https://theajack.github.io/jsbox/?github=theajack.cnchar@master');
@@ -130,16 +145,16 @@
                     onstart: () => {
                         this.$toast('录音中，请说一些中文');
                     },
-                    onend: (s)=> {
+                    onend: (s) => {
                         this.text = s;
                         this.applyText();
                     }
                 });
             },
             speak () {
-                if(!this.text){
+                if (!this.text) {
                     this.$toast('请先输入一些中文');
-                }else{
+                } else {
                     window.cnchar.voice.speak(this.text);
                 }
             }

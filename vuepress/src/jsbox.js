@@ -8,9 +8,9 @@ function getUrl () {
     if (host.indexOf('localhost') !== -1 || host === 'theajack.github.io') {
         url = 'https://theajack.github.io';
     } else {
-        url = `${window.location.protocol}//www.theajack.com`;
+        url = `${window.location.protocol}//theajack.gitee.io`;
     }
-    return url + '/jsbox?theme=dark&remind=false&mes=false';
+    return url + '/jsbox/?env=cnchar&remind=false&mes=false';
 }
 
 function main () {
@@ -33,8 +33,8 @@ function main () {
     function id (_id = '') {
         let iframeId = _id;
         try {
-            var iframeWindow = iframe.contentWindow;
-            var search = iframeWindow.document.location.search;
+            const iframeWindow = iframe.contentWindow;
+            const search = iframeWindow.document.location.search;
             if (search) {
                 iframeId = parseUrlParam(search, 'id');
             }
@@ -42,16 +42,16 @@ function main () {
         }
         if (jsbox._id !== _id || iframeId !== _id) {
             jsbox._id = _id;
-            const config = (location.host.indexOf('localhost') !== -1) ? 'http://localhost:8080/config.js' : 'https://cdn.jsdelivr.net/gh/theajack/cnchar@gh-pages/config.js';
+            const config = (location.host.indexOf('localhost') !== -1) ? 'http://localhost:8080/config.js' : 'https://fastly.jsdelivr.net/gh/theajack/cnchar@gh-pages/config.js';
             jsbox.url = `${getUrl()}&config=${encodeURIComponent(config)}&id=${_id}`;
             iframe.src = jsbox.url;
         }
         open();
     }
-    function code (_code = '') {
+    function code (_code = '', lang = 'javascript') {
         if (jsbox._code !== _code) {
             jsbox._code = _code;
-            jsbox.url = `${getUrl()}&code=${encodeURIComponent(code)}`;
+            jsbox.url = `${getUrl()}&code=${encodeURIComponent(_code)}&lang=${lang}`;
             iframe.src = jsbox.url;
         }
         open();

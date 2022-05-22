@@ -22,6 +22,7 @@
         "start": "webpack-dev-server --open --config webpack-config/dev.js",
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",
         "build": "node ./helper/build.js",
+        "build:main": "webpack --config webpack-config/build.js",
         "publish": "node ./helper/publish.js",
         "test": "node ./helper/test/index.js",
         "lint": "eslint src --ext js",
@@ -31,7 +32,8 @@
         "purge": "node ./helper/purge-cdn.js",
         "count": "count-code-line",
         "build:webpack": "webpack --config webpack-config/build.js",
-        "release": "node ./helper/push-release.js"
+        "release": "node ./helper/push-release.js",
+        "fix": "eslint --fix **/*.vue"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",

@@ -1,6 +1,6 @@
 <template>
     <div class='code-box'>
-        <div>
+        <div class='code-runner'>
             <span class='code-title'>{{title || id}}</span>
             <span class='code-desc'>{{localDesc}}</span>
             <i class='ei-play code-btn' @click='run' title='在线运行'></i>
@@ -75,14 +75,14 @@
                 this.localLang = this.lang;
                 this.localDesc = this.desc;
             } else {
-                let codes = window.jsbox_config.codes;
+                const codes = window.jsbox_config.codes;
                 this.localCode = codes[this.id].code;
                 this.localLang = codes[this.id].lang === 'html' ? 'html' : 'javascript';
                 this.localDesc = codes[this.id].desc || this.desc;
             }
             let js = '';
             if (this.localLang === 'html') {
-                let res = extractScript(this.localCode);
+                const res = extractScript(this.localCode);
                 js = res.js;
                 this.html = res.html;
             } else {
@@ -143,23 +143,25 @@
         padding: 10px 0;
         border-top: 1px solid #eaecef;
         border-bottom: 1px solid #eaecef;
-        .code-title{
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        .code-desc{
-            font-size: 0.8rem;
-            color: #aaa;
-        }
-        .code-btn{
-            float: right;
-            color: #007acc;
-            margin-left: 10px;
-            cursor: pointer;
-            transition: transform .3s ease;
-            margin-top: 5px;
-            &:hover{
-                transform: scale(1.2);
+        .code-runner{
+            .code-title{
+                font-weight: bold;
+                margin-right: 10px;
+            }
+            .code-desc{
+                font-size: 0.8rem;
+                color: #aaa;
+            }
+            .code-btn{
+                float: right;
+                color: #007acc;
+                margin-left: 10px;
+                cursor: pointer;
+                transition: transform .3s ease;
+                margin-top: 5px;
+                &:hover{
+                    transform: scale(1.2);
+                }
             }
         }
         pre{

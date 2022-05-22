@@ -12,8 +12,10 @@ args 传入 trad 可以查询繁体字，但是依赖于安装了 `cnchar-trad`
 
 看一个具体例子
 
+<code-runner></code-runner>
+
 ```js
-cnchar.words('你');
+console.log(cnchar.words('你'));
 cnchar.words.addWords('你们好'); // 添加一个词组
 ```
 
@@ -31,8 +33,11 @@ args参数如下
 
 ## 3. 实例
 
+<code-runner></code-runner>
+
 ```js
-cnchar.words('香蕉');
+var r1 = cnchar.words('香蕉');
 cnchar.words.addWords('香蕉牛奶');
-cnchar.words('香蕉');
+var r2 = cnchar.words('香蕉');
+console.log(r1, r2);
 ```

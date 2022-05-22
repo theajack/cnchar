@@ -9,7 +9,7 @@
 
 // const https = require('https');
 
-// https.get('https://cdn.jsdelivr.net/npm/cnchar-data@latest/explanation/%E9%98%BF.json', res => {
+// https.get('https://fastly.jsdelivr.net/npm/cnchar-data@latest/explanation/%E9%98%BF.json', res => {
 //     if (res.statusCode === 200) {
 //         res.on('data', chunk => {
 //             console.log(chunk.toString());
@@ -44,4 +44,4 @@ function nodeGetJson (url) {
 }
 
 
-nodeGetJson('https://cdn.jsdelivr.net/npm/cnchar-data@latest/explanation/%E4%BD%A0.json').then(d => console.log(d));
+nodeGetJson('https://fastly.jsdelivr.net/npm/cnchar-data@latest/explanation/%E4%BD%A0.json').then(d => console.log(d));

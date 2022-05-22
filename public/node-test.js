@@ -7,7 +7,7 @@
  * @Description: Coding something
  */
 const nodeHttps = require('https');
-nodeHttps.get('https://cdn.jsdelivr.net/npm/cnchar-data@latest/draw/你.json', (res) => {
+nodeHttps.get('https://fastly.jsdelivr.net/npm/cnchar-data@latest/draw/你.json', (res) => {
     if (res.statusCode === 200) {
         let body = '';
         res.on('data', (chunk) => {

@@ -6,6 +6,7 @@ src_import_version
 !.vuepress
 docs
 vuepress/config.js
-**/*.vue
+# **/*.vue
 **/*.html
 **/*.min.js
+promise-polyfill.js

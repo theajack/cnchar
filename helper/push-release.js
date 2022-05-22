@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-06 09:14:55
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-06 11:24:30
+ * @LastEditTime: 2022-05-19 11:14:56
  * @FilePath: /cnchar/helper/push-release.js
  * @Description: Coding something
  */
@@ -16,15 +16,15 @@ async function delTag (tagName) {
 
 // 版本发布 del 表示需要覆盖上一个版本 一般不需要
 // node ./helper/push-tag.js vx.x.x
-// node ./helper/push-tag.js vx.x.x del
+// node ./helper/push-tag.js vx.x.x no-del
  
 // npm run release -- vx.x.x
-// npm run release -- vx.x.x del
+// npm run release -- vx.x.x no-del
 
 async function main () {
     const argv = process.argv.slice(2);
     const tagName = argv[0];
-    if (argv[1] === 'del') {
+    if (argv[1] !== 'no-del') {
         console.log(`Start delete tag ${tagName}...`);
         await delTag(tagName);
     }

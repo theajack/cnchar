@@ -16,7 +16,7 @@ async function main () {
     const buildNpm = `node ./helper/build-npm.js`;
     let cmds = [];
     let cmdConsole = [];
-    const packages = process.argv.slice(2);
+    const packages = process.argv.slice(3);
 
     packages.forEach(package => {
         if (plugins.includes(package) || package === allPackage) {
@@ -46,7 +46,11 @@ async function main () {
     }
     console.log(`Start Building(version = ${version})... [0/${cmds.length}]`);
     for (let i = 0; i < cmds.length; i++) {
-        await exec(cmds[i]);
+        const result = await exec(cmds[i]);
+        if (!result.success) {
+            console.log(result.stderr);
+            return;
+        }
         console.log(`${cmdConsole[i]} build success. [${i + 1}/${cmds.length}]`);
     }
     console.log('Finished!');

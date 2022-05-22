@@ -11,5 +11,11 @@ npm run release -- vx.x.x
 运行
 
 ```
-npm run release -- vx.x.x del
+npm run release -- vx.x.x
+```
+
+单独发布文档
+
+```
+npm run release -- dx.x.x
 ```

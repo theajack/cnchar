@@ -16,7 +16,7 @@ cdn使用
 
 <div>
   <highlight-code lang='html'>
-&lt;script src="https://cdn.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js">&lt;/script>
+&lt;script src="https://fastly.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js">&lt;/script>
   </highlight-code>
 </div>
 
