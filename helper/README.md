@@ -121,9 +121,9 @@ import cnchar from 'cnchar';
 24. 丰富的配置，按功能拆分成插件，按需取用
 25. 支持 **IE9**及以上版本
 
-### 2.概览
+### 2.功能及插件概览
 
-考虑到不同的需求，cnchar 的功能被拆分到以下十二个库中，方便开发者按需取用：
+考虑到不同的需求，cnchar 的功能被拆分到以下多个插件库中，方便开发者按需取用：
 
 |     名称     | 描述 |   功能   | 支持版本 | node支持 | 小程序 |
 | :----------: | :------------------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: |
@@ -139,6 +139,17 @@ import cnchar from 'cnchar';
 | cnchar-explain  |    汉字解释库    | 支持查询汉字含义 | 3.1.0+ | 是 | 是 |
 | cnchar-voice  |    语音识别和语音合成    | 支持对中文进行发音与合成 | 3.1.0+ | 否 | 部分 |
 | cnchar-data  |    离线词典库    | 用以支持部分插件库的离线使用及自定义部署 | 3.1.0+ | 是 | 是 |
+| cnchar-random  |    随机库    | 随机生成拼音、汉字、词语、成语、歇后语 | 3.2.0+ | 是 | 是 |
+| cnchar-input  |    输入法支持    | 支持拼音和五笔输入法结果 | 3.2.0+ | 是 | 是 |
+| cnchar-code  |    汉字编码库    | 汉字编码查询 | 3.2.0+ | 是 | 是 |
+| cnchar-info  |    汉字信息查询    | 用于查询汉字信息 | 3.2.0+ | 是 | 是 |
+
+以下四个插件库文档不在本readme中维护，请参考以下地址 或前往 [在线文档](https://theajack.github.io/cnchar/doc/cnchar.html)：
+
+1. [cnchar-random](https://github.com/theajack/cnchar/blob/master/vuepress/doc/random.md)
+2. [cnchar-input](https://github.com/theajack/cnchar/blob/master/vuepress/doc/input.md)
+3. [cnchar-code](https://github.com/theajack/cnchar/blob/master/vuepress/doc/code.md)
+4. [cnchar-info](https://github.com/theajack/cnchar/blob/master/vuepress/doc/info.md)
 
 ### 3.安装
 
@@ -153,10 +164,10 @@ npm i cnchar
 安装附加功能库：
 
 ```
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice cnchar-random cnchar-code cnchar-input cnchar-info
 ```
 
-当然您也可以按需安装其中的几个，但是 `cnchar` 这个基础库是必须安装的（draw、idiom、xhy、radical四个库可以独立使用）
+当然您也可以按需安装其中的几个，但是 `cnchar` 这个基础库是必须安装的（draw、idiom、xhy、radical、code、input、info 这几个库可以独立使用）
 
 或者您可以通过安装`cnchar-all`来使用完整功能，这个库引用了上面的所有插件库
 
@@ -180,9 +191,13 @@ npm i cnchar-all
 <script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-random/cnchar.random.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-code/cnchar.code.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-input/cnchar.input.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-info/cnchar.info.min.js"></script>
 ```
 
-或使用以下cdn，包含了以上十一个库
+或使用以下cdn，包含了以上所有插件库
 
 ```html
 <script src="https://fastly.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
@@ -198,15 +213,7 @@ npm 安装好几个库之后：
 // 请保证最先引入 cnchar 基础库，其他几个库顺序无所谓
 import cnchar from 'cnchar';
 import 'cnchar-poly';
-import 'cnchar-order';
-import 'cnchar-trad';
-import 'cnchar-draw';
-import 'cnchar-idiom';
-import 'cnchar-xhy';
-import 'cnchar-radical';
-import 'cnchar-words';
-import 'cnchar-explain';
-import 'cnchar-voice';
+// ... 其他插件请参考第二章 2. 功能及插件概览
 // 插件请按需取用
 
 console.log('汉字'.spell()); // prototype 方式调用
@@ -223,16 +230,10 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 // 请保证最先引入 cnchar 基础库，其他几个库顺序无所谓
 var cnchar = require('cnchar');
 var poly = require('cnchar-poly');
-var order = require('cnchar-order');
-var trad = require('cnchar-trad');
-var idiom = require('cnchar-idiom');
-var xhy = require('cnchar-xhy');
-var radical = require('cnchar-radical');
-var words = require('cnchar-words');
-var explain = require('cnchar-explain');
+// ... 其他插件请参考第二章 2. 功能及插件概览
 // 插件请按需取用
 // 注：cnchar-draw，cnchar-voice 在非浏览器环境下不可使用
-cnchar.use(poly, order, trad, idiom, xhy, radical, words, explain);
+cnchar.use(poly);
 
 console.log('汉字'.spell()); // prototype 方式调用
 console.log(cnchar.spell('汉字')); // cnchar api 调用
@@ -247,15 +248,7 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 ```html
 <script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<!--... 其他插件请参考第二章 2. 功能及插件概览-->
 <script>
     console.log('汉字'.spell()); // prototype 方式调用
     console.log(cnchar.spell('汉字')); // cnchar api 调用
@@ -1170,6 +1163,99 @@ cnchar 在 3.1.0 版本新增了 [cnchar-data](https://github.com/cn-char/cnchar
 
 具体请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 
+#### 5.17 自定义插件
+
+cnchar 采用的是独立的插件形式，定义一个 cnchar 插件非常简单且不依赖任何第三方包，并且通过 cnchar 注入，可以访问到任何 cnchar 和其他插件的方法
+
+一个 cnchar 插件需要有两个属性
+
+1. pluginName
+
+   插件名称，插件安装之后，会注入到 cnchar.plugins 中
+
+2. install
+
+   安装方法，cnchar对象会调用install方法，并将cnchar对象作为回调带入插件中，**可以通过cnchar对象访问cnchar和其他插件方法**
+
+   install方法如果返回一个json，则cnchar对象会将这个json中的所有属性挂载到cnchar中，前提是不能与已有属性有命名冲突
+
+##### 5.17.1 js定义插件
+
+```js
+export default {
+    pluginName: 'custom',
+    install (cnchar) {
+        const log = () => console.log('hello!');
+        return {
+            customLog: log,
+            custom: {
+                version: '0.0.1',
+                log
+            }
+        };
+    }
+}
+```
+
+##### 5.17.2 ts定义插件
+
+如果使用ts，则可以安装 `cnchar-types` 来添加cnchar声明，当然这不是必须的
+
+推荐使用 cnchar-types
+
+```ts
+import ICnChar, {IPlugin} from 'cnchar-types';
+
+const plugin: IPlugin = {
+    pluginName: 'custom',
+    install (cnchar: ICnChar) {
+        const log = () => console.log('hello!');
+        return {
+            customLog: log,
+            custom: {
+                version: '0.0.1',
+                log
+            }
+        };
+    }
+};
+
+declare module 'cnchar-types/main/index' {
+    interface ICnChar {
+        customLog: () => void;
+        custom: {
+            version: string;
+            log: () => void;
+        };
+    }
+}
+
+export default plugin;
+```
+
+不使用 cnchar-types
+
+```ts
+const plugin: {
+    pluginName: string;
+    install: (cnchar: any) => any;
+} = {
+    pluginName: 'custom',
+    install (cnchar: any) {
+        const log = () => console.log('hello!');
+        return {
+            customLog: log,
+            custom: {
+                version: '0.0.1',
+                log
+            }
+        };
+    }
+};
+export default plugin;
+```
+
+
 ### 6.参数介绍
 
 #### 6.1 spell 参数
@@ -1316,14 +1402,11 @@ cnchar.xhy(value,arg1,arg2,...);
 
 参数调用如下，value表示需要查询偏旁的汉字，可以是字符串或数组
 
-```js
-cnchar.radical(value,arg1,arg2,...);
-```
+如果引用了 cnchar-trad, 则会自动识别繁体字
 
-|  参数   |    作用    | 是否默认 |  依赖库   |   备注    |
-| :-----: | :----: | :------: | :---: | :---: |
-|  array   | 是否返回数组 |    否    | -- |  当传入为数组时默认返回数组  |
-|  trad   | 开启繁体字识别 |    否    | cnchar-trad |  开启繁体字识别  |
+```js
+cnchar.radical(value);
+```
 
 #### 6.9 words 与 explain 参数
 
@@ -1531,10 +1614,9 @@ cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second') // ['醉汉过铁索桥'
 该库为cnchar扩展了偏旁部首功能
 
 ```js
-cnchar.radical('你'); // "亻",
-cnchar.radical('你好呀'); // "亻女口"
-cnchar.radical('你好呀', 'array'); // ["亻", "女", "口"]
-cnchar.radical(["你", "好", "呀"]); // ["亻", "女", "口"]
+cnchar.radical('你'); // [{radicalCount: 2, radical: '亻', struct: '左右结构'}],
+cnchar.radical('你好呀'); // ...
+cnchar.radical(["你", "好", "呀"]); // ...
 ```
 
 ##### 6.10.8 cnchar-words

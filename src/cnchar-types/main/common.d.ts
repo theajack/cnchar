@@ -28,7 +28,7 @@ export declare interface ITransformReturn {
 export declare interface IPlugin {
     pluginName: string;
     install(cnchar: ICnChar): void;
-    dict: Json<Json>;
+    dict?: Json;
     args?: Json;
 }
 export declare interface ConvertInterface {

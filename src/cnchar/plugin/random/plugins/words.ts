@@ -23,7 +23,7 @@ export function randomWords ({
     }
 
     if (!dictString)
-        dictString = words.dict.words.wordsString;
+        dictString = words.dict?.words.wordsString;
 
     const array = dictString.match(new RegExp(` .{${length}} `, 'g'));
 

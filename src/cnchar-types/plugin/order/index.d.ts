@@ -44,8 +44,15 @@ declare global {
     }
 }
 
+export interface IOrder {
+    dict: {
+        orders: Json;
+        strokeTable: Json;
+    }
+}
 declare module '../../main/index' {
     interface ICnChar {
+        order: IOrder;
         setOrder: ISetOrder;
         orderToWord: IOrderToWord;
     }

@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-05-15 17:33:45
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-28 20:47:51
+ * @LastEditTime: 2022-05-29 11:19:37
  * @FilePath: /cnchar/src/cnchar/main/utils/random.ts
  * @Description: Coding something
  */
@@ -87,8 +87,8 @@ export const randomWord: IFunc<string, IRandomWordOptions> = ({
 
     if (trad) {
         const plugin = getPlugin('trad');
-        if (plugin) {
-            dict = plugin.dict.count;
+        if (plugin && plugin.dict) {
+            dict = plugin.dict.count as Json;
             if (AllTradWords.length === 0) AllTradWords = Object.values(dict).join('').split('');
             words = AllTradWords;
         }

@@ -30,6 +30,12 @@ export interface IRandomWordsOptions {
     pattern?: [string, ...('trad')[]];
 }
 
+export interface IRandomInfoOptions {
+    number?: number;
+    fiveElement?: '金' | '木' | '水' | '火' | '土';
+    method?: '形声' | '会意';
+}
+
 export interface IRandom {
     use(plugin: IPlugin): void;
     spell: IFunc<string[], IRandomSpellOptions>;
@@ -37,6 +43,7 @@ export interface IRandom {
     idiom: IFunc<string[], IRandomIdiomOptions>;
     xhy: IFunc<string[], IRandomXHYOptions>;
     words: IFunc<string[], IRandomWordsOptions>;
+    info: IFunc<string, IRandomInfoOptions>;
 }
 
 declare global {

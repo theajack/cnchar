@@ -1,8 +1,8 @@
 /*
  * @Author: tackchen
  * @Date: 2022-04-10 12:07:55
- * @LastEditors: tackchen
- * @LastEditTime: 2022-04-10 21:51:34
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-29 11:25:16
  * @FilePath: /cnchar/src/cnchar/main/utils/plugins.ts
  * @Description: Coding something
  */
@@ -27,10 +27,8 @@ function addPluginName (name: PluginArg) {
 export function installPlugin (...plugins: Array<IPlugin>): void {
     const cnchar = getCnChar();
     plugins.forEach(plugin => {
-
         const {pluginName, install, args} = plugin;
-
-        if (!pluginName) {_warn('plugin name is required'); return;}
+        if (!pluginName) {_warn('plugin name is required', plugin); return;}
 
         if (!addPluginName(pluginName)) return;
         const target = cnchar as any;

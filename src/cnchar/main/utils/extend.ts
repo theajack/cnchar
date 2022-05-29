@@ -26,10 +26,12 @@ export function extendCnChar (): {
     words: IWords;
     explain: IExplain;
     voice: IVoice;
-    code: ICode,
-    input: IInput,
-    random: IRandom,
-    info: IInfo,
+    code: ICode;
+    input: IInput;
+    random: IRandom;
+    info: IInfo;
+    trad: any;
+    order: any;
     } {
 
     const draw = fn('draw') as unknown as IDraw;
@@ -60,6 +62,8 @@ export function extendCnChar (): {
             tradToSimple () {fn('radical'); return '';},
             tradToSpark () {fn('radical'); return '';},
         },
+        trad: fn('trad'),
+        order: fn('order'),
         xhy,
         words: fn('words') as IWords,
         explain: fn('explain') as IExplain,

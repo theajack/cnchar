@@ -90,7 +90,7 @@ function getStrokeSingle (
     return arr;
 }
 
-function install (cnchar: ICnChar & ICnCharOrder): void {
+function install (cnchar: ICnChar & ICnCharOrder) {
     const _old = cnchar._origin.stroke;
     _ = cnchar._;
     
@@ -113,6 +113,14 @@ function install (cnchar: ICnChar & ICnCharOrder): void {
         delete cnchar._._reinitStrokeOrder;
     }
     initOrderToWord(cnchar);
+    return {
+        order: {
+            dict: {
+                orders,
+                strokeTable,
+            }
+        }
+    };
 }
 
 const plugin: IPlugin = {

@@ -5,6 +5,7 @@ import {usePlugin} from './store';
 import {randomIdiom} from './plugins/idiom';
 import {randomXHY} from './plugins/xhy';
 import {randomWords} from './plugins/words';
+import {randomWithInfo} from './plugins/info';
 
 export function setCnchar (cnchar: ICnChar) {
     setCnchar(cnchar);
@@ -18,4 +19,5 @@ export const random: IRandom = {
     idiom: randomIdiom,
     xhy: randomXHY,
     words: randomWords,
+    info: randomWithInfo,
 };

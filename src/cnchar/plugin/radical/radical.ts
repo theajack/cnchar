@@ -9,6 +9,14 @@ const radicals = dict as Json<string>;
 
 let _cnchar: ICnChar;
 
+function checkTrad (input: string) {
+    if (_cnchar && _cnchar.plugins.indexOf('trad') !== -1) {
+        return getSingleRadical(_cnchar.trad.dict?.radical, input);
+    } else {
+        return null;
+    }
+}
+
 export function getDict () {
     return {
         radical: dict,
@@ -21,14 +29,18 @@ export const radical = ((
 ): IRadicalResult[] => {
     const result: IRadicalResult[] = [];
     for (let i = 0; i < input.length; i++) {
-        result.push(getSingleRadical(input[i]));
+        let single = getSingleRadical(radicals, input[i]);
+        if (!single.radical) {
+            single = checkTrad(input[i]) || single;
+        }
+        result.push(single);
     }
     return result;
 }) as IRadical;
 
-function getSingleRadical (word: string): IRadicalResult {
-    for (const radical in radicals) {
-        const str = radicals[radical];
+function getSingleRadical (dict:Json, word: string): IRadicalResult {
+    for (const radical in dict) {
+        const str = dict[radical];
 
         const index = str.indexOf(word);
 

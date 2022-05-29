@@ -12,6 +12,7 @@ import {IPlugin} from 'cnchar-types/main/common';
 const arg: ITradModArg = {
     trad: 'trad', simple: 'simple', array: 'array', order: 'order' // 开启简单模式
 };
+
 let _: ICncharTool;// 工具方法
 
 function reinitSpell (proto: String, cnchar: ICnChar): void {
@@ -49,7 +50,7 @@ function reinitSpell (proto: String, cnchar: ICnChar): void {
     if (!cnchar._.poly) {
         cnchar._._reinitSpellPoly = function (): void {
             _spell = cnchar.spell;
-            proto.spell = function (...args) {
+            proto.spell = function (...args: any[]) {
                 return newSpell(this as string, ...args);
             };
             cnchar.spell = function (...args) {return newSpell(...args);};
@@ -126,7 +127,7 @@ function reinitStroke (proto: String, cnchar: ICnChar) {
     }
 }
 
-function install (cnchar: ICnChar & {convert?: IConverter}): void {
+function install (cnchar: ICnChar & {convert?: IConverter}) {
     cnchar.convert = converter;
     const _p: String & ITradString = String.prototype;
     if (typeof cnchar.type.spell === 'object') {
@@ -149,8 +150,14 @@ function install (cnchar: ICnChar & {convert?: IConverter}): void {
     _.convert = converter;
     _.dict.getTradOrders = function () {return orderDict;};
     _.dict.getTradCount = function () {return countDict;};
-}
 
+    return {
+        trad: {
+            convert: converter,
+            dict: getDict(),
+        },
+    };
+}
 
 const plugin: IPlugin = {
     pluginName: 'trad',

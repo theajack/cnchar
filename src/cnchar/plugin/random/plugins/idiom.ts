@@ -21,6 +21,6 @@ export function randomIdiom ({
         dict = (idiom as any as IIdiom)(input, ...pattern as IdomArg[]);
     }
 
-    if (!dict) dict = idiom.dict.idiom as string[];
+    if (!dict) dict = idiom.dict?.idiom as string[];
     return pickRandomEle(dict, number);
 }

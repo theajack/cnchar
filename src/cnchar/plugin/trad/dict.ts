@@ -3,6 +3,8 @@ import originOrderDict from './dict/stroke-order-trad.json';
 import originTradDict from './dict/trad-simple.json';
 import originSparkDict from './dict/spark-simple.json';
 import originCodeDict from './dict/code.json';
+import originInfoDict from './dict/info.json';
+import radical from './dict/radicals-trad.json';
 import {Json} from 'cnchar-types/main/common';
  
 export const codeDict = originCodeDict as Json<string>;
@@ -18,5 +20,7 @@ export function getDict () {
         order: orderDict,
         trad: tradDict,
         spark: sparkDict,
+        radical: radical as any,
+        info: originInfoDict as any,
     };
 }

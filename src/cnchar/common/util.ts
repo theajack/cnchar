@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 21:46:46
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-28 16:15:37
+ * @LastEditTime: 2022-05-29 10:57:31
  * @FilePath: /cnchar/src/cnchar/common/util.ts
  * @Description: Coding something
  */
@@ -13,7 +13,7 @@ export const _throw: IFunc<never> = (err: string): never => {
     throw new Error('CnChar Error:' + err);
 };
 
-export const _warn: IFunc<void> = (...infos: string[]): void => {
+export function _warn (...infos: any[]): void {
     console.warn('CnChar Warning:', ...infos);
 };
 

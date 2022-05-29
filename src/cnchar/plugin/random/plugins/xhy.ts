@@ -20,7 +20,7 @@ export function randomXHY ({
         return pickRandomEle(dict, number);
     }
 
-    const array = xhy.dict.array as Array<[string, string]>;
+    const array = xhy.dict?.array as Array<[string, string]>;
 
     return pickRandomEle(array, number).map((array) => {
         return `${array[0]}-${array[1]}`;

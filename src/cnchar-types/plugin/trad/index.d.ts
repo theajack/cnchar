@@ -1,3 +1,4 @@
+import {IPlugin} from 'src/cnchar-types/main/common';
 import {ICnChar, TradArg, SpellArg} from '../../main';
 
 export declare type TTradAag = {
@@ -51,6 +52,9 @@ declare global {
 declare module '../../main/index' {
     interface ICnChar {
         convert: IConverter;
+        trad: IPlugin & {
+            convert: IConverter
+        };
     }
 }
 
