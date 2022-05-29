@@ -81,7 +81,9 @@ export declare interface ICncharTool {
     };
     mapJson: IMapJson;
     getResourceBase(): string;
-    pickRamdonEle<T = string> (arr: T[], n?: number): T[];
+    pickRandomEle<T = string> (arr: T[], n?: number): T[];
+    pickRandomChar(str: string, n?: number): string;
+    
     shuffle<T=string> (array: T[]): T[];
     randomNum(a: number, b: number): number;
     poly?: boolean;

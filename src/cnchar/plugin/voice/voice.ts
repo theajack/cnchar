@@ -16,6 +16,10 @@ import {mergeVoiceOption} from './options';
 
 const TempDict: Json<string> = {};
 
+export function getTempDict () {
+    return TempDict;
+}
+
 export const arg: Json = {
 };
 

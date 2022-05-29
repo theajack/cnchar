@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 19:03:21
  * @LastEditors: tackchen
- * @LastEditTime: 2022-04-14 22:30:14
+ * @LastEditTime: 2022-05-24 08:02:34
  * @FilePath: /cnchar/src/cnchar/common/build-resource.ts
  * @Description: Coding something
  */
@@ -13,9 +13,9 @@ export const BASE_DIR = 'https://fastly.jsdelivr.net/npm/cnchar-data@latest/';
 
 export function buildResourceBank (dir: string) {
 
-    let cncharResourceBase = '';
-
     const DEFAULT_RESOURCE_BASE = `${BASE_DIR}${dir}/`;
+
+    let getBaseDIR = () => DEFAULT_RESOURCE_BASE;
 
     let resourceBase = '';
 
@@ -24,10 +24,10 @@ export function buildResourceBank (dir: string) {
             resourceBase = url;
         },
         getResourceBase (): string {
-            return resourceBase || cncharResourceBase || DEFAULT_RESOURCE_BASE;
+            return resourceBase || getBaseDIR() || DEFAULT_RESOURCE_BASE;
         },
         initResourceFromCnchar (cnchar: ICnChar) {
-            cncharResourceBase = `${cnchar._.getResourceBase()}${dir}/`;
+            getBaseDIR = () => `${cnchar._.getResourceBase()}${dir}/`;
         }
     };
 }

@@ -1,7 +1,7 @@
 
 import {IPlugin} from 'cnchar-types/main/common';
 import {IExplain} from 'cnchar-types/plugin/explain';
-import {explain, setCnchar, args} from './explain';
+import {explain, setCnchar, args, getTempDict} from './explain';
 import {initResourceFromCnchar, setResourceBase} from './resource';
 
 const plugin: IPlugin = {
@@ -13,6 +13,9 @@ const plugin: IPlugin = {
         return {explain};
     },
     args: args,
+    dict: {
+        temp: getTempDict()
+    }
 };
 
 if (typeof window === 'object') {

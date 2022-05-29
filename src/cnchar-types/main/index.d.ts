@@ -1,5 +1,5 @@
-import {IPlugin} from './common';
-import {ICncharTool, IFunc} from './tool';
+import {IPlugin, Json} from './common';
+import {ICncharTool} from './tool';
 
 export declare type SpellArg = 'array' | 'low' | 'up' | 'first' | 'poly' | 'tone' | 'simple' | 'trad' | 'flat';
 export declare type StrokeArg = 'letter' | 'shape' | 'count' | 'name' | 'detail' | 'array' | 'order' | 'simple' | 'trad';
@@ -15,7 +15,9 @@ export declare type AllArgs = SpellArg | StrokeArg
     | SpellToWordArg | StrokeToWordArg | OrderToWordArg
     | IdomArg | SortSpellArg | TradArg | XhyArg;
 
-export declare type PluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy' | 'radical' | string;
+export declare type PluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | 'xhy' |
+    'radical' | 'code' | 'input' | 'random' | 'info' | string;
+
 export declare type ToneType = 0 | 1 | 2 | 3 | 4;
 export declare type CompareType = 'more' | 'less' | 'even' | 'error';
 
@@ -37,19 +39,9 @@ export declare interface ISpell {(sentence: string, ...args: Array<SpellArg>): s
 
 declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number | Array<any>;}
 
-export interface IRandomSpellOptions {
-    number?: number,
-    tone?: boolean,
-    flat?: boolean,
-}
-
-export interface IRandomWordOptions {
-    number?: number,
-    stroke?: number,
-    trad?: boolean,
-}
-
 export interface ICnChar {
+    pluginName: string,
+    dict: Json<Json>,
     spell: ISpell;
     stroke: IStroke;
     use(...plugins: IPlugin[]): void;
@@ -94,9 +86,6 @@ export interface ICnChar {
     };
     setResourceBase(url: string): void;
     env: 'node' | 'web' | 'miniapp';
-
-    randomSpell: IFunc<string[], IRandomSpellOptions>;
-    randomWord: IFunc<string, IRandomWordOptions>;
 }
 
 declare global {

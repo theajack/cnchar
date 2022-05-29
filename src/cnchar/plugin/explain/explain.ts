@@ -7,6 +7,10 @@ import {IExplain} from 'cnchar-types/plugin/explain';
 
 const TempDict: Json<string> = {};
 
+export function getTempDict () {
+    return TempDict;
+}
+
 export const args: Json = {
     trad: 'trad',
 };

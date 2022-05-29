@@ -40,6 +40,10 @@ function decodeDict () {
 }
 
 let wordsDict = decodeDict();
+
+export function getDict () {
+    return {words: {wordsString: wordsDict}};
+}
     
 export const words = ((word: string, ...args: string[]) => {
     if (_cnchar) {

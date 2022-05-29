@@ -11,6 +11,7 @@ import '../src/cnchar/plugin/words';
 import '../src/cnchar/plugin/idiom';
 import '../src/cnchar/plugin/voice';
 import '../src/cnchar/plugin/explain';
+import '../src/cnchar/plugin/random';
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';

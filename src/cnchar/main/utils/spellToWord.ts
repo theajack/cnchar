@@ -1,10 +1,7 @@
-import originDict from '../dict/spell-dict-jian.json';
-import {initial as initialDict} from '../dict/info-dict.json';
+import dict from '../dict';
 import {ICnChar, ToneType, TypeValueObject, SpellToWordArg} from 'cnchar-types/main/index';
 import {ICncharTool} from 'cnchar-types/main/tool';
-import {ISpellInfo, Json, ISpellInfoReturn} from 'cnchar-types/main/common';
-
-const dict = originDict as Json<string>;
+import {ISpellInfo, ISpellInfoReturn} from 'cnchar-types/main/common';
 
 const arg: {
     [prop in SpellToWordArg]: SpellToWordArg
@@ -23,13 +20,14 @@ let _: ICncharTool;// 工具方法
     }
  */
 export const spellInfo = ((spell: string): ISpellInfoReturn => {
+    const initialDict = dict.info.initial;
     spell = spell.toLowerCase();
     const info = _.removeTone(spell, false);
     if (info.index === -1) {
-        if (!dict[info.spell]) {
+        if (!dict.spell[info.spell]) {
             throw new Error('【spellInfo】错误的拼音: ' + spell);
         }
-        info.index = parseInt(dict[info.spell][0]) + 1;
+        info.index = parseInt(dict.spell[info.spell][0]) + 1;
     }
     let initial: string = '';
     let final: string = info.spell;
@@ -52,7 +50,7 @@ export const spellInfo = ((spell: string): ISpellInfoReturn => {
 export function initSpellToWord (cnchar: ICnChar): void {
     _ = cnchar._;
     spellInfo.tones = _.tones.split('');
-    spellInfo.initials = initialDict;
+    spellInfo.initials = dict.info.initial;
     cnchar.spellInfo = spellInfo;
     cnchar.type.spellToWord = arg as TypeValueObject;
 }
@@ -76,7 +74,7 @@ export function spellToWord (...originArgs: Array<string>): string | Array<strin
         argRes.simple = argRes.trad = true;
     }
     let res = '';
-    const str = dict[info.spell].substr(2);
+    const str = dict.spell[info.spell].substr(2);
     for (let i = 0; i < str.length; i += 2) {
         const word = str[i];
         let tone = parseInt(str[i + 1]);

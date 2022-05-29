@@ -10,7 +10,8 @@ const plugin: IPlugin = {
     install (cnchar) {
         initResourceFromCnchar(cnchar);
         return {draw};
-    }
+    },
+    dict: {},
 };
 
 if (typeof window === 'object') {

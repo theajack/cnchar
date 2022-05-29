@@ -1,7 +1,7 @@
 
 import {IPlugin} from 'cnchar-types/main/common';
 import {IWords} from 'cnchar-types/plugin/words';
-import {addWords, args, setCnchar, words} from './words';
+import {addWords, args, getDict, setCnchar, words} from './words';
 
 const plugin: IPlugin = {
     pluginName: 'words',
@@ -10,7 +10,8 @@ const plugin: IPlugin = {
         words.addWords = addWords;
         return {words};
     },
-    args: args
+    args: args,
+    dict: getDict(),
 };
 
 if (typeof window === 'object') {

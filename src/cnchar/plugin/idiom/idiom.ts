@@ -11,6 +11,14 @@ import {spell as spellDict} from './dict/spell.json';
 import {spell as spellNoToneDict} from './dict/spell.notone.json';
 import {IIdiom, TIdiomArg, TIdiomInput} from 'cnchar-types/plugin/idiom';
 
+export function getDict () {
+    return {
+        idiom: dict,
+        spellDict,
+        spellNoToneDict,
+    };
+}
+
 let _cnchar: ICnChar;
 
 export const arg: TIdiomArg = {
@@ -22,24 +30,24 @@ export const arg: TIdiomArg = {
 
 // spell > stroke > char
 // spell 和 stroke 仅在 引入cnchar之后才可用
-export const idiom: IIdiom = (input: TIdiomInput, ...args: Array<IdomArg>): Array<string> | void => {
+/*
+idiom(['一','','一',''])
+idiom(['一','','一',''])
+*/
+export const idiom: IIdiom = (input: TIdiomInput, ...args: Array<IdomArg>): Array<string> => {
     if (!input) {
         console.warn('idiom: 请输入搜索项');
-        return;
+        return [];
     }
     if (args.indexOf(arg.spell) !== -1 && typeof input !== 'string') {
         console.warn('idiom spell 模式下仅支持查询首个汉字的拼音');
-        return;
-    }
-    if (!(input instanceof Array || args.indexOf(arg.spell) !== -1 || (typeof input === 'number' && args.indexOf(arg.stroke) !== -1))) {
-        console.warn('idiom 输入参数仅支持数组 或 stroke模式下的数字');
-        return;
+        return [];
     }
     let res = null;
     if (!_cnchar) { // 单独使用的idiom 只支持汉字查询方式
         checkArg(args, arg.stroke);
         checkArg(args, arg.spell);
-        res = idiomWithChar(input as string[]);
+        res = idiomWithChar(input as string | string[]);
     } else {
         _cnchar._.checkArgs('idiom', args);
         if (_cnchar._.has(args, arg.spell)) {
@@ -47,15 +55,20 @@ export const idiom: IIdiom = (input: TIdiomInput, ...args: Array<IdomArg>): Arra
         } else if (_cnchar._.has(args, arg.stroke)) {
             res = idiomWithStroke(input as number | number[]);
         } else {
-            res = idiomWithChar(input as string[]);
+            res = idiomWithChar(input as string | string[]);
         }
     }
     return res;
 };
 
-function idiomWithChar (input: string[]): Array<string> {
+function idiomWithChar (input: string | string[]): Array<string> {
+
+    if (typeof input === 'string') {
+        input = input.split('');
+    }
+
     return dict.filter((item) => {
-        return compareCommon(input, item.split(''));
+        return compareCommon(input as string[], item.split(''));
     });
 }
 // needTone：是否需要匹配音调
@@ -180,7 +193,7 @@ function idiomWithStroke (input: number | number[]): Array<string> {
 //
 function compareCommon (input: Array<string | number>, target: Array<string | number>): boolean {
     for (let i = 0; i < input.length; i++) {
-        if (input[i] && input[i] !== target[i] ) {
+        if (input[i] && input[i] !== '*' && input[i] !== target[i] ) {
             return false;
         }
     }

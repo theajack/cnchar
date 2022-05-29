@@ -9,6 +9,10 @@ import {IXHY} from 'cnchar-types/plugin/xhy';
 import {IWords} from 'cnchar-types/plugin/words';
 import {IExplain} from 'cnchar-types/plugin/explain';
 import {IVoice} from 'cnchar-types/plugin/voice';
+import {ICode} from 'cnchar-types/plugin/code';
+import {IInput} from 'cnchar-types/plugin/input';
+import {IRandom} from 'cnchar-types/plugin/random';
+import {IInfo} from 'cnchar-types/plugin/info';
 
 export function extendCnChar (): {
     idiom: IIdiom;
@@ -22,6 +26,10 @@ export function extendCnChar (): {
     words: IWords;
     explain: IExplain;
     voice: IVoice;
+    code: ICode,
+    input: IInput,
+    random: IRandom,
+    info: IInfo,
     } {
 
     const draw = fn('draw') as unknown as IDraw;
@@ -56,6 +64,10 @@ export function extendCnChar (): {
         words: fn('words') as IWords,
         explain: fn('explain') as IExplain,
         voice: fn('voice') as IVoice,
+        code: fn('code') as ICode,
+        input: fn('input') as IInput,
+        random: fn('random') as IRandom,
+        info: fn('info') as IInfo,
     };
 }
 

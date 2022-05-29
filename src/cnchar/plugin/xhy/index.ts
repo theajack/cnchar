@@ -1,7 +1,7 @@
 import {ICnChar} from 'cnchar-types/main';
 import {IXHY} from 'cnchar-types/plugin/xhy';
 import {IPlugin} from 'cnchar-types/main/common';
-import {xhy, arg, addXhy, setCnchar} from './xhy';
+import {xhy, arg, addXhy, setCnchar, getDict} from './xhy';
 
 const plugin: IPlugin = {
     pluginName: 'xhy',
@@ -10,7 +10,8 @@ const plugin: IPlugin = {
         xhy.addXhy = addXhy;
         return {xhy};
     },
-    args: arg
+    args: arg,
+    dict: getDict()
 };
 
 if (typeof window === 'object') {

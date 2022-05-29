@@ -37,7 +37,7 @@ function convert (str: string, to: TradArg, from: TradArg): string {
         }
     }
     let res = '';
-    for (var i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
         const index = fromDict.indexOf(str[i]);
         res += ((index !== -1) ? toDict[index] : str[i]);
     }

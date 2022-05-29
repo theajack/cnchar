@@ -4,6 +4,12 @@ import {IAddXhy, IXHY, TAddXhyArg1} from 'cnchar-types/plugin/xhy';
 
 let _cnchar: ICnChar;
 
+export function getDict () {
+    return {
+        array: dict
+    };
+}
+
 export const arg: {
     [prop in XhyArg]: XhyArg
 } = {
@@ -64,7 +70,7 @@ export const addXhy: IAddXhy = (arg: TAddXhyArg1 | string, arg2?: string): void 
         return;
     }
     if (!(arg instanceof Array)) {
-        _cnchar._._warn('addXhy 参数必须为数组');
+        console.warn('addXhy 参数必须为数组');
         return;
     }
     if (arg[0] instanceof Array) {
@@ -75,25 +81,6 @@ export const addXhy: IAddXhy = (arg: TAddXhyArg1 | string, arg2?: string): void 
     }
     dict.push(arg as Array<string>);
 };
-
-// export let addXhy: IAddXhy = (arg: string | Array<Array<string>>, arg2?: string): void => {
-//     if (typeof arg === 'string' && typeof arg2 === 'string') {
-//         addXhy([arg, arg2]);
-//         return;
-//     }
-//     if (!(arg instanceof Array)) {
-//         _cnchar._._warn('addXhy 参数必须为数组');
-//         return;
-//     }
-//     if (arg[0] instanceof Array) {
-//         arg.forEach(item => {
-//             xhy.addXhy(item);
-//         });
-//         return;
-//     }
-//     dict.push(arg);
-// };
-
 
 export function setCnchar (cnchar: ICnChar): void {
     _cnchar = cnchar;

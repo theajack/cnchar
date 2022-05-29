@@ -1,7 +1,7 @@
 import {ICnChar} from 'cnchar-types/main';
 import {IRadical} from 'cnchar-types/plugin/radical';
 import {IPlugin} from 'cnchar-types/main/common';
-import {radical, arg, setCnchar, setRadical} from './radical';
+import {getDict, radical, setCnchar, setRadical} from './radical';
 
 const plugin: IPlugin = {
     pluginName: 'radical',
@@ -10,7 +10,7 @@ const plugin: IPlugin = {
         radical.setRadical = setRadical;
         return {radical};
     },
-    args: arg
+    dict: getDict()
 };
 
 if (typeof window === 'object') {

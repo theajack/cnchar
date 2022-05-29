@@ -1,4 +1,4 @@
-import infoDict from '../dict/info-dict.json';
+import dict from '../dict';
 import {AllArgs} from 'cnchar-types/main';
 import {IHas, IFunc} from 'cnchar-types/main/tool';
 
@@ -21,7 +21,7 @@ export function isPolyWord (word: string): boolean {
     if (!isCnChar(word)) {
         return false;
     }
-    return infoDict.polyWord.indexOf(word) !== -1;
+    return dict.info.polyWord.indexOf(word) !== -1;
 }
 
 

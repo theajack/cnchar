@@ -5,7 +5,7 @@ import {spell, tones, stroke, arg,
     shapeSpell,
     checkTrad} from './utils/tool';
 import {has, isCnChar, isPolyWord} from './utils/util';
-import {mapJson, pickRamdonEle, randomNum, shuffle} from '@common/util';
+import {mapJson, pickRandomChar, pickRandomEle, randomNum, shuffle} from '@common/util';
 import dict from './dict';
 import {setSpellDefault, setIntoJson, setSpell, setStrokeCount} from './utils/config';
 import {initSpellToWord, spellToWord, spellInfo} from './utils/spellToWord';
@@ -17,7 +17,6 @@ import {getPlugins, installPlugin} from './utils/plugins';
 import {getResourceBase, setResourceBase} from './utils/resource';
 import {_throw, _warn} from '@common/util';
 import {Env} from '@common/adapter';
-import {randomSpell, randomWord} from './utils/random';
 
 function _spell (...args: Array<string>): string | Array<string> {
     return spell(dict.spell, args);
@@ -50,7 +49,7 @@ const cnchar: ICnChar = {
     _: {
         arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,
         sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson, checkTrad,
-        getResourceBase, pickRamdonEle, shuffle, randomNum
+        getResourceBase, pickRandomEle, shuffle, randomNum, pickRandomChar,
     },
     type: {
         spell: arg,
@@ -75,8 +74,8 @@ const cnchar: ICnChar = {
     spellInfo,
     setResourceBase,
     ...extendCnChar(),
-    randomSpell,
-    randomWord,
+    pluginName: 'cnchar',
+    dict,
 };
 
 function init (): void {

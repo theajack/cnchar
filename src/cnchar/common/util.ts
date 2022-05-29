@@ -1,8 +1,8 @@
 /*
  * @Author: tackchen
  * @Date: 2022-04-10 21:46:46
- * @LastEditors: tackchen
- * @LastEditTime: 2022-05-15 17:42:42
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-28 16:15:37
  * @FilePath: /cnchar/src/cnchar/common/util.ts
  * @Description: Coding something
  */
@@ -40,8 +40,8 @@ export const mapJson: IMapJson = (
 };
 
 // 从数组中随机选取n个元素
-export function pickRamdonEle<T = string> (arr: T[], n: number = 1): T[] {
-    if (n === 0) return [];
+export function pickRandomEle<T = string> (arr: T[], n: number = 1): T[] {
+    if (!arr || arr.length === 0 || n === 0) return [];
     if (n >= arr.length) return shuffle<T>(Object.assign([], arr));
     const result = [];
     const len = arr.length;
@@ -56,9 +56,14 @@ export function pickRamdonEle<T = string> (arr: T[], n: number = 1): T[] {
     return result;
 }
 
+export function pickRandomChar (str: string, n = 1): string {
+    if (!str) return '';
+    return pickRandomEle(str.split(''), n).join('');
+}
+
 // 数字洗牌算法
 export function shuffle<T=string> (array: T[]): T[] {
-    var m = array.length,
+    let m = array.length,
         t, i;
     while (m) {
         i = Math.floor(Math.random() * m--);
@@ -71,4 +76,21 @@ export function shuffle<T=string> (array: T[]): T[] {
 
 export function randomNum (a: number, b: number): number {
     return (a + Math.round(Math.random() * (b - a)));
+}
+
+export function findKeyInMap (map: Json<string>, str: string) {
+    for (const key in map) {
+        const index = map[key].indexOf(str);
+        if (index !== -1) {
+            return {index, key};
+        }
+    }
+    return null;
+}
+
+export function findEqualKeyInMap (map: Json<string>, str: string) {
+    for (const k in map) {
+        if (map[k] === str) return k;
+    }
+    return '';
 }

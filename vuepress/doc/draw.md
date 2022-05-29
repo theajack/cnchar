@@ -60,7 +60,7 @@ cnchar.draw('你好', options); // options 为可选参数
   </highlight-code>
 </div>
 
-以下是 options 的所有可选参数及描述，具体使用可以在 [JSBox](https://theajack.github.io/jsbox?theme=dark&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Ftheajack%2Fcnchar%2Fdocs%2Fconfig.js&id=normal-draw) 上自行在线尝试
+以下是 options 的所有可选参数及描述，具体使用可以在 [JSBox](https://theajack.github.io/jsbox?theme=dark&config=https%3A%2F%2Ffastly.jsdelivr.net%2Fgh%2Ftheajack%2Fcnchar%2Fdocs%2Fconfig.js&id=normal-draw) 上自行在线尝试
 
 <div>
   <highlight-code lang='typescript'>

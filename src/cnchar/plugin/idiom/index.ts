@@ -1,5 +1,5 @@
 import {ICnChar} from 'cnchar-types/main';
-import {idiom, arg, setCnchar} from './idiom';
+import {idiom, arg, setCnchar, getDict} from './idiom';
 import {IIdiom} from 'cnchar-types/plugin/idiom';
 import {IPlugin} from 'cnchar-types/main/common';
 
@@ -9,7 +9,8 @@ const plugin: IPlugin = {
         setCnchar(cnchar);
         return {idiom};
     },
-    args: arg
+    args: arg,
+    dict: getDict(),
 };
 
 if (typeof window === 'object') {

@@ -1,17 +1,13 @@
-import defDict from '../dict/spell-default.json';
-import spellDict from '../dict/spell-dict-jian.json';
-import originStrokeDict from '../dict/stroke-count-jian.json';
-import infoDict from '../dict/info-dict.json';
+import dict from '../dict';
 import {transformTone, spell, arg, shapeSpell, stroke} from './tool';
 import {Json, ITransformReturn} from 'cnchar-types/main/common';
 import {ISetIntoJson} from 'cnchar-types/main/tool';
 import {mapJson} from '@common/util';
 
-const strokeDict = originStrokeDict as Json<string>;
 // 设置多音字默认拼音
 export function setSpellDefault (word: string | Json<string>, spell?: string): void {
     setIntoJson({
-        target: defDict,
+        target: dict.spellDefault,
         key: word,
         value: spell,
         isSpell: true
@@ -125,9 +121,10 @@ export function setSpell (
     word:  string | Json<string | Array<string>>,
     spells?: string | Array<string>
 ): void {
-    setIntoSpell(spellDict, word, spells);
+    setIntoSpell(dict.spell, word, spells);
 }
 export function setStrokeCount (word: string | Json<number>, count?: number): void {
+    const strokeDict = dict.stroke;
     mapJson(word, count, (k, v) => {
         const oldCount = stroke(strokeDict, [k]) as number;
         if (oldCount === count) {
@@ -147,8 +144,8 @@ export function setStrokeCount (word: string | Json<number>, count?: number): vo
 }
 
 function addPolyWord (word: string): void {
-    if (infoDict.polyWord.indexOf(word) === -1) {
-        infoDict.polyWord += word;
+    if (dict.info.polyWord.indexOf(word) === -1) {
+        dict.info.polyWord += word;
     }
 }
 

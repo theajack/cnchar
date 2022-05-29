@@ -84,6 +84,9 @@ function install (cnchar: ICnChar & {setPolyPhrase?: ISetPolyPhrase}): void {
 const plugin: IPlugin = {
     pluginName: 'poly',
     install: install,
+    dict: {
+        phrases: originPolyPhrases
+    }
 };
 
 if (typeof window === 'object' && window.CnChar) {

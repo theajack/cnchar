@@ -1,4 +1,4 @@
-import dict from '../dict/stroke-count-jian.json';
+import dict from '../dict';
 import {Json} from 'cnchar-types/main/common';
 import {ICnChar, StrokeToWordArg, TypeValueObject} from 'cnchar-types/main/index';
 import {ICncharTool} from 'cnchar-types/main/tool';
@@ -27,7 +27,7 @@ export function strokeToWord (count: number, ...args: Array<StrokeToWordArg>): s
         argRes.simple = argRes.trad = true;
     }
     if (argRes.simple) {
-        res += base(count, dict); // 简体
+        res += base(count, dict.stroke); // 简体
     }
     if (argRes.trad && _.dict.getTradCount) {
         res += base(count, _.dict.getTradCount()); // 繁体

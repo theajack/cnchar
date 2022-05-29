@@ -28,7 +28,7 @@ function _order (str: string, ...args: Array<StrokeArg>): TStrokeOrderReturn[] {
     _.checkArgs('stroke', args);
     // 多音字参数参数将被忽略
     const res = [];
-    for (var i = 0; i < strs.length; i++) {
+    for (let i = 0; i < strs.length; i++) {
         res[i] = orders[strs[i]]; // 字母版笔画表
     }
     return orderWithLetters(res, strs, args);
@@ -44,7 +44,7 @@ function orderWithLetters (
     if (_.has(args, arg.letter)) {
         return res;
     }
-    for (var i = 0; i < res.length; i++) {
+    for (let i = 0; i < res.length; i++) {
         if (igList.indexOf(i) === -1 && typeof res[i] === 'string') {
             res[i] = getStrokeSingle(strs[i], res[i] as string, args);
         }
@@ -60,7 +60,7 @@ function getStrokeSingle (
     if (typeof order === 'undefined') {
         return str;
     }
-    var isDetail = _.has(args, arg.detail);
+    const isDetail = _.has(args, arg.detail);
     let name = arg.letter;
     if (!isDetail) {
         if (_.has(args, arg.shape)) {
@@ -79,8 +79,8 @@ function getStrokeSingle (
     if (name === arg.letter) {
         return order;
     }
-    var arr = [];
-    for (var i = 0; i < order.length; i++) {
+    const arr = [];
+    for (let i = 0; i < order.length; i++) {
         if (isDetail) {
             arr[i] = strokeTable[order[i]];
         } else {
@@ -118,6 +118,10 @@ function install (cnchar: ICnChar & ICnCharOrder): void {
 const plugin: IPlugin = {
     pluginName: 'order',
     install: install,
+    dict: {
+        orders,
+        strokeTable,
+    }
 };
 
 if (typeof window === 'object' && window.CnChar) {
