@@ -6,7 +6,7 @@ export declare type TDrawType = 'normal' | 'animation' | 'stroke' | 'test';
 export declare type TDrawTypeUpperCase = 'NORMAL' | 'ANIMATION' | 'STROKE' | 'TEST';
 export declare type TTestStatusType = 'mistake' | 'correct' | 'complete';
 
-export declare interface ITestStatusData {
+export interface ITestStatusData {
     character: string;
     totalMistakes: number;// 到目前为止在测验期间犯的总错误。
     strokeNum?: number;// 当前笔画数。
@@ -24,7 +24,7 @@ declare interface ITestStatus {
     data: ITestStatusData;
 }
 
-export declare interface IDrawStyleOption { // 样式类
+export interface IDrawStyleOption { // 样式类
     backgroundColor?: string, // 默认为#fff
     showOutline?: boolean;// : true,
     showCharacter?: boolean;// : true,
@@ -37,7 +37,7 @@ export declare interface IDrawStyleOption { // 样式类
     strokeFadeDuration?: number; // 400
 }
 
-export declare interface IDrawLineOption { // 背景线条类
+export interface IDrawLineOption { // 背景线条类
     lineStraight?: boolean;// : true,
     lineCross?: boolean;// : true,
     lineWidth?: number;// : 1,
@@ -49,7 +49,7 @@ export declare interface IDrawLineOption { // 背景线条类
     borderDash?: boolean;// : false,
 }
 
-export declare interface IDrawAnimationOption {
+export interface IDrawAnimationOption {
     strokeAnimationSpeed?: number;// : 1, // 数值, 默认 1。 绘制每个笔划的速度必须大于0。增加此数字可以更快地绘制笔划，减少绘制笔划的速度更慢。
     delayBetweenStrokes?: number;// : 1000, // 数值, 默认 1000。 动画进行中每个笔画之间的间隔时间（以毫秒为单位）。
     delayBetweenLoops?: number;// : 200, // 数值, 默认 2000。 循环动画时每个动画循环之间的时间（以毫秒为单位）。
@@ -61,7 +61,7 @@ export declare interface IDrawAnimationOption {
 }
 
 declare interface IOnTestStatus {(args: ITestStatus):void;}
-export declare interface IDrawTestOption {
+export interface IDrawTestOption {
     strokeHighlightSpeed?: number;// : 20, // 数值, 默认 20。 在测验中给出提示时突出显示每个笔划的速度必须大于0。增加此数字以突出显示更快，减少以突出显示更慢。
     highlightColor?: string;// : '#aaf', // 十六进制字符, 默认 '#AAF'。 用于在测验中突出显示的颜色。
     drawingColor?: string;// : '#333', // 十六进制字符, 默认 '#333'。 测验期间绘制的线条颜色。
@@ -72,7 +72,7 @@ export declare interface IDrawTestOption {
     onTestStatus?: IOnTestStatus | null;// : null, // ({index, status, data})=>{}
 }
 
-export declare interface IDrawClassOption {
+export interface IDrawClassOption {
     el?: string | HTMLElement; // 绘制的容器，支持选择器或dom，若是不填，会在body后append一个dom作为容器
     type?: TDrawType; // 绘制模式，默认为normal
     clear?: boolean; // 绘制前是否清空容器 默认为true
@@ -83,11 +83,11 @@ export declare interface IDrawClassOption {
     [prop: string]: any;
 }
 
-export declare interface IDrawStrokeOption {
+export interface IDrawStrokeOption {
 
 }
 
-export declare interface IDrawOption extends IDrawStyleOption, IDrawLineOption, IDrawAnimationOption, IDrawTestOption {
+export interface IDrawOption extends IDrawStyleOption, IDrawLineOption, IDrawAnimationOption, IDrawTestOption {
     clear?: boolean;
     width?: number;
     height?: number;
@@ -95,20 +95,21 @@ export declare interface IDrawOption extends IDrawStyleOption, IDrawLineOption, 
     [prop: string]: any;
 }
 
-export declare interface IBuildLineStr extends IDrawLineOption {
+export interface IBuildLineStr extends IDrawLineOption {
     width: number;
 }
 
-export declare interface ICloneSvg{
+export interface ICloneSvg{
     (option: IDrawOption): Node;
 }
 
-export declare interface IDraw {
+export interface IDraw {
     (text: string, options: IWriterOptionWithoutText): IWriter | null;
     TYPE: Json<TDrawType>;
     TEST_STATUS: Json<TTestStatusType>;
     setResourceBase(url: string): void;
     onWordNotFound(callback: (word: string)=>void): void;
+    dict: Json;
 }
 
 declare global {

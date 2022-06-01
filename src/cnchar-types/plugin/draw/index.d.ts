@@ -9,8 +9,8 @@ import {
 } from './common';
 import HanziWriter from './hanzi-writer';
 
-export declare interface IComplete {(end?: boolean): void;}
-export declare interface IWriterOptionWithoutText {
+export interface IComplete {(end?: boolean): void;}
+export interface IWriterOptionWithoutText {
     el?: string | HTMLElement;
     clear?: boolean;
     type?: TDrawType;
@@ -20,10 +20,10 @@ export declare interface IWriterOptionWithoutText {
     stroke?: IDrawStrokeOption,
     test?: IDrawTestOption,
 }
-export declare interface IWriterOption extends IWriterOptionWithoutText {
+export interface IWriterOption extends IWriterOptionWithoutText {
     text?: string;
 }
-export declare interface IWriter {
+export interface IWriter {
     option: IDrawOption;
     el: HTMLElement;
     type: TDrawType;

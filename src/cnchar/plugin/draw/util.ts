@@ -1,9 +1,4 @@
-
-
-export function isCnChar (word: string): boolean {
-    const unicode = word.charCodeAt(0);
-    return unicode >= 19968 && unicode <= 40869;
-}
+import {isCnChar} from '@common/util';
 
 export function pickCnChar (text: string, onDisPick?: (word: string)=>void): string {
     let v = '';

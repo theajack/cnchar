@@ -20,4 +20,5 @@ export const random: IRandom = {
     xhy: randomXHY,
     words: randomWords,
     info: randomWithInfo,
+    dict: {},
 };

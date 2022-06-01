@@ -1,11 +1,11 @@
-import {IPlugin} from 'src/cnchar-types/main/common';
+import {Json} from '../../main/common';
 import {ICnChar, TradArg, SpellArg} from '../../main';
 
 export declare type TTradAag = {
     [prop in TradArg]: TradArg;
 }
 
-export declare interface ITradModArg {
+export interface ITradModArg {
     trad: 'trad',
     simple: 'simple',
     array: 'array',
@@ -14,7 +14,7 @@ export declare interface ITradModArg {
 
 declare const trad: Function;
 
-export declare interface IConverter {
+export interface IConverter {
     type: TTradAag,
     simpleToSpark(sentence: string): string;
     simpleToTrad(sentence: string): string;
@@ -24,11 +24,11 @@ export declare interface IConverter {
     tradToSpark(sentence: string): string;
 }
 
-export declare interface IInitTrad {
+export interface IInitTrad {
     (cnchar?: ICnChar): void;
 }
 
-export declare interface ITradString {
+export interface ITradString {
     convertSimpleToTrad?(): string;
     convertSimpleToSpark?(): string;
     convertTradToSimple?(): string;
@@ -52,8 +52,9 @@ declare global {
 declare module '../../main/index' {
     interface ICnChar {
         convert: IConverter;
-        trad: IPlugin & {
+        trad: {
             convert: IConverter
+            dict: Json;
         };
     }
 }

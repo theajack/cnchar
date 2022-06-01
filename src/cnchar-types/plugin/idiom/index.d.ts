@@ -1,4 +1,5 @@
 
+import {Json} from '../../main/common';
 import {ICnChar, IdomArg} from '../../main';
 
 export declare type TIdiomArg = {
@@ -7,8 +8,9 @@ export declare type TIdiomArg = {
 
 export declare type TIdiomInput = string | number | Array<string|number>;
 
-export declare interface IIdiom {
+export interface IIdiom {
     (input: TIdiomInput, ...args: Array<IdomArg>): Array<string>;
+    dict: Json;
 }
 
 declare global {

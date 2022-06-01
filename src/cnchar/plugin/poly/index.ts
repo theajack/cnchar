@@ -58,7 +58,7 @@ const setPolyPhrase: ISetPolyPhrase = (word: string | Json<string>, spell?: stri
     }).join(' ');
 };
 
-function install (cnchar: ICnChar & {setPolyPhrase?: ISetPolyPhrase}): void {
+function install (cnchar: ICnChar & {setPolyPhrase?: ISetPolyPhrase}) {
     cnchar.setPolyPhrase = setPolyPhrase;
     _spell = cnchar._origin.spell;
     _ = cnchar._;
@@ -79,6 +79,15 @@ function install (cnchar: ICnChar & {setPolyPhrase?: ISetPolyPhrase}): void {
         cnchar._._reinitSpellPoly();
         delete cnchar._._reinitSpellPoly;
     }
+
+    return {
+        poly: {
+            setPolyPhrase,
+            dict: {
+                phrases: polyPhrases
+            }
+        }
+    };
 }
 
 const plugin: IPlugin = {

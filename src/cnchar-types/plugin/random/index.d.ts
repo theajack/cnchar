@@ -1,6 +1,6 @@
 import {IFunc} from '../../main/tool';
 import {ICnChar, IdomArg, XhyArg} from '../../main'; // ! important for declare module '../../main/index'
-import {IPlugin} from '../../main/common';
+import {IPlugin, Json} from '../../main/common';
 
 export interface IRandomSpellOptions {
     number?: number;
@@ -44,6 +44,7 @@ export interface IRandom {
     xhy: IFunc<string[], IRandomXHYOptions>;
     words: IFunc<string[], IRandomWordsOptions>;
     info: IFunc<string, IRandomInfoOptions>;
+    dict: Json;
 }
 
 declare global {

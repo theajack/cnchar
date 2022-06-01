@@ -60,6 +60,7 @@ export const idiom: IIdiom = (input: TIdiomInput, ...args: Array<IdomArg>): Arra
     }
     return res;
 };
+idiom.dict = {};
 
 function idiomWithChar (input: string | string[]): Array<string> {
 

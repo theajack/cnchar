@@ -1,0 +1,28 @@
+import {ICnChar} from '../../main'; // ! important for declare module '../../main/index'
+import {Json} from '../../main/common';
+
+export interface INameOptions {
+    number?: number;
+    gender?: 'boy' | 'girl' | 'both';
+    length?: number; // 如果使用通配符 * 则该参数无效
+}
+
+export interface IName {
+    (input: string, options?: INameOptions): string[];
+    isSurname(input: string): boolean;
+    isName(input: string): boolean;
+    dict: Json;
+}
+
+declare global {
+    interface Window {
+        CncharName: IName;
+    }
+}
+
+declare module '../../main/index' {
+    interface ICnChar {
+        name: IName;
+    }
+}
+

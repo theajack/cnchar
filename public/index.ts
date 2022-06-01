@@ -14,9 +14,11 @@ import '../src/cnchar/plugin/explain';
 import '../src/cnchar/plugin/random';
 import '../src/cnchar/plugin/code';
 import '../src/cnchar/plugin/info';
+import '../src/cnchar/plugin/input';
 import custom from './custom-plugin';
 
 cnchar.use(custom);
+
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';

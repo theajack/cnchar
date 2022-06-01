@@ -1,7 +1,7 @@
 import {Json, ConvertInterface, ITransformReturn} from './common';
 import {AllArgs, SpellArg, ToneType, TypeProp} from '.';
 
-export declare interface ISetIntoJson {
+export interface ISetIntoJson {
     (option: {
         target: Json<string>,
         key: string | Json<string>,
@@ -14,23 +14,23 @@ export declare type TSpellArg = {
     [prop in SpellArg]: SpellArg
 }
 
-export declare interface IHas {(args: Array<AllArgs>, name: AllArgs): boolean;}
+export interface IHas {(args: Array<AllArgs>, name: AllArgs): boolean;}
 
-export declare interface IFunc<T = void, A = string> {(arg: A): T;}
-export declare interface IOptionFunc<T = void, A = string> {(arg?: A): T;}
+export interface IFunc<T = void, A = string> {(arg: A): T;}
+export interface IOptionFunc<T = void, A = string> {(arg?: A): T;}
 
-export declare interface IDealUpLowFirst {
+export interface IDealUpLowFirst {
     (
         res: Array<Array<string>> | Array<string>,
         args: Array<SpellArg>
     ): void;
 }
 
-export declare interface IRemoveTone {
+export interface IRemoveTone {
     (spell: string, tone: boolean): {spell: string, tone?: ToneType, index?: number};
 }
 
-export declare interface IMapJson {
+export interface IMapJson {
     (
         key: Json | string,
         value: undefined | any,
@@ -38,7 +38,7 @@ export declare interface IMapJson {
     ): void;
 }
 
-export declare interface ICheckArgs {
+export interface ICheckArgs {
     (
         type: TypeProp,
         args: Array<AllArgs>,
@@ -52,7 +52,7 @@ export declare interface ICheckArgs {
     lǘ => {spell:'lü', tone: 2, index: 2, isTrans: false}
     needTone = true: lv2 => {spell:'lǘ', tone: 2, index: 2, isTrans: true}
  */
-export declare interface ITransformTone {
+export interface ITransformTone {
     (
         spell: string,
         needTone?: boolean,
@@ -60,7 +60,7 @@ export declare interface ITransformTone {
     ): ITransformReturn;
 }
 
-export declare interface ICncharTool {
+export interface ICncharTool {
     arg: TSpellArg;
     has: IHas;
     _throw: IFunc<never>;

@@ -1,6 +1,5 @@
 
 import ICnChar from 'cnchar-types';
-import {decompressFromBase64} from 'lz-string';
 import {Json} from 'cnchar-types/main/common';
 import {IWords} from 'cnchar-types/plugin/words';
 import json from './dict/cnchar-words.json';
@@ -15,7 +14,7 @@ export function setCnchar (cnchar: ICnChar) {
 }
 
 function decodeDict () {
-    const dict = decompressFromBase64(json.dict);
+    const dict = json.dict;
     if (!dict) return '';
     const n = dict.length;
     let newDict = '';

@@ -1,3 +1,4 @@
+import {Json} from '../../main/common';
 import {ICnChar} from '../../main'; // ! important for declare module '../../main/index'
 
 export interface IDictCodeResult {
@@ -23,6 +24,7 @@ export interface ICode {
     sijiao(word: string, decoce?: boolean): string;
     cangjie(word: string, decoce?: boolean): string;
     uniform(word: string, decoce?: boolean): string;
+    dict: Json;
 }
 
 declare global {

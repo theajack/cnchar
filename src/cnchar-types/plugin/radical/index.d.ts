@@ -20,13 +20,10 @@ export interface ISetRadical {
     (json: Json<IRadicalResult>): void;
 }
 
-export interface IInitRadical {
-    (cnchar?: ICnChar): void;
-}
 
 export interface IRadical extends IRadicalFn {
     setRadical: ISetRadical;
-    init: IInitRadical;
+    dict: Json;
 }
 
 declare global {

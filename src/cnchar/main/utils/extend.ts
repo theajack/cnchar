@@ -2,7 +2,7 @@ import {IIdiom} from 'cnchar-types/plugin/idiom';
 import {IDraw} from 'cnchar-types/plugin/draw/common';
 import {_warn} from '@common/util';
 import {IOrderToWord, ISetOrder} from 'cnchar-types/plugin/order';
-import {ISetPolyPhrase} from 'cnchar-types/plugin/poly';
+import {IPoly, ISetPolyPhrase} from 'cnchar-types/plugin/poly';
 import {IRadical} from 'cnchar-types/plugin/radical';
 import {IConverter} from 'cnchar-types/plugin/trad';
 import {IXHY} from 'cnchar-types/plugin/xhy';
@@ -13,6 +13,7 @@ import {ICode} from 'cnchar-types/plugin/code';
 import {IInput} from 'cnchar-types/plugin/input';
 import {IRandom} from 'cnchar-types/plugin/random';
 import {IInfo} from 'cnchar-types/plugin/info';
+import {IName} from 'src/cnchar-types/plugin/name';
 
 export function extendCnChar (): {
     idiom: IIdiom;
@@ -32,6 +33,8 @@ export function extendCnChar (): {
     info: IInfo;
     trad: any;
     order: any;
+    poly: any;
+    name: any;
     } {
 
     const draw = fn('draw') as unknown as IDraw;
@@ -72,6 +75,8 @@ export function extendCnChar (): {
         input: fn('input') as IInput,
         random: fn('random') as IRandom,
         info: fn('info') as IInfo,
+        poly: fn('poly') as IPoly,
+        name: fn('name') as IName,
     };
 }
 

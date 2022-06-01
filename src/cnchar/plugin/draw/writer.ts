@@ -168,6 +168,7 @@ const draw: IDraw = (text: string = '', options: IWriterOption = {}): IWriter | 
     return new Writer(options);
 };
 
+draw.dict = {};
 draw.setResourceBase = setResourceBase;
 draw.TYPE = TYPE;
 draw.TEST_STATUS = TEST_STATUS;

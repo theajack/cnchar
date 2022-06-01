@@ -4,7 +4,7 @@ import {ICnChar, OrderToWordArg, StrokeArg} from '../../main/index';
 export declare type TOrderToWordArg = {
     [prop in OrderToWordArg]: OrderToWordArg;
 }
-export declare interface TOrderArg {
+export interface TOrderArg {
     [prop: string]: StrokeArg;
 }
 
@@ -18,13 +18,13 @@ declare interface ISetOrder {
     (json: {[key: string]: string}): void;
 }
 
-export declare interface IOrderToWord {
+export interface IOrderToWord {
     (orders: string | Array<OrderName>, ...args: Array<OrderToWordArg>): string | Array<string>;
     orders: Json;
     _base: IBase;
 }
 
-export declare interface IBase {
+export interface IBase {
     (
         res: string[],
         letters: string,
@@ -33,7 +33,7 @@ export declare interface IBase {
     ): string[];
 }
 
-export declare interface ICnCharOrder {
+export interface ICnCharOrder {
     setOrder?: ISetOrder;
     orderToWord?: IOrderToWord;
 }

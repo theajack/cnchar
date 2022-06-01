@@ -1,10 +1,10 @@
 import {spellInfo} from './spellToWord';
-import {isCnChar, has} from './util';
+import {has} from './util';
 import Dict from '../dict';
 import {AllArgs, ICnChar, TypeProp, ToneType, SpellArg, StrokeArg, TypeValueObject} from 'cnchar-types/main/index';
 import {Json, ITransformReturn} from 'cnchar-types/main/common';
 import {TSpellArg, IDealUpLowFirst, IRemoveTone, IFunc, ICheckArgs, ITransformTone} from 'cnchar-types/main/tool';
-import {_warn} from '@common/util';
+import {_warn, isCnChar} from '@common/util';
 
 export const tones: string = 'āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ*ńňǹ'; // * 表示n的一声
 

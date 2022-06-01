@@ -5,6 +5,7 @@ import originSparkDict from './dict/spark-simple.json';
 import originCodeDict from './dict/code.json';
 import originInfoDict from './dict/info.json';
 import radical from './dict/radicals-trad.json';
+import wubi from './dict/wubi-trad.json';
 import {Json} from 'cnchar-types/main/common';
  
 export const codeDict = originCodeDict as Json<string>;
@@ -22,5 +23,6 @@ export function getDict () {
         spark: sparkDict,
         radical: radical as any,
         info: originInfoDict as any,
+        wubi,
     };
 }

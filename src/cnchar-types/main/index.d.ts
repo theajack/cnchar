@@ -21,7 +21,7 @@ export declare type PluginArg = 'order' | 'trad' | 'poly' | 'draw' | 'idiom' | '
 export declare type ToneType = 0 | 1 | 2 | 3 | 4;
 export declare type CompareType = 'more' | 'less' | 'even' | 'error';
 
-export declare interface ISpellInfoReturn {
+export interface ISpellInfoReturn {
     spell: string;
     initial: string;
     final: string;
@@ -35,7 +35,7 @@ export declare type TypeValueObject = {
     [prop in AllArgs]?: AllArgs;
 };
 
-export declare interface ISpell {(sentence: string, ...args: Array<SpellArg>): string | Array<any>;}
+export interface ISpell {(sentence: string, ...args: Array<SpellArg>): string | Array<any>;}
 
 declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number | Array<any>;}
 

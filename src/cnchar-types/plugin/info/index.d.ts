@@ -1,3 +1,4 @@
+import {Json} from '../../main/common';
 import {ICnChar} from '../../main'; // ! important for declare module '../../main/index'
 
 export interface IInfoResult {
@@ -8,6 +9,7 @@ export interface IInfoResult {
 
 export interface IInfo {
     (input: string): IInfoResult[];
+    dict: Json;
 }
 
 declare global {

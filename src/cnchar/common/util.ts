@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 21:46:46
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-29 10:57:31
+ * @LastEditTime: 2022-06-01 10:43:17
  * @FilePath: /cnchar/src/cnchar/common/util.ts
  * @Description: Coding something
  */
@@ -94,3 +94,19 @@ export function findEqualKeyInMap (map: Json<string>, str: string) {
     }
     return '';
 }
+
+export const isCnChar: IFunc<boolean> = (word: string): boolean => {
+    // if (!word) return false;
+    // if (word.length > 1) {
+    //     for (let i = 0; i < word.length; i++)
+    //         if (!isCnChar(word[i]))
+    //             return false;
+    //     return true;
+    // }
+    // const unicode = word.charCodeAt(0);
+    // return unicode >= 19968 && unicode <= 40869;
+
+    if (word.length === 1)
+        return !!word.match(/[\u4e00-\u9fa5]/);
+    return word.match(/[\u4e00-\u9fa5]/g)?.join('').length === word.length;
+};

@@ -4,8 +4,11 @@ import {spell, tones, stroke, arg,
     checkArgs, initCnchar, transformTone,
     shapeSpell,
     checkTrad} from './utils/tool';
-import {has, isCnChar, isPolyWord} from './utils/util';
-import {mapJson, pickRandomChar, pickRandomEle, randomNum, shuffle} from '@common/util';
+import {has, isPolyWord} from './utils/util';
+import {
+    _throw, _warn, isCnChar, mapJson, pickRandomChar,
+    pickRandomEle, randomNum, shuffle
+} from '@common/util';
 import dict from './dict';
 import {setSpellDefault, setIntoJson, setSpell, setStrokeCount} from './utils/config';
 import {initSpellToWord, spellToWord, spellInfo} from './utils/spellToWord';
@@ -15,7 +18,6 @@ import {ICnChar, SpellArg, StrokeArg} from 'cnchar-types/main';
 import {extendCnChar} from './utils/extend';
 import {getPlugins, installPlugin} from './utils/plugins';
 import {getResourceBase, setResourceBase} from './utils/resource';
-import {_throw, _warn} from '@common/util';
 import {Env} from '@common/adapter';
 
 function _spell (...args: Array<string>): string | Array<string> {
