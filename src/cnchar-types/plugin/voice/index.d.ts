@@ -64,7 +64,6 @@ export interface IVoice {
 
     speak: ISpeak;
     recognize: IRecognize;
-    dict: Json;
 }
 
 export type TLang = 'zh-CN' | 'en-US' | 'ja-JP' | 'ko-KR' | 'zh-HK' | 'zh-TW';

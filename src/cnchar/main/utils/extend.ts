@@ -13,7 +13,7 @@ import {ICode} from 'cnchar-types/plugin/code';
 import {IInput} from 'cnchar-types/plugin/input';
 import {IRandom} from 'cnchar-types/plugin/random';
 import {IInfo} from 'cnchar-types/plugin/info';
-import {IName} from 'src/cnchar-types/plugin/name';
+import {IName} from 'cnchar-types/plugin/name';
 
 export function extendCnChar (): {
     idiom: IIdiom;

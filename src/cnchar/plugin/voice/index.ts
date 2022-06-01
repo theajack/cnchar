@@ -5,24 +5,21 @@ import {voice, setCnchar, getTempDict} from './voice';
 import {initResourceFromCnchar, setResourceBase} from './resource';
 import {recognize, speak} from './speech-api';
 
-const plugin: IPlugin = {
+const plugin: IPlugin & IVoice = Object.assign(voice, {
     pluginName: 'voice',
     install (cnchar) {
         setCnchar(cnchar);
         initResourceFromCnchar(cnchar);
-        voice.speak = speak;
-        voice.recognize = recognize;
-        voice.setResourceBase = setResourceBase;
-        return {voice};
     },
-    dict: {
-        temp: getTempDict()
-    }
-};
+    speak,
+    recognize,
+    setResourceBase,
+    dict: {temp: getTempDict()},
+} as IPlugin);
 
 if (typeof window === 'object') {
-    window.CncharVoice = voice;
+    window.CncharVoice = plugin;
     if (window.CnChar) window.CnChar.use(plugin);
 }
 
-export default Object.assign(voice, plugin) as IVoice & IPlugin;
+export default plugin;

@@ -24,7 +24,7 @@ export interface ICode {
     sijiao(word: string, decoce?: boolean): string;
     cangjie(word: string, decoce?: boolean): string;
     uniform(word: string, decoce?: boolean): string;
-    dict: Json;
+    dict: {code: Json<string>};
 }
 
 declare global {

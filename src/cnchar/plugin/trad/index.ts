@@ -1,6 +1,6 @@
 import {countDict, getDict, orderDict} from './dict';
 import {converter} from './converter';
-import {IConverter, ITradModArg, ITradString} from 'cnchar-types/plugin/trad';
+import {IConverter, ITrad, ITradModArg, ITradString} from 'cnchar-types/plugin/trad';
 import {ICnChar, SpellArg, StrokeArg} from 'cnchar-types/main';
 import {ICncharTool} from 'cnchar-types/main/tool';
 import {ISpell} from 'cnchar-types/main/index';
@@ -150,22 +150,17 @@ function install (cnchar: ICnChar & {convert?: IConverter}) {
     _.convert = converter;
     _.dict.getTradOrders = function () {return orderDict;};
     _.dict.getTradCount = function () {return countDict;};
-
-    return {
-        trad: {
-            convert: converter,
-            dict: getDict(),
-        },
-    };
 }
 
-const plugin: IPlugin = {
+const plugin: IPlugin & ITrad = {
     pluginName: 'trad',
-    install: install,
+    install,
+    convert: converter,
     dict: getDict(),
 };
 
 if (typeof window === 'object' && window.CnChar) {
+    window.CncharTrad = plugin;
     window.CnChar.use(plugin);
 }
 

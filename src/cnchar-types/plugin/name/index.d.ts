@@ -1,5 +1,4 @@
 import {ICnChar} from '../../main'; // ! important for declare module '../../main/index'
-import {Json} from '../../main/common';
 
 export interface INameOptions {
     number?: number;
@@ -11,7 +10,13 @@ export interface IName {
     (input: string, options?: INameOptions): string[];
     isSurname(input: string): boolean;
     isName(input: string): boolean;
-    dict: Json;
+    dict: {
+        name: {
+            boy: string;
+            girl: string;
+        };
+        surname: string;
+    }
 }
 
 declare global {

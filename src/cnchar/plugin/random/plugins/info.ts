@@ -1,6 +1,6 @@
 import {pickRandomEle} from '@common/util';
-import {Json} from 'src/cnchar-types/main/common';
-import {IRandomInfoOptions} from 'src/cnchar-types/plugin/random';
+import {Json} from 'cnchar-types/main/common';
+import {IRandomInfoOptions} from 'cnchar-types/plugin/random';
 import {getPlugin} from '../store';
 
 function reverseMap (map: Json) {

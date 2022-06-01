@@ -5,18 +5,16 @@ import draw from './writer';
 import {IPlugin} from 'cnchar-types/main/common';
 import {initResourceFromCnchar} from './resource';
 
-const plugin: IPlugin = {
+const plugin: IPlugin & IDraw = Object.assign(draw, {
     pluginName: 'draw',
     install (cnchar) {
         initResourceFromCnchar(cnchar);
-        return {draw};
     },
-    dict: {},
-};
+} as IPlugin);
 
 if (typeof window === 'object') {
-    window.CncharDraw = draw;
+    window.CncharDraw = plugin;
     if (window.CnChar) window.CnChar.use(plugin);
 }
 
-export default Object.assign(draw, plugin) as IDraw & IPlugin;
+export default plugin;

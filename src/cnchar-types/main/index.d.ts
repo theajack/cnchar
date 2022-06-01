@@ -41,7 +41,15 @@ declare interface IStroke {(sentence: string, ...args: Array<StrokeArg>): number
 
 export interface ICnChar {
     pluginName: string,
-    dict: Json<Json>,
+    dict: {
+        spell: Json<string>;
+        stroke: Json<string>;
+        spellDefault: Json<string>;
+        info: {
+            initial: string[];
+            polyWord: string;
+        };
+    },
     spell: ISpell;
     stroke: IStroke;
     use(...plugins: IPlugin[]): void;

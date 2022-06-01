@@ -6,7 +6,7 @@ export interface IExplain {
     addExplain(json: Json<string>): void;
     addExplain(words: string, explain: string): void;
     setResourceBase(url: string): void;
-    dict: Json;
+    dict: {temp: Json<string>};
 }
 
 declare global {

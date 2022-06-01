@@ -34,7 +34,7 @@ export const arg: TIdiomArg = {
 idiom(['一','','一',''])
 idiom(['一','','一',''])
 */
-export const idiom: IIdiom = (input: TIdiomInput, ...args: Array<IdomArg>): Array<string> => {
+export const idiom = ((input: TIdiomInput, ...args: Array<IdomArg>): Array<string> => {
     if (!input) {
         console.warn('idiom: 请输入搜索项');
         return [];
@@ -59,8 +59,7 @@ export const idiom: IIdiom = (input: TIdiomInput, ...args: Array<IdomArg>): Arra
         }
     }
     return res;
-};
-idiom.dict = {};
+}) as IIdiom;
 
 function idiomWithChar (input: string | string[]): Array<string> {
 

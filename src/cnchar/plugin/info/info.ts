@@ -1,9 +1,9 @@
 import fiveElementMap from './dict/five-element.json';
 import methodMap from './dict/method.json';
 import infoDict from './dict/info.json';
-import {IInfo, IInfoResult} from 'src/cnchar-types/plugin/info';
+import {IInfo, IInfoResult} from 'cnchar-types/plugin/info';
 import ICnChar from 'cnchar-types';
-import {Json} from 'src/cnchar-types/main/common';
+import {Json} from 'cnchar-types/main/common';
 
 export function getDict () {
     return {

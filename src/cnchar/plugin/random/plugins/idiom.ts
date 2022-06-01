@@ -1,7 +1,7 @@
 import {pickRandomEle} from '@common/util';
-import {IdomArg} from 'src/cnchar-types/main';
-import {IIdiom} from 'src/cnchar-types/plugin/idiom';
-import {IRandomIdiomOptions} from 'src/cnchar-types/plugin/random';
+import {IdomArg} from 'cnchar-types/main';
+import {IIdiom} from 'cnchar-types/plugin/idiom';
+import {IRandomIdiomOptions} from 'cnchar-types/plugin/random';
 import {getPlugin} from '../store';
 
 export function randomIdiom ({

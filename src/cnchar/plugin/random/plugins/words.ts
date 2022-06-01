@@ -1,6 +1,6 @@
 import {pickRandomEle} from '@common/util';
-import {IRandomWordsOptions} from 'src/cnchar-types/plugin/random';
-import {IWords} from 'src/cnchar-types/plugin/words';
+import {IRandomWordsOptions} from 'cnchar-types/plugin/random';
+import {IWords} from 'cnchar-types/plugin/words';
 import {getPlugin} from '../store';
 
 export function randomWords ({

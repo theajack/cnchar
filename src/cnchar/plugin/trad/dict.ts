@@ -11,8 +11,8 @@ import {Json} from 'cnchar-types/main/common';
 export const codeDict = originCodeDict as Json<string>;
 export const countDict = originCountDict as Json<string>;
 export const orderDict = originOrderDict as Json<string>;
-export const tradDict = originTradDict as Json<string>;
-export const sparkDict = originSparkDict as Json<string>;
+export const tradDict = originTradDict;
+export const sparkDict = originSparkDict;
 
 export function getDict () {
     return {

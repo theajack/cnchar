@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-05-25 21:20:55
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-29 21:39:19
+ * @LastEditTime: 2022-06-01 18:10:27
  * @FilePath: /cnchar/src/cnchar/plugin/code/index.ts
  * @Description: 汉字编码支持
  */
@@ -11,21 +11,20 @@
 
 import ICnChar from 'cnchar-types';
 import {IPlugin} from 'cnchar-types/main/common';
-import {ICode} from 'src/cnchar-types/plugin/code';
+import {ICode} from 'cnchar-types/plugin/code';
 import {getDict, code, setCnchar} from './code';
 
-const plugin: IPlugin = {
+const plugin: IPlugin & ICode = Object.assign(code, {
     pluginName: 'code',
     install (cnchar: ICnChar) {
         setCnchar(cnchar);
-        return {code};
     },
-    dict: getDict()
-};
+    dict: getDict(),
+} as IPlugin);
 
 if (typeof window === 'object') {
-    window.CncharCode = code;
+    window.CncharCode = plugin;
     if (window.CnChar) window.CnChar.use(plugin);
 }
 
-export default Object.assign(code, plugin) as ICode & IPlugin;
+export default plugin;

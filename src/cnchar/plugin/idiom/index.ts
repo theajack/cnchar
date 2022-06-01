@@ -1,22 +1,21 @@
-import {ICnChar} from 'cnchar-types/main';
 import {idiom, arg, setCnchar, getDict} from './idiom';
 import {IIdiom} from 'cnchar-types/plugin/idiom';
 import {IPlugin} from 'cnchar-types/main/common';
 
-const plugin: IPlugin = {
+const plugin: IPlugin & IIdiom = Object.assign(idiom, {
     pluginName: 'idiom',
-    install (cnchar: ICnChar) {
+    install (cnchar) {
         setCnchar(cnchar);
-        return {idiom};
     },
     args: arg,
     dict: getDict(),
-};
+} as IPlugin);
+
 
 if (typeof window === 'object') {
-    window.CncharIdiom = idiom;
+    window.CncharIdiom = plugin;
     if (window.CnChar) window.CnChar.use(plugin);
 }
 
-export default Object.assign(idiom, plugin) as IIdiom & IPlugin;
+export default plugin;
 

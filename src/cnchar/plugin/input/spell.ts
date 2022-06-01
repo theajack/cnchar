@@ -1,5 +1,5 @@
 import {IInputOptions, IInputResult} from 'cnchar-types/plugin/input';
-import {Json} from 'src/cnchar-types/main/common';
+import {Json} from 'cnchar-types/main/common';
 import {associateSpell} from './associate/ass-spell';
 import {debounceReturn, getSpellDict} from './util';
 import {splitString} from './wubi';

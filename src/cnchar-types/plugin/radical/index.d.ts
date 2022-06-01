@@ -23,7 +23,10 @@ export interface ISetRadical {
 
 export interface IRadical extends IRadicalFn {
     setRadical: ISetRadical;
-    dict: Json;
+    dict: {
+        radical: Json<string>;
+        struct: Json<string>;
+    };
 }
 
 declare global {

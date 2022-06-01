@@ -21,7 +21,7 @@ export default function initOrderToWord (cnchar: ICnChar & ICnCharOrder) {
     _ = cnchar._;
 }
 
-const orderToWord = ((
+export const orderToWord = ((
     input: string | Array<OrderName>,
     ...args: Array<OrderToWordArg>
 ): string | Array<string> => {

@@ -38,6 +38,26 @@ export interface ITradString {
     spell?: {(...args: Array<SpellArg>): string | Array<any>;}
 }
 
+export interface ITrad {
+    convert: IConverter;
+    dict: {
+        code: Json<string>;
+        count: Json<string>;
+        order: Json<string>;
+        trad: {
+            simple: string;
+            trad: string;
+        },
+        spark: {
+            simple: string;
+            spark: string;
+        },
+        radical: Json<string>;
+        info: Json<string>;
+        wubi: Json<string>;
+    };
+}
+
 declare global {
     interface String {
         convertSimpleToTrad(): string;
@@ -47,15 +67,15 @@ declare global {
         convertSparkToSimple(): string;
         convertSparkToTrad(): string;
     }
+    interface Window {
+        CncharTrad: ITrad;
+    }
 }
 
 declare module '../../main/index' {
     interface ICnChar {
         convert: IConverter;
-        trad: {
-            convert: IConverter
-            dict: Json;
-        };
+        trad: ITrad;
     }
 }
 

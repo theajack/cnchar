@@ -1,7 +1,7 @@
 import {pickRandomEle} from '@common/util';
-import {XhyArg} from 'src/cnchar-types/main';
-import {IRandomXHYOptions} from 'src/cnchar-types/plugin/random';
-import {IXHY} from 'src/cnchar-types/plugin/xhy';
+import {XhyArg} from 'cnchar-types/main';
+import {IRandomXHYOptions} from 'cnchar-types/plugin/random';
+import {IXHY} from 'cnchar-types/plugin/xhy';
 import {getPlugin} from '../store';
 
 export function randomXHY ({

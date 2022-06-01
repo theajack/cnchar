@@ -1,21 +1,20 @@
-import {ICnChar} from 'cnchar-types/main';
 import {IRadical} from 'cnchar-types/plugin/radical';
 import {IPlugin} from 'cnchar-types/main/common';
 import {getDict, radical, setCnchar, setRadical} from './radical';
 
-const plugin: IPlugin = {
+
+const plugin: IPlugin & IRadical = Object.assign(radical, {
     pluginName: 'radical',
-    install (cnchar: ICnChar) {
+    install (cnchar) {
         setCnchar(cnchar);
-        radical.setRadical = setRadical;
-        return {radical};
     },
-    dict: getDict()
-};
+    setRadical,
+    dict: getDict(),
+} as IPlugin);
 
 if (typeof window === 'object') {
-    window.CncharRadical = radical;
+    window.CncharRadical = plugin;
     if (window.CnChar) window.CnChar.use(plugin);
 }
 
-export default Object.assign(radical, plugin) as IRadical & IPlugin;
+export default plugin;

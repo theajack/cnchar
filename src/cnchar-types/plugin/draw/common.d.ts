@@ -109,7 +109,6 @@ export interface IDraw {
     TEST_STATUS: Json<TTestStatusType>;
     setResourceBase(url: string): void;
     onWordNotFound(callback: (word: string)=>void): void;
-    dict: Json;
 }
 
 declare global {

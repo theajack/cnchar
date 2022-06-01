@@ -9,7 +9,11 @@ export interface IInfoResult {
 
 export interface IInfo {
     (input: string): IInfoResult[];
-    dict: Json;
+    dict: {
+        fiveElementMap: Json<string>;
+        methodMap: Json<string>;
+        info: Json<string>;
+    }
 }
 
 declare global {

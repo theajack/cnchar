@@ -26,7 +26,7 @@ export interface IInputOptions {
 
 export interface IInput {
     (input: string, options: IInputOptions): IInputResult;
-    dict: Json;
+    dict: {wubi: Json<string>}
 }
 
 declare global {

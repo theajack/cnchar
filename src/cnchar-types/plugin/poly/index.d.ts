@@ -15,6 +15,12 @@ export interface IPoly {
     dict: Json;
 }
 
+declare global {
+    interface Window {
+        CncharPoly: IPoly,
+    }
+}
+
 declare module '../../main/index' {
     interface ICnChar {
         setPolyPhrase: ISetPolyPhrase;

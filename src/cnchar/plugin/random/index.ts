@@ -4,18 +4,16 @@ import {IRandom} from 'cnchar-types/plugin/random';
 import {random} from './random';
 import {setCnchar} from './store';
 
-const plugin: IPlugin = {
+const plugin: IPlugin & IRandom = Object.assign(random, {
     pluginName: 'random',
     install (cnchar) {
         setCnchar(cnchar);
-        return {random};
     },
-    dict: {}
-};
+} as IPlugin);
 
 if (typeof window === 'object') {
-    window.CncharRandom = random;
+    window.CncharRandom = plugin;
     if (window.CnChar) window.CnChar.use(plugin);
 }
 
-export default Object.assign(random, plugin) as IRandom & IPlugin;
+export default plugin;

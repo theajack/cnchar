@@ -38,18 +38,25 @@ export interface ICnCharOrder {
     orderToWord?: IOrderToWord;
 }
 
-declare global {
-    interface String {
-        stroke(...args: Array<StrokeArg>): number | Array<any>;
-    }
-}
 
 export interface IOrder {
+    setOrder: ISetOrder;
+    orderToWord: IOrderToWord;
     dict: {
         orders: Json;
         strokeTable: Json;
     }
 }
+
+declare global {
+    interface String {
+        stroke(...args: Array<StrokeArg>): number | Array<any>;
+    }
+    interface Window {
+        CncharOrder: IOrder,
+    }
+}
+
 declare module '../../main/index' {
     interface ICnChar {
         order: IOrder;

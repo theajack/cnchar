@@ -2,13 +2,13 @@
  * @Author: tackchen
  * @Date: 2022-04-10 12:07:55
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-29 11:25:16
+ * @LastEditTime: 2022-06-01 20:53:14
  * @FilePath: /cnchar/src/cnchar/main/utils/plugins.ts
  * @Description: Coding something
  */
 
 import {PluginArg} from 'cnchar-types/main';
-import {IPlugin, Json} from 'cnchar-types/main/common';
+import {IPlugin} from 'cnchar-types/main/common';
 import {getCnChar} from './tool';
 import {_warn} from '@common/util';
 
@@ -34,16 +34,10 @@ export function installPlugin (...plugins: Array<IPlugin>): void {
         const target = cnchar as any;
 
         if (args) target.type[pluginName] = args;
+        plugin.getCnChar = () => cnchar;
+        plugin.installed = true;
 
-        const map = install(cnchar) as unknown as Json;
-        if (typeof map === 'object') {
-            for (const k in map) {
-                if (typeof target[k] === 'undefined' || target[k].__default) {
-                    target[k] = map[k];
-                } else {
-                    _warn(`${k} is already defined`);
-                }
-            }
-        }
+        target[pluginName] = plugin;
+        if (install) install(cnchar);
     });
 }

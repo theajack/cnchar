@@ -7,7 +7,7 @@
  * @Description: Coding something
  */
 
-import {Json} from 'src/cnchar-types/main/common';
+import {Json} from 'cnchar-types/main/common';
 import {Env} from './adapter';
 import {parseJSON, _warn} from './util';
 

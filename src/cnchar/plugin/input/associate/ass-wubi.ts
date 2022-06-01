@@ -1,4 +1,4 @@
-import {IInputResult} from 'src/cnchar-types/plugin/input';
+import {IInputResult} from 'cnchar-types/plugin/input';
 import {getCnChar} from '../cnchar';
 import {getAssociateWordsString} from './common';
 

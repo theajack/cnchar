@@ -4,23 +4,22 @@ import {IExplain} from 'cnchar-types/plugin/explain';
 import {explain, setCnchar, args, getTempDict} from './explain';
 import {initResourceFromCnchar, setResourceBase} from './resource';
 
-const plugin: IPlugin = {
+const plugin: IPlugin & IExplain = Object.assign(explain, {
     pluginName: 'explain',
     install (cnchar) {
         setCnchar(cnchar);
         initResourceFromCnchar(cnchar);
-        explain.setResourceBase = setResourceBase;
-        return {explain};
     },
+    setResourceBase,
     args: args,
     dict: {
         temp: getTempDict()
     }
-};
+} as IPlugin);
 
 if (typeof window === 'object') {
-    window.CncharExplain = explain;
+    window.CncharExplain = plugin;
     if (window.CnChar) window.CnChar.use(plugin);
 }
 
-export default Object.assign(explain, plugin) as IExplain & IPlugin;
+export default plugin;

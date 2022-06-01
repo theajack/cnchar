@@ -2,13 +2,13 @@
  * @Author: tackchen
  * @Date: 2022-05-26 09:37:18
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-29 21:38:38
+ * @LastEditTime: 2022-06-01 14:19:48
  * @FilePath: /cnchar/src/cnchar/plugin/code/code.ts
  * @Description: Coding something
  */
 import ICnChar from 'cnchar-types';
 import {ICode, ICodeResult, IDictCodeResult} from 'cnchar-types/plugin/code';
-import {Json} from 'src/cnchar-types/main/common';
+import {Json} from 'cnchar-types/main/common';
 import dict from './dict/code.json';
 import GBK from './gbk';
 
@@ -77,9 +77,7 @@ export function uniCode (word: string, decode = false): string {
 }
 
 export const code = ((input: string) => {
-
     const result: ICodeResult[] = [];
-
     for (let i = 0; i < input.length; i++) {
         const word = input[i];
         const dictResult = getSingleWordCode(dict, word);
@@ -92,7 +90,6 @@ export const code = ((input: string) => {
             binary: binaryCode(word),
         });
     }
-    
     return result;
 }) as ICode;
 

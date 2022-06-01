@@ -1,9 +1,12 @@
-import {Json} from '../../main/common';
 import {ICnChar} from '../../main'; // ! important for declare module '../../main/index'
 export interface IWords {
     (words: string, ...args: string[]): string[];
     addWords(words: string | string[]): void;
-    dict: Json;
+    dict: {
+        words: {
+            wordsString: string;
+        }
+    };
 }
 
 declare global {

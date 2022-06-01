@@ -1,8 +1,8 @@
 import {ICnChar, StrokeArg} from 'cnchar-types/main';
 import {ICncharTool} from 'cnchar-types/main/tool';
 import {orders, strokeTable} from './dict';
-import initOrderToWord from './orderToWord';
-import {ICnCharOrder, TOrderArg, TStrokeOrderReturn} from 'cnchar-types/plugin/order';
+import initOrderToWord, {orderToWord} from './orderToWord';
+import {IOrder, TOrderArg, TStrokeOrderReturn} from 'cnchar-types/plugin/order';
 import {IPlugin} from 'cnchar-types/main/common';
 
 let _: ICncharTool; // 工具方法
@@ -90,7 +90,7 @@ function getStrokeSingle (
     return arr;
 }
 
-function install (cnchar: ICnChar & ICnCharOrder) {
+function install (cnchar: ICnChar) {
     const _old = cnchar._origin.stroke;
     _ = cnchar._;
     
@@ -113,26 +113,21 @@ function install (cnchar: ICnChar & ICnCharOrder) {
         delete cnchar._._reinitStrokeOrder;
     }
     initOrderToWord(cnchar);
-    return {
-        order: {
-            dict: {
-                orders,
-                strokeTable,
-            }
-        }
-    };
 }
 
-const plugin: IPlugin = {
+const plugin: IPlugin & IOrder = {
     pluginName: 'order',
-    install: install,
+    setOrder: setOrder,
+    orderToWord: orderToWord,
+    install,
     dict: {
         orders,
         strokeTable,
-    }
+    },
 };
 
 if (typeof window === 'object' && window.CnChar) {
+    window.CncharOrder = plugin;
     window.CnChar.use(plugin);
 }
 

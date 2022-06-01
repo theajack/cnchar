@@ -8,10 +8,10 @@
  */
 
 import {IFunc} from 'cnchar-types/main/tool';
-import {ToneType} from 'src/cnchar-types/main';
+import {ToneType} from 'cnchar-types/main';
 import {Json} from 'cnchar-types/main/common';
 import {pickRandomChar, pickRandomEle, randomNum} from '@common/util';
-import {IRandomSpellOptions, IRandomWordOptions} from 'src/cnchar-types/plugin/random';
+import {IRandomSpellOptions, IRandomWordOptions} from 'cnchar-types/plugin/random';
 import {getCnChar, getPlugin} from '../store';
 
 let spellMap: Json<{

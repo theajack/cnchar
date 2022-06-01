@@ -1,4 +1,3 @@
-import {Json} from '../../main/common';
 import {ICnChar, XhyArg} from '../../main/index';
 
 export declare type TAddXhyArg1 = Array<Array<string>> | Array<string>;
@@ -11,7 +10,9 @@ export interface IAddXhy {
 export interface IXHY {
     (text:string, ...xhyArgs: Array<XhyArg>): Array<string>;
     addXhy: IAddXhy;
-    dict: Json;
+    dict: {
+        array: string[][]
+    };
 }
 
 declare global {
