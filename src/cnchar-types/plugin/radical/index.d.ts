@@ -11,8 +11,8 @@ export interface IRadicalFn {
 
 export interface IRadicalResult {
     radical: string;
-    struct: TStruct,
-    radicalCount: number,
+    struct: TStruct;
+    radicalCount: number;
 }
 
 export interface ISetRadical {

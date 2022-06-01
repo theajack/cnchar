@@ -34,11 +34,22 @@
 
 <h3>🚀 Full-featured, multi-end support for hanyu pinyin strokes js library</h3>
 
-**[中文](https://github.com/theajack/cnchar) | [Online trial / documentation](https://theajack.github.io/cnchar) | [Update log](https://theajack.github.io/cnchar/guide/version.html) | Application: [Typing game](https://theajack.github.io/type/)、[piano](https://theajack.github.io/piano/) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [Message Board](https://theajack.github.io/message-board/?app=cnchar)**
+**[中文](https://github.com/theajack/cnchar) | [Online trial / documentation](https://theajack.github.io/cnchar) | [Update log](https://theajack.github.io/cnchar/guide/version.html) | [Feedback error / missing](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [Message Board](https://theajack.github.io/message-board/?app=cnchar)**
+
+### Application example
+
+Before starting the documentation, let's take a look at some use cases to see what cnchar can do
+
+[Chinese character typing game](https://theajack.github.io/type/) | [Typing and playing the piano](https://theajack.github.io/piano/) | [Idiom Solitaire](https://theajack.github.io/jsbox/?github=theajack.cnchar.idiom.js) | [Address Book Sort](https://theajack.github.io/jsbox/?github=theajack.cnchar.sort.js) | [name](https://theajack.github.io/jsbox/?github=theajack.cnchar.name.js) | [input method](https://theajack.github.io/jsbox/?github=theajack.cnchar.input.js) | [Xie Houyu](https://theajack.github.io/jsbox/?github=theajack.cnchar.xhy.js) | [Speech Recognition and Synthesis](https://theajack.github.io/jsbox/?github=theajack.cnchar.voice.js) [Simplified and Traditional Conversion](https://theajack.github.io/jsbox/?github=theajack.cnchar.trad.js)
 
 ---
 
-<!--toc-->
+<details>
+    <summary>Expand directory</summary>
+
+<!-- toc -->
+
+</details>
 
 ---
 
@@ -58,8 +69,9 @@ Since the document is long, please do a brief introduction, please read as neede
 -Chapter 4 introduces the differences in the use of cnchar in various environments
 -Chapter 5 introduces the API usage of cnchar and its function library in detail
 -Chapter 6 lists the parameters of each method and a large number of cnchar use examples
--Chapter 7 introduces some cnchar use cases
-  
+
+In addition, due to the large number of plug-ins, the workload of writing documents is huge. If there are any omissions, please refer to the definition of [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types). You are also welcome to help improve the documentation
+
 ### 0. Quick use
 
 Use npm to install:
@@ -87,36 +99,37 @@ Use the script tag to use:
 <a href="#610-usage-examples"> More detailed usage examples </a> | <a href="#6-spell-stroke-parameters"> Detailed introduction of parameters </a>
 
 ### 1. Features
-
 1. Get **Chinese Pinyin**, support initial letter, capitalization, array division, optional **polyphonic word** and other functions
-2. Support **polyphony**
-3. Support **Pinyin tone**
-4. Get Chinese characters **stroke number** , support array segmentation
-5. Obtain Chinese characters **stroke order** and detailed stroke names
-6. Support visualization **drawing Chinese strokes**, a variety of drawing modes are optional
-7. Support **speech synthesis** and **speech recognition**
-8. Support **Chinese character grouping** and **Chinese character interpretation**
-9. Support **Simplified characters** , **Traditional characters** , **Mars script** mutual conversion
-10. Support **find** all **Chinese characters** of a certain pinyin, traditional characters, polyphonic characters
-11. Support **find** all **Chinese characters** with the specified number of strokes, traditional Chinese characters
-12. Support **Search by stroke order** Chinese characters
-13. Support **search pinyin information**, including initials, finals, pitch, pitch position, etc.
-14. Support **traditional characters** pinyin, number of strokes and all the above functions to achieve the same functions as simplified characters
-15. Support **idiom** query function, you can query idioms according to Chinese characters, pinyin (tone), and the number of strokes
-16. Support **Xiehouyu** query function, support fuzzy query
-17. Support **Radicals** query function
-18. Support **custom** pinyin strokes and other data, more flexible use
-19.
-20. Provide Chinese character tools to facilitate developers to operate Pinyin and Chinese characters more conveniently and efficiently.
-21. **Small size**, min version is only 46 kb, zip version is 34 kb (contains a large number of Chinese pinyin dictionaries)
-22. **Multi-terminal available**, can be used for **browser, nodejs, applet/minigame, ReactNative/Weex/Uniapp/Electron, webpack**..., supports all environments where js can run
-23. **typescript**, the main library and all plug-in libraries are developed using typescript
-24. Rich configuration, divided into plug-ins according to functions, available on demand
-25. Support **IE9** and above
+2. Support **polyphonic words**, **pinyin tone**
+3. Obtain Chinese characters **stroke number** , **stroke order** , and detailed stroke names
+4. Support visualization **drawing Chinese strokes**, a variety of drawing modes are optional
+5. Support **speech synthesis** and **speech recognition**
+6. Support **Chinese character grouping** and **Chinese character interpretation**
+7. Support **Simplified characters** , **Traditional characters** , **Mars script** mutual conversion
+8. Support **find** all **Chinese characters** of a certain pinyin, traditional characters, polyphonic characters
+9. Support **find** all **Chinese characters** with the specified number of strokes, traditional Chinese characters
+10. Support **Search by stroke order** Chinese characters
+11. Support **search pinyin information**, including initials, finals, tones, tonal positions, etc.
+12. Support **traditional characters** pinyin, number of strokes and all the above functions, to achieve the same functions as simplified characters
+13. Support **idiom** query function, you can query idioms according to Chinese characters, pinyin (tone), and the number of strokes
+14. Support **Xiehouyu** query function, support fuzzy query
+15. Support **Radicals** query function
+16. Support **randomly generated** Pinyin, Chinese characters, words, idioms, Xiehouyu, Chinese names
+17. Support **Chinese character code query**, **Chinese character information query**
+18. Support **Pinyin input method**, **Wubi input method**, support associative input
+19. Support **custom plug-in**, independent and simple access method, fully use all functions of cnchar
+20. Support **custom** pinyin strokes and other data, more flexible to use
+21. For some large dictionaries, support **offline use**, **custom deployment**
+22. Provide Chinese character tools to facilitate developers to operate Pinyin and Chinese characters more conveniently and efficiently.
+23. **Small size**, min version is only 46 kb, zip version is 34 kb (contains a large number of Chinese pinyin dictionaries)
+24. **Multi-terminal available**, can be used for **browser, nodejs, applet/minigame, ReactNative/Weex/Uniapp/Electron, webpack**..., supports all environments where js can run
+25. **typescript**, the main library and all plug-in libraries are developed using typescript
+26. Rich configuration, divided into plug-ins according to functions, available on demand
+27. Support **IE9** and above
 
-### 2. Overview
+### 2. Overview of functions and plugins
 
-Taking into account different needs, the functions of cnchar have been split into the following 12 libraries to facilitate developers to access them as needed:
+Taking into account different needs, the functions of cnchar are split into the following multiple plug-in libraries, which are convenient for developers to use on demand:
 
 | Name | Description | Features | Supported Versions | Node Support | Mini Programs |
 | :------------: | :--------------------------------------------: | :--------------------: | :--------------------------------: | :--------------------: | :--------------------------------: |
@@ -131,7 +144,19 @@ Taking into account different needs, the functions of cnchar have been split int
 | cnchar-words | Chinese character group thesaurus | Supports querying phrases based on single or multiple Chinese characters | 3.1.0+ | Yes | Yes |
 | cnchar-explain | Chinese character interpretation library | Support to query the meaning of Chinese characters | 3.1.0+ | Yes | Yes |
 | cnchar-voice | Speech Recognition and Speech Synthesis | Supports Chinese Pronunciation and Synthesis | 3.1.0+ | No | Partial |
-| cnchar-data | Offline dictionary library | To support offline use and custom deployment of some plug-in libraries | 3.1.0+ | Yes | Yes |
+| cnchar-data | Offline dictionary library | To support offline use and custom deployment of some plug-in libraries | 3.1.0+ | Yes | Yes || cnchar-random | Random library | Randomly generate pinyin, Chinese characters, words, idioms, Xiehouyu | 3.2.0+ | Yes | Yes |
+| cnchar-input | Input Method Support | Support Pinyin and Wubi Input Method Results | 3.2.0+ | Yes | Yes |
+| cnchar-code | Chinese character encoding library | Chinese character encoding query | 3.2.0+ | Yes | Yes |
+| cnchar-info | Chinese character information query | Used to query Chinese character information | 3.2.0+ | Yes | Yes |
+| cnchar-name | Chinese name information | Used to generate names randomly | 3.2.0+ | Yes | Yes |
+
+The following plugin library documentation is not maintained in this readme, please refer to the following address or go to [Online Documentation](https://theajack.github.io/cnchar/doc/cnchar.html):
+
+1. [cnchar-random](https://github.com/theajack/cnchar/blob/master/vuepress/doc/random.md)
+2. [cnchar-input](https://github.com/theajack/cnchar/blob/master/vuepress/doc/input.md)
+3. [cnchar-code](https://github.com/theajack/cnchar/blob/master/vuepress/doc/code.md)
+4. [cnchar-info](https://github.com/theajack/cnchar/blob/master/vuepress/doc/info.md)
+5. [cnchar-name](https://github.com/theajack/cnchar/blob/master/vuepress/doc/name.md)
 
 ### 3. Installation
 
@@ -146,10 +171,10 @@ npm i cnchar
 Install additional function library:
 
 ```
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice cnchar-random cnchar-code cnchar-input cnchar-info cnchar-name
 ```
 
-Of course, you can also install a few of them on demand, but the basic library `cnchar` must be installed (draw, idiom, xhy, radical four libraries can be used independently)
+Of course, you can also install several of them on demand, and the plug-in library can also be installed and used independently from cnchar, but some warehouse functions strongly depend on cnchar, such as cnchar-poly cnchar-order cnchar-trad
 
 Or you can use the full functionality by installing `cnchar-all`, this library references all the above plugin libraries
 
@@ -158,6 +183,8 @@ npm i cnchar-all
 ```
 
 #### 3.2 Introduce using cdn
+
+**If jsdelivr is down, you can use unpkg (https://unpkg.com/cnchar/cnchar.min.js)**
 
 ```html
 <script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
@@ -171,6 +198,11 @@ npm i cnchar-all
 <script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-random/cnchar.random.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-code/cnchar.code.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-input/cnchar.input.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-info/cnchar.info.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/cnchar-name/cnchar.name.min.js"></script>
 ```
 
 Or use the following cdn, which contains the above eleven libraries
@@ -179,7 +211,6 @@ Or use the following cdn, which contains the above eleven libraries
 <script src="https://fastly.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script>
 ```
 
-
 ### 4. Use
 
 #### 4.1 webpack browser environment(with window object)
@@ -187,19 +218,11 @@ Or use the following cdn, which contains the above eleven libraries
 After npm installs several libraries:
 
 ```js
-// Please ensure that the cnchar basic library is introduced first, the order of several other libraries does not matter
+// Please ensure that the cnchar base library is introduced first, and the order of the other libraries does not matter
 import cnchar from 'cnchar';
 import 'cnchar-poly';
-import 'cnchar-order';
-import 'cnchar-trad';
-import 'cnchar-draw';
-import 'cnchar-idiom';
-import 'cnchar-xhy';
-import 'cnchar-radical';
-import 'cnchar-words';
-import 'cnchar-explain';
-import 'cnchar-voice';
-// Please use the plug-in as needed
+// ... For other plugins, please refer to Chapter 2 2. Overview of functions and plugins
+// Please use the plugin as needed
 
 console.log('汉字'.spell()); // Called by prototype
 console.log(cnchar.spell('汉字')); // cnchar api call
@@ -212,19 +235,13 @@ In the browser environment, a cnchar object will be defined on the window object
 In the non-browser environment, you need to use the `cnchar.use()` method to load the function library:
 
 ```js
-// Please ensure that the cnchar basic library is introduced first, the order of several other libraries does not matter
+// Please ensure that the cnchar base library is introduced first, and the order of the other libraries does not matter
 var cnchar = require('cnchar');
 var poly = require('cnchar-poly');
-var order = require('cnchar-order');
-var trad = require('cnchar-trad');
-var idiom = require('cnchar-idiom');
-var xhy = require('cnchar-xhy');
-var radical = require('cnchar-radical');
-var words = require('cnchar-words');
-var explain = require('cnchar-explain');
-// Please use the plug-in as needed
-// cnchar-draw, cnchar-voice cannot be used in a non-browser environment
-cnchar.use(poly, order, trad, idiom, xhy, radical, words, explain);
+// ... For other plugins, please refer to Chapter 2 2. Overview of functions and plugins
+// Please use the plugin as needed
+// Note: cnchar-draw, cnchar-voice are not available in non-browser environments
+cnchar.use(poly);
 
 console.log('汉字'.spell()); // Called by prototype
 console.log(cnchar.spell('汉字')); // cnchar api call
@@ -239,18 +256,10 @@ The native browser environment requires the use of script tags to import js file
 ```html
 <script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/cnchar-poly/cnchar.poly.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-order/cnchar.order.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-trad/cnchar.trad.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-draw/cnchar.draw.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-idiom/cnchar.idiom.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-xhy/cnchar.xhy.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-radical/cnchar.radical.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+<!--... For other plugins, please refer to Chapter 2 2. Overview of functions and plugins-->
 <script>
-    console.log('汉字'.spell()); // Called by prototype
-    console.log(cnchar.spell('汉字')); // cnchar api call
+    console.log('汉字'.spell()); // Called by prototype
+    console.log(cnchar.spell('汉字')); // cnchar api call
 </script>
 ```
 
@@ -679,23 +688,18 @@ When using cdn references, the `CncharXHY` object will be exposed upwards in the
 
 Cnchar added the radical radical function in 2.2.5. To enable this function, you need to install the `cnchar-radical` function library, which can run independently of the cnchar main library
 
-Thanks to pr provided by `kewell-tsao`
+And it has been upgraded in version 3.2.0, which supports querying the structure of Chinese characters and the number of radical strokes
 
-The usage is as follows:
+Thanks to `kewell-tsao` for the pr
+
+It is used as follows:
 
 ```ts
-cnchar.radical(text:string | Array<string>, ...radicalArgs: Array<radicalArg>): string | Array<string>;
-```
-
-See a specific example
-
-```js
-cnchar.radical('你'); // "亻",
-cnchar.radical('你好呀'); // "亻女口"
-// Return array
-cnchar.radical('你好呀', 'array'); // ["亻", "女", "口"]
-// The incoming array will return the array by default
-cnchar.radical(["你", "好", "呀"]); // ["亻", "女", "口"]
+cnchar.radical(text:string | Array<string>): Array<{
+    radical: string;
+    struct: TStruct;
+    radicalCount: number;
+}>
 ```
 
 When using cdn references, the `CncharRadical` object will be exposed upwards in the window
@@ -843,7 +847,7 @@ The transformTone spell parameter supports the use of v instead of ü, and the u
 
 ##### 5.13.3 Is it Chinese characters: isCnChar
 
-The `isCnChar` method is used to determine whether a character is a Chinese character
+`isCnChar` The method is used to determine whether the string is all Chinese characters
 
 ```ts
 cnchar.isCnChar(word: string): boolean;
@@ -1012,8 +1016,8 @@ cnchar.setOrder(json: {[key: string]: string}): void;
 Set the radicals of Chinese characters, rely on the `cnchar-radical` library
 
 ```ts
-cnchar.radical.setRadical(word: string, radical: string): void;
-cnchar.radical.setRadical(json: {[key: string]: string}): void;
+cnchar.radical.setRadical(word: string, radical: IRadicalResult): void;
+cnchar.radical.setRadical(json: {[key: string]: IRadicalResult}): void;
 ```
 
 ##### 5.14.7 addXhy
@@ -1160,6 +1164,91 @@ In addition, the three repositories of voice, draw, and explain also support ind
 
 For details, please refer to [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 
+#### 5.17 Custom plugins
+
+cnchar is in the form of an independent plug-in. Defining a cnchar plug-in is very simple and does not depend on any third-party package, and through cnchar injection, you can access any cnchar and other plug-in methods
+
+##### 5.17.1 pluginName property
+
+A cnchar plugin has only one required attribute pluginName
+
+Indicates the plugin name. After cnchar.use plugin, it will be injected into cnchar.plugins, and the plugin object will be mounted on cnchar
+
+##### 5.17.2 install properties
+
+install is a method. After cnchar.use the plugin, the cnchar object will call the install method and bring the cnchar object into the plugin as a callback. **Cnchar and other plugin methods can be accessed through the cnchar object**
+
+##### 5.17.3 getCnChar
+
+After the plug-in is successfully installed, a getCnChar will be injected into the plug-in, and the cnchar object can be obtained
+
+For other plugin properties, please refer to [common.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/main/common.d.ts)
+
+##### 5.17.4 js definition plugin
+
+````js
+export default {
+    pluginName: 'custom',
+    install (cnchar) {
+        console.log(cnchar);
+    },
+    version: '0.0.1',
+    log: () => console.log('hello cnchar-plugin!');
+}
+````
+
+##### 5.17.5 ts definition plugin
+
+If you use ts, you can install `cnchar-types` to add cnchar declarations, of course this is not required
+
+It is recommended to use cnchar-types, first need to install `cnchar-types`
+
+```
+npm i cnchar-types
+```
+
+```ts
+import ICnChar, {IPlugin} from 'cnchar-types';
+
+const plugin: IPlugin = {
+    pluginName: 'custom',
+    install (cnchar: ICnChar) {
+        console.log(cnchar);
+    },
+    version: '0.0.1',
+    log: () => console.log('hello cnchar-plugin!');
+};
+
+declare module 'cnchar-types/main/index' {
+    interface ICnChar {
+        custom: {
+            pluginName: 'custom';
+            version: string;
+            log: () => void;
+        };
+    }
+}
+
+export default plugin;
+```
+
+Do not use cnchar-types
+
+```ts
+const plugin: {
+    pluginName: string;
+    install: (cnchar: any) => any;
+} = {
+    pluginName: 'custom',
+    install (cnchar: any) {
+        console.log(cnchar);
+    },
+    version: '0.0.1',
+    log: () => console.log('hello cnchar-plugin!');
+};
+export default plugin;
+```
+
 ### 6 spell stroke parameters
 
 #### 6.1 spell parameters
@@ -1304,16 +1393,13 @@ cnchar.xhy(value,arg1,arg2,...);
 
 #### 6.8 radical parameters
 
-The parameter call is as follows, value indicates the Chinese character to be queried for the radical, which can be a string or an array
+The parameter call is as follows, the value indicates the Chinese character that needs to be queried, which can be a string or an array
+
+Traditional Chinese characters are automatically recognized if cnchar-trad is quoted
 
 ```js
 cnchar.radical(value,arg1,arg2,...);
 ```
-
-| Parameter | Function | Whether Default | Dependency Library | Remarks |
-| :-----: | :----: | :------: | :---: | :---: |
-|  array   | Whether to return an array |    No    | -- |  When passed in as an array, the array is returned by default  |
-| trad | Enable Traditional Chinese Character Recognition | No | cnchar-trad | Enable Traditional Chinese Character Recognition |
 
 #### 6.9 words with explain parameter
 
@@ -1520,10 +1606,9 @@ cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second') // ['醉汉过铁索桥'
 The library extends the radical function for cnchar
 
 ```js
-cnchar.radical('你'); // "亻",
-cnchar.radical('你好呀'); // "亻女口"
-cnchar.radical('你好呀', 'array'); // ["亻", "女", "口"]
-cnchar.radical(["你", "好", "呀"]); // ["亻", "女", "口"]
+cnchar.radical('你'); // [{radicalCount: 2, radical: '亻', struct: '左右结构'}],
+cnchar.radical('你好呀'); // ...
+cnchar.radical(["你", "好", "呀"]); // ...
 ```
 
 ##### 6.10.8 cnchar-words
@@ -1715,10 +1800,10 @@ Depend on `cnchar-radical`
 
 ```js
 // Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar
-cnchar.radical.setRadical('x', 'x');
+cnchar.radical.setRadical('x', {radical:'', struct: '', radicalCount: 0});
 cnchar.radical.setRadical({ // Multiple Chinese characters
-    'x': 'x',
-    'y': 'y'
+    'x': {radical:'', struct: '', radicalCount: 0},
+    'y': {radical:'', struct: '', radicalCount: 0}
 });
 ```
 
@@ -1733,10 +1818,6 @@ cnchar.xhy.addXhy([ // Multiple
     ['歇后语第一句2', '歇后语第二句2'],
 ]);
 ```
-
-### 7 Application examples
-
-[Chinese Character Typing Game](https://www.theajack.com/type/) | [Piano](https://theajack.github.io/piano/)
 
 **Acknowledgements**
 

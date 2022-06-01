@@ -21,9 +21,10 @@
     "scripts": {
         "start": "webpack-dev-server --open --config webpack-config/dev.js",
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",
+        "dev:test": "webpack-dev-server --open --config webpack-config/dev-test.js",
         "build": "node ./helper/build.js",
         "build:main": "webpack --config webpack-config/build.js",
-        "build:test": "webpack --config webpack-config/build-test.js",
+        "build:all": "webpack --config webpack-config/build.plugin.js --env.pluginname=all",
         "publish": "node ./helper/publish.js",
         "test": "node ./helper/test/index.js",
         "lint": "eslint src --ext js",

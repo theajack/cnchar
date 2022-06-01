@@ -9,5 +9,14 @@ import radical from '../../plugin/radical';
 import words from '../../plugin/words';
 import explain from '../../plugin/explain';
 import voice from '../../plugin/voice';
-cnchar.use(order, trad, poly, draw, idiom, xhy, radical, words, explain, voice);
+import random from '../../plugin/random';
+import input from '../../plugin/input';
+import code from '../../plugin/code';
+import info from '../../plugin/info';
+import name from '../../plugin/name';
+cnchar.use(
+    order, trad, poly, draw, idiom, xhy,
+    radical, words, explain, voice, random,
+    input, code, info, name
+);
 export default cnchar;
