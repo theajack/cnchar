@@ -1062,6 +1062,8 @@ cnchar.voice.addVoice(json: Json<string>): void;
 cnchar.voice.addVoice(words: string, url: string): void;
 ```
 
+[其他自定义数据api](https://github.com/theajack/cnchar/blob/master/vuepress/doc/custom.md)
+
 #### 5.15 其他 api
 
 ##### 5.15.1 .use()
@@ -1831,6 +1833,8 @@ cnchar.xhy.addXhy([ // 多条
     ['歇后语第一句2', '歇后语第二句2'],
 ]);
 ```
+
+[其他自定义数据api](https://github.com/theajack/cnchar/blob/master/vuepress/doc/custom.md)
 
 **致谢**
 
