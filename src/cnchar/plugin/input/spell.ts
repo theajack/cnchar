@@ -13,7 +13,6 @@ export function spellInput (
         debounce = 0,
         onResult,
         associate = true,
-        spellTone = true,
     }: IInputOptions
 ): IInputResult {
 
@@ -25,13 +24,13 @@ export function spellInput (
     return debounceReturn(
         'spell',
         debounce,
-        () => associateSpell(associate, spellInputBase(input, spellTone)),
+        () => associateSpell(associate, spellInputBase(input)),
         onResult,
     );
 }
 
-function spellInputBase (input: string, spellTone: boolean) {
-    return traverse(input, getSpellDict(), spellTone);
+function spellInputBase (input: string) {
+    return traverse(input, getSpellDict());
 }
 
 function buildSpellReg (tone: string = '') {
@@ -42,7 +41,6 @@ function buildSpellReg (tone: string = '') {
 function traverse (
     input: string,
     map: Json,
-    spellTone: boolean,
     path: string[] = [],
     spellPath: string[] = [],
     result: IInputResult = [],
@@ -56,7 +54,7 @@ function traverse (
 
         if (wordString && spell !== 'n') {
             let tone = '';
-            if (spellTone && rest && tones.indexOf(rest[0]) !== -1) {
+            if (rest && tones.indexOf(rest[0]) !== -1) {
                 tone = rest[0];
                 spell += tone;
                 rest = rest.substring(1);
@@ -72,7 +70,7 @@ function traverse (
             const newPath = [...path, pathValue];
             const newSpellPath = [...spellPath, spell];
             if (rest) {
-                traverse(rest, map, spellTone, newPath, newSpellPath, result);
+                traverse(rest, map, newPath, newSpellPath, result);
             } else {
                 result.push({
                     split: newSpellPath,

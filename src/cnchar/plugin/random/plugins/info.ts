@@ -15,7 +15,7 @@ export function randomWithInfo ({
     number = 1,
     fiveElement,
     method,
-}: IRandomInfoOptions) {
+}: IRandomInfoOptions = {}) {
 
     const info = getPlugin('info');
     if (!info) {

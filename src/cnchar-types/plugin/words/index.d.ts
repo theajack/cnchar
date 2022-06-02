@@ -3,9 +3,7 @@ export interface IWords {
     (words: string, ...args: string[]): string[];
     addWords(words: string | string[]): void;
     dict: {
-        words: {
-            wordsString: string;
-        }
+        words: string;
     };
 }
 

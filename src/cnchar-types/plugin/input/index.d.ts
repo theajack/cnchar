@@ -21,11 +21,17 @@ export interface IInputOptions {
     associate?: boolean;
     wubiVersion?: '86' | '98',
     wubiMode?: 'trad' | 'simple' | 'both',
-    spellTone?: boolean;
+}
+
+export interface IWubiCodeData {
+    v86: string;
+    v98: string;
 }
 
 export interface IInput {
     (input: string, options: IInputOptions): IInputResult;
+    setWubiCode(json: Json<IWubiCodeData>): void;
+    setWubiCode(words: string, info: IWubiCodeData): void;
     dict: {wubi: Json<string>}
 }
 

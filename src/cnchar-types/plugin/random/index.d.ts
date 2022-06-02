@@ -1,22 +1,24 @@
-import {IFunc} from '../../main/tool';
+import {IOptionFunc} from '../../main/tool';
 import {ICnChar, IdomArg, XhyArg} from '../../main'; // ! important for declare module '../../main/index'
 import {IPlugin} from '../../main/common';
+import {TIdiomInput} from '../idiom';
+import {TFiveElement, TMethod} from '../info';
 
 export interface IRandomSpellOptions {
-    number?: number;
-    tone?: boolean;
-    flat?: boolean;
+    number?: number; // 生成数量 默认1
+    tone?: boolean; // 是否带音调 默认false
+    flat?: boolean; // 是否扁平化拼音 如 lv2 默认false
 }
 
 export interface IRandomWordOptions {
-    number?: number;
-    stroke?: number;
-    trad?: boolean;
+    number?: number; // 生成数量 默认1
+    stroke?: number; // 笔画数 默认不限制
+    trad?: boolean; // 是否查找繁体字 默认否
 }
 
 export interface IRandomIdiomOptions {
-    number?: number;
-    pattern?: [string, ...IdomArg[]];
+    number?: number; // 生成数量 默认1
+    pattern?: [TIdiomInput, ...IdomArg[]]; // 这个参数会直接调用cnchar.idiom 请参考cnchar-idiom文档
 }
 
 export interface IRandomXHYOptions {
@@ -25,25 +27,25 @@ export interface IRandomXHYOptions {
 }
 
 export interface IRandomWordsOptions {
-    number?: number;
-    length?: number;
-    pattern?: [string, ...('trad')[]];
+    number?: number; // 生成数量 默认1
+    length?: number; // 词语长度 默认不限制
+    match?: string; // 查找包含match的词语
 }
 
 export interface IRandomInfoOptions {
-    number?: number;
-    fiveElement?: '金' | '木' | '水' | '火' | '土';
-    method?: '形声' | '会意';
+    number?: number; // 生成数量 默认1
+    fiveElement?: TFiveElement; // 根据五行查找
+    method?: TMethod; // 根据造字法查找
 }
 
 export interface IRandom {
-    use(plugin: IPlugin): void;
-    spell: IFunc<string[], IRandomSpellOptions>;
-    word: IFunc<string, IRandomWordOptions>;
-    idiom: IFunc<string[], IRandomIdiomOptions>;
-    xhy: IFunc<string[], IRandomXHYOptions>;
-    words: IFunc<string[], IRandomWordsOptions>;
-    info: IFunc<string, IRandomInfoOptions>;
+    use(...plugins: IPlugin[]): void;
+    spell: IOptionFunc<string[], IRandomSpellOptions>;
+    word: IOptionFunc<string, IRandomWordOptions>;
+    idiom: IOptionFunc<string[], IRandomIdiomOptions>;
+    xhy: IOptionFunc<string[], IRandomXHYOptions>;
+    words: IOptionFunc<string[], IRandomWordsOptions>;
+    info: IOptionFunc<string, IRandomInfoOptions>;
 }
 
 declare global {

@@ -12,7 +12,7 @@ export function getAssociateWordsString () {
         }
     
         if (cnchar.words) {
-            associateWords += (cnchar.words.dict.words.wordsString as string);
+            associateWords += (cnchar.words.dict.words as string);
         }
     }
 
@@ -29,4 +29,30 @@ export function distinctArray (arr: any[]) {
         if (!newArr.includes(item)) newArr.push(item);
     });
     return newArr;
+}
+
+// 根据权重排序原数组
+export function sortArrayWithWeights<T = any> (result: T[], weights: number[]) {
+
+    const newResult: T[] = [];
+    const sortWeight: number[] = [];
+    for (let i = 0; i < result.length; i++) {
+        const weight = weights[i];
+
+        let sorted = false;
+        for (let j = 0; j < sortWeight.length; j++) {
+            if (weight >= sortWeight[j]) {
+                sortWeight.splice(j, 0, weight);
+                newResult.splice(j, 0, result[i]);
+                sorted = true;
+                break;
+            }
+        }
+        if (!sorted) {
+            sortWeight.push(weight);
+            newResult.push(result[i]);
+        }
+    }
+
+    return newResult;
 }

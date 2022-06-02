@@ -1,7 +1,7 @@
 import {IInputResult} from 'cnchar-types/plugin/input';
 import {getCnChar} from '../cnchar';
 import {getSpellDict} from '../util';
-import {distinctArray, getAssociateWordsString} from './common';
+import {distinctArray, getAssociateWordsString, sortArrayWithWeights} from './common';
 
 /*
 split: (2) ['QTN', 'YYGT']
@@ -28,7 +28,7 @@ export function associateSpell (associate: boolean, result: IInputResult) {
         return result;
     }
 
-    const weightArray: number[] = []; // 结果权重
+    const weights: number[] = []; // 结果权重
 
     const associateStr = getAssociateWordsString();
 
@@ -63,36 +63,10 @@ export function associateSpell (associate: boolean, result: IInputResult) {
             }
 
         }
-        weightArray.push(weight);
+        weights.push(weight);
     });
 
-    return sortArrayWithWeights(result, weightArray);
-}
-
-// 根据权重排序原数组
-function sortArrayWithWeights<T = any> (result: T[], weights: number[]) {
-
-    const newResult: T[] = [];
-    const sortWeight: number[] = [];
-    for (let i = 0; i < result.length; i++) {
-        const weight = weights[i];
-
-        let sorted = false;
-        for (let j = 0; j < sortWeight.length; j++) {
-            if (weight >= sortWeight[j]) {
-                sortWeight.splice(j, 0, weight);
-                newResult.splice(j, 0, result[i]);
-                sorted = true;
-                break;
-            }
-        }
-        if (!sorted) {
-            sortWeight.push(weight);
-            newResult.push(result[i]);
-        }
-    }
-
-    return newResult;
+    return sortArrayWithWeights(result, weights);
 }
 
 
@@ -112,6 +86,5 @@ function buildAssWordsWithPartialSpell (pSpell: string) {
             words += dict[key].match(/[\u4e00-\u9fa5]/g).join('');
         }
     }
-    debugger;
     return words;
 }

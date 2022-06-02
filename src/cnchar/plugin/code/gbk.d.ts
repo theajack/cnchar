@@ -13,4 +13,3 @@ declare const GBK: {
 };
   
 export default GBK;
-  

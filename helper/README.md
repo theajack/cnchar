@@ -34,13 +34,13 @@
 
 <h3>🚀 功能全面、多端支持的汉字拼音笔画 js 库</h3>
 
-**[English](https://github.com/theajack/cnchar/blob/master/helper/README.en.md) | [在线试用/文档](https://theajack.github.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [留言板](https://theajack.github.io/message-board/?app=cnchar)**
+**[English](https://github.com/theajack/cnchar/blob/master/README.en.md) | [在线试用/文档](https://theajack.github.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [留言板](https://theajack.github.io/message-board/?app=cnchar)**
 
 ### 应用例子
 
 开始文档之前，先通过一些应用案例看看 cnchar 能够做些什么
 
-[汉字打字游戏](https://theajack.github.io/type/) | [打字弹钢琴](https://theajack.github.io/piano/) | [成语接龙](https://theajack.github.io/jsbox/?github=theajack.cnchar.idiom.js) | [通讯录排序](https://theajack.github.io/jsbox/?github=theajack.cnchar.sort.js) | [取名字](https://theajack.github.io/jsbox/?github=theajack.cnchar.name.js) | [输入法](https://theajack.github.io/jsbox/?github=theajack.cnchar.input.js) | [歇后语](https://theajack.github.io/jsbox/?github=theajack.cnchar.xhy.js) | [语音识别与合成](https://theajack.github.io/jsbox/?github=theajack.cnchar.voice.js) [简繁体转换](https://theajack.github.io/jsbox/?github=theajack.cnchar.trad.js)
+[汉字打字游戏](https://theajack.github.io/type/) | [打字弹钢琴](https://theajack.github.io/piano/) | [成语接龙](https://theajack.github.io/jsbox/?github=theajack.cnchar.idiom.js) | [通讯录排序](https://theajack.github.io/jsbox/?github=theajack.cnchar.sort.js) | [取名字](https://theajack.github.io/jsbox/?github=theajack.cnchar.name.js) | [输入法](https://theajack.github.io/jsbox/?github=theajack.cnchar.input.js) | [歇后语](https://theajack.github.io/jsbox/?github=theajack.cnchar.xhy.js) | [语音识别与合成](https://theajack.github.io/jsbox/?github=theajack.cnchar.voice.js) | [简繁体转换](https://theajack.github.io/jsbox/?github=theajack.cnchar.trad.js)
 
 
 ---
@@ -125,7 +125,7 @@ import cnchar from 'cnchar';
 20. 支持 **自定义** 拼音笔画等数据，使用更灵活
 21. 对于部分大词典，支持 **离线使用**、**自定义部署**
 22. 提供汉字工具方法，方便开发者更便捷高效地 **操作拼音和汉字**
-23. **体积小**，min 版本仅 46 kb，zip 版本 34 kb (含有大量汉字拼音字典)
+23. **体积小**，min 版本仅 75 kb，zip 版本 50 kb (含有大量汉字拼音字典)
 24. **多端可用**，可用于 **浏览器、nodejs、小程序/小游戏、ReactNative/Weex/Uniapp/Electron、webpack**...，支持所有 js 能运行的环境
 25. **typescript**，主库及所有插件库均使用typescript开发
 26. 丰富的配置，按功能拆分成插件，按需取用
@@ -1175,11 +1175,15 @@ cnchar 在 3.1.0 版本新增了 [cnchar-data](https://github.com/cn-char/cnchar
 
 cnchar 采用的是独立的插件形式，定义一个 cnchar 插件非常简单且不依赖任何第三方包，并且通过 cnchar 注入，可以访问到任何 cnchar 和其他插件的方法
 
+cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用，具体请参考[插件声明](https://github.com/theajack/cnchar/tree/master/src/cnchar-types/plugin)
+
 ##### 5.17.1 pluginName属性
 
 一个 cnchar 插件只有一个必选属性 pluginName
 
 表示插件名称，cnchar.use 插件之后，会注入到 cnchar.plugins 中，且插件对象会被挂载到 cnchar 上
+
+cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用
 
 ##### 5.17.2 install属性
 

@@ -8,5 +8,5 @@ export default {
     spell: spell as Json<string>,
     stroke: stroke as Json<string>,
     spellDefault: spellDefault as Json<string>,
-    info: info
+    info: info as any
 };

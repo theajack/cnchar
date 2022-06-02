@@ -1,6 +1,6 @@
 import {IInputResult} from 'cnchar-types/plugin/input';
 import {getCnChar} from '../cnchar';
-import {getAssociateWordsString} from './common';
+import {getAssociateWordsString, sortArrayWithWeights} from './common';
 
 // cnchar.input('QTNYbj', {type: 'wubi', mode: 'simple', associate: true})
 export function associateWubi (associate: boolean, result: IInputResult) {
@@ -13,16 +13,18 @@ export function associateWubi (associate: boolean, result: IInputResult) {
         return result;
     }
 
+    const weights: number[] = []; // 结果权重
+
     result.forEach((item) => {
         const words = item.words;
         const length = words.length;
     
-    
-        item.association = words.map(() => ''); // 填充 association
+        item.association = words.map((item, i) => words[i]); // 填充 association
 
         const assWords = words[length - 1];
 
         if (assWords.length === 1 || !cnchar.isCnChar(assWords)) {
+            weights.push(0);
             return;
         }
 
@@ -36,9 +38,11 @@ export function associateWubi (associate: boolean, result: IInputResult) {
         words[length - 1] = pickCharsToHead(assWords, chars);
 
         item.association[length - 1] = chars.join('');
+
+        weights.push(chars.length);
     });
 
-    return result;
+    return sortArrayWithWeights(result, weights);
 }
 
 // 将部分字符提到头部

@@ -1,13 +1,12 @@
 import {pickRandomEle} from '@common/util';
 import {IRandomWordsOptions} from 'cnchar-types/plugin/random';
-import {IWords} from 'cnchar-types/plugin/words';
 import {getPlugin} from '../store';
 
 export function randomWords ({
     number = 1,
     length,
-    pattern
-}: IRandomWordsOptions): string[] {
+    match,
+}: IRandomWordsOptions = {}): string[] {
     const words = getPlugin('words');
     if (!words) {
         console.warn('words plugin is not installed');
@@ -16,16 +15,15 @@ export function randomWords ({
 
     let dictString: string = '';
 
-    if (pattern && pattern.length > 0) {
-        const input = pattern.shift() as string;
-        dictString = (words as any as IWords)(input, ...pattern as string[]).join(' ');
+    if (match) {
+        dictString = (words as any)(match).join(' ');
         if (dictString) dictString = ` ${dictString} `;
     }
 
     if (!dictString)
-        dictString = words.dict?.words.wordsString;
+        dictString = words.dict?.words;
 
-    const array = dictString.match(new RegExp(` .{${length}} `, 'g'));
+    const array = dictString.match(new RegExp(` .{${length ? length : '2,3'}} `, 'g'));
 
     if (!array) return [];
         

@@ -5,7 +5,7 @@ const alias = require('./bricks/alias');
 const other = require('./bricks/other');
 const rules = require('./bricks/rules');
 module.exports = {
-    entry: path.resolve('./', 'public/index.ts'),
+    entry: path.resolve('./', 'public/dev-test.ts'),
     output: {
         path: path.resolve('./', 'public'),
         filename: 'bundle.js'

@@ -30,11 +30,11 @@ export interface IRemoveTone {
     (spell: string, tone: boolean): {spell: string, tone?: ToneType, index?: number};
 }
 
-export interface IMapJson {
+export interface IMapJson<T=any> {
     (
-        key: Json | string,
-        value: undefined | any,
-        cb: (key: string, value: any) => void
+        key: Json<T> | string,
+        value: undefined | T,
+        cb: (key: string, value: T) => void
     ): void;
 }
 

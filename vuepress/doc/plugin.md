@@ -1,42 +1,45 @@
-## 自定义插件
+## 1. 介绍
 
-cnchar 采用的是独立的插件形式，定义一个 cnchar 插件非常简单且不依赖任何第三方包，并且通过 cnchar 注入，可以访问到任何 cnchar 和其他插件的方法
+cnchar 提供了一个非常简洁的插件体系，可以很方便的基于cnchar功能开发一个新的插件
 
-一个 cnchar 插件需要有两个属性
+一个 cnchar 插件只有一个必选属性 pluginName
 
-1. pluginName
+表示插件名称，cnchar.use 插件之后，会注入到 cnchar.plugins 中，且插件对象会被挂载到 cnchar 上
 
-   插件名称，插件安装之后，会注入到 cnchar.plugins 中
+cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用，具体请参考[插件声明](https://github.com/theajack/cnchar/tree/master/src/cnchar-types/plugin)
 
-2. install
+## 2. install属性
 
-   安装方法，cnchar对象会调用install方法，并将cnchar对象作为回调带入插件中，**可以通过cnchar对象访问cnchar和其他插件方法**
+install 是一个方法，cnchar.use 插件之后， cnchar对象会调用install方法，并将cnchar对象作为回调带入插件中，**可以通过cnchar对象访问cnchar和其他插件方法**
 
-   install方法如果返回一个json，则cnchar对象会将这个json中的所有属性挂载到cnchar中，前提是不能与已有属性有命名冲突
+## 3. getCnChar
 
-### 1. js定义插件
+插件被安装成功之后，会注入一个 getCnChar 到插件上，可以获取到cnchar对象
+
+其他插件属性可以参考 [common.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/main/common.d.ts)
+
+## 4. js定义插件
 
 ```js
 export default {
     pluginName: 'custom',
     install (cnchar) {
-        const log = () => console.log('hello!');
-        return {
-            customLog: log,
-            custom: {
-                version: '0.0.1',
-                log
-            }
-        };
-    }
+        console.log(cnchar);
+    },
+    version: '0.0.1',
+    log: () => console.log('hello cnchar-plugin!');
 }
 ```
 
-### 2. ts定义插件
+## 5. ts定义插件
 
 如果使用ts，则可以安装 `cnchar-types` 来添加cnchar声明，当然这不是必须的
 
-推荐使用 cnchar-types
+推荐使用 cnchar-types, 首先需要安装 `cnchar-types`
+
+```
+npm i cnchar-types
+```
 
 ```ts
 import ICnChar, {IPlugin} from 'cnchar-types';
@@ -44,21 +47,16 @@ import ICnChar, {IPlugin} from 'cnchar-types';
 const plugin: IPlugin = {
     pluginName: 'custom',
     install (cnchar: ICnChar) {
-        const log = () => console.log('hello!');
-        return {
-            customLog: log,
-            custom: {
-                version: '0.0.1',
-                log
-            }
-        };
-    }
+        console.log(cnchar);
+    },
+    version: '0.0.1',
+    log: () => console.log('hello cnchar-plugin!');
 };
 
 declare module 'cnchar-types/main/index' {
     interface ICnChar {
-        customLog: () => void;
         custom: {
+            pluginName: 'custom';
             version: string;
             log: () => void;
         };
@@ -77,15 +75,10 @@ const plugin: {
 } = {
     pluginName: 'custom',
     install (cnchar: any) {
-        const log = () => console.log('hello!');
-        return {
-            customLog: log,
-            custom: {
-                version: '0.0.1',
-                log
-            }
-        };
-    }
+        console.log(cnchar);
+    },
+    version: '0.0.1',
+    log: () => console.log('hello cnchar-plugin!');
 };
 export default plugin;
 ```

@@ -73,7 +73,7 @@ export const setRadical: ISetRadical = (key: string | Json<IRadicalResult>, valu
     _cnchar._.mapJson(key, value, (k, v: IRadicalResult) => {
         if (k.length > 1) k = k[0];
 
-        if (Object.values(dict).indexOf(k) !== -1) {
+        if (Object.values(dict).join('').indexOf(k) !== -1) {
             removeWordRadical(k);
         }
         addIntoNewMap(k, v);

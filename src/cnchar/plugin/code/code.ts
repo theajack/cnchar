@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-05-26 09:37:18
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-06-01 14:19:48
+ * @LastEditTime: 2022-06-02 13:39:15
  * @FilePath: /cnchar/src/cnchar/plugin/code/code.ts
  * @Description: Coding something
  */
@@ -11,6 +11,7 @@ import {ICode, ICodeResult, IDictCodeResult} from 'cnchar-types/plugin/code';
 import {Json} from 'cnchar-types/main/common';
 import dict from './dict/code.json';
 import GBK from './gbk';
+import {mapJson} from '@common/util';
 
 let cnchar: ICnChar;
 
@@ -51,22 +52,20 @@ export function charCode (word: string, decode = false): string {
         }
         return word.split(' ').map(code => {
             return String.fromCharCode(parseInt(code));
-        }).join(' ');
+        }).join('');
     } else {
         if (word.length === 0) {
             return word.charCodeAt(0) + '';
         }
         return word.split('').map(char => {
             return char.charCodeAt(0) + '';
-        }).join('');
+        }).join(' ');
     }
 }
 
 export function gbkCode (str: string, decode = false): string {
     return decode ? GBK.decode(str) : GBK.encode(str);
 }
-
-(window as any).GBK = GBK;
 
 export function urlCode (word: string, decode = false): string {
     return decode ? decodeURIComponent(word) : encodeURIComponent(word);
@@ -104,6 +103,12 @@ code.sijiao = buildCommonCode('sijiao');
 code.cangjie = buildCommonCode('cangjie');
 
 code.uniform = buildCommonCode('uniform');
+
+code.setCode = (words:string | Json<IDictCodeResult>, data?: IDictCodeResult) => {
+    mapJson(words, data, (k, v: IDictCodeResult) => {
+        (dict as any)[k] = `${v.sijiao} ${v.cangjie} ${v.uniform}`;
+    });
+};
 
 function buildCommonCode (attr: string) {
     return (word: string, decode = false) => {

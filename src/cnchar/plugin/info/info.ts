@@ -4,6 +4,7 @@ import infoDict from './dict/info.json';
 import {IInfo, IInfoResult} from 'cnchar-types/plugin/info';
 import ICnChar from 'cnchar-types';
 import {Json} from 'cnchar-types/main/common';
+import {findEqualKeyInMap, mapJson} from '@common/util';
 
 export function getDict () {
     return {
@@ -32,6 +33,13 @@ export const info = ((input: string) => {
     return result;
 }) as IInfo;
 
+info.setInfo = (words:string | Json<IInfoResult>, data?: IInfoResult) => {
+    mapJson(words, data, (k, v) => {
+        const method = findEqualKeyInMap(methodMap, v.method || '-');
+        const fiveElement = findEqualKeyInMap(fiveElementMap, v.fiveElement || '-');
+        (infoDict as any)[k] = `${method}${fiveElement}${v.markSpell}`;
+    });
+};
 
 function getSingleWordInfo (dict: Json<string>, word: string): IInfoResult {
     let str = dict[word];
@@ -42,11 +50,11 @@ function getSingleWordInfo (dict: Json<string>, word: string): IInfoResult {
         }
     }
 
-    if (!str) return {methodType: '', fiveElementType: '', markSpell: ''};
+    if (!str) return {method: '', fiveElement: '', markSpell: ''};
 
     return {
-        methodType: (methodMap as Json)[str[0]],
-        fiveElementType: (fiveElementMap as Json)[str[1]],
+        method: (methodMap as Json)[str[0]],
+        fiveElement: (fiveElementMap as Json)[str[1]],
         markSpell: str.substring(2),
     };
 }

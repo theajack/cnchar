@@ -1,4 +1,4 @@
-const pkg = require('../../package.json');
+// const pkg = require('../../package.json');
 
 module.exports = [
     {
@@ -6,7 +6,9 @@ module.exports = [
         test (cnchar) {
             return [cnchar.version, cnchar.env];
         },
-        expect: [pkg.version, 'node']
+        expect (cnchar) {
+            return [cnchar.version, cnchar.env];
+        }
     },
     {
         name: '测试spell',
@@ -122,9 +124,9 @@ module.exports = [
         },
         expect: [
             '上尚绱鞝',
-            '上伤汤尚垧殇晌商绱觞赏墒熵裳傷湯殤鞝觴賞',
-            '上伤汤尚垧殇晌商绱觞赏墒熵裳傷湯殤鞝觴賞',
-            '傷湯殤鞝觴賞',
+            '上伤汤尚垧殇晌商绱觞赏墒熵裳傷湯坰殤鞝觴賞',
+            '上伤汤尚垧殇晌商绱觞赏墒熵裳傷湯坰殤鞝觴賞',
+            '傷湯坰殤鞝觴賞',
             '驴闾榈'
         ]
     },
@@ -138,7 +140,7 @@ module.exports = [
             ];
         },
         expect: [
-            '鬣馕囔戆攮纛饞躥顱籮蠻廳灣鑲鑰',
+            '鬣馕囔戆攮纛饞躥顱籮蠻廳灣鑲鑰糶臠欖鱭躡鑭韉纘齇',
             '鬣馕囔戆攮纛',
             ['丁', '七', '乃', '乜', '九', '了', '二', '人', '亻', '儿', '入', '八', '冂', '几', '凵', '刀', '刁', '力', '勹', '匕', '十', '厂', '厶', '又', '卜', '乂']
         ]
@@ -315,15 +317,13 @@ module.exports = [
             return [
                 cnchar.radical('你'),
                 cnchar.radical('你好呀'),
-                cnchar.radical('你好呀', 'array'),
                 cnchar.radical(['你', '好', '呀']),
             ];
         },
         expect: [
-            '亻',
-            '亻女口',
-            ['亻', '女', '口'],
-            ['亻', '女', '口']
+            [{'radicalCount': 2, 'radical': '亻', 'struct': '左右结构'}],
+            [{'radicalCount': 2, 'radical': '亻', 'struct': '左右结构'}, {'radicalCount': 3, 'radical': '女', 'struct': '左右结构'}, {'radicalCount': 3, 'radical': '口', 'struct': '左右结构'}],
+            [{'radicalCount': 2, 'radical': '亻', 'struct': '左右结构'}, {'radicalCount': 3, 'radical': '女', 'struct': '左右结构'}, {'radicalCount': 3, 'radical': '口', 'struct': '左右结构'}]
         ]
     },
     {
@@ -456,18 +456,22 @@ module.exports = [
     {
         name: '测试 setRadical',
         test (cnchar) {
-            cnchar.radical.setRadical('你', '口');
+            cnchar.radical.setRadical('你', {'radicalCount': 2, 'radical': '-', 'struct': '左右结构'});
             cnchar.radical.setRadical({ // 多个
-                '我': '亻',
-                '他': '口'
+                '我': {'radicalCount': 2, 'radical': '-', 'struct': '左右结构'},
+                '他': {'radicalCount': 2, 'radical': '-', 'struct': '左右结构'}
             });
             return [
-                cnchar.radical('你'),
-                cnchar.radical('我'),
-                cnchar.radical('他')
+                ...cnchar.radical('你'),
+                ...cnchar.radical('我'),
+                ...cnchar.radical('他')
             ];
         },
-        expect: ['口', '亻', '口']
+        expect: [
+            {'radicalCount': 2, 'radical': '-', 'struct': '左右结构'},
+            {'radicalCount': 2, 'radical': '-', 'struct': '左右结构'},
+            {'radicalCount': 2, 'radical': '-', 'struct': '左右结构'}
+        ]
     },
     {
         name: '测试 addXhy',
@@ -496,11 +500,11 @@ module.exports = [
             cnchar.words.addWords('香蕉牛奶');
             return [n, cnchar.words('香蕉').length];
         },
-        expect: [3, 4]
+        expect: [1, 2]
     },
     // {
     //     name: '测试 explain',
-    //     test (cnchar) {
+    //     async test (cnchar) {
     //         const n = await cnchar.explain('你好').length;
     //         cnchar.explain.addExplain('你好', '打招呼');
     //         return [n, await cnchar.explain('你好').length];

@@ -7,7 +7,7 @@ import {getPlugin} from '../store';
 export function randomIdiom ({
     number = 1,
     pattern
-}: IRandomIdiomOptions): string[] {
+}: IRandomIdiomOptions = {}): string[] {
     const idiom = getPlugin('idiom');
     if (!idiom) {
         console.warn('idiom plugin is not installed');

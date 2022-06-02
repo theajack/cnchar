@@ -1,13 +1,25 @@
 const chalk = require('chalk');
 
 function green (txt) {
-    console.log(chalk.green(txt));
+    if (typeof window !== 'undefined') {
+        console.log('%c' + txt, 'color: green');
+    } else {
+        console.log(chalk.green(txt));
+    }
 }
 function red (txt) {
-    console.log(chalk.red(txt));
+    if (typeof window !== 'undefined') {
+        console.log('%c' + txt, 'color: red');
+    } else {
+        console.log(chalk.red(txt));
+    }
 }
 function blue (txt) {
-    console.log(chalk.blue(txt));
+    if (typeof window !== 'undefined') {
+        console.log('%c' + txt, 'color: blue');
+    } else {
+        console.log(chalk.blue(txt));
+    }
 }
 
 function testSingle ({
@@ -20,6 +32,9 @@ function testSingle ({
         }));
     } else {
         result = test.call(argsConfig, argsConfig);
+    }
+    if (typeof expect === 'function') {
+        expect = expect.call(argsConfig, argsConfig);
     }
     const res = {
         result,

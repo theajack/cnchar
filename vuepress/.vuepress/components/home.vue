@@ -29,13 +29,13 @@
         </div>
         <div class='feature-w'>
             <div class='f-i'>
-                <div class='f-t'><i class='ei-rocket'></i>功能全面</div>
+                <a style='font-weight: normal;' href='/cnchar/guide/intro.html#_2-%E5%8A%9F%E8%83%BD'><div class='f-t'><i class='ei-rocket'></i>功能全面</div></a>
                 <div class='f-des'>拼音/笔画数/多音字词</div>
                 <div class='f-des'>多种模式绘制汉字</div>
                 <div class='f-des'>语音识别/语音合成</div>
                 <div class='f-des'>繁体字/火星文</div>
-                <div class='f-des'>汉字笔顺/偏旁部首</div>
-                <div class='f-des'>汉字推算/拼音排序</div>
+                <div class='f-des'>笔顺/偏旁部首/推算/排序</div>
+                <div class='f-des'>随机生成/输入法</div>
                 <div class='f-des'>...</div>
             </div>
             <div class='f-i'>
@@ -50,16 +50,16 @@
             </div>
             <div class='f-i'>
                 <div class='f-t'><i class='ei-cubes'></i>按需取用</div>
-                <div class='f-des'>支持自定义数据</div>
-                <div class='f-des'>支持IE9+</div>
+                <div class='f-des'>自定义插件</div>
+                <div class='f-des'>自定义数据</div>
+                <div class='f-des'>自定义部署/离线使用</div>
                 <div class='f-des'>功能分包/简单易用</div>
-                <div class='f-des'>体积小巧</div>
-                <div class='f-des'>离线使用/自定义部署</div>
+                <div class='f-des'>体积小巧/支持IE9+</div>
                 <div class='f-des'>npm+cdn</div>
                 <div class='f-des'>...</div>
             </div>
         </div>
-        <div class='copy-right'>MIT Licensed | Copyright © 2020 present <a href='https://www.github.com/theajack' target='view_window'>theajack</a></div>
+        <div class='copy-right'>MIT Licensed | Copyright © 2020 - present <a href='https://www.github.com/theajack' target='view_window'>theajack</a></div>
         <div id='comment'>
 
         </div>

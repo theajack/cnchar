@@ -235,3 +235,10 @@ cnchar.check = false; // 关闭参数校验
 
 1. [汉字打字游戏](https://theajack.github.io/type/)
 2. [打字弹钢琴](https://theajack.github.io/piano/)
+3. [成语接龙](https://theajack.github.io/jsbox/?github=theajack.cnchar.idiom.js) 
+4. [通讯录排序](https://theajack.github.io/jsbox/?github=theajack.cnchar.sort.js) 
+5. [取名字](https://theajack.github.io/jsbox/?github=theajack.cnchar.name.js)
+6. [输入法](https://theajack.github.io/jsbox/?github=theajack.cnchar.input.js)
+7. [歇后语](https://theajack.github.io/jsbox/?github=theajack.cnchar.xhy.js)
+8. [语音识别与合成](https://theajack.github.io/jsbox/?github=theajack.cnchar.voice.js) 
+9. [简繁体转换](https://theajack.github.io/jsbox/?github=theajack.cnchar.trad.js)

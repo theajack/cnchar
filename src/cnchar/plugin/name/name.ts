@@ -1,7 +1,7 @@
 
 
-import {IName, INameOptions} from 'cnchar-types/plugin/name';
-import {isCnChar, pickRandomChar, pickRandomEle} from '@common/util';
+import {IName, INameOptions, TGender} from 'cnchar-types/plugin/name';
+import {appendWordsToString, isCnChar, pickRandomChar, pickRandomEle} from '@common/util';
 import nameDict from './dict/name.json';
 import surnameDict from './dict/surname.json';
 
@@ -38,7 +38,7 @@ export const name = ((input: string, {
 function pickRandomNames (
     length: number,
     number: number,
-    gender: 'boy' | 'girl' | 'both'
+    gender: TGender
 ) {
     const str = getNameStr(gender);
     const result: string[] = [];
@@ -58,14 +58,37 @@ function getNameStr (gender: 'boy' | 'girl' | 'both') {
     return nameDict.girl;
 }
 
+function isSurname (input: string) {
+    input = input.trim();
+    if (!isCnChar(input)) return false;
+    return !!surnameDict.dict.match(new RegExp(` ${input} `));
+};
+
 name.isName = (input: string) => {
+    input = input.trim();
     if (!isCnChar(input)) return false;
-    return true;
+
+    if (isSurname(input.substring(0, 2))) {
+        return input.length < 5 && input.length > 2;
+    }
+    if (isSurname(input[0])) {
+        return input.length < 4 && input.length > 1;
+    }
+    return false;
 };
-name.isSurname = (input: string) => {
-    if (!isCnChar(input)) return false;
-    return !!surnameDict.dict.match(new RegExp(`^${input}$`));
+
+name.isSurname = isSurname;
+
+name.addName = (input: string, gender = 'both') => {
+    if (gender === 'both' || gender === 'boy') {
+        nameDict.boy = appendWordsToString(nameDict.boy, input);
+        if (gender === 'both')
+            nameDict.girl = appendWordsToString(nameDict.girl, input);
+    } else {
+        nameDict.girl = appendWordsToString(nameDict.girl, input);
+    }
 };
+
 export function getDict () {
     return {
         name: nameDict,

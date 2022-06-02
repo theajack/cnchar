@@ -190,3 +190,52 @@ cnchar.voice.addVoice({
     '自定义内容': 'https://音频地址'
 });
 ```
+
+## 11. 添加发音 addVoice
+
+添加发音， 依赖 `cnchar-voice` 库
+
+```ts
+cnchar.voice.addVoice(json: Json<string>): void;
+cnchar.voice.addVoice(words: string, url: string): void;
+```
+
+```js
+cnchar.voice.addVoice({
+    '自定义内容': 'https://音频地址'
+});
+```
+
+## 12. 设置汉字信息
+
+添加汉字信息， 依赖 `cnchar-info` 库
+
+```ts
+cnchar.info.setInfo(json: Json<IInfoResult>): void;
+cnchar.info.setInfo(words: string, info: IInfoResult): void;
+```
+
+## 13. 设置输入法五笔code
+
+添加五笔输入法code， 依赖 `cnchar-input` 库
+
+```ts
+cnchar.input.setWubiCode(json: Json<IWubiCodeData>): void;
+cnchar.input.setWubiCode(words: string, code: IWubiCodeData): void;
+```
+
+## 14. 设置汉字编码
+
+添加汉字编码， 依赖 `cnchar-code` 库
+
+```ts
+cnchar.code.setCode(words: string | Json<IDictCodeResult>, data?: IDictCodeResult): void;
+```
+
+## 15. 添加姓名文字
+
+添加姓名文字， 依赖 `cnchar-name` 库
+
+```ts
+cnchar.name.addName(input: string, gender?: TGender): void;
+```

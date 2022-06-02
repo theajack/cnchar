@@ -79,9 +79,15 @@ module.exports = {
                     {text: 'cnchar-words: 组词', link: '/doc/words'},
                     {text: 'cnchar-explain: 释义', link: '/doc/explain'},
                     {text: 'cnchar-voice: 语音', link: '/doc/voice'},
+                    {text: 'cnchar-random: 随机生成', link: '/doc/random'},
+                    {text: 'cnchar-input: 输入法', link: '/doc/input'},
+                    {text: 'cnchar-code: 编码', link: '/doc/code'},
+                    {text: 'cnchar-name: 姓名', link: '/doc/name'},
+                    {text: 'cnchar-info: 汉字信息', link: '/doc/info'},
                     {text: '工具方法', link: '/doc/tool'},
+                    {text: '自定义插件', link: '/doc/plugin'},
                     {text: '自定义数据', link: '/doc/custom'},
-                    {text: '离线使用', link: '/doc/offline'},
+                    {text: '自定义部署:离线使用', link: '/doc/offline'},
                 ],
             },
             {
@@ -106,62 +112,26 @@ module.exports = {
                     collapsable: false, // 可选的, 右侧侧边栏是否展开,默认值是 true
                     // 如果组件很多时，建议将children配置单独放到一个js文件中，然后进行引入
                     children: [
-                        {
-                            title: 'cnchar',
-                            path: 'cnchar',
-                        },
-                        {
-                            title: 'cnchar-poly',
-                            path: 'poly',
-                        },
-                        {
-                            title: 'cnchar-order',
-                            path: 'order',
-                        },
-                        {
-                            title: 'cnchar-trad',
-                            path: 'trad',
-                        },
-                        {
-                            title: 'cnchar-draw',
-                            path: 'draw',
-                        },
-                        {
-                            title: 'cnchar-idiom',
-                            path: 'idiom',
-                        },
-                        {
-                            title: 'cnchar-xhy',
-                            path: 'xhy',
-                        },
-                        {
-                            title: 'cnchar-radical',
-                            path: 'radical',
-                        },
-                        {
-                            title: 'cnchar-words',
-                            path: 'words',
-                        },
-                        {
-                            title: 'cnchar-explain',
-                            path: 'explain',
-                        },
-                        {
-                            title: 'cnchar-voice',
-                            path: 'voice',
-                        },
-                        {
-                            title: '工具方法',
-                            path: 'tool',
-                        },
-                        {
-                            title: '自定义数据',
-                            path: 'custom',
-                        },
-                        {
-                            title: '离线使用',
-                            path: 'offline',
-                        },
+                        {title: 'cnchar', path: 'cnchar'},
+                        {title: 'cnchar-poly', path: 'poly'},
+                        {title: 'cnchar-order', path: 'order'},
+                        {title: 'cnchar-trad', path: 'trad'},
+                        {title: 'cnchar-draw', path: 'draw'},
+                        {title: 'cnchar-idiom', path: 'idiom'},
+                        {title: 'cnchar-xhy', path: 'xhy'},
+                        {title: 'cnchar-radical', path: 'radical'},
+                        {title: 'cnchar-words', path: 'words'},
+                        {title: 'cnchar-explain', path: 'explain'},
+                        {title: 'cnchar-voice', path: 'voice'},
+                        {title: 'cnchar-random', path: 'random'},
+                        {title: 'cnchar-input', path: 'input'},
+                        {title: 'cnchar-code', path: 'code'},
+                        {title: 'cnchar-name', path: 'name'},
+                        {title: 'cnchar-info', path: 'info'},
+                        {title: '工具方法', path: 'tool'},
+                        {title: '自定义插件', path: 'plugin'},
+                        {title: '自定义数据', path: 'custom'},
+                        {title: '自定义部署:离线使用', path: 'offline'},
                     ],
                 },
             ],

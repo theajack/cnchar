@@ -1,7 +1,7 @@
 const version = require('../package.json').version;
 
 const path = require('path');
-const tool = require('../helper/tool');
+const tool = require('../helper/scripts/tool');
 const alias = require('./bricks/alias');
 const other = require('./bricks/other');
 const rules = require('./bricks/rules');

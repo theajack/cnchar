@@ -55,7 +55,7 @@ export function wubiInput (
         debounce = 0,
         onResult,
         wubiMode,
-        associate = false,
+        associate = true,
     }: IInputOptions,
 ): IInputResult {
     return debounceReturn(

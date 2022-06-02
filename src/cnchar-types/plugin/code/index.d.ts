@@ -16,6 +16,7 @@ export interface ICodeResult extends IDictCodeResult {
 }
 export interface ICode {
     (input: string): ICodeResult[];
+    // 解码时 word传入code 请以空格分割
     binary(word: string, decoce?: boolean): string;
     char(word: string, decoce?: boolean): string;
     unicode(word: string, decoce?: boolean): string;
@@ -24,6 +25,7 @@ export interface ICode {
     sijiao(word: string, decoce?: boolean): string;
     cangjie(word: string, decoce?: boolean): string;
     uniform(word: string, decoce?: boolean): string;
+    setCode(words: string | Json<IDictCodeResult>, data?: IDictCodeResult): void;
     dict: {code: Json<string>};
 }
 

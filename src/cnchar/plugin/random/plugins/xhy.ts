@@ -7,7 +7,7 @@ import {getPlugin} from '../store';
 export function randomXHY ({
     number = 1,
     pattern
-}: IRandomXHYOptions): string[] {
+}: IRandomXHYOptions = {}): string[] {
     const xhy = getPlugin('xhy');
     if (!xhy) {
         console.warn('xhy plugin is not installed');

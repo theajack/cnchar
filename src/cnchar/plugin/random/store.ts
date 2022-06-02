@@ -12,8 +12,12 @@ export function getCnChar () {
     return map.cnchar;
 }
 
-export function usePlugin (plugin: IPlugin) {
-    map[plugin.pluginName] = plugin;
+export function usePlugin (...plugins: IPlugin[]) {
+    plugins.forEach(plugin => {
+        if (!map[plugin.pluginName]) {
+            map[plugin.pluginName] = plugin;
+        }
+    });
 }
 
 export function getPlugin (name: string): IPlugin | null {

@@ -41,7 +41,7 @@ function decodeDict () {
 let wordsDict = decodeDict();
 
 export function getDict () {
-    return {words: {wordsString: wordsDict}};
+    return {words: wordsDict};
 }
     
 export const words = ((word: string, ...args: string[]) => {

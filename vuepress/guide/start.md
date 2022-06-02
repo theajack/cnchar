@@ -17,7 +17,7 @@ npm i cnchar
 
 <div>
   <highlight-code>
-npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice
+npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy cnchar-radical cnchar-words cnchar-explain cnchar-voice cnchar-random cnchar-code cnchar-input cnchar-info cnchar-name
   </highlight-code>
 </div>
 
@@ -37,6 +37,11 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy c
     import 'cnchar-words';
     import 'cnchar-explain';
     import 'cnchar-voice';
+    import 'cnchar-random';
+    import 'cnchar-input';
+    import 'cnchar-code';
+    import 'cnchar-info';
+    import 'cnchar-name';
   </highlight-code>
 </div>
 
@@ -44,17 +49,16 @@ npm i cnchar-poly cnchar-order cnchar-trad cnchar-draw cnchar-idiom cnchar-xhy c
 
 <div>
   <highlight-code lang='javascript'>
-    import cnchar from 'cnchar';
-    // 以下功能库请按需使用
-    import poly from 'cnchar-poly';
-    import order from 'cnchar-order';
-    import trad from 'cnchar-trad';
-    import idiom from 'cnchar-idiom';
-    import xhy from 'cnchar-xhy';
-    import radical from 'cnchar-radical';
-    import words from 'cnchar-words';
-    import explain from 'cnchar-explain';
-    cnchar.use(poly, order, trad, idiom, xhy, radical, words, explain);
+
+// 请保证最先引入 cnchar 基础库，其他几个库顺序无所谓
+import cnchar from 'cnchar';
+import 'cnchar-poly';
+// ... 其他插件请参考第二章 2. 功能及插件概览
+// 插件请按需取用
+
+console.log('汉字'.spell()); // prototype 方式调用
+console.log(cnchar.spell('汉字')); // cnchar api 调用
+
   </highlight-code>
 </div>
 
@@ -62,17 +66,18 @@ commonjs 模块
 
 <div>
   <highlight-code lang='javascript'>
-    var cnchar = require('cnchar');
-    // 以下功能库请按需使用
-    var poly = require('cnchar-poly');
-    var order = require('cnchar-order');
-    var trad = require('cnchar-trad');
-    var idiom = require('cnchar-idiom');
-    var xhy = require('cnchar-xhy');
-    var radical = require('cnchar-radical');
-    var words = require('cnchar-words');
-    var explain = require('cnchar-explain');
-    cnchar.use(poly, order, trad, idiom, xhy, radical, words, explain);
+
+// 请保证最先引入 cnchar 基础库，其他几个库顺序无所谓
+var cnchar = require('cnchar');
+var poly = require('cnchar-poly');
+// ... 其他插件请参考第二章 2. 功能及插件概览
+// 插件请按需取用
+// 注：cnchar-draw，cnchar-voice 在非浏览器环境下不可使用
+cnchar.use(poly);
+
+console.log('汉字'.spell()); // prototype 方式调用
+console.log(cnchar.spell('汉字')); // cnchar api 调用
+
   </highlight-code>
 </div>
 
@@ -94,6 +99,11 @@ commonjs 模块
       &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-words/cnchar.words.min.js"> &lt;/script>
       &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-explain/cnchar.explain.min.js"> &lt;/script>
       &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"> &lt;/script>
+      &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-random/cnchar.random.min.js"> &lt;/script>
+      &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-input/cnchar.input.min.js"> &lt;/script>
+      &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-code/cnchar.code.min.js"> &lt;/script>
+      &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-info/cnchar.info.min.js"> &lt;/script>
+      &lt;script src="https://fastly.jsdelivr.net/npm/cnchar-name/cnchar.name.min.js"> &lt;/script>
   </highlight-code>
 </div>
 

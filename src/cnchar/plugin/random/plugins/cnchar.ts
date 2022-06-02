@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-05-15 17:33:45
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-29 11:19:37
+ * @LastEditTime: 2022-06-02 10:55:40
  * @FilePath: /cnchar/src/cnchar/main/utils/random.ts
  * @Description: Coding something
  */
@@ -82,8 +82,8 @@ export const randomWord: IFunc<string, IRandomWordOptions> = ({
         return '';
     }
 
-    let words: string[] | null = null;
-    let dict: Json | null = null;
+    let words: string[] | null = null; // 所有的汉字
+    let dict: Json | null = null; // {count: words} 笔画数：汉字 map
 
     if (trad) {
         const plugin = getPlugin('trad');
