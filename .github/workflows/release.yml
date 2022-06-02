@@ -46,7 +46,7 @@ jobs:
           cd ../..
 
       - name: Build # build npm
-        run: node ./helper/build.js ${{ steps.version.outputs.version }}
+        run: node ./helper/scripts/build.js ${{ steps.version.outputs.version }}
 
       - name: Test # test
         run: node ./helper/test/index.js
@@ -71,9 +71,9 @@ jobs:
       - name: Publish # npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
-        run: node ./helper/publish.js
+        run: node ./helper/scripts/publish.js
       
       - name: Purge # purge cdn
         run: |
-          node ./helper/purge-cdn.js
-          node ./helper/purge-docs.js
+          node ./helper/scripts/purge-cdn.js
+          node ./helper/scripts/purge-docs.js
