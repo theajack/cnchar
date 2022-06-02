@@ -46,7 +46,7 @@ jobs:
           cd ../..
 
       - name: Build # build npm
-        run: node ./helper/build.js ${{ steps.version.outputs.version }} all # 此处只需要build一个all即可
+        run: node ./helper/scripts/build.js ${{ steps.version.outputs.version }} all # 此处只需要build一个all即可
 
       - name: Build Docs # build docs
         run: npm run build:docs
@@ -59,4 +59,4 @@ jobs:
       
       - name: Purge # purge cdn # 此处只需要purge docs即可
         run: |
-          node ./helper/purge-docs.js 
+          node ./helper/scripts/purge-docs.js 
