@@ -40,7 +40,7 @@
 
 Before starting the documentation, let's take a look at some use cases to see what cnchar can do
 
-[Chinese character typing game](https://theajack.github.io/type/) | [Typing and playing the piano](https://theajack.github.io/piano/) | [Idiom Solitaire](https://theajack.github.io/jsbox/?github=theajack.cnchar.idiom.js) | [Address Book Sort](https://theajack.github.io/jsbox/?github=theajack.cnchar.sort.js) | [name](https://theajack.github.io/jsbox/?github=theajack.cnchar.name.js) | [input method](https://theajack.github.io/jsbox/?github=theajack.cnchar.input.js) | [Xie Houyu](https://theajack.github.io/jsbox/?github=theajack.cnchar.xhy.js) | [Speech Recognition and Synthesis](https://theajack.github.io/jsbox/?github=theajack.cnchar.voice.js) | [Simplified and Traditional Conversion](https://theajack.github.io/jsbox/?github=theajack.cnchar.trad.js)
+[Chinese character typing game](https://theajack.github.io/type/) | [Typing and playing the piano](https://theajack.github.io/piano/) | [Idiom Solitaire](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/idiom.js) | [Address Book Sort](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/sort.js) | [name](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/name.js) | [input method](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/input.js) | [Xie Houyu](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/xhy.js) | [Speech Recognition and Synthesis](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/voice.js) | [Simplified and Traditional Conversion](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/trad.js)
 
 ---
 

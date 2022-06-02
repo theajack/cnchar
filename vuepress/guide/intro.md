@@ -46,7 +46,7 @@ sidebarDepth: 0  // 吐槽：这里设置0无效！只能设置1或2！
 
 开始文档之前，先通过一些应用案例看看 cnchar 能够做些什么
 
-[汉字打字游戏](https://theajack.github.io/type/) | [打字弹钢琴](https://theajack.github.io/piano/) | [成语接龙](https://theajack.github.io/jsbox/?github=theajack.cnchar.idiom.js) | [通讯录排序](https://theajack.github.io/jsbox/?github=theajack.cnchar.sort.js) | [取名字](https://theajack.github.io/jsbox/?github=theajack.cnchar.name.js) | [输入法](https://theajack.github.io/jsbox/?github=theajack.cnchar.input.js) | [歇后语](https://theajack.github.io/jsbox/?github=theajack.cnchar.xhy.js) | [语音识别与合成](https://theajack.github.io/jsbox/?github=theajack.cnchar.voice.js) | [简繁体转换](https://theajack.github.io/jsbox/?github=theajack.cnchar.trad.js)
+[汉字打字游戏](https://theajack.github.io/type/) | [打字弹钢琴](https://theajack.github.io/piano/) | [成语接龙](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/idiom.js) | [通讯录排序](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/sort.js) | [取名字](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/name.js) | [输入法](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/input.js) | [歇后语](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/xhy.js) | [语音识别与合成](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/voice.js) | [简繁体转换](https://theajack.github.io/jsbox/?github=theajack.cnchar.helper/jsbox/trad.js)
 
 ## 1. 前言
 

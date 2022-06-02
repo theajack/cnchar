@@ -4,6 +4,7 @@ function main () {
     const list = [
         'cnchar',
         'cnchar-order', 'cnchar-poly', 'cnchar-trad', 'cnchar-draw', 'cnchar-idiom', 'cnchar-xhy', 'cnchar-radical',
+        'cnchar-words', 'cnchar-explain', 'cnchar-voice', 'cnchar-random', 'cnchar-input', 'cnchar-code', 'cnchar-info', 'cnchar-name',
         'cnchar-all', 'hanzi-util', 'hanzi-util-base'
     ];
 
