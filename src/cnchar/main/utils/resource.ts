@@ -1,12 +1,12 @@
 /*
  * @Author: tackchen
  * @Date: 2022-04-10 18:31:22
- * @LastEditors: tackchen
- * @LastEditTime: 2022-04-10 18:34:08
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-18 13:12:04
  * @FilePath: /cnchar/src/cnchar/main/utils/resource.ts
  * @Description: Coding something
  */
-let resourceBase = 'https://fastly.jsdelivr.net/npm/cnchar-data@latest/';
+let resourceBase = '';
 
 export function setResourceBase (url: string): void {
     resourceBase = url;
