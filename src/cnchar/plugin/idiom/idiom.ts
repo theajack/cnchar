@@ -9,7 +9,8 @@ import {idiom as dict} from './dict/idiom.json';
 
 import {spell as spellDict} from './dict/spell.json';
 import {spell as spellNoToneDict} from './dict/spell.notone.json';
-import {IIdiom, TIdiomArg, TIdiomInput} from 'cnchar-types/plugin/idiom';
+import {IIdiom, TIdiomInput} from 'cnchar-types/plugin/idiom';
+import {hasTone, isCnChar} from '@common/util';
 
 export function getDict () {
     return {
@@ -21,11 +22,7 @@ export function getDict () {
 
 let _cnchar: ICnChar;
 
-export const arg: TIdiomArg = {
-    char: 'char',
-    stroke: 'stroke',
-    spell: 'spell',
-    tone: 'tone'
+export const arg = {
 };
 
 // spell > stroke > char
@@ -34,25 +31,27 @@ export const arg: TIdiomArg = {
 idiom(['一','','一',''])
 idiom(['一','','一',''])
 */
-export const idiom = ((input: TIdiomInput, ...args: Array<IdomArg>): Array<string> => {
+export const idiom = ((input: TIdiomInput): Array<string> => {
     if (!input) {
         console.warn('idiom: 请输入搜索项');
         return [];
     }
-    if (args.indexOf(arg.spell) !== -1 && typeof input !== 'string') {
+    const mode = recognizeMode(input);
+
+    if ((mode === 'spell' || mode === 'tone') && typeof input !== 'string') {
         console.warn('idiom spell 模式下仅支持查询首个汉字的拼音');
         return [];
     }
     let res = null;
     if (!_cnchar) { // 单独使用的idiom 只支持汉字查询方式
-        checkArg(args, arg.stroke);
-        checkArg(args, arg.spell);
         res = idiomWithChar(input as string | string[]);
+        if (mode !== 'char') {
+            console.warn('未引入cnchar,idiom只支持汉字查询');
+        }
     } else {
-        _cnchar._.checkArgs('idiom', args);
-        if (_cnchar._.has(args, arg.spell)) {
-            res = idiomWithSpell(input as string, _cnchar._.has(args, arg.tone));
-        } else if (_cnchar._.has(args, arg.stroke)) {
+        if (mode === 'spell' || mode === 'tone') {
+            res = idiomWithSpell(input as string, mode === 'tone');
+        } else if (mode === 'stroke') {
             res = idiomWithStroke(input as number | number[]);
         } else {
             res = idiomWithChar(input as string | string[]);
@@ -60,6 +59,21 @@ export const idiom = ((input: TIdiomInput, ...args: Array<IdomArg>): Array<strin
     }
     return res;
 }) as IIdiom;
+
+function recognizeMode (input: TIdiomInput): IdomArg {
+    // (alias) type TIdiomInput = string | number | (string | number)[]
+    
+    if (typeof input === 'number') {
+        return 'stroke';
+    } else if (typeof input === 'string') {
+        return isCnChar(input) ? 'char' : (
+            hasTone(input) ? 'tone' : 'spell'
+        );
+    } else if (input instanceof Array && input.length > 0) {
+        return recognizeMode(input[0]);
+    }
+    return 'char';
+}
 
 function idiomWithChar (input: string | string[]): Array<string> {
 
@@ -198,12 +212,6 @@ function compareCommon (input: Array<string | number>, target: Array<string | nu
         }
     }
     return true;
-}
-
-function checkArg (args: IdomArg[], name: IdomArg): void {
-    if (args.indexOf(name) !== -1) {
-        console.warn(`未引入cnchar,idiom不支持${name}参数`);
-    }
 }
 
 export function setCnchar (cnchar: ICnChar): void {

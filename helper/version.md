@@ -1,10 +1,13 @@
 ## 3.2.1 todolist
 
-1. idiom 参数优化 去掉spell和tone，改为自动识别
-2. 单个汉字解释
-3. spell poly 把默认读音放在第一个
-4. 胜字 orderToWord 拼不回去
-5. 啊 字读法
+1. 优化拼音输入法联想输入，支持首字母联想
+2. 优化联想输入返回的联想词组
+3. 优化 spell poly 返回顺序 默认读音放在前面
+4. 增加单个汉字解释，修改cnchar-data依赖的cdn地址
+5. 增加hasPlugin api，修复引用trad包的依赖报错
+6. idiom 参数优化 去掉spell和tone，改为自动识别
+7. 修复 orderToWord 方法
+8. 新增 _.hasTone api，判断拼音是否有音调
 
 ## 3.2.0
 

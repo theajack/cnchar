@@ -7,7 +7,7 @@ import {spell, tones, stroke, arg,
 import {has, isPolyWord} from './utils/util';
 import {
     _throw, _warn, isCnChar, mapJson, pickRandomChar,
-    pickRandomEle, randomNum, shuffle
+    pickRandomEle, randomNum, shuffle, hasTone
 } from '@common/util';
 import dict from './dict';
 import {setSpellDefault, setIntoJson, setSpell, setStrokeCount} from './utils/config';
@@ -52,7 +52,7 @@ const cnchar: ICnChar = {
     _: {
         arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,
         sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson, checkTrad,
-        getResourceBase, pickRandomEle, shuffle, randomNum, pickRandomChar,
+        getResourceBase, pickRandomEle, shuffle, randomNum, pickRandomChar, hasTone,
     },
     type: {
         spell: arg,

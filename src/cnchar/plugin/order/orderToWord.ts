@@ -119,11 +119,9 @@ const base: IBase = (
         }
     } else { // 默认是严格匹配笔画序序列
         for (const k in dict) {
-            if (dict[k].length > letters.length) {
-                break;
-            }
             if (dict[k] === letters) {
                 res.push(k);
+                break;
             }
         }
     }

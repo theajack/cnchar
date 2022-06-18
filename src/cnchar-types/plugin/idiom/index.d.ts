@@ -1,14 +1,10 @@
 
-import {ICnChar, IdomArg} from '../../main';
-
-export declare type TIdiomArg = {
-    [prop in IdomArg]: IdomArg
-}
+import {ICnChar} from '../../main';
 
 export declare type TIdiomInput = string | number | Array<string|number>;
 
 export interface IIdiom {
-    (input: TIdiomInput, ...args: Array<IdomArg>): Array<string>;
+    (input: TIdiomInput): Array<string>;
     dict: {
         idiom: string[];
         spellDict: string[];

@@ -1,5 +1,5 @@
 import {IOptionFunc} from '../../main/tool';
-import {ICnChar, IdomArg, XhyArg} from '../../main'; // ! important for declare module '../../main/index'
+import {ICnChar, XhyArg} from '../../main'; // ! important for declare module '../../main/index'
 import {IPlugin} from '../../main/common';
 import {TIdiomInput} from '../idiom';
 import {TFiveElement, TMethod} from '../info';
@@ -18,7 +18,7 @@ export interface IRandomWordOptions {
 
 export interface IRandomIdiomOptions {
     number?: number; // 生成数量 默认1
-    pattern?: [TIdiomInput, ...IdomArg[]]; // 这个参数会直接调用cnchar.idiom 请参考cnchar-idiom文档
+    query?: TIdiomInput; // 这个参数会直接调用cnchar.idiom 请参考cnchar-idiom文档
 }
 
 export interface IRandomXHYOptions {

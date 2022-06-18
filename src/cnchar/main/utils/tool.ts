@@ -45,21 +45,24 @@ export function spell (dict: Json<string>, originArgs: Array<string>): string | 
         const pos = parseInt(ds[0]); // 某个拼音的音调位置
         for (let i = 0; i < strs.length; i++) { // 遍历字符数组
             const ch: string = strs[i];
+
+            const addIntoPolyRes = (spell: string) => {
+                isDefaultSpell(ch, spell) ? res[i].unshift(spell) : res[i].push(spell);
+            };
+
             if (isCnChar(ch)) { // 如果是汉字
                 let index = ds.indexOf(ch);
                 if (index !== -1) {
                     const ssp = getSpell(sp, ds, index, poly, tone, pos); // single spell
                     if (ssp.poly) { // 多音字模式 且 当前汉字是多音字
-                        if (!res[i]) {
-                            res[i] = [];
-                        }
-                        res[i].push(ssp.res);
+                        if (!res[i]) res[i] = [];
+                        addIntoPolyRes(ssp.res);
                         let dsNew = ds;
                         const n = (dsNew.match(new RegExp(ch, 'g')) as Array<string>).length;
                         for (let k = 1; k < n; k++) {
                             dsNew = dsNew.substr(index + 2);
                             index = dsNew.indexOf(ch);
-                            res[i].push(getSpell(sp, dsNew, index, poly, tone, pos).res);
+                            addIntoPolyRes(getSpell(sp, dsNew, index, poly, tone, pos).res);
                         }
                     } else {
                         if (ssp.isPolyWord) { // 是多音字 不是多音字模式
@@ -87,7 +90,7 @@ export function spell (dict: Json<string>, originArgs: Array<string>): string | 
             if (item[0] === NOT_CNCHAR) {
                 result[i] = item[1]; // 非汉字返回原字符
             } else {
-                result[i] = `(${res[i].join('|')})`;
+                result[i] = `(${item.join('|')})`;
             }
         } else {
             result[i] = item[0];
@@ -177,6 +180,12 @@ function getSpell (
         res.res = setTone(spell, pos, tone as ToneType);
     }
     return res;
+}
+
+function isDefaultSpell (word: string, spell: string) {
+    const def = Dict.spellDefault[word];
+    if (!def) return false;
+    return (shapeSpell(def, true).replace(/[0-4]/, '') === spell);
 }
 
 // tone=false : 根据有音调的拼音获得无音调的拼音和音调

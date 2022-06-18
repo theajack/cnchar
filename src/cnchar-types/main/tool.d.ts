@@ -87,6 +87,7 @@ export interface ICncharTool {
     shuffle<T=string> (array: T[]): T[];
     randomNum(a: number, b: number): number;
     poly?: boolean;
+    hasTone(spell: string): boolean;
     [prop: string]: any;
 }
 

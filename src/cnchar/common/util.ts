@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 21:46:46
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-06-02 13:48:03
+ * @LastEditTime: 2022-06-18 18:35:55
  * @FilePath: /cnchar/src/cnchar/common/util.ts
  * @Description: Coding something
  */
@@ -119,4 +119,8 @@ export function appendWordsToString (str: string, words: string) {
         }
     }
     return str;
+}
+
+export function hasTone (spell: string) {
+    return !spell.trim().match(/^[a-zA-Z]*$/);
 }

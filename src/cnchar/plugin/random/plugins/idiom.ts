@@ -1,12 +1,11 @@
 import {pickRandomEle} from '@common/util';
-import {IdomArg} from 'cnchar-types/main';
 import {IIdiom} from 'cnchar-types/plugin/idiom';
 import {IRandomIdiomOptions} from 'cnchar-types/plugin/random';
 import {getPlugin} from '../store';
 
 export function randomIdiom ({
     number = 1,
-    pattern
+    query
 }: IRandomIdiomOptions = {}): string[] {
     const idiom = getPlugin('idiom');
     if (!idiom) {
@@ -16,9 +15,8 @@ export function randomIdiom ({
 
     let dict: string[] | null = null;
 
-    if (pattern && pattern.length > 0) {
-        const input = pattern.shift() as string;
-        dict = (idiom as any as IIdiom)(input, ...pattern as IdomArg[]);
+    if (query) {
+        dict = (idiom as any as IIdiom)(query);
     }
 
     if (!dict) dict = idiom.dict?.idiom as string[];
