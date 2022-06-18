@@ -4,6 +4,7 @@ import {associateSpell} from './associate/ass-spell';
 import {debounceReturn, getSpellDict} from './util';
 import {splitString} from './wubi';
 import {distinctArray} from './associate/common';
+import {getCnChar} from './cnchar';
 
 const tones = ['0', '1', '2', '3', '4'];
 
@@ -55,21 +56,10 @@ function traverse (
         }
 
         // eslint-disable-next-line prefer-const
-        let [spell, rest] = splitString(input, length);
+        let [spell, rest] = splitString(input, length); // 分割输入
         const wordString = map[spell];
 
-        if (wordString && spell !== 'n') {
-            matched = true;
-            let tone = '';
-            if (rest && tones.indexOf(rest[0]) !== -1) {
-                tone = rest[0];
-                spell += tone;
-                rest = rest.substring(1);
-                addon ++;
-            }
-            const reg = buildSpellReg(tone);
-
-            const matchWords = wordString.match(reg);
+        const onSpellMatched = (matchWords: string[] | null, tone: string) => {
             let pathValue = '';
             if (matchWords) {
                 pathValue = distinctArray(matchWords).join('');
@@ -86,13 +76,52 @@ function traverse (
                     association: [],
                 });
             }
+        };
+
+        const pickTone = () => { // 提取当前拼音的音调，从当前最后一位字符取或者取rest第一位
+            let tone = '';
+            if (spell.length > 1) { // 先检查当前拼音是否都有音调
+                const last = spell[spell.length - 1];
+                if (tones.includes(last)) {
+                    tone = last;
+                }
+            }
+            if (!tone && rest && tones.indexOf(rest[0]) !== -1) {
+                tone = rest[0];
+                spell += tone;
+                rest = rest.substring(1);
+                addon ++;
+            }
+            const reg = buildSpellReg(tone);
+            return {tone, reg};
+        };
+
+        if (wordString && spell !== 'n') { // 匹配到拼音
+            matched = true;
+
+            const {reg, tone} = pickTone();
+            const matchWords = wordString.match(reg); // 筛选出音调匹配到的汉字
+
+            onSpellMatched(matchWords, tone);
         } else {
-            if (rest.length === 0 && !matched) {
-                result.push({
-                    split: [...spellPath, spell],
-                    words: [...path, spell],
-                    association: [],
-                });
+            if (!matched) {
+                if (rest.length === 0) {
+                    result.push({
+                        split: [...spellPath, spell],
+                        words: [...path, spell],
+                        association: [],
+                    });
+                } else {
+                    if (spell.length <= 2) {
+                        if (isInitial(spell) && isInitial(rest[0]) && !isInitial(spell + rest[0])) {
+                            matched = true;
+                            const {reg, tone} = pickTone();
+
+                            const matchWords = findWordsStartWithInitial(spell, map, tone).match(reg); // 筛选出音调匹配到的汉字
+                            onSpellMatched(matchWords, tone);
+                        }
+                    }
+                }
             }
         }
     };
@@ -100,4 +129,26 @@ function traverse (
     return result;
 }
 
+const WordsStartWithInitialMap: Json<string> = {};
+function findWordsStartWithInitial (spell: string, map: Json, tone: string): string { // 根据声母查找所有字典汉字
+    if (tone) spell = spell.replace(tone, '');
+
+    if (WordsStartWithInitialMap[spell]) return WordsStartWithInitialMap[spell];
+
+    let str = '';
+    for (const k in map) {
+        if (k.indexOf(spell) === 0) {
+            str += map[k];
+        }
+    }
+    WordsStartWithInitialMap[spell] = str;
+    return str;
+}
+
+
 // cnchar.input('anang', {type: 'spell'})
+
+function isInitial (n: string) {
+    if (n.length > 1) n = n.replace(/[0-4]/, '');
+    return (getCnChar()?.spellInfo.initials.includes(n)) || false;
+}

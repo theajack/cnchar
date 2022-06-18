@@ -38,7 +38,6 @@ export function associateSpell (associate: boolean, result: IInputResult) {
     result.forEach((item) => {
         let weight = 0;
         const {words} = item;
-        
         for (let i = 0; i < words.length - 1; i++) {
             const word = getWordWithPartialSpell(words[i]);
             const nextWord = getWordWithPartialSpell(words[i + 1]);
@@ -46,15 +45,25 @@ export function associateSpell (associate: boolean, result: IInputResult) {
             if (cnchar.isCnChar(word) && cnchar.isCnChar(nextWord)) {
                 let thirdWord = getWordWithPartialSpell(words[i + 2]);
                 if (!cnchar.isCnChar(thirdWord)) thirdWord = '';
+                
+                const regStr = ` [${word}][${nextWord}]` + (thirdWord ? `[${thirdWord}]?` : '');
+                let associateResult = associateStr.match(new RegExp(regStr, 'g'));
 
-                const regStr = ` [${word}][${nextWord}]` + (thirdWord ? `[${thirdWord}]` : '');
-                const associateResult = associateStr.match(new RegExp(regStr, 'g'));
                 if (associateResult) {
+                    let matchThird = false;
+                    if (thirdWord) { // 判断是否匹配到三个词语
+                        const threeWord = associateResult.filter(item => item.trim().length === 3);
+                        if (threeWord.length > 0) {
+                            associateResult = threeWord;
+                            matchThird = true;
+                        }
+                    }
                     const distinct = distinctArray(associateResult);
                     weight += distinct.length;
                     item.association[i] = distinct.join('').substring(1);
                     item.association[++i] = '-';
-                    if (thirdWord) {
+                    
+                    if (matchThird) {
                         item.association[++i] = '-';
                         weight += 2;
                     }
