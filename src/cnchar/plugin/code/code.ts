@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-05-26 09:37:18
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-06-02 13:39:15
+ * @LastEditTime: 2022-06-04 10:04:45
  * @FilePath: /cnchar/src/cnchar/plugin/code/code.ts
  * @Description: Coding something
  */
@@ -135,7 +135,7 @@ function parseSingleWordCode (dict: Json<string>, code: string, trad = false): s
         }
     }
 
-    if (!trad && cnchar && cnchar.plugins.indexOf('trad') !== -1) {
+    if (!trad && cnchar && cnchar.hasPlugin('trad')) {
         return parseSingleWordCode(cnchar.trad.dict?.code, code, true);
     }
     return '-';
@@ -145,7 +145,7 @@ function getSingleWordCode (dict: Json<string>, word: string): IDictCodeResult {
     let str = dict[word];
 
     if (!str) {
-        if (cnchar && cnchar.plugins.indexOf('trad') !== -1) {
+        if (cnchar && cnchar.hasPlugin('trad')) {
             str = cnchar.trad.dict?.code?.[word];
         }
     }

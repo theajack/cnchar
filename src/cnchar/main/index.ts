@@ -16,7 +16,7 @@ import {initStrokeToWord, strokeToWord} from './utils/strokeToWord';
 import {compareSpell, sortSpell, compareStroke, sortStroke, initSort} from './utils/sort';
 import {ICnChar, SpellArg, StrokeArg} from 'cnchar-types/main';
 import {extendCnChar} from './utils/extend';
-import {getPlugins, installPlugin} from './utils/plugins';
+import {getPlugins, hasPlugin, installPlugin} from './utils/plugins';
 import {getResourceBase, setResourceBase} from './utils/resource';
 import {Env} from '@common/adapter';
 
@@ -47,6 +47,7 @@ const cnchar: ICnChar = {
         stroke: _stroke,
     },
     plugins: getPlugins(),
+    hasPlugin,
     use: installPlugin,
     _: {
         arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,

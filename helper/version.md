@@ -1,6 +1,10 @@
 ## 3.2.1 todolist
 
 1. idiom 参数优化 去掉spell和tone，改为自动识别
+2. 单个汉字解释
+3. spell poly 把默认读音放在第一个
+4. 胜字 orderToWord 拼不回去
+5. 啊 字读法
 
 ## 3.2.0
 

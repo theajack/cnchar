@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 12:07:55
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-06-01 20:53:14
+ * @LastEditTime: 2022-06-04 10:01:37
  * @FilePath: /cnchar/src/cnchar/main/utils/plugins.ts
  * @Description: Coding something
  */
@@ -13,6 +13,10 @@ import {getCnChar} from './tool';
 import {_warn} from '@common/util';
 
 const plugins: PluginArg[] = [];
+
+export function hasPlugin (name: string) {
+    return plugins.indexOf(name) !== -1;
+}
 
 export const getPlugins = (): PluginArg[] => plugins;
 

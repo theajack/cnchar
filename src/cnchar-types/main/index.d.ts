@@ -61,6 +61,7 @@ export interface ICnChar {
         initials: Array<string>;
     };
     plugins: Array<PluginArg>;
+    hasPlugin(name: string): boolean;
     type: {
         [prop in TypeProp]?: TypeValueObject;
     };

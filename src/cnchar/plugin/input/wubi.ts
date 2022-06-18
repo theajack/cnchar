@@ -73,13 +73,15 @@ export function wubiInputBase (
 ): IInputResult {
     let OriginMap: Json = Map;
 
-    if (!TradMap) {
-        console.warn('TradMap is not init, please install cnchar-trad');
-    } else {
-        if (mode === 'trad') {
-            OriginMap = TradMap;
-        } else if (mode === 'both') {
-            OriginMap = BothMap as Json;
+    if (mode !== 'simple') {
+        if (!TradMap) {
+            console.warn('TradMap is not init, please install cnchar-trad');
+        } else {
+            if (mode === 'trad') {
+                OriginMap = TradMap;
+            } else if (mode === 'both') {
+                OriginMap = BothMap as Json;
+            }
         }
     }
     const map = (OriginMap as any)[`m${version}`] || OriginMap.m86;
@@ -152,6 +154,7 @@ function matchOptionWords (map: Json, code: string): string {
 // cnchar.input('ABC', {type: 'wubi'})
 // cnchar.input('FGHYBGDNV', {type: 'wubi'})
 // cnchar.input('QTNYYGTMADTFALKLWGGYPEGKUP', {type: 'wubi'})
+// cnchar.input('QTNYBJGQTNYB', {type: 'wubi'})
 
 export function splitString (str: string, index: number) {
     return [str.substring(0, index), str.substring(index)];

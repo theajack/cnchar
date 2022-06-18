@@ -45,7 +45,7 @@ function getSingleWordInfo (dict: Json<string>, word: string): IInfoResult {
     let str = dict[word];
 
     if (!str) {
-        if (cnchar && cnchar.plugins.indexOf('trad') !== -1) {
+        if (cnchar && cnchar.hasPlugin('trad')) {
             str = cnchar.trad.dict?.info?.[word];
         }
     }

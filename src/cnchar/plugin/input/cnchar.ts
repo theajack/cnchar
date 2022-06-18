@@ -7,8 +7,8 @@ let cnchar: ICnChar;
 export function setCnchar (_cnchar: ICnChar) {
     cnchar = _cnchar;
     initSpellMap(cnchar.dict.spell);
-    if (_cnchar.trad) {
-        initTradMap(_cnchar.trad.dict.wubi);
+    if (_cnchar.hasPlugin('trad')) {
+        initTradMap(_cnchar.trad.dict?.wubi);
     }
 }
 

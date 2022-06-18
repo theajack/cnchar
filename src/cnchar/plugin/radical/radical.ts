@@ -10,7 +10,7 @@ const radicals = dict as Json<string>;
 let _cnchar: ICnChar;
 
 function checkTrad (input: string) {
-    if (_cnchar && _cnchar.plugins.indexOf('trad') !== -1) {
+    if (_cnchar && _cnchar.hasPlugin('trad')) {
         return getSingleRadical(_cnchar.trad.dict?.radical, input);
     } else {
         return null;

@@ -18,6 +18,7 @@ words: (2) ['夕', '苛苯茜菘菥葙蕈蘸']
 */
 
 // cnchar.input('ni1menanhuisheng', {type: 'spell'})
+// cnchar.input('nihaonihaonihaonihao3', {type: 'spell'})
 // cnchar.input('nim', {type: 'spell'})
 export function associateSpell (associate: boolean, result: IInputResult) {
     if (!associate || result.length === 0) return result;
@@ -32,10 +33,12 @@ export function associateSpell (associate: boolean, result: IInputResult) {
 
     const associateStr = getAssociateWordsString();
 
+    console.log(result);
+
     result.forEach((item) => {
         let weight = 0;
         const {words} = item;
-
+        
         for (let i = 0; i < words.length - 1; i++) {
             const word = getWordWithPartialSpell(words[i]);
             const nextWord = getWordWithPartialSpell(words[i + 1]);
