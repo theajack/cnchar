@@ -121,7 +121,6 @@ const base: IBase = (
         for (const k in dict) {
             if (dict[k] === letters) {
                 res.push(k);
-                break;
             }
         }
     }

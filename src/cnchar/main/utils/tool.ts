@@ -47,7 +47,9 @@ export function spell (dict: Json<string>, originArgs: Array<string>): string | 
             const ch: string = strs[i];
 
             const addIntoPolyRes = (spell: string) => {
+                debugger;
                 isDefaultSpell(ch, spell) ? res[i].unshift(spell) : res[i].push(spell);
+                debugger;
             };
 
             if (isCnChar(ch)) { // 如果是汉字
@@ -185,7 +187,7 @@ function getSpell (
 function isDefaultSpell (word: string, spell: string) {
     const def = Dict.spellDefault[word];
     if (!def) return false;
-    return (shapeSpell(def, true).replace(/[0-4]/, '') === spell);
+    return def === spell || (shapeSpell(def, true).replace(/[0-4]/, '') === spell);
 }
 
 // tone=false : 根据有音调的拼音获得无音调的拼音和音调

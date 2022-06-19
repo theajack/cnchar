@@ -253,3 +253,16 @@ cnchar.shapeSpell('lv2') // lǘ
 cnchar.shapeSpell('shang4') // shàng
 cnchar.shapeSpell('shàng') // shang4
 ```
+
+##### 5.13.10 判断拼音是否有音调: hasTone
+
+```ts
+cnchar.hasTone(spell: string): boolean;
+```
+
+```js
+cnchar.hasTone('lv2') // true
+cnchar.hasTone('shang4') // true
+cnchar.hasTone('shàng') // true
+cnchar.hasTone('shang') // false
+```

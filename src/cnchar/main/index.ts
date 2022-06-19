@@ -52,7 +52,7 @@ const cnchar: ICnChar = {
     _: {
         arg, has, _throw, tones, setIntoJson, _warn, dealUpLowFirst, removeTone,
         sumStroke, isCnChar, checkArgs, transformTone, dict: {}, mapJson, checkTrad,
-        getResourceBase, pickRandomEle, shuffle, randomNum, pickRandomChar, hasTone,
+        getResourceBase, pickRandomEle, shuffle, randomNum, pickRandomChar,
     },
     type: {
         spell: arg,
@@ -72,6 +72,7 @@ const cnchar: ICnChar = {
     setStrokeCount,
     isPolyWord,
     shapeSpell,
+    hasTone,
     spellToWord,
     strokeToWord,
     spellInfo,

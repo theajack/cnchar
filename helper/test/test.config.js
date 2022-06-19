@@ -35,8 +35,8 @@ module.exports = [
             ['Ce', 'Shi'],
             ['c', 's'],
             'CèShì',
-            '(Zhang|Chang)(Da|Dai)(Le|Liao)',
-            '(Zhǎng|Cháng)(Dà|Dài)(Le|Liǎo)'
+            '(Chang|Zhang)(Da|Dai)(Le|Liao)',
+            '(Cháng|Zhǎng)(Dà|Dài)(Le|Liǎo)'
         ]
     },
     {
@@ -180,9 +180,9 @@ module.exports = [
         test (cnchar) {
             return [
                 cnchar.idiom(['五', '', '十', '']),
-                cnchar.idiom([4, 6, 2, 6], 'stroke'),
-                cnchar.idiom('shang', 'spell').slice(0, 2),
-                cnchar.idiom('shang4', 'spell', 'tone').slice(0, 2)
+                cnchar.idiom([4, 6, 2, 6]),
+                cnchar.idiom('shang').slice(0, 2),
+                cnchar.idiom('shang4').slice(0, 2)
             ];
         },
         expect: [
@@ -389,11 +389,14 @@ module.exports = [
                 '行': 'háng',
                 '中': 'zhòng'
             });
-            return [
+            const result = [
                 cnchar.spell('长', 'tone'),
                 cnchar.spell('行', 'tone'),
                 cnchar.spell('中', 'tone')
             ];
+
+            cnchar.setSpellDefault('长', 'cháng');
+            return result;
         },
         expect: [
             'Zhǎng',

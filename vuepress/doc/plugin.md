@@ -8,6 +8,12 @@ cnchar 提供了一个非常简洁的插件体系，可以很方便的基于cnch
 
 cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用，具体请参考[插件声明](https://github.com/theajack/cnchar/tree/master/src/cnchar-types/plugin)
 
+可以使用 hasPlugin api 来判断是否引入了某插件
+
+```js
+cnchar.hasPlugin('draw')
+```
+
 ## 2. install属性
 
 install 是一个方法，cnchar.use 插件之后， cnchar对象会调用install方法，并将cnchar对象作为回调带入插件中，**可以通过cnchar对象访问cnchar和其他插件方法**

@@ -87,6 +87,7 @@ export interface ICnChar {
     setStrokeCount(word: string, count: number): void;
     setStrokeCount(json: {[key: string]: number}): void;
     shapeSpell(spell: string, reverse?: boolean): string;
+    hasTone(spell: string): boolean;
 
     _: ICncharTool;
     _origin: {

@@ -1,4 +1,16 @@
+## 3.2.1
+
+1. 优化拼音输入法联想输入，支持首字母联想
+2. 优化联想输入返回的联想词组
+3. 优化 spell poly 返回顺序 默认读音放在前面
+4. 增加单个汉字解释，修改cnchar-data依赖的cdn地址
+5. 增加hasPlugin api，修复引用trad包的依赖报错
+6. idiom 参数优化 去掉spell和tone，改为自动识别
+7. 修复 orderToWord 方法
+8. 新增 hasTone api，判断拼音是否有音调
+
 ## 3.2.0
+
 1. 增加random插件，增加随机生成汉字、拼音、词语、成语、歇后语的功能
 2. voice api支持对拼音发音 如 cnchar.voice('ni3')
 3. 成语查询支持拼音，如 cnchar.idiom('wu3')
@@ -15,11 +27,11 @@
 14. 修正和扩充大量字库、增加应用例子
 
 ## 3.1.0
+
 1. 增加 words 插件，可以获取汉字的组词
 2. 增加 explain 插件，可以获取词语的解释
 3. 增加 voice 插件，可以对汉字、词语和句子发音
-4. 增加 voice.speak, voic
-5. e.regonize api，用于合成语音和识别语音
+4. 增加 voice.speak, voice.regonize api，用于合成语音和识别语音
 6. spell 方法增加 flat参数，扁平化拼音 如 lǘ => lv2, lā => la1
 7. cnchar.shapeSpell 增加reverse参数，默认为false，cnchar.shapeSpell('lǘ', true)=> lv2；cnchar.shapeSpell('lv2')=> lǘ
 8. 增加 cnchar.draw.onWordNotFound
@@ -187,3 +199,6 @@
 ## 1.0（基础版本）
 1. 获取 **汉字拼音** ，支持首字母、大小写、数组分割
 2. 获取 **汉字笔画数**
+
+
+   

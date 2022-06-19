@@ -249,11 +249,11 @@ console.log(char6);`,
             code: /* javascript*/`// 根据汉字查询成语，末尾的空格可以省略
 var res1 = cnchar.idiom(['五', '', '十', '']); // ['五风十雨', '五光十色']
 // 根据笔画数查询成语，0表示匹配任意笔画，末尾的0可以省略
-var res2 = cnchar.idiom([4, 6, 2, 0], 'stroke'); // ["不当人子", ... ]
+var res2 = cnchar.idiom([4, 6, 2, 0]); // ["不当人子", ... ]
 // 根据拼音查询成语
-var res3 = cnchar.idiom('shang', 'spell'); // ["伤风败化", "伤风败俗", ...]
+var res3 = cnchar.idiom('shang'); // ["伤风败化", "伤风败俗", ...]
 // 带音调
-var res4 = cnchar.idiom('shang4', 'spell', 'tone'); // ["上兵伐谋", "上不着天，下不着地", ... ]
+var res4 = cnchar.idiom('shang4'); // ["上兵伐谋", "上不着天，下不着地", ... ]
 console.log(res1, res2, res3, res4)`,
             dep: ['idiom'],
             desc: '成语查询实例'

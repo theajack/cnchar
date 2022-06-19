@@ -7,7 +7,7 @@ cnchar在2.2.0加入了成语功能，启用该功能需要安装 `cnchar-idiom`
 
 <div>
   <highlight-code lang='typescript'>
-cnchar.idiom(text:string, ...idiomArgs: Array&lt;idiomArg>):Array&lt;string>;
+cnchar.idiom(text: string | number | Array<string|number>):Array<string>;
   </highlight-code>
 </div>
 
@@ -25,18 +25,9 @@ cnchar.idiom(text:string, ...idiomArgs: Array&lt;idiomArg>):Array&lt;string>;
 
 <div>
   <highlight-code lang='typescript'>
-cnchar.idiom(value,arg1,arg2,...);
+cnchar.idiom(value);
   </highlight-code>
 </div>
-
-|  参数   |    作用    | 是否默认 |  依赖库   |   备注    |
-| :-----: | :----: | :------: | :---: | :---: |
-|  char  | 根据汉字查询成语 |    是    |  --  |  默认值无需调用  |
-|  stroke   | 根据笔画数查询成语 |    否    | -- |  优先级高于char  |
-|  spell  | 根据拼音查询成语 |    否    |  --  |   优先级高于stroke  |
-|  tone  | 启用拼音音调查询 |    否    |  --  |  仅在spell模式下生效  |
-
-注：优先级 `spell` > `stroke` > `char`
 
 ## 3. 实例
 
@@ -46,9 +37,9 @@ cnchar.idiom(value,arg1,arg2,...);
 <div>
   <highlight-code lang='javascript'>
 cnchar.idiom(['五', '', '十', '']) // ['五风十雨', '五光十色']
-cnchar.idiom([4, 6, 2, 6], 'stroke') // ['五光十色']
-cnchar.idiom('shang', 'spell') // ['伤风败化', '伤风败俗', ... ]
-cnchar.idiom('shang4', 'spell', 'tone') // ['伤风败化', '伤风败俗', ... ]
+cnchar.idiom([4, 6, 2, 6]) // ['五光十色']
+cnchar.idiom('shang') // ['伤风败化', '伤风败俗', ... ]
+cnchar.idiom('shang4') // ['伤风败化', '伤风败俗', ... ]
   </highlight-code>
 </div>
 
