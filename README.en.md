@@ -94,6 +94,7 @@ Before starting the documentation, let's take a look at some use cases to see wh
     + [5.13.7 Sort by pinyin: sortSpell](#5137-sort-by-pinyin-sortspell)
     + [5.13.8 Sort by number of strokes: sortStroke](#5138-sort-by-number-of-strokes-sortstroke)
     + [5.13.9 Convert digital tones to pinyin tones: shapeSpell](#5139-convert-digital-tones-to-pinyin-tones-shapespell)
+    + [5.13.10 Determine if pinyin has tones: hasTone](#51310-determine-if-pinyin-has-tones-hastone)
   * [5.14 Custom data](#514-custom-data)
     + [5.14.1 setSpell](#5141-setspell)
     + [5.14.2 setSpellDefault](#5142-setspelldefault)
@@ -754,7 +755,7 @@ cnchar added the idiom function in 2.2.0. To enable this function, you need to i
 The usage is as follows:
 
 ```ts
-cnchar.idiom(text:string, ...idiomArgs: Array<idiomArg>):Array<string>;
+cnchar.idiom(text: string | number | Array<string|number>):Array<string>;
 ```
 
 See a specific example
@@ -763,11 +764,11 @@ See a specific example
 // According to Chinese characters query idiom, the space at the end can be omitted
 cnchar.idiom(['五', '', '十', '']); // ['五风十雨', '五光十色']
 // Query the idiom according to the number of strokes, 0 means match any stroke, and 0 at the end can be omitted
-cnchar.idiom([4, 6, 2, 0], 'stroke'); // ["不当人子", ... ]
+cnchar.idiom([4, 6, 2, 0]); // ["不当人子", ... ]
 // Query idioms based on pinyin
-cnchar.idiom('shang', 'spell'); // ["伤风败化", "伤风败俗", ...]
+cnchar.idiom('shang'); // ["伤风败化", "伤风败俗", ...]
 // with tone
-cnchar.idiom('shang4', 'spell', 'tone'); // ["上兵伐谋", "上不着天，下不着地", ... ]
+cnchar.idiom('shang4'); // ["上兵伐谋", "上不着天，下不着地", ... ]
 ```
 
 When using cdn references, the `CncharIdiom` object will be exposed upward in the window
@@ -1071,6 +1072,12 @@ The reverse parameter indicates that the reverse conversion is enabled `lǘ` => 
 cnchar.shapeSpell(spell: string, reverse?: boolean): string;
 ```
 
+##### 5.13.10 Determine if pinyin has tones: hasTone
+
+```ts
+cnchar.hasTone(spell: string): boolean;
+````
+
 #### 5.14 Custom data
 
 Since the cnchar data comes from the Internet, although it has undergone a lot of modifications, it is still inevitable that there will be errors and omissions
@@ -1207,7 +1214,6 @@ var strokeArg = cnchar.type.stroke;
 var orderToWordArg = cnchar.type.orderToWord;
 var spellToWordArg = cnchar.type.spellToWord;
 var strokeToWordArg = cnchar.type.strokeToWord;
-var idiomArg = cnchar.type.idiom;
 var xhyArg = cnchar.type.xhy;
 var radicalArg = cnchar.type.radical;
 var wordsArg = cnchar.type.words;
@@ -1223,8 +1229,6 @@ orderToWordArg Maximum available values: `['match','matchorder','contain','start
 spellToWordArg Maximum available values: `['simple','trad','poly','alltone','array']`
 
 strokeToWordArg Maximum available values: `['simple','trad','array']`
-
-idiomArg Maximum available values: `['char','stroke','spell','tone']`
 
 xhyArg Maximum available values: `['fuzzy','answer','second']`
 
@@ -1264,6 +1268,12 @@ List of currently used function libraries
 ```js
 var plugins = cnchar.plugins; // array type
 ```
+
+You can use the hasPlugin api to determine whether a plugin has been introduced
+
+````js
+cnchar.hasPlugin('draw')
+````
 
 #### 5.16 Offline use
 
@@ -1479,20 +1489,11 @@ Note: If both `simple` and`trad` parameters do not exist, then when"cnchar-trad"
 
 #### 6.6 idiom parameters
 
-The parameters are called as follows, value indicates the query object, you can try Pinyin Chinese character strokes, all arg parameters are optional
+The parameters are called as follows, value indicates the query object, you can try Pinyin Chinese character strokes
 
 ```js
-cnchar.idiom(value,arg1,arg2,...);
+cnchar.idiom(value);
 ```
-
-| Parameter | Function | Whether Default | Dependency Library | Remarks |
-| :-----: | :----: | :------: | :---: | :---: |
-| char | query idioms based on Chinese characters | yes | - | default value without calling |
-| stroke | query idioms based on the number of strokes | No | - | priority over char |
-| spell | Query idioms based on Pinyin | No | - | Priority over stroke |
-| tone | Enable Pinyin tone query | No | - | Only effective in spell mode |
-
-Note: Priority `spell`> `stroke`> `char`
 
 #### 6.7 xhy parameters
 
@@ -1702,9 +1703,9 @@ This library extends the idiom function for cnchar
 
 ```js
 cnchar.idiom(['五', '', '十', '']) // ['五风十雨', '五光十色']
-cnchar.idiom([4, 6, 2, 6], 'stroke') // ['五光十色']
-cnchar.idiom('shang', 'spell') // ['伤风败化', '伤风败俗', ... ]
-cnchar.idiom('shang4', 'spell', 'tone') // ['伤风败化', '伤风败俗', ... ]
+cnchar.idiom([4, 6, 2, 6]) // ['五光十色']
+cnchar.idiom('shang') // ['伤风败化', '伤风败俗', ... ]
+cnchar.idiom('shang4') // ['伤风败化', '伤风败俗', ... ]
 ```
 
 ##### 6.10.6 cnchar-xhy library function
