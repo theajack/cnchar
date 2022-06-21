@@ -12,3 +12,9 @@ info(input: string): Array<{
     markSpell: string; // 汉字注音
 }>;
 ```
+
+js 调用如下
+
+```js
+cnchar.info('汉字');
+```
