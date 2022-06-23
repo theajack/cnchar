@@ -18,22 +18,22 @@ window.jsboxCode = {
     function randomNames(){
         const names = cnchar.name('***', {number: 5});
         const v = _input.value.trim();
-        _input.value = (v ? (v+'\n'):'') + names.join('\n');
+        _input.value = (v ? (v+'\\n'):'') + names.join('\\n');
     }
     function sort(type){
         const sortFn = type === 'stroke' ? cnchar.sortStroke : cnchar.sortSpell;
         _result.innerText = sortFn(
-            _input.value.trim().split('\n').map((name)=>name.trim())
-        ).join('\n');
+            _input.value.trim().split('\\n').map((name)=>name.trim())
+        ).join('\\n');
     }
     function sortFirst(type){
         const compartFn = type === 'stroke' ? cnchar.compareStroke : cnchar.compareSpell;
-        _result.innerText = _input.value.trim().split('\n').sort((a,b)=>{
+        _result.innerText = _input.value.trim().split('\\n').sort((a,b)=>{
             const res = compartFn(a[0], b[0]);
             if (res === 'more') return 1;
             if (res === 'less') return -1;
             return 0;
-        }).join('\n');
+        }).join('\\n');
     }
 </script>`
 };
