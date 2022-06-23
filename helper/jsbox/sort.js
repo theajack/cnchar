@@ -1,12 +1,14 @@
 window.jsboxCode = {
     // lib: 'https://fastly.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js',
-    lang: 'html',
+    lib: ['cnchar', 'cnchar-poly', 'cnchar-trad', 'cnchar-name'],
     code: /* html */`<div>
     <textarea id="_input" class="jx-textarea" placeholder="请输入一些姓名以"></textarea>
     <div>
-        <button onclick="randomNames()">随机5个名字</button>
-        <button onclick="sort()">根据拼音排序</button>
-        <button onclick="sort('stroke')">根据笔画数排序</button>
+        <div class="jx-block">
+            <button onclick="randomNames()">随机5个名字</button>
+            <button onclick="sort()">根据拼音排序</button>
+            <button onclick="sort('stroke')">根据笔画数排序</button>
+        </div>
         <div class="jx-block">
             <button onclick="sortFirst()">根据第一个字拼音排序</button>
             <button onclick="sortFirst('stroke')">根据第一个字笔画数排序</button>
