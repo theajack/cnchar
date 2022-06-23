@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+.jx-input, .jx-select, .jx-textarea{
+    color: #222;
+    width: 200px;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid #666;
+    padding: 0 8px;
+    outline: none;
+    font-size: 14px;
+}
+.jx-textarea{
+    min-height: 150px;
+    padding: 8px;   
+}
+.jx-input.jx-full, .jx-textarea {
+    width: 100%;
+}
+.jx-block{
+    margin: 10px 0;
+}
+
+.jx-button{
+    border-radius: 2px;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid #666;
+    cursor: pointer;
+}
+.jx-button:active{
+    transform: scale(0.9);
+}
