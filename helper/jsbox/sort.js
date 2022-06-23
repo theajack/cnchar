@@ -1,8 +1,9 @@
 window.jsboxCode = {
     // lib: 'https://fastly.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js',
     lib: ['cnchar', 'cnchar-poly', 'cnchar-trad', 'cnchar-name'],
+    lang: 'html',
     code: /* html */`<div>
-    <textarea id="_input" class="jx-textarea" placeholder="请输入一些姓名以"></textarea>
+    <textarea id="_input" class="jx-textarea" placeholder="请输入一些姓名以进行排序"></textarea>
     <div>
         <div class="jx-block">
             <button onclick="randomNames()">随机5个名字</button>
