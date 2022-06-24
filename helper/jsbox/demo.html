@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./jsbox.css">
+    <script>window.toast=console.log</script>
+    <script src="https://fastly.jsdelivr.net/npm/cnchar/cnchar.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/cnchar-voice/cnchar.voice.min.js"></script>
+</head>
+<body>
+    <div>
+        <div class='jx-block'>
+            <input class="jx-input jx-full" id="_input"></input>
+        </div>
+        <div class='jx-block'>
+            <button class="jx-buttton" onclick="recognize()">语音识别</button>
+            <button class="jx-buttton" onclick="speak()">语音生成</button>
+        </div>
+        <div class='jx-block'>
+            <input class="jx-input" id="_input2"></input>
+        </div>
+        <div class='jx-block'>
+            <button class="jx-buttton" onclick="voice()">单个汉字发音</button>
+        </div>
+    </div>
+    <script>
+        function recognize(){
+            toast('请说一些话...');
+            cnchar.voice.recognize({
+                onend (s) { _input.value = s; }
+            });
+        }
+        function speak(){
+            cnchar.voice.speak(_input.value);
+        }
+        function voice(){
+            cnchar.voice(_input2.value);
+        }
+    </script>
+</body>
+</html>

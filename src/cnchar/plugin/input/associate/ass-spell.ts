@@ -59,13 +59,13 @@ export function associateSpell (associate: boolean, result: IInputResult) {
                         }
                     }
                     const distinct = distinctArray(associateResult);
-                    weight += distinct.length;
+                    weight ++;
                     item.association[i] = distinct.join('').substring(1);
                     item.association[++i] = '-';
                     
                     if (matchThird) {
                         item.association[++i] = '-';
-                        weight += 2;
+                        weight ++;
                     }
                 } else {
                     item.association[i] = '';
