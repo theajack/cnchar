@@ -55,6 +55,7 @@ module.exports = {
         // 顶部导航栏配置
         nav: [
             {text: '主页', link: '/'}, // 内部链接 以docs为根目录
+            {text: '捐赠', link: '/guide/donate'},
             {text: 'GitHub', link: 'https://www.github.com/theajack/cnchar'},
             {
                 text: '使用说明',
@@ -62,6 +63,7 @@ module.exports = {
                     {text: '简介', link: '/guide/intro'},
                     {text: '快速上手', link: '/guide/start'},
                     {text: '更新日志', link: '/guide/version'},
+                    {text: '捐赠', link: '/guide/donate'},
                 ]
             },
             {
