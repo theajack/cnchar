@@ -1,7 +1,6 @@
 <p align="center">
-    <img src='https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
+    <img src='https://shiyix.cn/cnchar3.png' width='300px'/>
 </p> 
-
 <p align="center">
     <a href="https://www.github.com/theajack/cnchar/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/cnchar?logo=github" alt="stars" />

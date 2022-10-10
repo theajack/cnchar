@@ -154,6 +154,10 @@ module.exports = {
                         {
                             title: '更新日志',
                             path: 'version',
+                        },
+                        {
+                            title: '捐赠',
+                            path: 'donate',
                         }
                     ],
                 },

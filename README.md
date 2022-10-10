@@ -1,5 +1,9 @@
-<p align="center">
+<!-- <p align="center">
     <img src='https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
+</p>  -->
+
+<p align="center">
+    <img src='https://shiyix.cn/cnchar3.png' width='300px'/>
 </p> 
 
 <p align="center">

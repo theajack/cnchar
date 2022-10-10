@@ -1,9 +1,8 @@
 <template>
     <div class='home-wrapper'>
-        <div>
-            <img class='logo' src='../../images/logo.png' alt='' srcset=''>
+        <div class='title'>
+            <img src='https://shiyix.cn/cnchar3.png' alt=''>
         </div>
-        <div class='title'>cnchar</div>
         <div class='desc'>功能全面、多端支持的汉字拼音笔画js库</div>
         <div class='test'>
             <el-input v-if='loaded' v-model='text' class='test-input' type='text' placeholder='输入一些汉字试试' @input='input'></el-input>
@@ -173,6 +172,11 @@
             font-weight: bold;
             font-family: Microsoft Yahei;
             font-size: 3.5rem;
+            margin-bottom: 10px;
+            margin-top: 80px;
+            img{
+                width: 220px;
+            }
         }
         .desc{
             font-size: 1.1rem;
