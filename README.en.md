@@ -1931,3 +1931,7 @@ cnchar.xhy.addXhy([ // Multiple
 **Acknowledgements**
 
 The `cnchar-draw` library function is based on [hanzi-writer](https://github.com/chanind/hanzi-writer), thanks very much!
+
+**Contributors**
+
+[![](https://contrib.rocks/image?repo=theajack/cnchar)](https://github.com/theajack/cnchar/graphs/contributors)

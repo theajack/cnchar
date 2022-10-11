@@ -1967,3 +1967,7 @@ cnchar.xhy.addXhy([ // 多条
 **致谢**
 
 `cnchar-draw` 库功能基于 [hanzi-writer](https://github.com/chanind/hanzi-writer), 特此表示感谢！
+
+**Contributors**
+
+[![](https://contrib.rocks/image?repo=theajack/cnchar)](https://github.com/theajack/cnchar/graphs/contributors)
