@@ -2,10 +2,22 @@
     <img src='https://fastly.jsdelivr.net/gh/theajack/cnchar/dist/rm-logo.png' width='200px'/>
 </p>  -->
 
+
 <p align="center">
     <img src='https://shiyix.cn/cnchar3.png' width='300px'/>
 </p> 
 
+<p align="center">
+    <a href="https://ko-fi.com/theajack">
+        <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
+    </a>    
+    <a href="https://paypal.me/tackchen">
+        <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
+    </a>    
+    <a href="https://shiyix.cn/wx-pay.png">
+        <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
+    </a>
+</p>
 <p align="center">
     <a href="https://www.github.com/theajack/cnchar/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/cnchar?logo=github" alt="stars" />
