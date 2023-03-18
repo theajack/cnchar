@@ -337,6 +337,7 @@ declare interface DrawOption {
     el?: string | HTMLElement; // 绘制的容器，支持选择器或dom，若是不填，会在body后append一个dom作为容器
     type?: DrawType; // 绘制模式，默认为normal
     clear?: boolean; // 绘制前是否清空容器 默认为true
+    onComplete?: ()=>void; // 绘制完成
     style?: { // 样式类
         backgroundColor?: string, // 默认为#fff
         showOutline?: boolean;//: true,
@@ -365,7 +366,7 @@ declare interface DrawOption {
         delayBetweenStrokes?: number;// : 1000, // 数值, 默认 1000。 动画进行中每个笔画之间的间隔时间（以毫秒为单位）。
         delayBetweenLoops?: number;// : 200, // 数值, 默认 2000。 循环动画时每个动画循环之间的时间（以毫秒为单位）。
         autoAnimate?: boolean;// : true,
-        animateComplete?: Function;// : () => {},
+        animateComplete?: Function;// : () => {}, 动画执行完毕
         stepByStep?: boolean;// : true,
         loopAnimate?: boolean;// : false,
     },
@@ -397,6 +398,7 @@ declare interface IWriter {
     startAnimation(): boolean;
     pauseAnimation(): void;
     resumeAnimation(): void;
+    restartAnimation(): void; // 重头开始绘制
     drawNextStroke(onComplete?: ()=>void): boolean;
 }
 ```
@@ -647,7 +649,7 @@ cnchar在2.2.0加入了成语功能，启用该功能需要安装 `cnchar-idiom`
 使用方式如下：
 
 ```ts
-cnchar.idiom(text: string | number | Array<string|number>):Array<string>;
+cnchar.idiom(text: string | number | Array<string|number>, mode?: 'char' | 'stroke' | 'spell' | 'tone'):Array<string>;
 ```
 
 看一个具体例子
@@ -662,6 +664,15 @@ cnchar.idiom('shang'); // ["伤风败化", "伤风败俗", ...]
 // 带音调
 cnchar.idiom('shang4'); // ["上兵伐谋", "上不着天，下不着地", ... ]
 ```
+
+idiom有四种模式 汉字模式、笔画模式、拼音模式、拼音音调模式
+
+cnchar 会根据输入自动判断采用什么模式，但是在某些情况下，会无法判断是什么模式，需要手动指定模式
+
+```js
+cnchar.idiom(['', '', '好', ''], 'char'); // 第一个元素是 '', 需要手动指定采用汉字模式查询
+```
+
 
 使用cdn引用时，会在window对向上暴露 `CncharIdiom` 对象
 
@@ -1178,7 +1189,7 @@ cnchar 在 3.1.0 版本新增了 [cnchar-data](https://github.com/cn-char/cnchar
 
 具体使用请参考 [cnchar-data](https://github.com/cn-char/cnchar-data/blob/master/README.md)
 
-另外 voice, draw, explain 三个仓库也支持独立 setResourceBase
+另外 voice, draw, explain 三个仓库也支持独立 `setResourceBase`
 
 具体请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 

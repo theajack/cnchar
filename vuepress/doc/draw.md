@@ -66,7 +66,9 @@ cnchar.draw('你好', options); // options 为可选参数
   <highlight-code lang='typescript'>
 declare interface DrawOption {
     el?: string | HTMLElement; // 绘制的容器，支持id和dom，若是不填，会在body后append一个dom作为容器
-    type?: DrawType; // 绘制模式，默认为normal
+    type?: DrawType; // 绘制模式，默认为normalnormal
+    clear?: boolean; // 绘制前是否清空容器 默认为true
+    onComplete?: ()=>void; // 绘制完成
     style?: { // 样式类
         showOutline?: boolean;//: true,
         showCharacter?: boolean;//: true,
@@ -93,7 +95,7 @@ declare interface DrawOption {
         strokeAnimationSpeed?: number;// : 1, // 数值, 默认 1。 绘制每个笔划的速度必须大于0。增加此数字可以更快地绘制笔划，减少绘制笔划的速度更慢。
         delayBetweenStrokes?: number;// : 1000, // 数值, 默认 1000。 动画进行中每个笔画之间的间隔时间（以毫秒为单位）。
         delayBetweenLoops?: number;// : 200, // 数值, 默认 2000。 循环动画时每个动画循环之间的时间（以毫秒为单位）。
-        autoAnimate?: boolean;// : true,
+        autoAnimate?: boolean;// : true, 动画执行完毕
         animateComplete?: Function;// : () => {},
         stepByStep?: boolean;// : true,
         loopAnimate?: boolean;// : false,
@@ -160,6 +162,7 @@ declare interface IWriter {
     startAnimation(): boolean;
     pauseAnimation(): void;
     resumeAnimation(): void;
+    restartAnimation(): void; // 重头开始绘制
     drawNextStroke(onComplete?: ()=>void): boolean;
 }
 ```
@@ -198,7 +201,19 @@ writer.pauseAnimation();
 writer.resumeAnimation();
 ```
 
-### 7.3 drawNextStroke
+### 7.3 restartAnimation
+
+用于重新开始绘制动画
+
+```js
+const writer = cnchar.draw('你好', {
+    type: cnchar.draw.TYPE.ANIMATION
+});
+
+writer.restartAnimation();
+```
+
+### 7.4 drawNextStroke
 
 该 api 用于开启 **单笔绘制模式**
 

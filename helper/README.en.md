@@ -331,6 +331,7 @@ declare interface DrawOption {
     el?: string|HTMLElement; // The drawn container, support selector or dom, if not filled, a dom will be appended after the body as a container
     type?: DrawType; // Drawing mode, default is normal
     clear?: boolean; // Whether to clear the container before drawing The default is true
+    onComplete?: ()=>void; // Draw completed
     style?: {// style class
         backgroundColor?: string, // The default is #fff
         showOutline?: boolean; //: true,
@@ -359,7 +360,7 @@ declare interface DrawOption {
         delayBetweenStrokes?: number; //: 1000, // value, default 1000. The interval time(in milliseconds) between each stroke in the animation.
         delayBetweenLoops?: number; //: 200, // value, default 2000. The time(in milliseconds) between each animation loop when looping animations.
         autoAnimate?: boolean; //: true,
-        animateComplete?: Function; //:() => {},
+        animateComplete?: Function; //:() => {}, The animation is executed
         stepByStep?: boolean; //: true,
         loopAnimate?: boolean; //: false,
     },
@@ -390,6 +391,7 @@ declare interface IWriter {
     startAnimation(): boolean;
     pauseAnimation(): void;
     resumeAnimation(): void;
+    restartAnimation(): void; // Restart drawing
     drawNextStroke(onComplete?: ()=>void): boolean;
 }
 ```
@@ -640,7 +642,7 @@ cnchar added the idiom function in 2.2.0. To enable this function, you need to i
 The usage is as follows:
 
 ```ts
-cnchar.idiom(text: string | number | Array<string|number>):Array<string>;
+cnchar.idiom(text: string | number | Array<string|number>, mode?: 'char' | 'stroke' | 'spell' | 'tone'):Array<string>;
 ```
 
 See a specific example
@@ -654,6 +656,14 @@ cnchar.idiom([4, 6, 2, 0]); // ["不当人子", ... ]
 cnchar.idiom('shang'); // ["伤风败化", "伤风败俗", ...]
 // with tone
 cnchar.idiom('shang4'); // ["上兵伐谋", "上不着天，下不着地", ... ]
+```
+
+Idiom consists of four modes: Chinese character mode, stroke mode, pinyin mode, and pinyin tone mode
+
+CNCHAR will automatically determine what mode to use based on the input, but in some cases, it will not be able to determine what mode it is, and you will need to specify the mode manually
+
+```js
+cnchar.idiom(['', '', '好', ''], 'char'); // The first element is '', which needs to be manually specified to query in kanji pattern
 ```
 
 When using cdn references, the `CncharIdiom` object will be exposed upward in the window
@@ -1170,7 +1180,7 @@ cnchar has added [cnchar-data](https://github.com/cn-char/cnchar-data) in versio
 
 For specific usage, please refer to [cnchar-data](https://github.com/cn-char/cnchar-data/blob/master/README.md)
 
-In addition, the three repositories of voice, draw, and explain also support independent setResourceBase
+In addition, the three repositories of voice, draw, and explain also support independent `setResourceBase`
 
 For details, please refer to [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
 
