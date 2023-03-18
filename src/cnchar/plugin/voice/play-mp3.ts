@@ -1,8 +1,8 @@
 /*
  * @Author: tackchen
  * @Date: 2022-04-14 23:03:31
- * @LastEditors: tackchen
- * @LastEditTime: 2022-04-28 16:18:33
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-03-18 17:13:59
  * @FilePath: /cnchar/src/cnchar/plugin/voice/play-mp3.ts
  * @Description: Coding something
  */
@@ -135,7 +135,7 @@ export function playMp3Buffer ({
             oninit({
                 getDuration: () => (buffer as AudioBuffer).duration,
                 getCurrentTime: () => {
-                    console.log('getCurrentTime', audioContext.currentTime, lastCurrentTime);
+                    // console.log('getCurrentTime', audioContext.currentTime, lastCurrentTime);
                     return audioContext.currentTime - lastCurrentTime;
                 },
                 stop: () => {source.stop();},

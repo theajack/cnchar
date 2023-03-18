@@ -25,7 +25,7 @@ export const spellInfo = ((spell: string): ISpellInfoReturn => {
     const info = _.removeTone(spell, false);
     if (info.index === -1) {
         if (!dict.spell[info.spell]) {
-            throw new Error('【spellInfo】错误的拼音: ' + spell);
+            throw new Error(`【spellInfo】错误的拼音: ${spell}, 请检查字符是否正确`);
         }
         info.index = parseInt(dict.spell[info.spell][0]) + 1;
     }

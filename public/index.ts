@@ -130,6 +130,10 @@ cnchar.draw('中国', {
     },
 });
 
+// cnchar.draw;
+// cnchar.code;
+// cnchar.spell;
+
 cnchar.draw.onWordNotFound((word) => {
     console.log('word not found', word);
 });

@@ -31,12 +31,12 @@ export const arg = {
 idiom(['一','','一',''])
 idiom(['一','','一',''])
 */
-export const idiom = ((input: TIdiomInput): Array<string> => {
+export const idiom = ((input: TIdiomInput, mode?: IdomArg): Array<string> => {
     if (!input) {
         console.warn('idiom: 请输入搜索项');
         return [];
     }
-    const mode = recognizeMode(input);
+    if (!mode) mode = recognizeMode(input);
 
     if ((mode === 'spell' || mode === 'tone') && typeof input !== 'string') {
         console.warn('idiom spell 模式下仅支持查询首个汉字的拼音');

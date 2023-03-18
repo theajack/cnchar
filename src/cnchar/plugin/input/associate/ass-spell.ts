@@ -33,7 +33,7 @@ export function associateSpell (associate: boolean, result: IInputResult) {
 
     const associateStr = getAssociateWordsString();
 
-    console.log(result);
+    // console.log(result);
 
     result.forEach((item) => {
         let weight = 0;

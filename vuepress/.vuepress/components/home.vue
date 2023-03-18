@@ -1,7 +1,7 @@
 <template>
     <div class='home-wrapper'>
         <div class='title'>
-            <img src='https://shiyix.cn/cnchar3.png' alt=''>
+            <img src='https://shiyix.cn/images/cnchar3.png' alt=''>
         </div>
         <div class='desc'>功能全面、多端支持的汉字拼音笔画js库</div>
         <div class='test'>

@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src='https://shiyix.cn/cnchar3.png' width='300px'/>
+    <img src='https://shiyix.cn/images/cnchar3.png' width='300px'/>
 </p> 
 
 <p align="center">

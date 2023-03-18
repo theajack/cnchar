@@ -1,0 +1,82 @@
+<!--
+ * @Author: chenzhongsheng
+ * @Date: 2023-03-18 16:52:44
+ * @Description: Coding something
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11111111</title>
+</head>
+<body>
+    <button onclick="play()">play</button>
+    <script>
+        window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
+
+    var context = new window.AudioContext();;
+    var source = null;
+    var audioBuffer = null;
+
+    function stopSound() {
+        if (source) {
+            source.stop(0); //立即停止
+        }
+    }
+
+    function playSound() {
+        source = context.createBufferSource();
+        source.playbackRate.value = 1;
+        source.buffer = audioBuffer;
+        // source.loop = true; //循环播放
+
+
+        const gain = context.createGain();
+        gain.gain.value = 1;
+        source.connect(gain);
+        gain.connect(context.destination);
+
+        // source.connect(context.destination);
+        source.start(0); //立即播放
+    }
+
+    function initSound(arrayBuffer) {
+        context.decodeAudioData(arrayBuffer, function(buffer) { //解码成功时的回调函数
+            audioBuffer = buffer;
+            playSound();
+        }, function(e) { //解码出错时的回调函数
+            console.log('Error decoding file', e);
+        });
+    }
+
+    function loadAudioFile(url) {
+        var xhr = new XMLHttpRequest(); //通过XHR下载音频文件
+        xhr.open('GET', url, true);
+        xhr.responseType = 'arraybuffer';
+        xhr.onreadystatechange = () => {
+            if (xhr.status === 200) {
+                if (xhr.readyState === 4) {
+                    console.log('response decodeArrayBuffer', xhr.response);
+                    // decodeArrayBuffer(xhr.response, resolve);
+                    initSound(xhr.response);
+                }
+            } else {
+                resolve(null);
+            }
+        };
+        // xhr.onload = function(e) { //下载完成
+        //     initSound(this.response);
+        // };
+        xhr.send();
+    }
+
+    function play(){
+        loadAudioFile('https://unpkg.com/cnchar-data@1.1.0/voice/hao3.mp3');
+    }
+    loadAudioFile('https://unpkg.com/cnchar-data@1.1.0/voice/hao3.mp3');
+
+    </script>
+</body>
+</html>
