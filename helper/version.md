@@ -2,23 +2,22 @@
 
 1. 拼音联想输入法权重调整
 2. 语音识别 优化
+3. writer 加上canvas渲染
 
-## 3.2.3 todo
+## 3.2.3
 
-1. 馡 姈 字补齐 done
-2. 梁的繁体也是梁，现在是樑 done
-3. spellToWord 部分情况下报错 cnchar.spellToWord('dǐnɡ', 'array') done 字符错误增加了一个提示
-4. cnchar.idiom(['','','好','']) -> 模式下仅支持查询首个汉字的拼音 done 增加了第二个可选参数 手动指定类型 cnchar.idiom(['','','好',''], 'char')
-5. cnchar.voice无法在苹果设备上播放 done（需要用户交互 增加一个提示）
-6. cnchar/src/cnchar/plugin/input/associate/ass-spell.ts 测试代码遗留 done 已删除
-7. 字典 离线使用 没有效果
-8.  cnchar.transformTone('peng4', true).spell   // pǐng cnchar.transformTone('zi3', true).spell   // zū 
-9.  writer 加上canvas渲染
-10. 风的默认读音
-11. 例如 【当】字 生成 dānɡ 中的g是全角。在数据检索时会无法匹配。ing、ong、eng都有此问题。
-12. draw type为stroke时，没有animateComplete事件，或者说有没有什么其他方式得到绘制完成事件
-13. cnchar.sortSpell 排序中有特殊字符或者标点符号方法拿不到返回值
-14. 修复word插件在macos ios中的正则零宽断言的兼容性问题
+1. 馡 姈 字补齐 [done]
+2. 梁的繁体也是梁，现在是樑 [done]
+3. spellToWord 部分情况下报错 cnchar.spellToWord('dǐnɡ', 'array') [done] 字符错误增加了一个提示 ɡ!==g
+4. cnchar.idiom(['','','好','']) -> 模式下仅支持查询首个汉字的拼音 [done] 增加了第二个可选参数 手动指定类型 cnchar.idiom(['','','好',''], 'char')
+5. cnchar.voice无法在苹果设备上播放 [done]（需要用户交互 增加一个提示）
+6. cnchar/src/cnchar/plugin/input/associate/ass-spell.ts 测试代码遗留 [done] 已删除
+7. 字典 离线使用 没有效果 [done] 修复 cnchar.setResourceBase 无效问题
+8.  风的默认读音 [done]
+9.  draw type为stroke时，没有animateComplete事件，或者说有没有什么其他方式得到绘制完成事件 [done] 增加 onComplete 事件
+10. cnchar.sortSpell 排序中有特殊字符或者标点符号方法拿不到返回值 [done] 对非汉字的内容做兼容处理
+11. 修复word插件在macos ios中的正则零宽断言的兼容性问题 [done]
+12. 增加 restartAnimation 方法 并对pause和resume在step模式下做了bugfix [done]
 
 ## 3.2.2
 

@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-10-09 09:18:54
+ * @Description: Coding something
+ */
 
 import ICnChar from 'cnchar-types';
 import {Json} from 'cnchar-types/main/common';
@@ -48,13 +53,20 @@ export const words = ((word: string, ...args: string[]) => {
     if (_cnchar) {
         word = _cnchar._.checkTrad(word, args) as string;
     }
-    const reg = buildMatchRegExp(word);
-    const results = wordsDict.match(reg);
-    return results || [];
+    return matchWords(word);
 }) as IWords;
-    
-function buildMatchRegExp (word: string) {
-    return new RegExp('(?<= )(\\S*?' + word + '\\S*?)(?= )', 'g');
+
+function matchWords (word: string) {
+    try {
+        // ! ios mac 不支持零宽断言
+        const reg = new RegExp('(?<= )(\\S*?' + word + '\\S*?)(?= )', 'g');
+        const results = wordsDict.match(reg);
+        return results || [];
+    } catch (e) {
+        const reg = new RegExp(' ?(\\S*' + word + '\\S*) ?', 'g');
+        const results = wordsDict.match(reg);
+        return (results || []).map(r => r.trim());
+    }
 }
 
 export function addWords (words: string | string[]) {

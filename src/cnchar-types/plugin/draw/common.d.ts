@@ -84,7 +84,6 @@ export interface IDrawClassOption {
 }
 
 export interface IDrawStrokeOption {
-
 }
 
 export interface IDrawOption extends IDrawStyleOption, IDrawLineOption, IDrawAnimationOption, IDrawTestOption {

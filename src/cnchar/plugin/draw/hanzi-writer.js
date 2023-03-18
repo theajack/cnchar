@@ -1194,7 +1194,7 @@ export default (function (n) {
                 var r = this;
                 return (
                     this.cancelQuiz(),
-                    (this.J = n),
+                    (this.text = n),
                     this.Q && this.Q.destroy(),
                     this.F && this.F.cancelAll(),
                     (this.Q = null),

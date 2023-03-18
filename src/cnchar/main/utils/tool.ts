@@ -47,9 +47,7 @@ export function spell (dict: Json<string>, originArgs: Array<string>): string | 
             const ch: string = strs[i];
 
             const addIntoPolyRes = (spell: string) => {
-                debugger;
                 isDefaultSpell(ch, spell) ? res[i].unshift(spell) : res[i].push(spell);
-                debugger;
             };
 
             if (isCnChar(ch)) { // 如果是汉字

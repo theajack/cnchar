@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-10-09 09:18:54
+ * @Description: Coding something
+ */
 import {
     IDrawAnimationOption,
     IDrawLineOption,
@@ -19,6 +24,8 @@ export interface IWriterOptionWithoutText {
     animation?: IDrawAnimationOption,
     stroke?: IDrawStrokeOption,
     test?: IDrawTestOption,
+    onComplete?: () => void,
+    // renderer?: 'svg'|'canvas',
 }
 export interface IWriterOption extends IWriterOptionWithoutText {
     text?: string;
@@ -29,8 +36,10 @@ export interface IWriter {
     type: TDrawType;
     text: Array<string>;
     writers: Array<HanziWriter>;
+    _onComplete?: () => void;
     startAnimation(): boolean;
     drawNextStroke(onComplete?: ()=>void): boolean;
     pauseAnimation(): void;
     resumeAnimation(): void;
+    restartAnimation(): void;
 }

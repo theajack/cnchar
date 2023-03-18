@@ -18,7 +18,7 @@ import '../src/cnchar/plugin/input';
 import '../src/cnchar/plugin/name';
 import custom from './custom-plugin';
 cnchar.use(custom);
-
+cnchar.setResourceBase('https://cdn.jsdelivr.net/npm/cnchar-data/');
 
 // import spell from '../src/main/spell-dict-jian.json';
 // // import cncharDraw from '../src/plugin/draw';
@@ -98,26 +98,40 @@ console.log(cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second')); // ['醉�
 // // 返回数组
 // console.log(cnchar.radical('你好呀', 'array')); // ["亻", "女", "口"]
 // window.keys = Object.keys(spell);
-cnchar.draw('你好九', {});
 cnchar.draw('你好九', {
+    onComplete () {
+        console.log('draw normal complete');
+    }
+});
+(window as any).ww = cnchar.draw('一三二', {
+    type: cnchar.draw.TYPE.ANIMATION,
+    animation: {
+        animateComplete () {
+            console.log('animateComplete');
+        },
+        loopAnimate: true,
+        autoAnimate: true, // false 时点击出发animate 只能触发一次
+        stepByStep: false
+    },
+    onComplete () {
+        console.log('draw animation complete');
+    }
+});
+cnchar.draw('你好二', {
+    // renderer: 'canvas',
     type: cnchar.draw.TYPE.STROKE,
     el: '#drawArea',
     style: {
         radicalColor: '#44f',
         backgroundColor: '#ccc'
     },
-    animation: {
-        animateComplete () {
-            console.log('animateComplete');
-        },
-        loopAnimate: true,
-        autoAnimate: false, // false 时点击出发animate 只能触发一次
-        // stepByStep: false
-    },
     test: {
         onTestStatus (d: any) {
             console.log(d);
         }
+    },
+    onComplete () {
+        console.log('draw stroke complete');
     }
 });
 cnchar.draw('中国', {

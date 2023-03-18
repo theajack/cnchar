@@ -11,6 +11,7 @@ const plugin: IPlugin & IExplain = Object.assign(explain, {
         initResourceFromCnchar(cnchar);
     },
     setResourceBase,
+    _refreshResource: initResourceFromCnchar,
     args: args,
     dict: {
         temp: getTempDict()

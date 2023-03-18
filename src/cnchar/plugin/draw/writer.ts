@@ -39,6 +39,7 @@ export class Writer implements IWriter {
     text: Array<string>;
     writers: Array<HanziWriter>;
     animation: AnimationWriter;
+    _onComplete?: ()=>void;
     constructor ({
         el = 'cnchar-draw',
         text = '',
@@ -49,7 +50,9 @@ export class Writer implements IWriter {
         animation = {},
         stroke = {},
         test = {},
+        onComplete,
     }: IWriterOption) {
+        this._onComplete = onComplete;
         this.type = type;
         this.writers = [];
         this.text = text.split('');
@@ -72,6 +75,7 @@ export class Writer implements IWriter {
         }
         this.init();
     }
+
     private init (): void {
         if (svg === null) {
             return;
@@ -95,8 +99,19 @@ export class Writer implements IWriter {
             return node;
         };
         if (this.type === TYPE.STROKE) {
-            stroke(this, cloneSvg);
+            stroke(this, cloneSvg, this._onComplete);
         } else {
+
+            if (this._onComplete && this.type !== TYPE.ANIMATION) {
+                let loadedNum = 0;
+                this.option.onLoadCharDataSuccess = () => {
+                    loadedNum ++;
+                    if (loadedNum >= this.text.length) {
+                        this._onComplete?.();
+                    }
+                };
+            }
+
             this.text.forEach((v) => {
                 const node = cloneSvg(this.option);
                 this.writers.push(HanziWriter.create(node, v, this.option));
@@ -150,6 +165,9 @@ export class Writer implements IWriter {
     }
     resumeAnimation () {
         this.animation.resume();
+    }
+    restartAnimation () {
+        this.animation.restart();
     }
 }
 

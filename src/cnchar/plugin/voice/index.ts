@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-10-09 09:18:54
+ * @Description: Coding something
+ */
 
 import {IPlugin} from 'cnchar-types/main/common';
 import {IVoice} from 'cnchar-types/plugin/voice';
@@ -14,6 +19,7 @@ const plugin: IPlugin & IVoice = Object.assign(voice, {
     speak,
     recognize,
     setResourceBase,
+    _refreshResource: initResourceFromCnchar,
     dict: {temp: getTempDict()},
 } as IPlugin);
 

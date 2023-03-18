@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-08-05 23:05:21
  * @LastEditor: theajack
- * @LastEditTime: 2021-08-06 00:30:19
+ * @LastEditTime: 2023-03-18 21:37:32
  * @Description: Coding something
  * @FilePath: \cnchar\src\cnchar\plugin\draw\animation-stroke.ts
  */
@@ -41,7 +41,7 @@ export class AnimationWriter {
     }
 
     private _getCurrentCharStrokeNumber () {
-        return this.writers[this.currentCharIndex].V.strokes.length;
+        return this.curWriter.V.strokes.length;
     }
 
     private _isStepMode () {
@@ -86,7 +86,7 @@ export class AnimationWriter {
                 writer.hideCharacter();
             });
         }
-        this.writers[this.currentCharIndex].animateStroke(this.currentStrokeIndex, {
+        this.curWriter.animateStroke(this.currentStrokeIndex, {
             onComplete: () => {
                 onComplete();
                 this.strokeDrawLocked = false;
@@ -111,33 +111,69 @@ export class AnimationWriter {
             return false;
         }
         this.drawMode = DRAW_MODE.ANIMATION;
-        if (this.option.loopAnimate) {
-            this._loop();
-        } else {
-            this._animate(this.option.animateComplete);
-        }
+        this._start();
         return true;
     }
 
+    _start () {
+        if (this.option.loopAnimate) {
+            this._loop();
+        } else {
+            this._animate(this._onAnimateComplete);
+        }
+    }
+
+    _onAnimateComplete () {
+        this.option.animateComplete?.();
+        this.writer._onComplete?.();
+    }
+
     pause () {
-        if (this.isPaused || !this._isStepMode()) return;
+        if (this.isPaused) return;
         this.isPaused = true;
         
-        this.writers[this.currentCharIndex].pauseAnimation();
+        if (this._isStepMode()) {
+            this.curWriter.pauseAnimation();
+        } else {
+            this.writers.forEach(w => {w.pauseAnimation();});
+        }
     }
 
     resume () {
-        if (!this.isPaused || !this._isStepMode()) return;
+        if (!this.isPaused) return;
         this.isPaused = false;
 
-        this.writers[this.currentCharIndex].resumeAnimation();
+        if (this._isStepMode()) {
+            this.curWriter.resumeAnimation();
+        } else {
+            this.writers.forEach(w => {w.resumeAnimation();});
+        }
+    }
+
+    restart () {
+        if (this._isStepMode()) {
+            this.pause();
+            clearTimeout(this._strokeTimer);
+            const curWriter = this.curWriter;
+            curWriter.setCharacter(curWriter.text);
+            this._start();
+            setTimeout(() => {
+                this.isPaused = false;
+            }, 10);
+        } else {
+            this.writers.forEach(w => {w.setCharacter(w.text);});
+        }
+    }
+
+
+    get curWriter () {
+        return this.writers[this.currentCharIndex];
     }
 
     private _loop () {
         const opt = this.option;
         this._animate(() => {
-            if (opt.animateComplete)
-                opt.animateComplete();
+            this._onAnimateComplete();
             setTimeout(() => {
                 this._loop();
             }, opt.delayBetweenStrokes);
@@ -156,11 +192,16 @@ export class AnimationWriter {
             }
         });
     }
+
+    private _strokeTimer: any = null;
+
     private _animateStep (index: number, complete: IComplete = () => {}): void {
         this.currentCharIndex = index;
         this._animateSingle(index, (end: boolean) => {
+            if (this.isPaused) return;
             if (!end) {
-                setTimeout(() => {
+                this._strokeTimer = setTimeout(() => {
+                    if (this.isPaused) return;
                     this._animateStep(index + 1, complete);
                 }, this.option.delayBetweenStrokes);
             } else {

@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-10-09 09:18:54
+ * @Description: Coding something
+ */
 import {IDrawOption, ITestStatusData} from './common';
 
 declare type TDrawType = 'normal' | 'animation' | 'stroke' | 'test';
@@ -26,8 +31,11 @@ export default class HanziWriter {
         x: number;
         y: number;
     };
+    text: string;
     pauseAnimation(): void;
     resumeAnimation(): void;
+    setCharacter(str: string): void;
+    // restartAnimation(): void;
     animateStroke(strokeNum: number, options: {onComplete(): void}): void;
     V: any;
 }

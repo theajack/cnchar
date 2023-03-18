@@ -1,13 +1,18 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-10-09 09:18:54
+ * @Description: Coding something
+ */
 import HanziWriter from './hanzi-writer';
 import {Writer} from './writer';
 import {ICloneSvg, IDrawOption} from 'cnchar-types/plugin/draw/common';
 
-export function stroke (writer: Writer, cloneSvg: ICloneSvg): void {
+export function stroke (writer: Writer, cloneSvg: ICloneSvg, onComplete?: ()=> void): void {
     writer.text.forEach((s) => {
         const target: HTMLElement = document.createElement('div');
         writer.el.appendChild(target);
         HanziWriter.loadCharacterData(s).then((charData) => {
-            for (var i = 0; i < charData.strokes.length; i++) {
+            for (let i = 0; i < charData.strokes.length; i++) {
                 renderFanningStrokes({
                     option: writer.option,
                     target,
@@ -18,6 +23,7 @@ export function stroke (writer: Writer, cloneSvg: ICloneSvg): void {
                     width: writer.option.width
                 });
             }
+            onComplete?.();
         }).catch(e => {
             console.warn(e);
         });

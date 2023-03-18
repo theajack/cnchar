@@ -3,13 +3,15 @@ import './promise-polyfill';
 import {IDraw} from 'cnchar-types/plugin/draw/common';
 import draw from './writer';
 import {IPlugin} from 'cnchar-types/main/common';
-import {initResourceFromCnchar} from './resource';
+import {initResourceFromCnchar, setResourceBase} from './resource';
 
 const plugin: IPlugin & IDraw = Object.assign(draw, {
     pluginName: 'draw',
     install (cnchar) {
         initResourceFromCnchar(cnchar);
     },
+    setResourceBase,
+    _refreshResource: initResourceFromCnchar,
 } as IPlugin);
 
 if (typeof window === 'object') {

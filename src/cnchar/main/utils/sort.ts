@@ -30,7 +30,12 @@ function pretreat (spell: string, tone: boolean): string {
     if (_cnchar.isCnChar(spell)) {
         return _cnchar.spell(spell, ...arr) as string;
     }
-    return _cnchar._.transformTone(spell, tone).spell;
+    try {
+        return _cnchar._.transformTone(spell, tone).spell;
+    } catch (e) {
+        console.warn(e.message);
+        return '';
+    }
 }
 
 export function compareSpell (
@@ -39,7 +44,9 @@ export function compareSpell (
     tone: boolean = false
 ): CompareType {
     spell1 = pretreat(spell1, tone);
+    if (!spell1) return TYPE.MORE;
     spell2 = pretreat(spell2, tone);
+    if (!spell2) return TYPE.LESS;
     for (let i = 0; i < spell1.length; i++) {
         if (!spell2[i]) { // spell1与spell2值前面拼音一样，但是spell1长度大于spell2 说明 spell1 > spell2
             return TYPE.MORE;

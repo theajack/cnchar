@@ -9,4 +9,4 @@
 
 如捐赠，请备注留一下github个人地址，后续会展示在此页中。
 
-<img src='https://shiyix.cn/wx-pay.png' width='300'/>
+<img src='https://shiyix.cn/images/wx-pay.png' width='300'/>

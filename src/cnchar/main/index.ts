@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-10-09 09:18:54
+ * @Description: Coding something
+ */
 import version from './version';
 import {spell, tones, stroke, arg,
     dealUpLowFirst, removeTone, sumStroke,

@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 19:03:21
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-06-18 13:12:58
+ * @LastEditTime: 2023-03-18 22:22:12
  * @FilePath: /cnchar/src/cnchar/common/build-resource.ts
  * @Description: Coding something
  */
