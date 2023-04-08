@@ -59,13 +59,25 @@
 
 [汉字打字游戏](https://theajack.github.io/type/) | [打字弹钢琴](https://theajack.github.io/piano/) | [成语接龙](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/idiom.js) | [通讯录排序](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/sort.js) | [取名字](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/name.js) | [输入法](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/input.js) | [歇后语](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/xhy.js) | [语音识别与合成](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/voice.js) | [简繁体转换](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/trad.js)
 
-### 赞助
+### 赞赏
 
 开源维护不易。如果该项目对您有帮助且您有余力，可以微信扫码请作者喝一杯可乐或咖啡，非常感谢！
 
 如捐赠，请备注留一下github个人地址，后续会展示在此页中。
 
 <img src='https://shiyix.cn/images/wx-pay.png' width='200'/>
+
+### 赞赏记录
+
+注：最新统计时间为 2023/04/08，总金额=32元
+
+| 昵称 | 金额/元 | 时间 | 渠道 | 渠道 |
+|:--:|:--:|:--:|:--:|:--:|
+| 普通的disco | 20 | 2023/04/01 | 大佬开源维护不易，加油！希望能有部首查字的功能~ |微信赞赏码|
+| mango | 5 | 2023/02/10 | - |微信赞赏码|
+| 阿炜 | 5 | 2022/11/11 | 阿炜ky2700 |微信赞赏码|
+| slako | 1 | 2022/10/20 | 不明觉厉 |微信赞赏码|
+| 王三金 | 1 | 2022/10/16 | - |微信赞赏码|
 
 ---
 
