@@ -3,7 +3,7 @@ const rename = require('gulp-rename');
 const toc = require('gulp-markdown-toc');
 const {Packages} = require('./tool');
 const generatePackage = require('./build-plugin-pkg-json');
-const buildReadme = require('./build-readme');
+// const buildReadme = require('./build-readme');
 
 const {alias, plugins} = Packages;
 
@@ -40,7 +40,9 @@ function buildPackageJson () {
 function task () {
     copyToNPM();
     copyLatest();
-    buildReadme();
+    // ! 从 v3.2.4起不在单独维护readme 该功能已不再需要
+    // 该功能主要是生成toc
+    // buildReadme();
 }
 
 function buildPluginGulpFiles (plugin) {
