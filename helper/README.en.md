@@ -41,6 +41,26 @@ Before starting the documentation, let's take a look at some use cases to see wh
 
 [Chinese character typing game](https://theajack.github.io/type/) | [Typing and playing the piano](https://theajack.github.io/piano/) | [Idiom Solitaire](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/idiom.js) | [Address Book Sort](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/sort.js) | [name](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/name.js) | [input method](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/input.js) | [Xie Houyu](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/xhy.js) | [Speech Recognition and Synthesis](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/voice.js) | [Simplified and Traditional Conversion](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/trad.js)
 
+### Appreciation
+
+Open source maintenance is not easy. If the project is helpful to you and you have spare energy, you can scan the code on WeChat and ask the author to drink a cup of cola or coffee, thank you very much!
+
+If you donate, please leave a personal address on GitHub, which will be displayed on this page later.
+
+<img src='https://shiyix.cn/images/wx-pay.png' width='200'/>
+
+### Appreciation records
+
+Note: The latest statistical time is 2023/04/08, total amount = 32 yuan
+
+| Nickname | Amount (yuan) | Time | Message | Channel |
+|:--:|:--:|:--:|:--:|:--:|
+| 普通的disco | 20 | 2023/04/01 | 大佬开源维护不易，加油！希望能有部首查字的功能~ | 微信赞赏码 |
+| mango | 5 | 2023/02/10 | - | 微信赞赏码 |
+| 阿炜 | 5 | 2022/11/11 | 阿炜ky2700 | 微信赞赏码 |
+| slako | 1 | 2022/10/20 | 不明觉厉 | 微信赞赏码 |
+| 王三金 | 1 | 2022/10/16 | - | 微信赞赏码 |
+
 ---
 
 <details>

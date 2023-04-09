@@ -14,10 +14,18 @@
                 <el-button type='default' @click='regonize'>语音识别 <i class='ei-music'></i></el-button>
                 <el-button type='default' @click='speak'>语音合成 <i class='ei-volume-up'></i></el-button>
             </div>
+            
             <div class='show-area' v-show='text!==""'>
                 <div>{{spell}} <span class='split'>|</span> 共{{stroke}}笔</div>
-                <div>繁体: {{trad}} <span class='split'>|</span> 火星文: {{spark}}</div>
-                <div>笔顺: {{order}}</div>
+                <div>
+                    <span class='demo-title'>繁体</span> {{trad}}
+                    <span class='split'>|</span>
+                    <span class='demo-title'>火星文</span> {{spark}}
+                    <span class='split'>|</span>
+                    <span class='demo-title'>五笔码</span> {{fiveStroke}}
+                </div>
+                <div><span class='demo-title'>笔顺</span> {{order}}</div>
+                <div><span class='demo-title'>部首|结构</span> {{radical}}</div>
                 <div id='draw-area'></div>
             </div>
         </div>
@@ -77,6 +85,8 @@
                 order: '',
                 supportVoice: false,
                 loaded: false,
+                radical: '',
+                fiveStroke: '',
             };
         },
         mounted () {
@@ -106,12 +116,17 @@
             applyText () {
                 if (this.text) {
                     this.spell = this.text.spell('array', 'tone').join(' ');
-                    this.stroke =  this.text.stroke();
+                    this.stroke =  `${this.text.stroke()}(${this.text.stroke('array').join('+')})`;
                     this.trad =  this.text.convertSimpleToTrad('trad');
                     this.spark =  this.text.convertSimpleToSpark('spark');
                     this.order =  JSON.stringify(this.text.stroke('order', 'shape')).replace(/"/g, '').replace(/null/g, '无');
                     const str = this.pickCnChar(this.text);
                     const el = document.getElementById('draw-area');
+
+                    const result = window.cnchar.radical(this.text);
+                    this.radical = result.map(item => item.radical ? `${item.radical}|${item.struct}` : '-').join(', ');
+                    
+                    this.fiveStroke = window.cnchar.code.fiveStroke(this.text).map(s => s || '-').join(', ');
                     if (el) {
                         el.innerHTML = '';
                         if (str !== '') {
@@ -197,6 +212,7 @@
             margin: 1rem 0;
             .split{
                 margin: 0 1rem;
+                color: #bbb;
             }
             #draw-area{
                 margin-top: 0.8rem;
@@ -243,6 +259,11 @@
         .el-button{
             // font-size: 1rem;
             // padding: 0.8rem 1.2rem;
+        }
+        .demo-title{
+            padding: 3px;
+            background-color: #eee;
+            border-radius: 2px;
         }
     }
 </style>

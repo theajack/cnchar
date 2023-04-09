@@ -95,7 +95,7 @@ export function spell (dict: Json<string>, originArgs: Array<string>): string | 
         } else {
             result[i] = item[0];
         }
-        if (has(args, arg.flat)) {
+        if (has(args, arg.flat) && has(args, arg.tone)) {
             result[i] = shapeSpell(result[i], true);
         }
     }

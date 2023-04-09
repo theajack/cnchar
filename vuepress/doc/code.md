@@ -23,6 +23,7 @@ code(input: string): Array<{
     sijiao: string;
     cangjie: string;
     uniform: string;
+    fiveStroke: string;
 }>;
 ```
 
@@ -37,7 +38,7 @@ cnchar.code('汉字');
 返回结果会以空格分割，解码时传入的word也需要以字符串分割每个汉字的编码
 
 ```ts
-code.binary(word: string, decoce?: boolean): string;
+code.binary(word: string, decode?: boolean): string;
 ```
 
 ## 3. charCode编解码
@@ -45,25 +46,25 @@ code.binary(word: string, decoce?: boolean): string;
 返回结果会以空格分割，解码时传入的word也需要以字符串分割每个汉字的编码
 
 ```ts
-code.char(word: string, decoce?: boolean): string;
+code.char(word: string, decode?: boolean): string;
 ```
 
 ## 4. unicode编解码
 
 ```ts
-code.unicode(word: string, decoce?: boolean): string;
+code.unicode(word: string, decode?: boolean): string;
 ```
 
 ## 5. url编解码
 
 ```ts
-code.url(word: string, decoce?: boolean): string;
+code.url(word: string, decode?: boolean): string;
 ```
 
 ## 6. gbk编解码
 
 ```ts
-code.gbk(word: string, decoce?: boolean): string;
+code.gbk(word: string, decode?: boolean): string;
 ```
 
 ## 7. 四角码编解码
@@ -71,7 +72,7 @@ code.gbk(word: string, decoce?: boolean): string;
 返回结果会以空格分割，解码时传入的word也需要以字符串分割每个汉字的编码
 
 ```ts
-code.sijiao(word: string, decoce?: boolean): string;
+code.sijiao(word: string, decode?: boolean): string;
 ```
 
 ## 8. 仓颉码编解码
@@ -79,7 +80,7 @@ code.sijiao(word: string, decoce?: boolean): string;
 返回结果会以空格分割，解码时传入的word也需要以字符串分割每个汉字的编码
 
 ```ts
-code.sijiao(word: string, decoce?: boolean): string;
+code.sijiao(word: string, decode?: boolean): string;
 ```
 
 ## 9. 统一汉字编码编解码
@@ -87,5 +88,27 @@ code.sijiao(word: string, decoce?: boolean): string;
 返回结果会以空格分割，解码时传入的word也需要以字符串分割每个汉字的编码
 
 ```ts
-code.uniform(word: string, decoce?: boolean): string;
+code.uniform(word: string, decode?: boolean): string;
 ```
+
+## 10. 汉字五笔码
+
+单独查询一个或多个汉字的五笔码，返回一个数组
+
+第二个参数表示查询五笔输入法的版本，默认采用 86 版本
+
+注：需要事先引入 cnchar-input 插件
+
+```ts
+code.fiveStroke(word: string, type?: '86'|'98'|'all'): string[];
+```
+
+示例 
+
+<div>
+  <codebox>
+cnchar.code.fiveStroke('你好');
+  </codebox>
+</div>
+
+

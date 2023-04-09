@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-05-26 09:37:18
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-06-04 10:04:45
+ * @LastEditTime: 2023-04-09 11:26:06
  * @FilePath: /cnchar/src/cnchar/plugin/code/code.ts
  * @Description: Coding something
  */
@@ -11,7 +11,7 @@ import {ICode, ICodeResult, IDictCodeResult} from 'cnchar-types/plugin/code';
 import {Json} from 'cnchar-types/main/common';
 import dict from './dict/code.json';
 import GBK from './gbk';
-import {mapJson} from '@common/util';
+import {mapJson, _warn} from '@common/util';
 
 let cnchar: ICnChar;
 
@@ -75,6 +75,28 @@ export function uniCode (word: string, decode = false): string {
     return decode ? unescape(word) : escape(word);
 }
 
+export function fiveStroke (words: string, type: '86'|'98'|'all' = '86') {
+    if (!cnchar || !cnchar.input) {
+        _warn('查询五笔输入法需要先安装cnchar和cnchar-input');
+        return [];
+    }
+    const result = [];
+    for (let i = 0; i < words.length; i++) {
+        result.push(singleFiveStroke(words[i], type));
+    }
+    return result;
+}
+
+function singleFiveStroke (word: string, type: '86'|'98'|'all' = '86') {
+    let code = cnchar.input.dict.wubi[word];
+    if (!code && cnchar?.hasPlugin('trad')) {
+        code = cnchar.trad.dict?.wubi[word];
+    }
+    if (!code) return '';
+    if (type === 'all' || code.indexOf(' ') === -1) return code;
+    return code.split(' ')[type === '86' ? 0 : 1];
+}
+
 export const code = ((input: string) => {
     const result: ICodeResult[] = [];
     for (let i = 0; i < input.length; i++) {
@@ -87,6 +109,7 @@ export const code = ((input: string) => {
             url: urlCode(word),
             unicode: uniCode(word),
             binary: binaryCode(word),
+            fiveStroke: singleFiveStroke(word),
         });
     }
     return result;
@@ -97,11 +120,9 @@ code.char = charCode;
 code.gbk = gbkCode;
 code.url = urlCode;
 code.unicode = uniCode;
-
+code.fiveStroke = fiveStroke;
 code.sijiao = buildCommonCode('sijiao');
-
 code.cangjie = buildCommonCode('cangjie');
-
 code.uniform = buildCommonCode('uniform');
 
 code.setCode = (words:string | Json<IDictCodeResult>, data?: IDictCodeResult) => {
@@ -135,7 +156,7 @@ function parseSingleWordCode (dict: Json<string>, code: string, trad = false): s
         }
     }
 
-    if (!trad && cnchar && cnchar.hasPlugin('trad')) {
+    if (!trad && cnchar?.hasPlugin('trad')) {
         return parseSingleWordCode(cnchar.trad.dict?.code, code, true);
     }
     return '-';
@@ -145,7 +166,7 @@ function getSingleWordCode (dict: Json<string>, word: string): IDictCodeResult {
     let str = dict[word];
 
     if (!str) {
-        if (cnchar && cnchar.hasPlugin('trad')) {
+        if (cnchar?.hasPlugin('trad')) {
             str = cnchar.trad.dict?.code?.[word];
         }
     }

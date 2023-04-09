@@ -71,13 +71,13 @@
 
 注：最新统计时间为 2023/04/08，总金额=32元
 
-| 昵称 | 金额(元) | 时间 | 留言 | 渠道 |
-|:--:|:--:|:--:|:--:|:--:|
-| 普通的disco | 20 | 2023/04/01 | 大佬开源维护不易，加油！希望能有部首查字的功能~ | 微信赞赏码 |
-| mango | 5 | 2023/02/10 | - | 微信赞赏码 |
-| 阿炜 | 5 | 2022/11/11 | 阿炜ky2700 | 微信赞赏码 |
-| slako | 1 | 2022/10/20 | 不明觉厉 | 微信赞赏码 |
-| 王三金 | 1 | 2022/10/16 | - | 微信赞赏码 |
+| 昵称 | 金额(元) | 时间 | 留言 | 渠道 | 作者备注 |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| 普通的disco | 20 | 2023/04/01 | 大佬开源维护不易，加油！希望能有部首查字的功能~ | 微信赞赏码 |v3.2.4中已增加该功能|
+| mango | 5 | 2023/02/10 | - | 微信赞赏码 | |
+| 阿炜 | 5 | 2022/11/11 | 阿炜ky2700 | 微信赞赏码 | |
+| slako | 1 | 2022/10/20 | 不明觉厉 | 微信赞赏码 | |
+| 王三金 | 1 | 2022/10/16 | - | 微信赞赏码 | |
 
 ---
 
@@ -87,7 +87,8 @@
 <!-- toc -->
 
 - [应用例子](#应用例子)
-- [赞助](#赞助)
+- [赞赏](#赞赏)
+- [赞赏记录](#赞赏记录)
 - [前言](#前言)
 - [0.快速使用](#0快速使用)
 - [1.功能](#1功能)
@@ -794,6 +795,8 @@ cnchar.strokeToWord(1, 'array'); // 返回 ['一', '乙']
 
 #### 5.7 成语功能
 
+(在线文档)[https://theajack.github.io/cnchar/doc/idiom.html]
+
 cnchar在2.2.0加入了成语功能，启用该功能需要安装 `cnchar-idiom` 功能库，该库可以独立于cnchar主库运行
 
 使用方式如下：
@@ -818,6 +821,8 @@ cnchar.idiom('shang4'); // ["上兵伐谋", "上不着天，下不着地", ... ]
 使用cdn引用时，会在window对向上暴露 `CncharIdiom` 对象
 
 #### 5.8 歇后语功能
+
+(在线文档)[https://theajack.github.io/cnchar/doc/xhy.html]
 
 cnchar在2.2.0加入了歇后语功能，启用该功能需要安装 `cnchar-xhy` 功能库，该库可以独立于cnchar主库运行
 
@@ -844,6 +849,8 @@ cnchar.xhy('上晃下摇', 'fuzzy', 'answer', 'second'); // ['醉汉过铁索桥
 
 #### 5.9 偏旁部首功能
 
+(在线文档)[https://theajack.github.io/cnchar/doc/radical.html]
+
 cnchar在 2.2.5 加入了偏旁部首功能，启用该功能需要安装 `cnchar-radical` 功能库，该库可以独立于cnchar主库运行
 
 且于 3.2.0 版本进行了升级，支持了查询汉字结构和偏旁笔画数
@@ -864,6 +871,8 @@ cnchar.radical(text:string | Array<string>): Array<{
 
 #### 5.10 组词功能
 
+(在线文档)[https://theajack.github.io/cnchar/doc/words.html]
+
 cnchar 在 3.1.0 加入了组词功能，需要安装 `cnchar-words`, 具体使用如下
 
 args 传入 trad 可以查询繁体字，但是依赖于安装了 cnchar-trad
@@ -882,6 +891,8 @@ cnchar.words.addWords('你们好'); // 添加一个词组
 具体参数请参考 [words.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/words/index.d.ts)
 
 #### 5.11 查询解释功能
+
+(在线文档)[https://theajack.github.io/cnchar/doc/explain.html]
 
 cnchar 在 3.1.0 加入了查询解释功能，需要安装 `cnchar-explain`, 具体使用如下
 
@@ -904,6 +915,8 @@ cnchar.explain.addExplain({
 具体参数请参考 [explain.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/explain/index.d.ts)
 
 #### 5.12 发音、语音合成和语音识别
+
+(在线文档)[https://theajack.github.io/cnchar/doc/voice.html]
 
 cnchar 在 3.1.0 加入了发音、语音合成和语音识别功能, 需要安装 `cnchar-voice`, 
 

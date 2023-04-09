@@ -3,7 +3,7 @@ import {Json} from 'cnchar-types/main/common';
 import dict from './dict/radicals.json';
 import structDict from './dict/struct.json';
 import {ISetRadical, IRadical, IRadicalResult, TStruct} from 'cnchar-types/plugin/radical';
-import {findEqualKeyInMap} from '@common/util';
+import {findEqualKeyInMap, _warn} from '@common/util';
 
 const radicals = dict as Json<string>;
 
@@ -104,4 +104,52 @@ function removeWordRadical (word: string) {
             return;
         }
     }
+}
+
+export function isRadical (radical: string) {
+    return !(radical === '*' || !radicals[radical]);
+}
+
+export function getRadicalCount (radical: string) {
+    if (!isRadical(radical)) return 0;
+
+    return parseInt(radicals[radical][0]);
+}
+
+export function radicalToWord (radical: string, trad = false): {
+    word: string, struct: TStruct
+}[] {
+    const result = radicalToWordBase(radical, radicals);
+    if (trad) {
+        if (_cnchar && _cnchar.hasPlugin('trad')) {
+            return result.concat(radicalToWordBase(radical, _cnchar.trad.dict?.radical));
+        } else {
+
+        }
+    }
+    return result;
+}
+
+function radicalToWordBase (radical: string, dict: Json<string>) {
+    const str = dict[radical];
+    if (!str) {
+        _warn(`错误的偏旁部首：${radical}`);
+        return [];
+    }
+    let index = 2, gap = 2;
+    if (radical === '*') {
+        index = 0;
+        gap = 3;
+    }
+    const result = [];
+    for (let i = index; i < str.length; i += gap) {
+        if (radical === '*' && gap === 3 && /[0-9]{2}/.test(str.substr(i + 2, 2))) {
+            gap = 4;
+        }
+        result.push({
+            word: str[i],
+            struct: (structDict as any)[str[i + 1]]
+        });
+    }
+    return result;
 }

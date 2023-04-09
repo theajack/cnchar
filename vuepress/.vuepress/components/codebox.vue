@@ -21,6 +21,9 @@
         <div class='powered-by'>
             Powered by <a class='jsbox-link' target='view_window' href='https://github.com/theajack/jsbox'><i class='ei-cube-alt'></i> JSBox</a>
         </div>
+        <div ref='slot' style='display: none'>
+            <slot ref='slot'></slot>
+        </div>
     </div>
 </template>
 
@@ -51,7 +54,10 @@
                 type: String,
                 default: 'javascript'
             },
-            title: String,
+            title: {
+                type: String,
+                default: '示例代码'
+            },
             desc: String,
             onlineLink: {
                 type: String,
@@ -69,10 +75,11 @@
         },
         mounted () {
             jsbox = initJSBox();
+            const code = this.getTextCode();
             this.localFold = this.fold;
-            if (this.code) {
-                this.localCode = this.code;
-                this.localLang = this.lang;
+            if (code) {
+                this.localCode = code;
+                this.localLang = this.lang || 'javascript';
                 this.localDesc = this.desc;
             } else {
                 const codes = window.jsbox_config.codes;
@@ -95,6 +102,9 @@
             });
         },
         methods: {
+            getTextCode () {
+                return this.code || this.$refs.slot.innerText.trim();
+            },
             onLog (args) {
                 if (this.localLang === 'html') {
                     return;
@@ -121,8 +131,9 @@
                 }
             },
             run () {
-                if (this.code) {
-                    jsbox.code(this.code);
+                const code = this.getTextCode();
+                if (code) {
+                    jsbox.code(code);
                 } else {
                     jsbox.id(this.id);
                 }

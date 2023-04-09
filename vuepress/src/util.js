@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-10-09 09:18:54
+ * @Description: Coding something
+ */
 export function extractScript (html) {
     const reg = /<script(.|\n)*?>(.|\n)*?<\/script>/g;
     const arr = html.match(reg);
@@ -20,49 +25,19 @@ function extractContent (html, tag = 'script') {
 
 export function execute ({
     code = '',
-    // onload,
-    // onerror,
-    // ontimeout,
-    // timeout = 6000
 }) {
     if (code.trim() === '') {
         console.warn('execute code 参数不可为空');
         return;
     }
     if (code.indexOf('\n') === -1) {
-        code = `console.log(${code})`;
+        code = `var __ = ${code};console.log(__);`;
     }
     new Function(code.trim())();
-    // let blob = new Blob([code], {type: 'application/text'});
-    // let objectURL = window.URL.createObjectURL(blob);
-    // let script = document.createElement('script');
-    // let timer = null;
-    // if (ontimeout) {
-    //     timer = setTimeout(() => {
-    //         ontimeout();
-    //         document.body.removeChild(script);
-    //     }, timeout);
-    // }
-    // script.onload = function () {
-    //     if (onload) {
-    //         onload();
-    //     }
-    //     clearTimeout(timer);
-    //     document.body.removeChild(script);
-    // };
-    // script.onerror = function (err) {
-    //     if (onerror) {
-    //         onerror(err);
-    //     }
-    //     clearTimeout(timer);
-    //     document.body.removeChild(script);
-    // };
-    // document.body.appendChild(script);
-    // script.src = objectURL;
 }
 
 export function copy (str) {
-    var input = document.getElementById('_copy_input_');
+    let input = document.getElementById('_copy_input_');
     if (!input) {
         input = document.createElement('input');
         input.setAttribute('type', 'text');
