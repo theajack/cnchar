@@ -59,6 +59,15 @@
 
 [汉字打字游戏](https://theajack.github.io/type/) | [打字弹钢琴](https://theajack.github.io/piano/) | [成语接龙](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/idiom.js) | [通讯录排序](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/sort.js) | [取名字](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/name.js) | [输入法](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/input.js) | [歇后语](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/xhy.js) | [语音识别与合成](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/voice.js) | [简繁体转换](https://theajack.github.io/jsbox/?github=theajack.cnchar@master.helper/jsbox/trad.js)
 
+## 0. 赞助商
+
+<p align="center">
+    <a href="https://alinsjs.gitee.io/docs">
+        <img width="130" src="https://shiyix.cn/images/alins.png" alt="alins">
+    </a>    
+    <p align="center"><a href="https://alinsjs.gitee.io/docs">Alins - 极致优雅的 JS UI 框架</a></p>
+</p>
+
 ### 赞赏
 
 开源维护不易。如果该项目对您有帮助且您有余力，可以微信扫码请作者喝一杯可乐或咖啡，非常感谢！
