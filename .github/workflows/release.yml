@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-node-
       
       - name: Npm Install
-        run: npm install
+        run: npm install --force
 
       - name: Version
         id: version
