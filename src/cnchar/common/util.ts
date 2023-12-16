@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-04-10 21:46:46
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-06-18 18:35:55
+ * @LastEditTime: 2023-12-16 16:15:43
  * @FilePath: /cnchar/src/cnchar/common/util.ts
  * @Description: Coding something
  */
@@ -105,7 +105,6 @@ export const isCnChar: IFunc<boolean> = (word: string): boolean => {
     // }
     // const unicode = word.charCodeAt(0);
     // return unicode >= 19968 && unicode <= 40869;
-
     if (word.length === 1)
         return !!word.match(/[\u4e00-\u9fa5]/);
     return word.match(/[\u4e00-\u9fa5]/g)?.join('').length === word.length;
