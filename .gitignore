@@ -6,3 +6,4 @@ helper/local
 coverage
 npm
 docs
+.DS_Store
