@@ -31,6 +31,7 @@ jobs:
         run: |
           npm config set strict-ssl false
           npm install --force
+          npm config set strict-ssl true
 
       - name: Version
         id: version
