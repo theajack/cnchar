@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-08-05 23:05:21
  * @LastEditor: theajack
- * @LastEditTime: 2023-03-18 21:37:32
+ * @LastEditTime: 2024-03-23 10:19:46
  * @Description: Coding something
  * @FilePath: \cnchar\src\cnchar\plugin\draw\animation-stroke.ts
  */
@@ -119,7 +119,7 @@ export class AnimationWriter {
         if (this.option.loopAnimate) {
             this._loop();
         } else {
-            this._animate(this._onAnimateComplete);
+            this._animate(this._onAnimateComplete.bind(this));
         }
     }
 

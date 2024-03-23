@@ -109,7 +109,7 @@ cnchar.draw('你好九', {
         animateComplete () {
             console.log('animateComplete');
         },
-        loopAnimate: true,
+        loopAnimate: false,
         autoAnimate: true, // false 时点击出发animate 只能触发一次
         stepByStep: false
     },

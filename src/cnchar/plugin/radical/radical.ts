@@ -136,7 +136,7 @@ function radicalToWordBase (radical: string, dict: Json<string>) {
         _warn(`错误的偏旁部首：${radical}`);
         return [];
     }
-    let index = 2, gap = 2;
+    let index = str.indexOf(':') + 1, gap = 2;
     if (radical === '*') {
         index = 0;
         gap = 3;
