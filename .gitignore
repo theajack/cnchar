@@ -7,3 +7,4 @@ coverage
 npm
 docs
 .DS_Store
+test
