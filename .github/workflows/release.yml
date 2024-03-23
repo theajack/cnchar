@@ -29,7 +29,6 @@ jobs:
       
       - name: Npm Install
         run: |
-          npm cache clean --force
           npm config set strict-ssl false
           npm install --force
 
