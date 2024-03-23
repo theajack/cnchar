@@ -28,7 +28,10 @@ jobs:
             ${{ runner.os }}-node-
       
       - name: Npm Install
-        run: npm install --force
+        run: |
+          npm cache clean --force
+          npm config set strict-ssl false
+          npm install --force
 
       - name: Version
         id: version
