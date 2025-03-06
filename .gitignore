@@ -1,10 +1,4 @@
+v2
 node_modules
-nodejs
-# package-lock.json
-vuepress/.vuepress/secret.js
-helper/local
-coverage
-npm
-docs
+dist
 .DS_Store
-test

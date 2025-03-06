@@ -1,40 +1,41 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "dist",
-        "sourceMap": false,
-        "target": "es5",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "allowJs": false,
-        "noUnusedLocals": true,
-        "strictNullChecks": true,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "experimentalDecorators": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "removeComments": false,
-        "jsx": "preserve",
-        "lib": ["esnext", "dom"],
-        // "types": ["jest", "node"],
-        "rootDir": ".",
-        // "paths": {
-        //   "@vue/*": ["packages/*/src"]
-        // },
-        "paths": {
-            "cnchar": ["src/cnchar/main"],
-            "cnchar-types": ["src/cnchar-types"],
-            "@cnchar-plugin/*": ["src/cnchar/plugin/*"],
-            "@common/*": ["src/cnchar/common/*"],
-            "testUtils":["helper/testUtils"]
-        }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "sourceMap": false,
+    "target": "es2016",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    // "noImplicitAny": true,
+    "noImplicitThis": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "types": ["./build/env.d.ts", "@types/node"],
+    "rootDir": ".",
+    "noEmit": false,
+    "paths": {
     },
-    "include": [
-        "helper/testUtils",
-        "./src/**/*"
-    ],
-    "exclude": [
-        "./node_modules"
-    ]
+    "noImplicitAny": false,
+    "declaration": true, // 需要设置为 true 来支持类型
+    "declarationDir": "dist", // 类型文件的导出目录
+    "emitDeclarationOnly": true, // 只生成类型文件
+  },
+  "include": [
+    "packages",
+    ".eslintrc.cjs", 
+    "vite.config.ts",
+    "build",
+    "demo",
+    ".eslintrc.js",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

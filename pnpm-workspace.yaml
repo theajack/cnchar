@@ -1,0 +1,6 @@
+packages:
+  - 'packages/cnchar'
+  - 'packages/type'
+  - 'packages/util'
+  - 'packages/plugins/*'
+  - 'packages/alias/*'

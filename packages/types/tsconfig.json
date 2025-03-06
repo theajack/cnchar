@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "types": ["../../build/env.d.ts"]
+  },
+  "include": [
+    "src"
+]
+}
