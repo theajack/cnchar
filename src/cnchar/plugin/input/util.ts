@@ -27,8 +27,10 @@ export function debounceReturn (
 
 let spellDict: Json | null = null;
 
-export function initSpellMap (dict: Json) {
-    spellDict = dict;
+export function setSpellMap (dict: Json, force = false) {
+    if (!spellDict || force) {
+        spellDict = dict;
+    }
 }
 
 export function getSpellDict () {
