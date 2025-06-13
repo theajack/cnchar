@@ -10,19 +10,27 @@
 import {IPlugin} from 'cnchar-types/main/common';
 import {IInput} from 'cnchar-types/plugin/input';
 import {setCnchar} from './cnchar';
-import {getDict, input} from './input';
+import {setSpellMap} from './util';
+import {setTradMap} from './wubi';
+import {input} from './input';
 
-const plugin: IPlugin & IInput = Object.assign(input, {
+/** define a custom dictionary */
+export const setDictionary = (dictionary: { spell?: Record<string, string>, wubi?: Record<string, string> }) => {
+    setSpellMap(dictionary.spell);
+    setTradMap(dictionary.wubi);
+}
+
+export const InputPlugin: IPlugin & IInput = Object.assign(input, {
     pluginName: 'input',
     install (cnchar) {
         setCnchar(cnchar);
+        
+        // make user dictionary first
+        setSpellMap(cnchar.dict.spell, false);
+        if (cnchar.hasPlugin('trad')) {
+            setTradMap(cnchar.trad.dict?.wubi, false);
+        }
     },
-    dict: getDict(),
 } as IPlugin);
 
-if (typeof window === 'object') {
-    window.CncharInput = plugin;
-    if (window.CnChar) window.CnChar.use(plugin);
-}
-
-export default plugin;
+export default InputPlugin;

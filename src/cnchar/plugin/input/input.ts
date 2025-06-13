@@ -1,9 +1,9 @@
 import {mapJson} from '@common/util';
 import {IInput, IWubiCodeData} from 'cnchar-types/plugin/input';
 import {Json} from 'src/cnchar-types/main/common';
-import dict from './dict/wubi.json';
 import {spellInput} from './spell';
 import {wubiInput} from './wubi';
+import { setDict } from './dict';
 
 // 待选数组
 export const input = ((input, options = {}) => {
@@ -18,14 +18,9 @@ export const input = ((input, options = {}) => {
     return [];
 }) as IInput;
 
-export function getDict () {
-    return {wubi: dict};
-}
-
 input.setWubiCode = (words:string | Json<IWubiCodeData>, data?: IWubiCodeData) => {
     mapJson(words, data, (k, v: IWubiCodeData) => {
         const v98 =  (v.v98 === v.v86 || !v.v98) ? '' : v.v98;
-        (dict as any)[k] = `${v.v86}${v98}`;
+        setDict(k, `${v.v86}${v98}`);
     });
 };
-

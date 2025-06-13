@@ -7,7 +7,7 @@
 import {Json} from 'cnchar-types/main/common';
 import {IInputOptions, IInputResult} from 'cnchar-types/plugin/input';
 import {associateWubi} from './associate/ass-wubi';
-import {getDict} from './input';
+import { getDict } from './dict';
 import {debounceReturn} from './util';
 
 const Map = buildWubiMap(getDict().wubi);
@@ -16,14 +16,16 @@ let TradMap: Json | null = null;
 
 let BothMap: Json | null = null;
 
-export function initTradMap (dict: Json) {
+export function setTradMap (dict: Json, force = false) {
     if (!dict) return;
-    TradMap = buildWubiMap(dict);
-
-    BothMap = buildWubiMap({
-        ...dict,
-        ...getDict().wubi
-    });
+    if (force || !TradMap) {
+        TradMap = buildWubiMap(dict);
+        
+        BothMap = buildWubiMap({
+            ...dict,
+            ...getDict().wubi
+        });
+    }
 }
 
 function buildWubiMap (dict: Json) {
