@@ -6,9 +6,11 @@
     <a href="https://www.github.com/theajack/cnchar/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/cnchar?logo=github" alt="stars" />
     </a>
+    <!--
     <a href="https://www.github.com/theajack/cnchar/network/members" target="_black">
         <img src="https://img.shields.io/github/forks/theajack/cnchar?logo=github" alt="forks" />
     </a>
+    -->
     <a href="https://www.npmjs.com/package/cnchar" target="_black">
         <img src="https://img.shields.io/npm/v/cnchar?logo=npm" alt="version" />
     </a>
@@ -17,7 +19,16 @@
     </a>
     <a href="https://www.jsdelivr.com/package/npm/cnchar" target="_black">
         <img src="https://data.jsdelivr.com/v1/package/npm/cnchar/badge" alt="jsdelivr" />
-    </a>
+    </a>    
+    <a href="https://alinsjs.github.io/docs">
+        <img src="https://img.shields.io/badge/alins-142c8e" alt="test">
+    </a>   
+    <a style="margin-left: 10px" href="https://github.com/lim-f/react-lim">
+        <img src="https://img.shields.io/badge/lim_react-ff5f5f" alt="test">
+    </a>     
+    <a style="margin-left: 10px" href="https://github.com/lim-f/vue-lim">
+        <img src="https://img.shields.io/badge/lim_vue-00c250" alt="test">
+    </a>   
 </p>
 <p align="center">
     <a href="https://github.com/theajack" target="_black">
@@ -37,18 +48,19 @@
 
 **[English](https://github.com/theajack/cnchar/blob/master/README.en.md) | [在线试用/文档](https://theajack.github.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [留言板](https://theajack.github.io/message-board/?app=cnchar)**
 
-## Sponsors
 
-<p align="center">
-    <a href="https://alinsjs.github.io/docs">
-        <img width="75" src="https://shiyix.cn/images/alins.png" alt="alins">
+Love this open source work? A small contribution keeps the project alive.
+
+<p align="">
+    <a href="https://www.paypal.com/ncp/payment/3572S4YYCMA6C">
+        <img src="https://img.shields.io/badge/Donate-PayPal-142c8e" alt="test">
     </a>   
-    <a style="margin-left: 10px" href="https://github.com/lim-f/react-lim">
-        <img width="80" src="https://shiyix.cn/images/react.svg" alt="alins">
+    <a href="https://ko-fi.com/theajack">
+        <img src="https://img.shields.io/badge/Donate-Ko Fi-ff5f5f" alt="test">
     </a>     
-    <a style="margin-left: 10px" href="https://github.com/lim-f/vue-lim">
-        <img width="80" src="https://shiyix.cn/images/vue.svg" alt="alins">
-    </a>     
+    <a href="https://shiyix.cn/images/wx-pay.png">
+        <img src="https://img.shields.io/badge/Donate-Wechat Pay-00c250" alt="test">
+    </a>
 </p>
 
 ----
