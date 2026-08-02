@@ -49,7 +49,7 @@
 **[English](https://github.com/theajack/cnchar/blob/master/README.en.md) | [在线试用/文档](https://theajack.github.io/cnchar) | [更新日志](https://github.com/theajack/cnchar/blob/master/helper/version.md) | [反馈错误/缺漏](https://github.com/theajack/cnchar/issues/new) | [Gitee](https://gitee.com/theajack/cnchar) | QQ Group: 958278438 | [留言板](https://theajack.github.io/message-board/?app=cnchar)**
 
 
-Love this open source work? A small contribution keeps the project alive.
+Like this open source work? A small contribution keeps the project alive.
 
 <p align="">
     <a href="https://www.paypal.com/ncp/payment/3572S4YYCMA6C">
