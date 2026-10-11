@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "lib": ["esnext", "dom"],
+        "noEmit": true,
+        "sourceMap": false,
+        "allowJs": false,
+        "noUnusedLocals": true,
+        "strict": false,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "removeComments": false,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "preserve",
+        "types": ["node", "vitest/globals"],
+        "paths": {
+            "cnchar": ["packages/cnchar/src"],
+            "cnchar-types": ["packages/types"],
+            "cnchar-types/*": ["packages/types/*"],
+            "cnchar-*": ["packages/cnchar-*/src"],
+            "@cnchar/shared": ["packages/shared/src"],
+            "@cnchar/shared/*": ["packages/shared/src/*"],
+            "testUtils": ["test-utils"]
+        }
+    }
+}

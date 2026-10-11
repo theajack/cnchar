@@ -36,7 +36,7 @@
 3. spellToWord 部分情况下报错 cnchar.spellToWord('dǐnɡ', 'array') [done] 字符错误增加了一个提示 ɡ!==g
 4. cnchar.idiom(['','','好','']) -> 模式下仅支持查询首个汉字的拼音 [done] 增加了第二个可选参数 手动指定类型 cnchar.idiom(['','','好',''], 'char')
 5. cnchar.voice无法在苹果设备上播放 [done]（需要用户交互 增加一个提示）
-6. cnchar/src/cnchar/plugin/input/associate/ass-spell.ts 测试代码遗留 [done] 已删除
+6. cnchar/packages/cnchar-input/src/associate/ass-spell.ts 测试代码遗留 [done] 已删除
 7. 字典 离线使用 没有效果 [done] 修复 cnchar.setResourceBase 无效问题
 8.  风的默认读音 [done]
 9.  draw type为stroke时，没有animateComplete事件，或者说有没有什么其他方式得到绘制完成事件 [done] 增加 onComplete 事件

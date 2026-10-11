@@ -54,7 +54,7 @@ sidebarDepth: 0  // 吐槽：这里设置0无效！只能设置1或2！
 
 [我要反馈错误或缺漏](https://github.com/theajack/cnchar/issues/new)
 
-另外，由于插件较多，编写文档工作量巨大，如有遗漏请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types) 定义。也欢迎大家一起帮忙完善文档
+另外，由于插件较多，编写文档工作量巨大，如有遗漏请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types) 定义。也欢迎大家一起帮忙完善文档
 
 ## 2. 功能
 

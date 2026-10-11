@@ -6,7 +6,7 @@ cnchar 提供了一个非常简洁的插件体系，可以很方便的基于cnch
 
 表示插件名称，cnchar.use 插件之后，会注入到 cnchar.plugins 中，且插件对象会被挂载到 cnchar 上
 
-cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用，具体请参考[插件声明](https://github.com/theajack/cnchar/tree/master/src/cnchar-types/plugin)
+cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用，具体请参考[插件声明](https://github.com/theajack/cnchar/tree/master/packages/types/plugin)
 
 可以使用 hasPlugin api 来判断是否引入了某插件
 
@@ -22,7 +22,7 @@ install 是一个方法，cnchar.use 插件之后， cnchar对象会调用instal
 
 插件被安装成功之后，会注入一个 getCnChar 到插件上，可以获取到cnchar对象
 
-其他插件属性可以参考 [common.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/main/common.d.ts)
+其他插件属性可以参考 [common.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/main/common.d.ts)
 
 ## 4. js定义插件
 

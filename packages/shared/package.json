@@ -1,0 +1,15 @@
+{
+    "name": "@cnchar/shared",
+    "version": "3.2.6",
+    "private": true,
+    "description": "cnchar 内部共享工具（环境适配、请求、通用方法）",
+    "type": "commonjs",
+    "main": "src/index.ts",
+    "types": "src/index.ts",
+    "exports": {
+        ".": "./src/index.ts",
+        "./*": "./src/*.ts"
+    },
+    "author": "theajack",
+    "license": "MIT"
+}

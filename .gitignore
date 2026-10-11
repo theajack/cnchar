@@ -1,10 +1,20 @@
 node_modules
-nodejs
-# package-lock.json
-vuepress/.vuepress/secret.js
-helper/local
-coverage
-npm
-docs
 .DS_Store
-test
+*.log
+coverage
+.vite
+playground/dist
+/docs
+
+# 各包的 UMD 构建产物与发布用文件（与 npm 发布布局 / CDN 路径保持一致）
+packages/*/*.min.js
+packages/*/*.js.map
+packages/*/README.md
+packages/*/LICENSE
+
+# 文档构建产物
+vuepress/.vuepress/dist
+vuepress/.temp
+vuepress/.vuepress/secret.js
+
+helper/local

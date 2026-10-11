@@ -1,0 +1,33 @@
+{
+    "name": "@cnchar/playground",
+    "version": "3.2.6",
+    "private": true,
+    "description": "cnchar 本地开发调试 playground",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@cnchar/shared": "workspace:*",
+        "cnchar": "workspace:*",
+        "cnchar-all": "workspace:*",
+        "cnchar-code": "workspace:*",
+        "cnchar-draw": "workspace:*",
+        "cnchar-explain": "workspace:*",
+        "cnchar-idiom": "workspace:*",
+        "cnchar-info": "workspace:*",
+        "cnchar-input": "workspace:*",
+        "cnchar-name": "workspace:*",
+        "cnchar-order": "workspace:*",
+        "cnchar-poly": "workspace:*",
+        "cnchar-radical": "workspace:*",
+        "cnchar-random": "workspace:*",
+        "cnchar-trad": "workspace:*",
+        "cnchar-types": "workspace:*",
+        "cnchar-voice": "workspace:*",
+        "cnchar-words": "workspace:*",
+        "cnchar-xhy": "workspace:*",
+        "vite": "^5.4.10"
+    }
+}

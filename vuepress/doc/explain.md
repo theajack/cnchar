@@ -22,7 +22,7 @@ cnchar.explain.addExplain({
 
 使用cdn引用时，会在window对向上暴露 `CncharExplain` 对象
 
-具体参数请参考 [explain.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/explain/index.d.ts)
+具体参数请参考 [explain.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/explain/index.d.ts)
 
 ## 2. explain 参数
 

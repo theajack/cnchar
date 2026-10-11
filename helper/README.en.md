@@ -70,7 +70,7 @@ Since the document is long, please do a brief introduction, please read as neede
 -Chapter 5 introduces the API usage of cnchar and its function library in detail
 -Chapter 6 lists the parameters of each method and a large number of cnchar use examples
 
-In addition, due to the large number of plug-ins, the workload of writing documents is huge. If there are any omissions, please refer to the definition of [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types). You are also welcome to help improve the documentation
+In addition, due to the large number of plug-ins, the workload of writing documents is huge. If there are any omissions, please refer to the definition of [cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types). You are also welcome to help improve the documentation
 
 ### 0. Quick use
 
@@ -265,7 +265,7 @@ The native browser environment requires the use of script tags to import js file
 
 ### 5. API
 
-Type declaration: [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
+Type declaration: [cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types)
 
 Note: This chapter only introduces API usage, please refer to Chapter 6 for more usage examples
 
@@ -291,7 +291,7 @@ The key lies in the configuration of optional parameters, which will be introduc
 
 #### 5.2 Draw Chinese characters visually: draw
 
-Type declaration: [cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/draw/index.d.ts)
+Type declaration: [cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/packages/cnchar-draw/index.d.ts)
 
 The `cnchar-draw` library is used to support the visual drawing of Chinese characters in a browser environment, so this library is only available in a browser environment. There are four drawing modes: normal, animation, stroke, and test.
 
@@ -721,7 +721,7 @@ cnchar.words('you');
 cnchar.words.addWords('Hello'); // Add a phrase
 ````
 
-For specific parameters, please refer to [words.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/words/index.d.ts)
+For specific parameters, please refer to [words.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/words/index.d.ts)
 
 #### 5.11 Query interpretation function
 
@@ -743,7 +743,7 @@ cnchar.explain.addExplain({
 });
 ````
 
-For specific parameters, please refer to [explain.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/explain/index.d.ts)
+For specific parameters, please refer to [explain.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/explain/index.d.ts)
 
 #### 5.12 Pronunciation, Speech Synthesis and Speech Recognition
 
@@ -757,7 +757,7 @@ The voice api is used to pronounce single and multiple Chinese characters. It is
 cnchar.voice(words: string, options: IVoiceOptions): IVoicePlayer;
 ````
 
-For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 ##### 5.12.2 speak api
 
@@ -769,7 +769,7 @@ The api needs to be called after the user clicks and other events to take effect
 cnchar.voice.speak(text: string, options?: ISpeakOptions): SpeechSynthesisUtterance;
 ````
 
-For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 ##### 5.12.2 regonize api
 
@@ -781,7 +781,7 @@ The api needs to be called after the user clicks and other events to take effect
 cnchar.voice.regonize(options?: IRecognizeOptions): any;
 ````
 
-For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+For specific parameters, please refer to [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 #### 5.13 Chinese Characters and Pinyin Tools
 
@@ -1010,7 +1010,7 @@ cnchar.setPolyPhrase(json: {[key: string]: string}): void;
 
 Set the stroke order of Chinese characters, rely on the `cnchar-order` library
 
-The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/dict/stroke-table.json)
+The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/packages/cnchar-order/src/dict/stroke-table.json)
 
 ```ts
 cnchar.setOrder(word: string, order: string): void;
@@ -1173,13 +1173,13 @@ For specific usage, please refer to [cnchar-data](https://github.com/cn-char/cnc
 
 In addition, the three repositories of voice, draw, and explain also support independent setResourceBase
 
-For details, please refer to [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
+For details, please refer to [cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types)
 
 #### 5.17 Custom plugins
 
 cnchar is in the form of an independent plug-in. Defining a cnchar plug-in is very simple and does not depend on any third-party package, and through cnchar injection, you can access any cnchar and other plug-in methods
 
-All existing cnchar plugins will carry the dict attribute to expose the internal dictionary so that other plugins can use them directly. For details, please refer to [Plugin Declaration](https://github.com/theajack/cnchar/tree/master/src/cnchar-types/plugin)
+All existing cnchar plugins will carry the dict attribute to expose the internal dictionary so that other plugins can use them directly. For details, please refer to [Plugin Declaration](https://github.com/theajack/cnchar/tree/master/packages/types/plugin)
 
 ##### 5.17.1 pluginName property
 
@@ -1195,7 +1195,7 @@ install is a method. After cnchar.use the plugin, the cnchar object will call th
 
 After the plug-in is successfully installed, a getCnChar will be injected into the plug-in, and the cnchar object can be obtained
 
-For other plugin properties, please refer to [common.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/main/common.d.ts)
+For other plugin properties, please refer to [common.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/main/common.d.ts)
 
 ##### 5.17.4 js definition plugin
 
@@ -1772,7 +1772,7 @@ cnchar.setStrokeCount({ // Multiple Chinese characters
 
 Depend on `cnchar-order`
 
-The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/stroke-table.json)
+The stroke order added must be a letter, please refer to the corresponding relationship for details [stroke-table](https://github.com/theajack/cnchar/blob/master/packages/cnchar-order/src/stroke-table.json)
 
 ```js
 // Used to add Chinese characters that are not included in cnchar or modify incorrect Chinese characters in cnchar

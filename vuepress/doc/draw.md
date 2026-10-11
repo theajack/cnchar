@@ -13,7 +13,7 @@ draw 的参数比较繁多，首先需要理解的是，draw 分为四种绘制�
 - stroke: 按汉字笔顺单步绘制
 - test: 测试模式，用户可以在容器内绘制汉字，cnchar-draw会检测是否绘制正确
 
-具体使用也可以参考`cnchar-draw`的类型声明文件：[cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/draw/index.d.ts)
+具体使用也可以参考`cnchar-draw`的类型声明文件：[cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/packages/cnchar-draw/index.d.ts)
 
 npm安装
 

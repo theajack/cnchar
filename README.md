@@ -216,7 +216,7 @@ Like this open source work? A small contribution keeps the project alive.
 - 第五章详细介绍了cnchar及其功能库的API使用
 - 第六章列举了各个方法的参数和大量的cnchar使用实例
 
-另外，由于插件较多，编写文档工作量巨大，如有遗漏请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types) 定义。也欢迎大家一起帮忙完善文档
+另外，由于插件较多，编写文档工作量巨大，如有遗漏请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types) 定义。也欢迎大家一起帮忙完善文档
 
 ### 0.快速使用
 
@@ -415,7 +415,7 @@ console.log(cnchar.spell('汉字')); // cnchar api 调用
 
 ### 5.API
 
-类型声明：[cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
+类型声明：[cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types)
 
 注：该章节仅介绍API用法，更多使用实例请参考第六章
 
@@ -441,7 +441,7 @@ string.stroke([...args])
 
 #### 5.2 可视化绘制汉字: draw
 
-类型声明：[cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/draw/index.d.ts)
+类型声明：[cnchar.draw.d.ts](https://github.com/theajack/cnchar/blob/master/packages/cnchar-draw/index.d.ts)
 
 `cnchar-draw` 库用于支持在浏览器环境下可视化绘制汉字，所以该库仅在浏览器环境下可用。绘制模式有 normal,animation,stroke,test 四种模式可选。
 
@@ -872,7 +872,7 @@ cnchar.words('你');
 cnchar.words.addWords('你们好'); // 添加一个词组
 ```
 
-具体参数请参考 [words.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/words/index.d.ts)
+具体参数请参考 [words.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/words/index.d.ts)
 
 #### 5.11 查询解释功能
 
@@ -894,7 +894,7 @@ cnchar.explain.addExplain({
 });
 ```
 
-具体参数请参考 [explain.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/explain/index.d.ts)
+具体参数请参考 [explain.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/explain/index.d.ts)
 
 #### 5.12 发音、语音合成和语音识别
 
@@ -908,7 +908,7 @@ voice api用于发音单个和多个汉字发音，对于句子发音连续效�
 cnchar.voice(words: string, options: IVoiceOptions): IVoicePlayer;
 ```
 
-具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 ##### 5.12.2 speak api
 
@@ -920,7 +920,7 @@ voice.speak 用于汉字语音合成，是借助于浏览器的 speechSynthesis 
 cnchar.voice.speak(text: string, options?: ISpeakOptions): SpeechSynthesisUtterance;
 ```
 
-具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 ##### 5.12.2 regonize api
 
@@ -932,7 +932,7 @@ voice.regonize 用于汉字语音识别，是借助于浏览器的 SpeechRecogni
 cnchar.voice.regonize(options?: IRecognizeOptions): any;
 ```
 
-具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 #### 5.13 汉字、拼音工具方法
 
@@ -1162,7 +1162,7 @@ cnchar.setPolyPhrase(json: {[key: string]: string}): void;
 
 设置汉字笔顺， 依赖 `cnchar-order` 库
 
-添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/stroke-table.json)
+添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/packages/cnchar-order/src/stroke-table.json)
 
 ```ts
 cnchar.setOrder(word: string, order: string): void;
@@ -1325,13 +1325,13 @@ cnchar 在 3.1.0 版本新增了 [cnchar-data](https://github.com/cn-char/cnchar
 
 另外 voice, draw, explain 三个仓库也支持独立 setResourceBase
 
-具体请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
+具体请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types)
 
 #### 5.17 自定义插件
 
 cnchar 采用的是独立的插件形式，定义一个 cnchar 插件非常简单且不依赖任何第三方包，并且通过 cnchar 注入，可以访问到任何 cnchar 和其他插件的方法
 
-cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用，具体请参考[插件声明](https://github.com/theajack/cnchar/tree/master/src/cnchar-types/plugin)
+cnchar 所有现有插件都会携带有 dict属性用来暴露内部的字典，以方便其他插件可以直接使用，具体请参考[插件声明](https://github.com/theajack/cnchar/tree/master/packages/types/plugin)
 
 ##### 5.17.1 pluginName属性
 
@@ -1349,7 +1349,7 @@ install 是一个方法，cnchar.use 插件之后， cnchar对象会调用instal
 
 插件被安装成功之后，会注入一个 getCnChar 到插件上，可以获取到cnchar对象
 
-其他插件属性可以参考 [common.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/main/common.d.ts)
+其他插件属性可以参考 [common.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/main/common.d.ts)
 
 ##### 5.17.4 js定义插件
 
@@ -1928,7 +1928,7 @@ cnchar.setStrokeCount({ // 多个
 
 依赖 `cnchar-order`
 
-添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/src/cnchar/plugin/order/stroke-table.json)
+添加的笔顺必须是字母，详情对应关系参见 [stroke-table](https://github.com/theajack/cnchar/blob/master/packages/cnchar-order/src/stroke-table.json)
 
 ```js
 // 用于添加cnchar中不包含的汉字 或修改 cnchar中有误的汉字
@@ -1984,3 +1984,37 @@ cnchar.xhy.addXhy([ // 多条
 **致谢**
 
 `cnchar-draw` 库功能基于 [hanzi-writer](https://github.com/chanind/hanzi-writer), 特此表示感谢！
+
+### 7.开发与构建
+
+本项目使用 `pnpm` + `monorepo` + `vite` + `TypeScript` 组织，仓库结构如下：
+
+```
+packages/
+    cnchar/            # 主包（UMD 全局变量 cnchar，产物 cnchar.min.js）
+    cnchar-types/      # 纯类型声明包
+    shared/            # 内部共享工具（@cnchar/shared，不单独发布）
+    cnchar-<plugin>/   # 各功能插件（cnchar-poly / cnchar-order / cnchar-trad ...）
+    cnchar-all/        # 全量插件聚合包（cnchar.all.min.js）
+    hanzi-util/        # cnchar-all 的别名产物（由 cnchar-all 复制生成）
+    hanzi-util-base/   # cnchar 的别名产物（由 cnchar 复制生成）
+playground/            # 本地调试 playground（vite dev server）
+test/                  # 构建产物冒烟测试
+vuepress/              # 文档源码
+scripts/               # 构建 / 发布 / 版本等脚本
+```
+
+每个包产出的 UMD 文件与其 npm 包名、`unpkg` / `jsdelivr` 路径保持一致，因此 CDN 引用方式不变。
+
+常用命令：
+
+```bash
+pnpm install      # 安装依赖
+pnpm dev          # 启动 playground（默认 http://localhost:8099）
+pnpm build        # 构建全部包（产物输出到各包根目录）
+pnpm typecheck    # TypeScript 类型检查
+pnpm test         # vitest 单元测试
+pnpm test:dist    # 针对构建产物做冒烟测试
+pnpm dev:docs     # 本地启动文档
+pnpm build:docs   # 构建文档
+```

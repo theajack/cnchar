@@ -1,40 +1,14 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "dist",
-        "sourceMap": false,
-        "target": "es5",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "allowJs": false,
-        "noUnusedLocals": true,
-        "strictNullChecks": true,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "experimentalDecorators": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "removeComments": false,
-        "jsx": "preserve",
-        "lib": ["esnext", "dom"],
-        // "types": ["jest", "node"],
-        "rootDir": ".",
-        // "paths": {
-        //   "@vue/*": ["packages/*/src"]
-        // },
-        "paths": {
-            "cnchar": ["src/cnchar/main"],
-            "cnchar-types": ["src/cnchar-types"],
-            "@cnchar-plugin/*": ["src/cnchar/plugin/*"],
-            "@common/*": ["src/cnchar/common/*"],
-            "testUtils":["helper/testUtils"]
-        }
-    },
+    "extends": "./tsconfig.base.json",
     "include": [
-        "helper/testUtils",
-        "./src/**/*"
+        "packages/*/src/**/*",
+        "packages/*/index.d.ts",
+        "playground/src/**/*",
+        "test-utils/**/*"
     ],
     "exclude": [
-        "./node_modules"
+        "node_modules",
+        "**/node_modules",
+        "**/*.min.js"
     ]
 }

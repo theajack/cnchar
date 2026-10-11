@@ -4,7 +4,7 @@ cnchar 库是基本库，主要包含汉字 `拼音` 和 `笔画数` 的获取
 
 除此之外，还支持 `通过拼音查询原汉字`, `通过笔画数查询原汉字`, `查询拼音详细信息` 等功能
 
-ts类型声明：[cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/src/main/index.d.ts)
+ts类型声明：[cnchar.d.ts](https://github.com/theajack/cnchar/blob/master/packages/cnchar/index.d.ts)
 
 ## 2. spell 方法
 

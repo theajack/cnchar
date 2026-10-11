@@ -11,7 +11,7 @@ cnchar 在 3.1.0 版本新增了 [cnchar-data](https://github.com/cn-char/cnchar
 
 另外 voice, draw, explain 三个仓库也支持独立 `setResourceBase`
 
-具体请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/src/cnchar-types)
+具体请参考 [cnchar-types](https://github.com/theajack/cnchar/tree/master/packages/types)
 
 ## 2. cnchar-data
 

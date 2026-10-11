@@ -12,7 +12,7 @@ voice api用于发音单个和多个汉字发音，对于句子发音连续效�
 cnchar.voice(words: string, options: IVoiceOptions): IVoicePlayer;
 ```
 
-具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 ## 3. speak api
 
@@ -24,7 +24,7 @@ voice.speak 用于汉字语音合成，是借助于浏览器的 speechSynthesis 
 cnchar.voice.speak(text: string, options?: ISpeakOptions): SpeechSynthesisUtterance;
 ```
 
-具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 ## 4. regonize api
 
@@ -36,7 +36,7 @@ voice.regonize 用于汉字语音识别，是借助于浏览器的 SpeechRecogni
 cnchar.voice.regonize(options?: IRecognizeOptions): any;
 ```
 
-具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/src/cnchar-types/plugin/voice/index.d.ts)
+具体参数请参考 [voice.d.ts](https://github.com/theajack/cnchar/blob/master/packages/types/plugin/voice/index.d.ts)
 
 ## 5. 实例
 

@@ -12,13 +12,13 @@ import 'highlight.js/styles/vs2015.css';
 // import 'highlight.js/styles/atom-one-dark.css';
 
 
-import '../../npm/packages/cnchar-all/cnchar.all.min.js';
+import '../../packages/cnchar-all/cnchar.all.min.js';
 import 'easy-icon';
 
 // 引入自己的组件库
 import '../src/style/element.css';
 import '../src/style/main.css';
-import '../../public/config';
+import '../../scripts/docs/config';
 import '../src/object-assign.polyfill';
 
 // import leancloud from 'leancloud-storage';
